@@ -60,7 +60,7 @@ align-items: center;
 PENGATURAN TYPOGRAPHY (H1, H2, H3) PORTAL HIPPAM
 ========================================================= */
 h1.banner-title {
-font-size: clamp(22px, 6vw, 28px);
+font-size: clamp(22px, 2.5vw + 1rem, 28px);
 font-weight: 800;
 color: var(--text-main, #1a1a1a);
 text-align: center;
@@ -69,9 +69,9 @@ line-height: 1.2;
 }
 /* CSS untuk paragraf sub-judul di bawahnya */
 p.banner-sub {
-font-size: clamp(12px, 3.5vw, 14px);
+font-size: clamp(12px, 1vw + 0.6rem, 14px);
 font-weight: 500;
-color: #ffffff);
+color: #ffffff;
 text-align: left;
 margin: 0;
 text-transform: uppercase;
@@ -79,7 +79,7 @@ letter-spacing: 1px;
 }
 .cek-tagihan-box h1,
 .container-menu-hippam h1 {
-font-size: clamp(20px, 5vw, 24px);
+font-size: clamp(20px, 2vw + 1rem, 24px);
 font-weight: 700;
 color: var(--text-main, #222);
 margin-bottom: 12px;
@@ -88,15 +88,16 @@ line-height: 1.3;
 .cek-tagihan-box h2,
 .container-menu-hippam h2,
 .welcome-title {
-font-size: clamp(17px, 4.5vw, 20px);
-font-weight: 800;
-color: var(--text-main, #222);
+font-size: clamp(1.75rem, 1.2vw + 1.2rem, 2.25rem);
+font-weight: 700;
+color: var(--primary-color);
+font-family: var(--font-heading);
 margin-bottom: 8px;
 line-height: 1.35;
 }
 .cek-tagihan-box h3,
 .container-menu-hippam h3 {
-font-size: clamp(14px, 4vw, 16px);
+font-size: clamp(14px, 1.5vw + 0.7rem, 16px);
 font-weight: 600;
 color: var(--text-main, #222);
 margin-bottom: 6px;
@@ -107,7 +108,7 @@ line-height: 1.4;
 ========================================================= */
 .outer-wrapper {
 width: 100%;
-max-width: 480px;
+max-width: 960px;
 min-height: 100vh;
 margin: 0 auto;
 padding: 0;
@@ -126,9 +127,6 @@ transition: transform 0.2s ease, box-shadow 0.2s ease;
 /* =========================================================
 3. HEADER BANNER GEOMETRIS
 ========================================================= */
-/* =========================================================
-HEADER & BANNER PORTAL HIPPAM (PALET BLUE ICE)
-========================================================= */
 header {
 background: transparent;
 padding: 0;
@@ -136,7 +134,6 @@ text-align: center;
 width: 100%;
 }
 .header-banner-hippam {
-/* Gradasi warna es/air segar menggunakan variabel palette */
 background: linear-gradient(135deg, var(--primary-color, #4b89dc) 0%, var(--border-color, #356eb5) 100%);
 padding: 45px 20px 65px 20px;
 margin: 0;
@@ -196,7 +193,7 @@ line-height: 1;
 }
 .banner-title {
 margin: 0;
-font-size: clamp(18px, 5vw, 22px);
+font-size: clamp(18px, 2vw + 0.8rem, 22px);
 font-weight: 700;
 color: #ffffff !important;
 letter-spacing: 0.5px;
@@ -208,10 +205,10 @@ font-family: var(--font-heading, inherit);
 main, main[role='main'], .main-wrapper {
 display: block;
 width: 100%;
-min-height: 400px;
+min-height: 350px;
 box-sizing: border-box;
 margin: 0 auto;
-padding: 15px;
+padding: clamp(12px, 2vw, 20px);
 position: relative;
 z-index: 1;
 }
@@ -224,21 +221,32 @@ flex-direction: column;
 justify-content: center;
 transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.welcome-title {
-font-size: clamp(18px, 1.2rem + 0.5vw, 22px);
-font-weight: 700;
-color: var(--primary-color);
-margin: 0 0 6px 0;
-font-family: var(--font-heading);
-}
 .welcome-sub {
-font-size: clamp(12px, 3.2vw, 13px);
-color: var(--text-main);font-weight: 600;
-margin-bottom: 16px;
+font-size: clamp(12px, 0.85rem + 0.2vw, 14px);
+color: var(--text-main);
+font-weight: 600;
+margin-bottom: 0;
 line-height: 1.45;
 }
 .box-login-single {
-width: 100%;color: var(--text-muted);
+width: 100%;
+max-width: 400px;
+color: var(--text-muted);
+}
+.login-split-container {
+display: flex;
+width: 100%;
+gap: clamp(20px, 4vw, 45px);
+align-items: center;
+flex-wrap: wrap;
+box-sizing: border-box;
+}
+.login-col-left,
+.login-col-right {
+flex: 1;
+min-width: 280px;
+padding: clamp(12px, 2vw, 24px);
+box-sizing: border-box;
 }
 .form-group {
 margin-bottom: 15px;
@@ -246,7 +254,7 @@ text-align: left;
 }
 .form-group label {
 display: block;
-font-size: clamp(12.5px, 0.85rem + 0.1vw, 14px);
+font-size: clamp(12px, 0.5vw + 0.75rem, 14px);
 font-weight: bold;
 margin-bottom: 6px;
 font-family: var(--font-heading);
@@ -265,6 +273,7 @@ background-color: #ffffff;
 font-family: inherit;
 color: var(--text-main);
 outline: none;
+box-sizing: border-box;
 transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .form-group input:focus {
@@ -290,6 +299,7 @@ margin-top: 8px;
 }
 .btn-aksi-utama:hover {
 background: var(--primary-hover);
+color: var(--primary-color);
 transform: translateY(-1px);
 }
 .btn-aksi-utama:active {
@@ -363,7 +373,7 @@ height: 10px;
 .nama-pelanggan-aktif-text {
 margin: 4px 0 0 0;
 color: var(--text-main);
-font-size: clamp(13px, 0.9rem + 0.1vw, 14.5px);
+font-size: clamp(13px, 0.5vw + 0.8rem, 14.5px);
 font-weight: bold;
 }
 .btn-logout {
@@ -383,17 +393,18 @@ background: #dc2626 !important;
 }
 .menu-tabs {
 display: flex;
-gap: 6px;
+gap: clamp(4px, 1.5vw, 10px);
 margin-bottom: var(--spacing-lg);
 overflow-x: auto;
 padding-bottom: 5px;
+box-sizing: border-box;
 }
 .tab-btn {
 background: #ffffff;
 border: none;
-padding: 8px 12px;
-border-radius: 6px;
-font-size: 12px;
+padding: clamp(6px, 1.2vw, 10px) clamp(10px, 2vw, 16px);
+border-radius: clamp(4px, 1vw, 8px);
+font-size: clamp(11px, 1vw + 0.6rem, 13px);
 font-weight: bold;
 cursor: pointer;
 color: var(--text-main);
@@ -420,17 +431,19 @@ display: block;
 .kartu-info, .kartu-tagihan {
 background: #ffffff;
 border-left: 4px solid var(--primary-color);
-padding: var(--spacing-md);
-border-radius: 8px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+padding: clamp(12px, 2.5vw, 20px);
+border-radius: clamp(6px, 1.5vw, 10px);
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 text-align: left;
-margin-bottom: 15px;
+margin-bottom: clamp(10px, 2vw, 18px);
 border-top: 1px solid var(--border-color);
 border-right: 1px solid var(--border-color);
 border-bottom: 1px solid var(--border-color);
+box-sizing: border-box;
 }
 .kartu-info p {
-margin: 4px 0;
+margin: clamp(3px, 0.8vw, 6px) 0;
+font-size: clamp(12px, 1vw + 0.7rem, 14px);
 line-height: 1.5;
 }
 .table-wrapper {
@@ -444,7 +457,7 @@ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 width: 100%;
 border-collapse: collapse;
 font-family: var(--font-main);
-font-size: clamp(12px, 1.5vw, 14px);
+font-size: clamp(12px, 1vw + 0.6rem, 14px);
 text-align: left;
 color: var(--text-main);
 white-space: nowrap;
@@ -460,7 +473,7 @@ background: var(--primary-color);
 color: #ffffff;
 font-weight: 600;
 text-transform: capitalize;
-font-size: clamp(11px, 0.75rem + 0.1vw, 12px);
+font-size: clamp(11px, 0.5vw + 0.65rem, 12px);
 letter-spacing: 0.5px;
 }
 .tabel-data th.col-no {
@@ -478,12 +491,11 @@ text-align: right;
 .tabel-data tbody tr:hover {
 background-color: rgba(2, 136, 209, 0.04);
 }
-/* Badge Status Pembayaran */
 .badge-status {
 display: inline-block;
 padding: clamp(3px, 0.5vw, 5px) clamp(8px, 1vw, 12px);
 border-radius: 20px;
-font-size: clamp(10.5px, 0.7rem + 0.1vw, 12px);
+font-size: clamp(10.5px, 0.5vw + 0.6rem, 12px);
 font-weight: 600;
 }
 .badge-status.lunas {
@@ -494,32 +506,30 @@ color: #166534;
 background-color: #fee2e2;
 color: #991b1b;
 }
-/* Kartu Total Akumulasi Tunggakan */
 .kartu-info.kartu-total-tunggakan {
 margin-top: 15px;
 border-left: 4px solid #dc2626;
 background: var(--bg-tunggakan, #fef2f2);
 }
 .total-tunggakan-label {
-font-size: clamp(12.5px, 0.85rem + 0.1vw, 14px);
+font-size: clamp(12.5px, 0.5vw + 0.75rem, 14px);
 margin: 0;
 color: var(--text-main);
 }
 .total-tunggakan-nominal {
 color: #dc2626;
-font-size: clamp(15px, 1rem + 0.3vw, 18px);
+font-size: clamp(15px, 1vw + 0.8rem, 18px);
 font-weight: bold;
 display: inline-block;
 margin-top: 4px;
 }
-/* Form Dropdown & Input Password */
 .panel-section .form-group {
 margin-top: 15px;
 margin-bottom: 15px;
 }
 .panel-section .form-group label {
 display: block;
-font-size: clamp(12.5px, 0.85rem + 0.1vw, 14px);
+font-size: clamp(12.5px, 0.5vw + 0.75rem, 14px);
 font-weight: 600;
 color: var(--text-main);
 margin-bottom: 6px;
@@ -529,7 +539,7 @@ margin-bottom: 6px;
 width: 100%;
 padding: clamp(10px, 1.8vw, 12px) clamp(12px, 2vw, 16px);
 font-family: var(--font-main, inherit);
-font-size: clamp(13px, 0.9rem + 0.1vw, 14.5px);
+font-size: clamp(13px, 0.5vw + 0.8rem, 14.5px);
 color: var(--text-main);
 background-color: var(--card-bg, #ffffff);
 border: 1px solid var(--border-color);
@@ -542,10 +552,6 @@ transition: border-color 0.2s ease, box-shadow 0.2s ease;
 .panel-section .form-group input[type='password']:focus {
 border-color: var(--primary-color);
 box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.15);
-}
-.pesan-ganti-pass-wrap {
-margin-top: 10px;
-font-size: clamp(12px, 0.8rem + 0.1vw, 13.5px);
 }
 /* =========================================================
 7. KARTU KONTAK WHATSAPP PENGURUS
@@ -621,7 +627,7 @@ padding: clamp(14px, 3vw, 20px);
 max-width: 320px;
 margin: 15px auto;
 font-family: var(--font-receipt);
-font-size: clamp(11.5px, 0.8rem + 0.1vw, 13px);
+font-size: clamp(11.5px, 0.5vw + 0.75rem, 13px);
 color: var(--text-main);
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -713,15 +719,11 @@ background-color: #16a34a;
 .btn-cetak-struk:hover {
 background-color: var(--primary-hover);
 }
-.pesan-error-struk {
-margin-top: 10px;
-font-size: 13px;
-}
 /* =========================================================
 9. SITE FOOTER & PORTAL HIPPAM
 ========================================================= */
 .site-footer {
-background: transparent;
+background: var(--bg-body);
 border-top: 1px dashed var(--border-color);
 text-align: center;
 padding: clamp(12px, 2vw, 20px);
@@ -735,29 +737,19 @@ border-bottom: 1px dashed var(--primary-color);
 margin: 10px auto;
 width: 100%;
 }
-.footer-caption {
-display: block;
-font-size: 11px;
-font-weight: 600;
-color: var(--text-main);
-margin-bottom: 4px;
-}
-.footer-text {
-margin: 4px 0 0 0;
-font-size: 10px;
-color: var(--primary-color);
-}
 .site-footer .portal-container {
 display: flex;
-gap: 20px;
-max-width: 480px;
+gap: 25px;
+padding: clamp(12px, 2vw, 20px);
+max-width: 900px;
 margin: 15px auto;
 box-sizing: border-box;
 flex-wrap: wrap;
+justify-content: center;
 }
-.site-footer .portal-card.portal-left {
+.site-footer .portal-card {
 flex: 1;
-min-width: clamp(240px, 100%, 100%);
+min-width: clamp(260px, 100%, 400px);
 background: var(--bg-body);
 border-radius: 14px;
 padding: clamp(14px, 3vw, 22px);
@@ -765,6 +757,7 @@ text-align: left;
 box-shadow: 0 4px 15px rgba(1, 87, 155, 0.08);
 border: 1px solid rgba(255, 255, 255, 0.9);
 border-left: 4px solid var(--primary-color);
+box-sizing: border-box;
 }
 .site-footer .portal-badge {
 display: inline-block;
@@ -779,19 +772,20 @@ margin-bottom: 10px;
 }
 .site-footer .portal-title {
 margin: 0 0 10px 0;
-font-size: clamp(14px, 1.1rem + 0.3vw, 18px);
+font-size: clamp(14px, 0.8vw + 0.8rem, 18px);
 color: var(--primary-color);
 font-weight: bold;
 }
 .site-footer .portal-desc {
 margin: 0 0 15px 0;
-font-size: clamp(12px, 0.8rem + 0.2vw, 14px);
-line-height: 1.6; font-weight: 400;
+font-size: clamp(12px, 0.5vw + 0.75rem, 14px);
+line-height: 1.6;
+font-weight: 400;
 color: var(--text-main);
 text-align: justify;
 }
 .site-footer .portal-quote {
-font-size: clamp(10.5px, 0.75rem + 0.1vw, 12px);
+font-size: clamp(10.5px, 0.5vw + 0.65rem, 12px);
 color: #00796b;
 background: rgba(255, 255, 255, 0.7);
 padding: 8px 12px;
@@ -802,23 +796,24 @@ border: 1px dashed var(--border-color);
 display: flex;
 flex-wrap: nowrap;
 justify-content: center;
-gap: 6px;          /* Jarak antar tombol diperkecil */
-padding: 8px 6px;  /* Padding kontainer diperkecil */
+gap: clamp(4px, 1.5vw, 10px);
+padding: clamp(6px, 1.5vw, 12px) clamp(4px, 1vw, 8px);
 margin-top: 12px;
 width: 100%;
 overflow-x: auto;
+box-sizing: border-box;
 }
 .footer-social-link {
 display: flex;
 align-items: center;
-gap: 4px;          /* Jarak antara ikon dan teks lebih rapat */
+gap: 4px;
 background: var(--card-bg);
 color: var(--text-main);
-padding: 4px 8px;  /* Padding tombol dibuat sangat ramping */
-border-radius: 12px; /* Radius disesuaikan agar tetap proporsional */
+padding: clamp(3px, 1vw, 6px) clamp(6px, 2vw, 12px);
+border-radius: 12px;
 border: 1px solid var(--border-color);
 text-decoration: none;
-font-size: clamp(10px, 2.5vw, 11px); /* Ukuran teks diperkecil lagi */
+font-size: clamp(10px, 1vw + 0.5rem, 11px);
 font-weight: 600;
 white-space: nowrap;
 transition: all 0.2s ease;
@@ -831,22 +826,47 @@ border-color: var(--primary-color);
 transform: translateY(-1px);
 }
 .footer-icon {
-width: 14px;  /* Ukuran ikon SVG diperkecil */
-height: 14px;
+width: clamp(12px, 1.5vw, 15px);
+height: clamp(12px, 1.5vw, 15px);
 fill: currentColor;
 flex-shrink: 0;
+}
+.footer-bottom {
+width: 100%;
+}
+.footer-bottom .footer-bottom-box {
+width: 100%;
+box-sizing: border-box;
+background: var(--primary-color);
+padding: clamp(8px, 2vw, 14px) clamp(10px, 3vw, 20px);
+border-radius: clamp(8px, 1.5vw, 12px);
+text-align: center;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.footer-bottom .footer-caption {
+display: block;
+font-size: clamp(10px, 1vw + 0.5rem, 12px);
+font-weight: 600;
+color: var(--card-bg);
+margin-bottom: 4px;
+}
+.footer-bottom .footer-text {
+margin: 0;
+font-size: clamp(9px, 0.8vw + 0.4rem, 11px);
+color: var(--card-bg);
 }
 /* =========================================================
 10. MEDIA QUERIES (RESPONSIF & PRINT)
 ========================================================= */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
 main,
 main[role='main'],
 .main-wrapper {
 padding: 10px;
 min-height: 300px;
 }
-media screen and (max-width: 360px) {
+}
+@media screen and (max-width: 360px) {
 .tabel-data th,
 .tabel-data td {
 padding: 6px 3px;
@@ -900,24 +920,33 @@ background: #ffffff !important;
 <main class='main-wrapper' role='main'>
 <div class='no-items section' id='main-content'></div>
 <!-- ========================================================= WIDGET CEK TAGIHAN HIPPAM (HTML & JAVASCRIPT) ========================================================= -->
-<!-- INPUT ID & PASSWORD UTAMA (FORM LOGIN) -->
-<div class='main-wrapper-full'>
 <div class='cek-tagihan-box input-utama-box' id='boxLogin'>
+<!-- Kontainer Pembagi 2 Bagian -->
+<div class='login-split-container'>
+<!-- BAGIAN KIRI: Sambutan & Keterangan -->
+<div class='login-col-left'>
 <h2 class='welcome-title'>Sugeng Rawuh !</h2>
-<p class='welcome-sub'>Mangga mlebetaken ID Pelanggan kagem mriksani rincian tagihan lan status pembayaran toya</p>
-<!-- FORM LOGIN -->
+<p class='welcome-sub'>
+        Mangga mlebetaken ID Pelanggan kagem mriksani rincian tagihan lan status pembayaran toya HIPPAM Dusun Karangtalun.
+      </p>
+</div>
+<!-- BAGIAN KANAN: Form Input & Tombol Login -->
+<div class='login-col-right'>
 <div class='box-login-single'>
 <div class='form-group'>
 <label for='inputIDUtama'>ID Pelanggan :</label>
+<!-- Perbaikan: ditutup dengan /> -->
 <input id='inputIDUtama' placeholder='Contoh: KRT-001-0609' type='text'/>
 </div>
 <div class='form-group mb-extra'>
 <label for='inputPasswordUtama'>Password / PIN :</label>
+<!-- Perbaikan: ditutup dengan /> -->
 <input id='inputPasswordUtama' placeholder='Masukkan Password / PIN' type='password'/>
 </div>
 <button class='btn-aksi-utama' onclick='muatDataPelanggan()'>MLEBET (LOGIN)</button>
 <div class='login-loading-text' id='loading'>&#9203; Menyambungkan ke database HIPPAM...</div>
 <div class='pesan-error' id='pesanGlobal'></div>
+</div>
 </div>
 </div>
 </div>
@@ -1572,19 +1601,32 @@ function formatTerbilangRupiah(nominalAngka) {
 //]]>
 </script>
 <footer class='site-footer'>
-<!-- Konten Portal HIPPAM -->
+<!-- Konten Portal HIPPAM (2 Box Berbingkai Sama) -->
 <div class='portal-container'>
+<!-- Box 1: Informasi Warga -->
 <div class='portal-card portal-left'>
 <span class='portal-badge'>Informasi Warga</span>
 <h3 class='portal-title'>HIPPAM "TIRTA KENCANA"</h3>
 <p class='portal-desc'>
-                "Layanan menika gratis (mboten dipunpundhut biaya) kagem nyaosi pirsa pelayanan para Anggota HIPPAM Dusun Karangtalun, Desa Gedompol, Kecamatan Donorojo, Kabupaten Pacitan."
-            </p>
+        "Layanan menika gratis (mboten dipunpundhut biaya) kagem nyaosi pirsa pelayanan para Anggota HIPPAM Dusun Karangtalun, Desa Gedompol, Kecamatan Donorojo, Kabupaten Pacitan."
+      </p>
 <div class='portal-quote'>
-                🌱 <i>"Mugi-mugi berkah barokah, toya lancar, rejeki jembar"</i>
+        🌱 <i>"Mugi-mugi berkah barokah, toya lancar, rejeki jembar"</i>
+</div>
+</div>
+<!-- Box 2: Layanan Aduan -->
+<div class='portal-card portal-right'>
+<span class='portal-badge'>Layanan Aduan</span>
+<h3 class='portal-title'>Lapor Kendala & Bantuan</h3>
+<p class='portal-desc'>
+        "Menawi wonten kendala aliran toya utawi kebocoran pipa, sumangga saged langsung menghubungi pengurus HIPPAM Dusun Karangtalun."
+      </p>
+<div class='portal-quote'>
+        💧 <i>"Pelayanan cepat, toya lancar kagem paseduluran"</i>
 </div>
 </div>
 </div>
+<!-- Tombol Media Sosial -->
 <div class='footer-social-container'>
 <a class='footer-social-link' href='https://karangtalunku.blogspot.com//' rel='noopener' target='_blank' title='Website Karangtalun'>
 <svg class='footer-icon' viewBox='0 0 24 24'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'></path></svg>
@@ -1599,11 +1641,14 @@ function formatTerbilangRupiah(nominalAngka) {
 <span>YouTube Kami</span>
 </a>
 </div>
-<!-- Garis Pemisah & Teks Footer bawaan Anda -->
-<hr class='footer-divider'/>
+</footer>
+<!-- Copyright Penutup -->
+<div class='footer-bottom'>
+<div class='footer-bottom-box'>
 <span class='footer-caption'>HIPPAM Tirta Kencana - Dusun Karangtalun</span>
 <p class='footer-text'>&#169; 2026 Hak Cipta Dilindungi Undang-Undang.</p>
-</footer>
+</div>
+</div>
 </div>
 <!-- PENUTUP .outer-wrapper -->
 
