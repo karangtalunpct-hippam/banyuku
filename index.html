@@ -24,14 +24,15 @@
 box-sizing: border-box;
 }
 :root {
---primary-color: #4b89dc;     /* Biru utama yang segar */
---primary-hover: #356eb5;     /* Biru sedikit lebih gelap untuk hover */
---text-main: #1e3557;         /* Biru dongker gelap untuk teks utama */
---text-color: #4a6585;        /* Biru keabuan untuk teks sekunder */
---bg-body: #f0f4f9;           /* Biru sangat muda untuk latar belakang body */
---card-bg: #ffffff;           /* Putih bersih untuk kartu/kontainer */
---border-color: #d1dfec;      /* Garis batas bernuansa biru es lembut */
---text-muted: #7b93af;        /* Warna teks pudar/muted */
+/* Penerapan pada UI */
+--primary-color: #004572;        /* Warna utama untuk tombol/header */
+--primary-hover: #a9deff;        /* Warna hover tombol */
+--accent-color: #34a7e9;           /* Warna aksen/sorotan/badge */
+--text-main: #004572;            /* Warna teks utama agar kontras dan mudah dibaca */
+--text-muted: #c3beb1;              /* Warna teks sekunder/pudar */
+--bg-body: #ccfofc;                     /* Latar belakang terang dengan nuansa toska pudar */
+--card-bg: #ffffff;                     /* Latar belakang kartu putih */
+--border-color: #387a9b;       /* Garis batas lembut */
 --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 --font-heading: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 --font-receipt: 'Consolas', Courier New, Courier, monospace, sans-serif;
@@ -136,7 +137,7 @@ width: 100%;
 }
 .header-banner-hippam {
 /* Gradasi warna es/air segar menggunakan variabel palette */
-background: linear-gradient(135deg, var(--primary-color, #4b89dc) 0%, var(--primary-hover, #356eb5) 100%);
+background: linear-gradient(135deg, var(--primary-color, #4b89dc) 0%, var(--border-color, #356eb5) 100%);
 padding: 45px 20px 65px 20px;
 margin: 0;
 width: 100%;
@@ -388,7 +389,7 @@ overflow-x: auto;
 padding-bottom: 5px;
 }
 .tab-btn {
-background: var(--border-color);
+background: #ffffff;
 border: none;
 padding: 8px 12px;
 border-radius: 6px;
@@ -400,7 +401,7 @@ white-space: nowrap;
 transition: background-color 0.2s ease, color 0.2s ease;
 }
 .tab-btn:hover {
-background: rgba(2, 136, 209, 0.08);
+background: var(--primary-hover);
 }
 .tab-btn.active {
 background: var(--primary-color);
@@ -710,7 +711,7 @@ width: 100%;
 background-color: #16a34a;
 }
 .btn-cetak-struk:hover {
-background-color: #15803d;
+background-color: var(--primary-hover);
 }
 .pesan-error-struk {
 margin-top: 10px;
@@ -743,21 +744,21 @@ margin-bottom: 4px;
 }
 .footer-text {
 margin: 4px 0 0 0;
-font-size: 11px;
+font-size: 10px;
 color: var(--primary-color);
 }
 .site-footer .portal-container {
 display: flex;
 gap: 20px;
-max-width: 800px;
+max-width: 480px;
 margin: 15px auto;
 box-sizing: border-box;
 flex-wrap: wrap;
 }
 .site-footer .portal-card.portal-left {
 flex: 1;
-min-width: clamp(260px, 100%, 100%);
-background: linear-gradient(135deg, rgba(224, 247, 250, 0.9) 0%, rgba(179, 229, 252, 0.9) 100%);
+min-width: clamp(240px, 100%, 100%);
+background: var(--bg-body);
 border-radius: 14px;
 padding: clamp(14px, 3vw, 22px);
 text-align: left;
@@ -799,29 +800,29 @@ border: 1px dashed var(--border-color);
 }
 .footer-social-container {
 display: flex;
-flex-wrap: nowrap; /* Mencegah turun ke bawah agar tetap berjajar */
+flex-wrap: nowrap;
 justify-content: center;
-gap: 8px;          /* Jarak antar tombol diperkecil */
-padding: 12px 10px;
-margin-top: 15px;
+gap: 6px;          /* Jarak antar tombol diperkecil */
+padding: 8px 6px;  /* Padding kontainer diperkecil */
+margin-top: 12px;
 width: 100%;
-overflow-x: auto;  /* Antisipasi jika layar sangat kecil, bisa digeser tipis */
+overflow-x: auto;
 }
 .footer-social-link {
 display: flex;
 align-items: center;
-gap: 5px;          /* Jarak antara ikon dan teks diperkecil */
+gap: 4px;          /* Jarak antara ikon dan teks lebih rapat */
 background: var(--card-bg);
 color: var(--text-main);
-padding: 6px 10px; /* Padding dibuat lebih ramping/kecil */
-border-radius: 16px;
+padding: 4px 8px;  /* Padding tombol dibuat sangat ramping */
+border-radius: 12px; /* Radius disesuaikan agar tetap proporsional */
 border: 1px solid var(--border-color);
 text-decoration: none;
-font-size: clamp(11px, 2.8vw, 12px); /* Ukuran teks diperkecil */
+font-size: clamp(10px, 2.5vw, 11px); /* Ukuran teks diperkecil lagi */
 font-weight: 600;
-white-space: nowrap; /* Teks tidak turun baris */
+white-space: nowrap;
 transition: all 0.2s ease;
-box-shadow: 0 1px 4px rgba(1, 60, 88, 0.05);
+box-shadow: 0 1px 3px rgba(1, 60, 88, 0.04);
 }
 .footer-social-link:hover {
 background: var(--primary-color);
