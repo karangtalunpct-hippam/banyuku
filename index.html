@@ -28,7 +28,7 @@ box-sizing: border-box;
 --primary-color: #004572;        /* Warna utama untuk tombol/header */
 --primary-hover: #a9deff;        /* Warna hover tombol */
 --accent-color: #34a7e9;           /* Warna aksen/sorotan/badge */
---text-main: #004572;            /* Warna teks utama agar kontras dan mudah dibaca */
+--text-main: #333333;            /* Warna teks utama agar kontras dan mudah dibaca */
 --text-muted: #c3beb1;              /* Warna teks sekunder/pudar */
 --bg-body: #ccfofc;                     /* Latar belakang terang dengan nuansa toska pudar */
 --card-bg: #ffffff;                     /* Latar belakang kartu putih */
@@ -81,7 +81,7 @@ letter-spacing: 1px;
 .container-menu-hippam h1 {
 font-size: clamp(20px, 2vw + 1rem, 24px);
 font-weight: 700;
-color: var(--text-main, #222);
+color: var(--text-color);
 margin-bottom: 12px;
 line-height: 1.3;
 }
@@ -456,7 +456,7 @@ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 .tabel-data {
 width: 100%;
 border-collapse: collapse;
-font-family: var(--font-main);
+font-family: var(--font-main);font-weight: 600;
 font-size: clamp(12px, 1vw + 0.6rem, 14px);
 text-align: left;
 color: var(--text-main);
@@ -678,7 +678,7 @@ color: var(--primary-color);
 .pdam-row.struk-terbilang-row {
 font-size: 10.5px;
 font-style: italic;
-color: #475569;
+color: var(primary-color);
 margin-top: 2px;
 }
 .struk-status-bold {
@@ -722,138 +722,98 @@ background-color: var(--primary-hover);
 /* =========================================================
 9. SITE FOOTER & PORTAL HIPPAM
 ========================================================= */
-.site-footer {
-background: var(--bg-body);
-border-top: 1px dashed var(--border-color);
-text-align: center;
-padding: clamp(12px, 2vw, 20px);
-margin-top: 20px;
-font-family: var(--font-main);
-color: var(--text-main);
-}
-.site-footer hr.footer-divider {
-border: 0;
-border-bottom: 1px dashed var(--primary-color);
-margin: 10px auto;
-width: 100%;
-}
-.site-footer .portal-container {
-display: flex;
-gap: 25px;
-padding: clamp(12px, 2vw, 20px);
-max-width: 900px;
-margin: 15px auto;
-box-sizing: border-box;
-flex-wrap: wrap;
-justify-content: center;
-}
-.site-footer .portal-card {
-flex: 1;
-min-width: clamp(260px, 100%, 400px);
-background: var(--bg-body);
-border-radius: 14px;
-padding: clamp(14px, 3vw, 22px);
-text-align: left;
-box-shadow: 0 4px 15px rgba(1, 87, 155, 0.08);
-border: 1px solid rgba(255, 255, 255, 0.9);
-border-left: 4px solid var(--primary-color);
-box-sizing: border-box;
-}
-.site-footer .portal-badge {
-display: inline-block;
+#footer-wrapper {
 background: var(--primary-color);
 color: #ffffff;
-font-size: 10px;
-font-weight: bold;
-padding: 3px 8px;
-border-radius: 20px;
-text-transform: uppercase;
-margin-bottom: 10px;
+margin-top: clamp(24px, 4vw, 40px);
 }
-.site-footer .portal-title {
-margin: 0 0 10px 0;
-font-size: clamp(14px, 0.8vw + 0.8rem, 18px);
-color: var(--primary-color);
-font-weight: bold;
+.footer-widgets {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: clamp(20px, 3vw, 32px);
+padding: clamp(20px, 3vw, 32px);
+box-sizing: border-box;
 }
-.site-footer .portal-desc {
-margin: 0 0 15px 0;
-font-size: clamp(12px, 0.5vw + 0.75rem, 14px);
+/* Kolom pertama bisa dibentangkan penuh jika diperlukan pada layar besar */
+.footer-widget.full-width {
+/* Jika ingin widget pertama memakan space lebih luas di desktop, aktifkan grid-column */
+}
+.footer-widget h4 {
+color: var(--primary-hover) !important;
+border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+padding-bottom: clamp(6px, 1vw, 10px);
+margin-bottom: clamp(12px, 1.5vw, 16px);
+font-size: clamp(1.05rem, 1.5vw + 0.2rem, 1.25rem);
+}
+.footer-widget p,
+.footer-widget ul li a,
+.portal-desc,
+.portal-quote {
+font-size: clamp(0.85rem, 1vw + 0.2rem, 0.95rem);
+color: var(--primary-soft);
 line-height: 1.6;
-font-weight: 400;
-color: var(--text-main);
-text-align: justify;
 }
-.site-footer .portal-quote {
-font-size: clamp(10.5px, 0.5vw + 0.65rem, 12px);
-color: #00796b;
-background: rgba(255, 255, 255, 0.7);
-padding: 8px 12px;
-border-radius: 8px;
-border: 1px dashed var(--border-color);
+.portal-quote {
+margin-top: 8px;
+font-style: italic;
 }
-.footer-social-container {
-display: flex;
-flex-wrap: nowrap;
-justify-content: center;
-gap: clamp(4px, 1.5vw, 10px);
-padding: clamp(6px, 1.5vw, 12px) clamp(4px, 1vw, 8px);
-margin-top: 12px;
-width: 100%;
-overflow-x: auto;
-box-sizing: border-box;
-}
-.footer-social-link {
-display: flex;
-align-items: center;
-gap: 4px;
-background: var(--card-bg);
-color: var(--text-main);
-padding: clamp(3px, 1vw, 6px) clamp(6px, 2vw, 12px);
+.portal-badge {
+display: inline-block;
+background: rgba(255, 255, 255, 0.1);
+padding: 4px 10px;
 border-radius: 12px;
-border: 1px solid var(--border-color);
-text-decoration: none;
-font-size: clamp(10px, 1vw + 0.5rem, 11px);
-font-weight: 600;
-white-space: nowrap;
-transition: all 0.2s ease;
-box-shadow: 0 1px 3px rgba(1, 60, 88, 0.04);
+font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+margin-bottom: 8px;
 }
-.footer-social-link:hover {
-background: var(--primary-color);
-color: #ffffff;
-border-color: var(--primary-color);
-transform: translateY(-1px);
+.footer-widget ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+.footer-widget ul li {
+margin-bottom: clamp(8px, 1.2vw, 12px);
+}
+.footer-widget ul li a {
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+transition: color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+}
+.footer-widget ul li a:hover {
+color: var(--primary-hover);
+padding-left: 4px;
 }
 .footer-icon {
-width: clamp(12px, 1.5vw, 15px);
-height: clamp(12px, 1.5vw, 15px);
+width: 18px;
+height: 18px;
 fill: currentColor;
 flex-shrink: 0;
 }
-.footer-bottom {
-width: 100%;
-}
-.footer-bottom .footer-bottom-box {
-width: 100%;
-box-sizing: border-box;
-background: var(--primary-color);
-padding: clamp(8px, 2vw, 14px) clamp(10px, 3vw, 20px);
-border-radius: clamp(8px, 1.5vw, 12px);
-text-align: center;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-.footer-bottom .footer-caption {
+.footer-widget img {
+max-width: clamp(120px, 15vw, 140px);
+height: auto;
 display: block;
-font-size: clamp(10px, 1vw + 0.5rem, 12px);
-font-weight: 600;
-color: var(--card-bg);
-margin-bottom: 4px;
+margin-bottom: 12px;
+border-radius: 6px;
 }
-.footer-bottom .footer-text {
-margin: 0;
-font-size: clamp(9px, 0.8vw + 0.4rem, 11px);
-color: var(--card-bg);
+.footer-copyright {
+background: transparent;
+text-align: center;
+padding: clamp(14px, 2vw, 20px);
+font-size: clamp(0.78rem, 1vw, 0.88rem);
+color: var(--primary-hover);
+border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* ==========================================================================
+RESPONSIF FOOTER KHUSUS MOBILE (<= 768px)
+========================================================================== */
+@media screen and (max-width: 768px) {
+.footer-widgets {
+grid-template-columns: 1fr !important; /* Berubah menjadi 1 kolom ke bawah di HP */
+gap: 24px;
+padding: 20px 16px;
+}
 }
 /* =========================================================
 10. MEDIA QUERIES (RESPONSIF & PRINT)
@@ -1600,13 +1560,12 @@ function formatTerbilangRupiah(nominalAngka) {
 }
 //]]>
 </script>
-<footer class='site-footer'>
-<!-- Konten Portal HIPPAM (2 Box Berbingkai Sama) -->
-<div class='portal-container'>
-<!-- Box 1: Informasi Warga -->
-<div class='portal-card portal-left'>
-<span class='portal-badge'>Informasi Warga</span>
-<h3 class='portal-title'>HIPPAM "TIRTA KENCANA"</h3>
+<!-- Footer -->
+<footer id='footer-wrapper'>
+<div class='footer-widgets'>
+<!-- Widget 1: Informasi Warga -->
+<div class='footer-widget'>
+<h4>Informasi Warga</h4>
 <p class='portal-desc'>
         "Layanan menika gratis (mboten dipunpundhut biaya) kagem nyaosi pirsa pelayanan para Anggota HIPPAM Dusun Karangtalun, Desa Gedompol, Kecamatan Donorojo, Kabupaten Pacitan."
       </p>
@@ -1614,10 +1573,9 @@ function formatTerbilangRupiah(nominalAngka) {
         🌱 <i>"Mugi-mugi berkah barokah, toya lancar, rejeki jembar"</i>
 </div>
 </div>
-<!-- Box 2: Layanan Aduan -->
-<div class='portal-card portal-right'>
-<span class='portal-badge'>Layanan Aduan</span>
-<h3 class='portal-title'>Lapor Kendala & Bantuan</h3>
+<!-- Widget 2: Layanan Aduan -->
+<div class='footer-widget'>
+<h4>Lapor Kendala & Bantuan</h4>
 <p class='portal-desc'>
         "Menawi wonten kendala aliran toya utawi kebocoran pipa, sumangga saged langsung menghubungi pengurus HIPPAM Dusun Karangtalun."
       </p>
@@ -1625,30 +1583,36 @@ function formatTerbilangRupiah(nominalAngka) {
         💧 <i>"Pelayanan cepat, toya lancar kagem paseduluran"</i>
 </div>
 </div>
-</div>
-<!-- Tombol Media Sosial -->
-<div class='footer-social-container'>
-<a class='footer-social-link' href='https://karangtalunku.blogspot.com//' rel='noopener' target='_blank' title='Website Karangtalun'>
+<!-- Widget 3: Tautan Sosial Media / Ikuti Kami -->
+<div class='footer-widget'>
+<h4>Ikuti Kami</h4>
+<ul>
+<li>
+<a class='footer-social-link' href='https://karangtalunku.blogspot.com/' rel='noopener' target='_blank' title='Website Karangtalun'>
 <svg class='footer-icon' viewBox='0 0 24 24'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'></path></svg>
 <span>Webblog Karangtalun</span>
 </a>
+</li>
+<li>
 <a class='footer-social-link' href='https://www.instagram.com/dusun_karangtalun/' rel='noopener' target='_blank' title='Instagram Karangtalun'>
 <svg class='footer-icon' viewBox='0 0 24 24'><path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'></path></svg>
 <span>Instagram Kami</span>
 </a>
+</li>
+<li>
 <a class='footer-social-link' href='https://www.youtube.com/channel/UCsNTNY7McRRgOx9EAOgATBQ/' rel='noopener' target='_blank' title='YouTube Karangtalun'>
 <svg class='footer-icon' viewBox='0 0 24 24'><path d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'></path></svg>
 <span>YouTube Kami</span>
 </a>
+</li>
+</ul>
 </div>
+</div>
+<!-- Copyright -->
+<div class='footer-copyright'>
+    ; 2026 Dusun Karangtalun &#8226; All Rights Reserved
+  </div>
 </footer>
-<!-- Copyright Penutup -->
-<div class='footer-bottom'>
-<div class='footer-bottom-box'>
-<span class='footer-caption'>HIPPAM Tirta Kencana - Dusun Karangtalun</span>
-<p class='footer-text'>&#169; 2026 Hak Cipta Dilindungi Undang-Undang.</p>
-</div>
-</div>
 </div>
 <!-- PENUTUP .outer-wrapper -->
 
