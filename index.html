@@ -747,16 +747,21 @@ font-size: clamp(1.05rem, 1.5vw + 0.2rem, 1.25rem);
 }
 .footer-widget p,
 .footer-widget ul li a,
-.portal-desc,
-.portal-quote {
+.portal-desc,ul.footer-social-list,
+li
+{
 font-size: clamp(0.85rem, 1vw + 0.2rem, 0.95rem);
-color: var(--primary-soft);
+color: #ffffff;
 line-height: 1.6;
 }
 .portal-quote {
 margin-top: 8px;
-font-style: italic;
-}
+font-size: clamp(10.5px, 0.75rem + 0.1vw, 12px);
+color: var(--primary-hover);
+background: rgba(255, 255, 255, 0.1);
+padding: 8px 12px;
+border-radius: 8px;
+border: 1px dashed var(--border-color);}
 .portal-badge {
 display: inline-block;
 background: rgba(255, 255, 255, 0.1);
@@ -798,26 +803,89 @@ margin-bottom: 12px;
 border-radius: 6px;
 }
 .footer-copyright {
-background: transparent;
+background: rgba(255, 255, 255, 0.1);
 text-align: center;
 padding: clamp(14px, 2vw, 20px);
 font-size: clamp(0.78rem, 1vw, 0.88rem);
-color: var(--primary-hover);
+color: var(--text-muted);
 border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-/* ==========================================================================
-RESPONSIF FOOTER KHUSUS MOBILE (<= 768px)
-========================================================================== */
+/* ==========================================================
+HIPPAM MEMBER FLOATING NAVIGATION (MURNI TANPA JS)
+========================================================== */
+.hippam-member-nav {
+display: none; /* Disembunyikan secara default */
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+width: 100%;
+height: 60px;
+background: var(--card-bg, #ffffff);
+border-top: 1px solid var(--border-color, #e2e8f0);
+justify-content: space-around;
+align-items: center;
+z-index: 9999;
+box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+padding-bottom: env(safe-area-inset-bottom);
+}
+.hippam-member-nav .hippam-nav-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+color: var(--text-main);
+gap: 3px;
+flex: 1;
+height: 100%;
+transition: color 0.2s ease;
+}
+.hippam-member-nav .hippam-nav-icon {
+width: 22px;
+height: 22px;
+fill: none;
+stroke: currentColor;
+stroke-width: 2;
+stroke-linecap: round;
+stroke-linejoin: round;
+}
+.hippam-member-nav .hippam-nav-label {
+font-size: 0.7rem;
+font-weight: 500;
+line-height: 1;
+}
+.hippam-member-nav .hippam-nav-item:active,
+.hippam-member-nav .hippam-nav-item.active {
+color: var(--accent-color);
+}
+/* ==========================================================
+10. MEDIA QUERIES, FOOTER, & HIPPAM MEMBER NAVIGATION
+========================================================== */
+/* Pengaturan Tampilan Mobile (<= 768px) */
 @media screen and (max-width: 768px) {
+/* Menu Navigasi Bawah Member */
+.hippam-member-nav {
+display: flex !important;
+}
+/* Jarak aman bawah agar konten tidak tertutup menu */
+body {
+padding-bottom: 70px !important;
+}
+/* Footer Responsif Menjadi 1 Kolom */
 .footer-widgets {
-grid-template-columns: 1fr !important; /* Berubah menjadi 1 kolom ke bawah di HP */
+grid-template-columns: 1fr !important;
 gap: 24px;
 padding: 20px 16px;
 }
 }
-/* =========================================================
-10. MEDIA QUERIES (RESPONSIF & PRINT)
-========================================================= */
+/* Pastikan di Layar Desktop (>= 769px) Menu Bawah Tersembunyi */
+@media screen and (min-width: 769px) {
+.hippam-member-nav {
+display: none !important;
+}
+}
+/* Layar Sangat Kecil (<= 480px) */
 @media screen and (max-width: 480px) {
 main,
 main[role='main'],
@@ -826,6 +894,7 @@ padding: 10px;
 min-height: 300px;
 }
 }
+/* Layar Ponsel Mini (<= 360px) */
 @media screen and (max-width: 360px) {
 .tabel-data th,
 .tabel-data td {
@@ -935,7 +1004,7 @@ background: #ffffff !important;
 <button class='tab-btn' onclick='gantiMenu("status", this)'>Status</button>
 <button class='tab-btn' onclick='gantiMenu("tunggakan", this)'>Tunggakan</button>
 <button class='tab-btn' onclick='gantiMenu("struk", this)'>Struk</button>
-<button class='tab-btn' onclick='gantiMenu("gantipass", this)'>Ganti PIN</button>
+<button class='tab-btn' onclick='gantiMenu("gantipass", this)'>Ubah PIN</button>
 </div>
 <!-- MENU 1: RINCIAN TAGIHAN -->
 <div class='panel-section active-panel' id='menu-tagihan'>
@@ -1080,7 +1149,7 @@ background: #ffffff !important;
 <!-- MENU 5: GANTI PASSWORD -->
 <div class='panel-section' id='menu-gantipass'>
 <div class='kartu-info'>
-<p><strong>Ganti Password / PIN Akun</strong></p>
+<p><strong>Ubah Password / PIN</strong></p>
 <p style='font-size: 12px; color: #64748b;'>Masukkan password baru Anda di bawah ini.</p>
 </div>
 <div class='form-group'>
@@ -1090,6 +1159,34 @@ background: #ffffff !important;
 <button class='btn-aksi-utama' onclick='prosesGantiPassword()'>Simpan Password Baru</button>
 <div class='pesan-ganti-pass-wrap' id='pesanGantiPass'></div>
 </div>
+<!-- HIPPAM MEMBER FLOATING NAVIGATION (TERHUBUNG KE TAB) -->
+<nav class='hippam-member-nav' id='hippamMemberBar'>
+<!-- Menu 1: Tagihan -->
+<a class='hippam-nav-item' href='javascript:void(0);' onclick='gantiMenu("tagihan", this); setActiveBottom(this);'>
+<svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M9 5H7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2V7a2 2 0 0 0 -2 -2h-2'></path><path d='M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z'></path><path d='M9 12h6'></path><path d='M9 16h6'></path></svg>
+<span class='hippam-nav-label'>Tagihan</span>
+</a>
+<!-- Menu 2: Status -->
+<a class='hippam-nav-item' href='javascript:void(0);' onclick='gantiMenu("status", this); setActiveBottom(this);'>
+<svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0'></path><path d='M12 12l3 2'></path><path d='M12 7v5'></path></svg>
+<span class='hippam-nav-label'>Status</span>
+</a>
+<!-- Menu 3: Tunggakan -->
+<a class='hippam-nav-item' href='javascript:void(0);' onclick='gantiMenu("tunggakan", this); setActiveBottom(this);'>
+<svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M12 9v4'></path><path d='M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.875h16.214a1.914 1.914 0 0 0 1.636 -2.875l-8.106 -13.534a1.914 1.914 0 0 0 -3.274 0z'></path><path d='M12 16h.01'></path></svg>
+<span class='hippam-nav-label'>Tunggakan</span>
+</a>
+<!-- Menu 4: Struk -->
+<a class='hippam-nav-item active' href='javascript:void(0);' onclick='gantiMenu("struk", this); setActiveBottom(this);'>
+<svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2'></path><path d='M9 8h6'></path><path d='M9 12h6'></path><path d='M9 16h4'></path></svg>
+<span class='hippam-nav-label'>Struk</span>
+</a>
+<!-- Menu 5: Ubah PIN -->
+<a class='hippam-nav-item' href='javascript:void(0);' onclick='gantiMenu("gantipass", this); setActiveBottom(this);'>
+<svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M12 15v2'></path><path d='M12 11v1'></path><path d='M12 7v1'></path><path d='M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0'></path></svg>
+<span class='hippam-nav-label'>Ubah PIN</span>
+</a>
+</nav>
 </div>
 <!-- Penutup akhir untuk <div class='panel-setelah-login' id='containerMenu'> -->
 </main>
@@ -1610,7 +1707,7 @@ function formatTerbilangRupiah(nominalAngka) {
 </div>
 <!-- Copyright -->
 <div class='footer-copyright'>
-    ; 2026 Dusun Karangtalun &#8226; All Rights Reserved
+   Karangtalun &#169; 2026 - Hak Cipta Dilindungi Undang-Undang.
   </div>
 </footer>
 </div>
