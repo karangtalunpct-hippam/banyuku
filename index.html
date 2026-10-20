@@ -25,14 +25,17 @@ box-sizing: border-box;
 }
 :root {
 /* Penerapan pada UI */
---primary-color: #004572;        /* Warna utama untuk tombol/header */
---primary-hover: #a9deff;        /* Warna hover tombol */
---accent-color: #34a7e9;           /* Warna aksen/sorotan/badge */
---text-main: #333333;            /* Warna teks utama agar kontras dan mudah dibaca */
---text-muted: #c3beb1;              /* Warna teks sekunder/pudar */
---bg-body: #ccfofc;                     /* Latar belakang terang dengan nuansa toska pudar */
---card-bg: #ffffff;                     /* Latar belakang kartu putih */
---border-color: #387a9b;       /* Garis batas lembut */
+--primary-color: #0284c7;        /* Biru Air Utama (Header/Tombol/Aksen) */
+--primary-dark: #0f172a;         /* Deep Slate Dark (Latar Banner/Footer/Side-Card) */
+--primary-hover: #0369a1;        /* Biru Gelap Hover */
+--accent-color: #38bdf8;         /* Sky Water Blue (Sorotan/Badge/Sub-title) */
+--accent-green: #10b981;         /* Hijau Lunas / WhatsApp / Status Sukses */
+--text-main: #0f172a;            /* Warna Teks Utama (Sangat Tajam & Kontras) */
+--text-muted: #64748b;           /* Warna Teks Sekunder / Deskripsi Pudar */
+--text-light: #f8fafc;           /* Warna Teks Terang di Atas Latar Gelap */
+--bg-body: #f1f5f9;              /* Latar Belakang Utama Slate-Ice Soft (Sangat Clean) */
+--card-bg: #ffffff;              /* Latar Belakang Kartu / Box Putih */
+--border-color: #cbd5e1;         /* Garis Batas / Border Soft */
 --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 --font-heading: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 --font-receipt: 'Consolas', Courier New, Courier, monospace, sans-serif;
@@ -59,38 +62,22 @@ align-items: center;
 /* =========================================================
 PENGATURAN TYPOGRAPHY (H1, H2, H3) PORTAL HIPPAM
 ========================================================= */
-h1.banner-title {
-font-size: clamp(22px, 2.5vw + 1rem, 28px);
-font-weight: 800;
-color: var(--text-main, #1a1a1a);
-text-align: center;
-margin: 0 0 4px 0;
-line-height: 1.2;
-}
-/* CSS untuk paragraf sub-judul di bawahnya */
-p.banner-sub {
-font-size: clamp(12px, 1vw + 0.6rem, 14px);
-font-weight: 500;
-color: #ffffff;
-text-align: left;
-margin: 0;
-text-transform: uppercase;
-letter-spacing: 1px;
-}
+/* =========================================================
+1. TYPOGRAPHY HEADINGS & NAMA VARIABEL BERSIH
+========================================================= */
 .cek-tagihan-box h1,
 .container-menu-hippam h1 {
 font-size: clamp(20px, 2vw + 1rem, 24px);
 font-weight: 700;
-color: var(--text-color);
+color: var(--text-main, #0f172a);
 margin-bottom: 12px;
 line-height: 1.3;
 }
 .cek-tagihan-box h2,
-.container-menu-hippam h2,
-.welcome-title {
-font-size: clamp(1.75rem, 1.2vw + 1.2rem, 2.25rem);
+.container-menu-hippam h2 {
+font-size: clamp(1.5rem, 1.2vw + 1rem, 2rem);
 font-weight: 700;
-color: var(--primary-color);
+color: var(--primary-color, #0284c7);
 font-family: var(--font-heading);
 margin-bottom: 8px;
 line-height: 1.35;
@@ -99,12 +86,12 @@ line-height: 1.35;
 .container-menu-hippam h3 {
 font-size: clamp(14px, 1.5vw + 0.7rem, 16px);
 font-weight: 600;
-color: var(--text-main, #222);
+color: var(--text-main, #0f172a);
 margin-bottom: 6px;
 line-height: 1.4;
 }
 /* =========================================================
-2. PEMBUNGKUS UTAMA (MOBILE APP CONTAINER)
+2. PEMBUNGKUS UTAMA (OUTER WRAPPER)
 ========================================================= */
 .outer-wrapper {
 width: 100%;
@@ -118,14 +105,16 @@ overflow: hidden;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-box-shadow:
-inset 0 0 35px rgba(255, 255, 255, 0.8),
-inset 0 -10px 20px rgba(1, 87, 155, 0.15),
-0 10px 30px rgba(1, 87, 155, 0.18);
-transition: transform 0.2s ease, box-shadow 0.2s ease;
+box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 /* =========================================================
-3. HEADER BANNER GEOMETRIS
+3. HEADER BANNER ELEGAN (SLATE DARK & OCEAN WATER)
+========================================================= */
+/* =========================================================
+HEADER BANNER GEOMETRIS (FULL ORNAMEN & TEKSTUR AIR 3D)
+========================================================= */
+/* =========================================================
+HEADER BANNER GEOMETRIS (BERSIH - TANPA LINGKARAN KECIL)
 ========================================================= */
 header {
 background: transparent;
@@ -134,61 +123,84 @@ text-align: center;
 width: 100%;
 }
 .header-banner-hippam {
-background: linear-gradient(135deg, var(--primary-color, #4b89dc) 0%, var(--border-color, #356eb5) 100%);
-padding: 45px 20px 65px 20px;
+/* Gradasi: Kiri Biru Air Segar (#0284c7) -> Kanan Slate Dark (#0f172a) */
+background: linear-gradient(110deg, #0284c7 0%, #0369a1 45%, #0f172a 90%);
+padding: 42px 20px 60px 20px;
 margin: 0;
 width: 100%;
 color: #ffffff;
 position: relative;
 overflow: hidden;
-text-align: center;
+text-align: left;
+/* Potongan Miring Geometris */
 clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
-box-shadow: 0 8px 24px rgba(75, 137, 220, 0.25);
+border-bottom: 3px solid #38bdf8;
+box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+box-sizing: border-box;
 }
-.banner-ornament-1 {
+/* 1. TEKSTUR GELOMBANG UTAMA (BACKGROUND WAVE PATTERN) */
+.header-banner-hippam::before {
+content: '';
 position: absolute;
-left: -20px;
-top: -20px;
-width: 130px;
-height: 130px;
-background: rgba(255, 255, 255, 0.15);
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 300' opacity='0.08'%3E%3Cpath fill='%23ffffff' d='M0,192L48,181.3C96,171,192,150,288,154.7C384,160,480,192,576,197.3C672,203,768,181,816,170.7L864,160L864,0L816,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E");
+background-size: cover;
+background-position: center;
+pointer-events: none;
+z-index: 1;
+}
+/* 2. GELOMBANG SECONDARY (LAYERED WAVE 3D EFFECT) */
+.header-banner-hippam::after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 0;
+width: 100%;
+height: 40px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none' opacity='0.1'%3E%3Cpath fill='%23ffffff' d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z'%3E%3C/path%3E%3C/svg%3E");
+background-size: cover;
+pointer-events: none;
+z-index: 1;
+}
+/* 3. ORNAMEN CAHAYA RADIAL HALUS (KANAN ATAS) */
+.header-banner-hippam .banner-ornament-1 {
+position: absolute;
+top: -25px;
+right: -25px;
+width: 160px;
+height: 160px;
+background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, transparent 70%);
 border-radius: 50%;
 pointer-events: none;
+z-index: 1;
 }
-.banner-ornament-2 {
-position: absolute;
-right: 15%;
-bottom: -30px;
-width: 90px;
-height: 90px;
-background: rgba(255, 255, 255, 0.10);
-border-radius: 50%;
-pointer-events: none;
-}
+/* KONTEN BRAND & TEKS */
 .banner-brand {
 display: flex;
 align-items: center;
-justify-content: center;
-gap: 12px;
+gap: 14px;
 position: relative;
 z-index: 2;
 }
 .banner-icon-drop {
-width: 52px;
-height: 52px;
-background: rgba(255, 255, 255, 0.25);
-backdrop-filter: blur(6px);
--webkit-backdrop-filter: blur(6px);
-border-radius: 50%;
+width: 50px;
+height: 50px;
+background: rgba(255, 255, 255, 0.2);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.45);
+border-radius: 14px;
 display: flex;
 align-items: center;
 justify-content: center;
-border: 1px solid rgba(255, 255, 255, 0.45);
-box-shadow: 0 4px 12px rgba(30, 53, 87, 0.15);
 flex-shrink: 0;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .banner-icon-drop span {
-font-size: 26px;
+font-size: 24px;
 line-height: 1;
 }
 .banner-title {
@@ -196,8 +208,16 @@ margin: 0;
 font-size: clamp(18px, 2vw + 0.8rem, 22px);
 font-weight: 700;
 color: #ffffff !important;
-letter-spacing: 0.5px;
-font-family: var(--font-heading, inherit);
+letter-spacing: 0.4px;
+font-family: var(--font-heading);
+text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.banner-sub {
+color: #e0f2fe !important;
+font-size: 13px;
+margin: 3px 0 0 0;
+font-weight: 500;
+letter-spacing: 0.2px;
 }
 /* =========================================================
 4. KONTEN UTAMA FORM LOGIN
@@ -221,113 +241,157 @@ flex-direction: column;
 justify-content: center;
 transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.welcome-sub {
-font-size: clamp(12px, 0.85rem + 0.2vw, 14px);
-color: var(--text-main);
-font-weight: 600;
-margin-bottom: 0;
-line-height: 1.45;
-}
-.box-login-single {
-width: 100%;
-max-width: 400px;
-color: var(--text-muted);
-}
+/* Container Utama Card Login Split */
 .login-split-container {
 display: flex;
 width: 100%;
-gap: clamp(20px, 4vw, 45px);
-align-items: center;
+max-width: 850px;
+margin: 30px auto;
+gap: 0;
+align-items: stretch;
 flex-wrap: wrap;
 box-sizing: border-box;
+background: #ffffff;
+border-radius: var(--radius-box, 16px);
+box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+border: 1px solid var(--border-color, #cbd5e1);
+overflow: hidden;
 }
-.login-col-left,
+/* Kolom Kiri - Opsi B: Latar Biru Segar Khas Air */
+.login-col-left {
+flex: 1;
+min-width: 280px;
+padding: clamp(24px, 4vw, 40px);
+box-sizing: border-box;
+background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+color: var(--text-main, #0f172a);
+display: flex;
+flex-direction: column;
+justify-content: center;
+position: relative;
+border-right: 2px solid #bae6fd;
+text-align: left;
+}
+/* Teks Sambutan di Kolom Kiri (Bersih & Kontras) */
+.login-col-left .welcome-title {
+color: var(--primary-color, #0284c7) !important;
+font-size: clamp(20px, 2vw, 24px);
+font-weight: 700;
+margin: 0 0 10px 0;
+font-family: var(--font-heading);
+}
+.login-col-left .welcome-sub {
+color: #334155 !important;
+font-size: clamp(13px, 0.5vw + 0.75rem, 14px);
+line-height: 1.6;
+margin: 0;
+font-weight: 500;
+}
+/* Kolom Kanan (Form Input) */
 .login-col-right {
 flex: 1;
 min-width: 280px;
-padding: clamp(12px, 2vw, 24px);
+padding: clamp(24px, 4vw, 40px);
 box-sizing: border-box;
+background: #ffffff;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
+.box-login-single {
+width: 100%;
+max-width: 100%;
+color: var(--text-muted);
+}
+/* Form Group & Input Styling (Serasi dengan :root) */
 .form-group {
-margin-bottom: 15px;
+margin-bottom: 18px;
 text-align: left;
 }
 .form-group label {
 display: block;
-font-size: clamp(12px, 0.5vw + 0.75rem, 14px);
-font-weight: bold;
+font-size: 11px;
+font-weight: 700;
 margin-bottom: 6px;
 font-family: var(--font-heading);
-color: var(--text-main);
+color: var(--text-main, #0f172a);
 text-transform: uppercase;
-letter-spacing: 0.5px;
+letter-spacing: 0.6px;
 }
 .form-group input {
 width: 100%;
-height: 44px;
-padding: 12px 16px;
-border: 1px solid var(--border-color);
-border-radius: var(--radius-btn);
+height: 46px;
+padding: 10px 14px;
+border: 1px solid var(--border-color, #cbd5e1);
+border-radius: var(--radius-btn, 8px);
 font-size: 14px;
-background-color: #ffffff;
+background-color: #f8fafc;
 font-family: inherit;
-color: var(--text-main);
+color: var(--text-main, #0f172a);
 outline: none;
 box-sizing: border-box;
-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+transition: all 0.2s ease;
 }
 .form-group input:focus {
-border-color: var(--primary-color);
-box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.12);
+background-color: #ffffff;
+border-color: var(--primary-color, #0284c7);
+box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
 }
+/* Tombol Masuk Utama */
 .btn-aksi-utama {
 width: 100%;
 height: 46px;
-background: var(--primary-color);
+background: #0284c7; /* Warna utama biru HIPPAM */
 color: #ffffff;
 border: none;
-font-size: 14px;
+font-size: 13.5px;
 font-family: var(--font-heading);
-font-weight: bold;
-border-radius: var(--radius-btn);
+font-weight: 700;
+border-radius: var(--radius-btn, 8px);
 cursor: pointer;
 text-transform: uppercase;
 letter-spacing: 0.8px;
-box-shadow: 0 6px 16px rgba(0, 82, 204, 0.25);
-transition: background 0.2s ease, transform 0.1s ease;
-margin-top: 8px;
+box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+transition: all 0.2s ease;
+margin-top: 6px;
 }
 .btn-aksi-utama:hover {
-background: var(--primary-hover);
-color: var(--primary-color);
+background: #0369a1;
+box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
 transform: translateY(-1px);
 }
 .btn-aksi-utama:active {
-transform: scale(0.98);
+transform: translateY(0) scale(0.98);
 }
+/* Notifikasi Status */
 #loading {
 display: none;
 min-height: 18px;
 margin-top: 12px;
-font-size: 12px;
-color: var(--primary-color);
-font-weight: bold;
+font-size: 12.5px;
+color: #0284c7;
+font-weight: 600;
+text-align: center;
 }
 .pesan-error {
-color: #dc2626;
-font-weight: bold;
+color: #ef4444;
+background:transparent;
+border-radius: 6px;
+padding: 8px;
+font-weight: 600;
 margin-top: 12px;
 font-size: 12px;
 text-align: center;
-min-height: 18px;
 }
 .pesan-sukses {
-color: #16a34a;
-font-weight: bold;
-margin-top: 10px;
-font-size: 13px;
+color: #10b981;
+background:transparent;
+border-radius: 6px;
+padding: 8px;
+font-weight: 600;
+margin-top: 12px;
+font-size: 12px;
 text-align: center;
-min-height: 18px;
 }
 /* =========================================================
 5. DASHBOARD SETELAH LOGIN & MENU TABS
@@ -344,52 +408,97 @@ display: block !important;
 display: flex;
 justify-content: space-between;
 align-items: center;
-border-bottom: 1px solid var(--border-color);
-padding-bottom: 12px;
-margin-bottom: 15px;
+background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+border: 1px solid var(--border-color, #cbd5e1);
+border-left: 4px solid var(--primary-color, #0284c7);
+border-radius: var(--radius-btn, 10px);
+padding: 12px 16px;
+margin-bottom: 20px;
+box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+.profil-pelanggan-wrapper {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+/* Avatar Bulat Ikon Pengguna */
+.avatar-pelanggan-icon {
+width: 42px;
+height: 42px;
+background: #e0f2fe;
+border: 1px solid #bae6fd;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+flex-shrink: 0;
+}
+.detail-pelanggan-info {
+display: flex;
+flex-direction: column;
+text-align: left;
+}
+.badge-status-row {
+display: flex;
+align-items: center;
+gap: 8px;
 }
 .badge-label-aktif {
-font-size: 10px;
-color: var(--primary-color);
-font-weight: bold;
+font-size: 10.5px;
+color: var(--text-muted, #64748b);
+font-weight: 600;
 text-transform: uppercase;
+letter-spacing: 0.5px;
 }
+/* Badge Status Aktif Hijau Soft */
 .badge-lingkaran-hijau {
 display: inline-flex;
 align-items: center;
-justify-content: center;
-width: 16px;
-height: 16px;
-background-color: #16a34a;
-border-radius: 50%;
-flex-shrink: 0;
-box-shadow: 0 1px 3px rgba(22, 163, 74, 0.3);
+gap: 4px;
+background: #dcfce7;
+color: #15803d;
+padding: 2px 8px;
+border-radius: 12px;
+font-size: 10px;
+font-weight: 700;
 }
 .badge-lingkaran-hijau svg {
-fill: #ffffff;
-width: 10px;
-height: 10px;
+fill: #15803d;
+width: 12px;
+height: 12px;
 }
 .nama-pelanggan-aktif-text {
-margin: 4px 0 0 0;
-color: var(--text-main);
-font-size: clamp(13px, 0.5vw + 0.8rem, 14.5px);
-font-weight: bold;
+margin: 2px 0 0 0;
+color: var(--text-main, #0f172a);
+font-size: clamp(14px, 0.5vw + 0.85rem, 16px);
+font-weight: 700;
+line-height: 1.2;
 }
+/* Tombol Keluar / Logout Modern */
 .btn-logout {
-background: #ef4444 !important;
-color: #ffffff !important;
-border: none;
-padding: 6px 12px;
-font-size: 11px;
-border-radius: 6px;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+background: #fef2f2;
+color: var(--accent-red, #ef4444);
+border: 1px solid #fecaca;
+padding: 8px 14px;
+font-size: 12px;
+border-radius: 8px;
 cursor: pointer;
-font-weight: bold;
-white-space: nowrap;
-transition: background-color 0.2s ease;
+font-weight: 600;
+transition: all 0.2s ease;
+}
+.btn-logout svg {
+width: 14px;
+height: 14px;
+fill: currentColor;
 }
 .btn-logout:hover {
-background: #dc2626 !important;
+background: var(--accent-red, #ef4444);
+color: #ffffff;
+border-color: var(--accent-red, #ef4444);
 }
 .menu-tabs {
 display: flex;
@@ -412,7 +521,7 @@ white-space: nowrap;
 transition: background-color 0.2s ease, color 0.2s ease;
 }
 .tab-btn:hover {
-background: var(--primary-hover);
+background: var(--primary-hover);color: #ffffff;
 }
 .tab-btn.active {
 background: var(--primary-color);
@@ -619,196 +728,228 @@ flex-shrink: 0;
 /* =========================================================
 8. STRUK FORMAT PDAM & PPOB (TIRTA KENCANA)
 ========================================================= */
+/* =========================================================
+STRUK PREVIEW FORMAT PDAM / PPOB (ELEGAN & KEKENIAN)
+========================================================= */
 .print-container {
 background: #ffffff;
-border: 1.5px dashed #cbd5e0;
-border-radius: 12px;
-padding: clamp(14px, 3vw, 20px);
+border: 1px dashed var(--border-color, #cbd5e1);
+border-radius: var(--radius-btn, 12px);
+padding: 18px 16px;
 max-width: 320px;
-margin: 15px auto;
-font-family: var(--font-receipt);
-font-size: clamp(11.5px, 0.5vw + 0.75rem, 13px);
-color: var(--text-main);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+margin: 20px auto;
+font-family: var(--font-receipt, 'Consolas', monospace);
+font-size: 12px;
+color: var(--text-main, #0f172a);
+box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+position: relative;
 }
 .struk-header-box {
 text-align: center;
-margin-bottom: 10px;
+margin-bottom: 8px;
 }
 .struk-title-org {
 font-size: 9px;
-color: #333333;
-letter-spacing: 0.5px;
+color: var(--text-muted, #64748b);
+letter-spacing: 0.8px;
+font-weight: 700;
+text-transform: uppercase;
 }
 .struk-title-brand {
-font-weight: bold;
-font-size: 13px;
-color: var(--primary-color);
+font-weight: 800;
+font-size: 15px;
+color: var(--primary-color, #0284c7);
 margin: 2px 0;
+letter-spacing: 0.5px;
 }
 .struk-title-address {
-font-size: 9px;
-color: #555555;
-margin-bottom: 4px;
+font-size: 9.5px;
+color: var(--text-muted, #64748b);
+margin-bottom: 6px;
 }
 .struk-motto {
-font-size: 8px;
-font-style: italic;
-color: #16a34a;
-margin-bottom: 2px;
+font-size: 10px;
+color: var(--accent-green, #10b981);
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 4px;
+font-weight: 600;
 }
+.struk-motto svg {
+fill: currentColor;
+flex-shrink: 0;
+}
+/* Pembatas Garis Putus-Putus */
 .struk-divider {
 border: 0;
-border-top: 1px dashed #64748b;
-margin: 6px 0;
+border-top: 1px dashed var(--border-color, #cbd5e1);
+margin: 10px 0;
 }
+/* Row Data PDAM */
 .pdam-row {
 display: flex;
 justify-content: space-between;
+align-items: center;
 font-size: 11px;
-font-family: var(--font-receipt);
-margin: 3px 0;
-color: #1a202c;
+font-family: var(--font-receipt, 'Consolas', monospace);
+margin: 4px 0;
+color: var(--text-main, #0f172a);
 }
 .pdam-row.struk-total-row {
-font-size: 12px;
-font-weight: bold;
-color: var(--primary-color);
+font-size: 13px;
+font-weight: 700;
+color: var(--primary-color, #0284c7);
+padding-top: 4px;
+border-top: 1px dashed var(--border-color, #cbd5e1);
+margin-top: 6px;
 }
 .pdam-row.struk-terbilang-row {
-font-size: 10.5px;
+font-size: 10px;
 font-style: italic;
-color: var(primary-color);
+color: var(--primary-color, #0284c7);
 margin-top: 2px;
+text-align: right;
+display: block;
 }
 .struk-status-bold {
-font-weight: bold;
+font-weight: 700;
+color: var(--accent-green, #10b981);
 }
+/* Box QR Code Validasi */
 .struk-qr-box {
 text-align: center;
-margin: 6px 0;
+margin: 10px 0 6px 0;
 }
 .struk-qr-img {
-width: 65px;
-height: 65px;
+width: 60px;
+height: 60px;
 display: block;
 margin: 0 auto;
-border: 1px solid var(--border-color);
+border: 1px solid var(--border-color, #cbd5e1);
 padding: 3px;
-border-radius: 4px;
+border-radius: 6px;
 background: #ffffff;
 }
 .struk-qr-caption {
-font-size: 7px;
-color: #475569;
-margin-top: 2px;
+font-size: 7.5px;
+color: var(--text-muted, #64748b);
+margin-top: 4px;
+font-weight: 700;
+letter-spacing: 0.5px;
 }
 .struk-footer-note {
 font-size: 9px;
 text-align: center;
-color: #475569;
-margin-top: 4px;
-line-height: 1.4;
+color: var(--text-muted, #64748b);
+margin-top: 6px;
+line-height: 1.45;
+font-style: italic;
 }
+/* Tombol Cetak Struk Modern */
 .btn-cetak-struk {
 margin-top: 15px;
 display: none;
 width: 100%;
-background-color: #16a34a;
+background-color: var(--accent-green, #10b981);
+color: #ffffff;
+border-radius: var(--radius-btn, 8px);
+box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 .btn-cetak-struk:hover {
-background-color: var(--primary-hover);
+background-color: #059669;
 }
 /* =========================================================
 9. SITE FOOTER & PORTAL HIPPAM
 ========================================================= */
 #footer-wrapper {
-background: var(--primary-color);
-color: #ffffff;
-margin-top: clamp(24px, 4vw, 40px);
-}
-.footer-widgets {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: clamp(20px, 3vw, 32px);
-padding: clamp(20px, 3vw, 32px);
-box-sizing: border-box;
-}
-/* Kolom pertama bisa dibentangkan penuh jika diperlukan pada layar besar */
-.footer-widget.full-width {
-/* Jika ingin widget pertama memakan space lebih luas di desktop, aktifkan grid-column */
-}
-.footer-widget h4 {
-color: var(--primary-hover) !important;
-border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-padding-bottom: clamp(6px, 1vw, 10px);
-margin-bottom: clamp(12px, 1.5vw, 16px);
-font-size: clamp(1.05rem, 1.5vw + 0.2rem, 1.25rem);
-}
-.footer-widget p,
-.footer-widget ul li a,
-.portal-desc,ul.footer-social-list,
-li
-{
-font-size: clamp(0.85rem, 1vw + 0.2rem, 0.95rem);
-color: #ffffff;
+background-color: #1e293b; /* Warna gelap modern */
+color: #cbd5e1;
+padding: 40px 20px 20px 40px;
+font-size: 13.5px;
 line-height: 1.6;
 }
-.portal-quote {
-margin-top: 8px;
-font-size: clamp(10.5px, 0.75rem + 0.1vw, 12px);
-color: var(--primary-hover);
-background: rgba(255, 255, 255, 0.1);
-padding: 8px 12px;
-border-radius: 8px;
-border: 1px dashed var(--border-color);}
-.portal-badge {
-display: inline-block;
-background: rgba(255, 255, 255, 0.1);
-padding: 4px 10px;
-border-radius: 12px;
-font-size: clamp(0.75rem, 0.9vw, 0.85rem);
-margin-bottom: 8px;
+.footer-widgets {
+max-width: 1100px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 30px;
+margin-bottom: 30px;
 }
-.footer-widget ul {
+.footer-widget h4 {
+color: #ffffff;
+font-size: 16px;
+font-weight: 600;
+margin-bottom: 14px;
+position: relative;
+padding-bottom: 6px;
+border-bottom: 2px solid #0284c7;
+display: inline-block;
+}
+.portal-desc {
+color: #94a3b8;
+margin-bottom: 10px;
+font-size: 13px;
+}
+.portal-quote {
+color: #38bdf8;
+font-size: 12.5px;
+margin-top: 8px;
+}
+/* Tombol CTA WhatsApp Pengaduan */
+.footer-cta-btn {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: #10b981;
+color: #ffffff;
+padding: 8px 14px;
+border-radius: 6px;
+text-decoration: none;
+font-weight: 500;
+font-size: 12.5px;
+margin-top: 10px;
+transition: background 0.2s;
+}
+.footer-cta-btn:hover {
+background: #059669;
+color: #ffffff;
+}
+/* List Sosial Media */
+.footer-social-list {
 list-style: none;
 padding: 0;
 margin: 0;
 }
-.footer-widget ul li {
-margin-bottom: clamp(8px, 1.2vw, 12px);
+.footer-social-list li {
+margin-bottom: 8px;
 }
-.footer-widget ul li a {
-text-decoration: none;
+.footer-social-link {
 display: inline-flex;
 align-items: center;
-gap: 8px;
-transition: color 0.2s ease-in-out, padding-left 0.2s ease-in-out;
+gap: 10px;
+color: #cbd5e1;
+text-decoration: none;
+transition: color 0.2s;
 }
-.footer-widget ul li a:hover {
-color: var(--primary-hover);
-padding-left: 4px;
+.footer-social-link:hover {
+color: #38bdf8;
 }
 .footer-icon {
 width: 18px;
 height: 18px;
 fill: currentColor;
-flex-shrink: 0;
 }
-.footer-widget img {
-max-width: clamp(120px, 15vw, 140px);
-height: auto;
-display: block;
-margin-bottom: 12px;
-border-radius: 6px;
-}
-.footer-copyright {
-background: rgba(255, 255, 255, 0.1);
+/* Copyright Bawah */
+.footer-bottom {
+max-width: 1100px;
+margin: 0 auto;
+border-top: 1px solid #334155;
+padding-top: 20px;
 text-align: center;
-padding: clamp(14px, 2vw, 20px);
-font-size: clamp(0.78rem, 1vw, 0.88rem);
-color: var(--text-muted);
-border-top: 1px solid rgba(255, 255, 255, 0.05);
+font-size: 12px;
+color: #64748b;
 }
 /* ==========================================================
 HIPPAM MEMBER FLOATING NAVIGATION (MURNI TANPA JS)
@@ -932,15 +1073,19 @@ background: #ffffff !important;
 <!-- BANNER ATAS DENGAN SHAPE GEOMETRIS -->
 <header>
 <div class='header-banner-hippam'>
+<!-- Ornamen Light & Air -->
 <div class='banner-ornament-1'></div>
 <div class='banner-ornament-2'></div>
+<div class='banner-ornament-bubble-1'></div>
+<div class='banner-ornament-bubble-2'></div>
+<!-- Konten Brand Header -->
 <div class='banner-brand'>
 <div class='banner-icon-drop'>
 <span>💧</span>
 </div>
 <div>
-<h1 class='banner-title'>Portal Tirta Kencana</h1>
-<p class='banner-sub'> Karangtalun - Gedompol</p>
+<h1 class='banner-title'>HIPPAM TIRTA KENCANA</h1>
+<p class='banner-sub'>Dusun Karangtalun, Desa Gedompol</p>
 </div>
 </div>
 </div>
@@ -956,14 +1101,14 @@ background: #ffffff !important;
 <div class='login-col-left'>
 <h2 class='welcome-title'>Sugeng Rawuh !</h2>
 <p class='welcome-sub'>
-        Mangga mlebetaken ID Pelanggan kagem mriksani rincian tagihan lan status pembayaran toya HIPPAM Dusun Karangtalun.
+        Mangga mlebetaken ID Anggota kagem mriksani rincian tagihan lan status pembayaran toya HIPPAM Dusun Karangtalun.
       </p>
 </div>
 <!-- BAGIAN KANAN: Form Input & Tombol Login -->
 <div class='login-col-right'>
 <div class='box-login-single'>
 <div class='form-group'>
-<label for='inputIDUtama'>ID Pelanggan :</label>
+<label for='inputIDUtama'>ID Anggota :</label>
 <!-- Perbaikan: ditutup dengan /> -->
 <input id='inputIDUtama' placeholder='Contoh: KRT-001-0609' type='text'/>
 </div>
@@ -981,22 +1126,30 @@ background: #ffffff !important;
 </div>
 <!-- KARTU USER AKTIF & TOMBOL LOGOUT (MUNCUL JIKA SUDAH LOGIN) -->
 <div class='panel-setelah-login' id='containerMenu'>
-<!-- HEADER INFO PELANGGAN AKTIF -->
+<!-- HEADER INFO PELANGGAN AKTIF (E-WALLET STYLE) -->
 <div class='info-pelanggan-aktif-box'>
-<div>
-<div style='display: flex; align-items: center; gap: 6px;'>
-<span class='badge-label-aktif'>Pelanggan Aktif</span>
-<!-- Ikon Centang dalam Lingkaran Hijau -->
-<span class='badge-lingkaran-hijau' title='Aktif'>
-<svg fill='currentColor' height='10' viewBox='0 0 24 24' width='10'>
-<path d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'></path>
-</svg>
+<div class='profil-pelanggan-wrapper'>
+<!-- Avatar / Inisial Ikon Air & Pengguna -->
+<div class='avatar-pelanggan-icon'>
+<span>👤</span>
+</div>
+<!-- Detail Teks Nama & ID -->
+<div class='detail-pelanggan-info'>
+<div class='badge-status-row'>
+<span class='badge-label-aktif'>Anggota HIPPAM</span>
+<span class='badge-lingkaran-hijau' title='Status Layanan: Aktif'>
+<svg viewBox='0 0 24 24'><path d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'></path></svg>
+<span>Aktif</span>
 </span>
 </div>
 <h4 class='nama-pelanggan-aktif-text' id='txtNamaAktif'>-</h4>
 </div>
-<!-- Tombol Keluar / Ganti ID -->
-<button class='btn-logout' onclick='prosesLogout()'>Keluar / Ganti ID</button>
+</div>
+<!-- Tombol Logout / Keluar -->
+<button class='btn-logout' onclick='prosesLogout()' type='button'>
+<svg viewBox='0 0 24 24'><path d='M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z'></path></svg>
+<span>Keluar</span>
+</button>
 </div>
 <!-- MENU TABS DASHBOARD -->
 <div class='menu-tabs'>
@@ -1009,9 +1162,9 @@ background: #ffffff !important;
 <!-- MENU 1: RINCIAN TAGIHAN -->
 <div class='panel-section active-panel' id='menu-tagihan'>
 <div class='kartu-info'>
-<p><strong>ID Pelanggan:</strong>
+<p><strong>ID Anggota :</strong>
 <span id='resTagID'>-</span></p>
-<p><strong>Nama Pelanggan:</strong>
+<p><strong>Nama Anggota :</strong>
 <span id='resTagNama'>-</span></p>
 </div>
 <div class='table-wrapper'>
@@ -1033,9 +1186,9 @@ background: #ffffff !important;
 <!-- MENU 2: STATUS PEMBAYARAN -->
 <div class='panel-section' id='menu-status'>
 <div class='kartu-info'>
-<p><strong>ID Pelanggan:</strong>
+<p><strong>ID Anggota :</strong>
 <span id='resStatID'>-</span></p>
-<p><strong>Nama Pelanggan:</strong>
+<p><strong>Nama Anggota :</strong>
 <span id='resStatNama'>-</span></p>
 </div>
 <div class='table-wrapper'>
@@ -1056,9 +1209,9 @@ background: #ffffff !important;
 <!-- MENU 3: CEK TUNGGAKAN -->
 <div class='panel-section' id='menu-tunggakan'>
 <div class='kartu-info'>
-<p><strong>ID Pelanggan:</strong>
+<p><strong>ID Anggota :</strong>
 <span id='resTungID'>-</span></p>
-<p><strong>Nama Pelanggan:</strong>
+<p><strong>Nama Anggota :</strong>
 <span id='resTungNama'>-</span></p>
 </div>
 <div class='table-wrapper'>
@@ -1083,9 +1236,9 @@ background: #ffffff !important;
 <!-- MENU 4: CETAK STRUK GAYA PDAM & QR CODE -->
 <div class='panel-section' id='menu-struk'>
 <div class='kartu-info'>
-<p><strong>ID Pelanggan:</strong>
+<p><strong>ID Anggota :</strong>
 <span id='resStrukID'>-</span></p>
-<p><strong>Nama Pelanggan:</strong>
+<p><strong>Nama Anggota :</strong>
 <span id='resStrukNama'>-</span></p>
 </div>
 <div class='form-group'>
@@ -1105,23 +1258,28 @@ background: #ffffff !important;
 <option value='13'>Desember</option>
 </select>
 </div>
-<!-- STRUK FORMAT PDAM / LOKET PPOB -->
 <div class='print-container' id='printArea' style='display:none;'>
 <div class='struk-header-box'>
 <div class='struk-title-org'>HIMPUNAN PENDUDUK PENGGUNA AIR MINUM</div>
 <div class='struk-title-brand'>HIPPAM "TIRTA KENCANA"</div>
-<div class='struk-title-address'>Dusun Karangtalun, Desa Gedompol, Donorojo, Pacitan</div>
-<div class='struk-motto'>"Mugi-mugi berkah, toya lancar, rejeki jembar"</div>
+<div class='struk-title-address'>Karangtalun, Desa Gedompol, Kec. Donorojo, Pacitan</div>
+<!-- Kontak Layanan Pengurus -->
+<div class='struk-motto'>
+<svg fill='currentColor' height='14' viewBox='0 0 24 24' width='14'>
+<path d='M12.012 2c-5.508 0-9.988 4.479-9.988 9.988 0 1.758.457 3.471 1.328 4.978l-1.411 5.152 5.275-1.383c1.45.79 3.09 1.241 4.796 1.241 5.508 0 9.988-4.479 9.988-9.988s-4.48-9.988-9.988-9.988zm0 18.158c-1.547 0-3.051-.416-4.363-1.196l-.313-.186-3.245.851.866-3.164-.205-.327c-.856-1.365-1.309-2.935-1.309-4.548 0-4.502 3.663-8.165 8.165-8.165s8.165 3.663 8.165 8.165-3.663 8.165-8.165 8.165zm4.479-6.113c-.246-.123-1.456-.718-1.682-.8-.225-.082-.39-.123-.554.123s-.636.801-.78 0.965c-.143.164-.287.185-.533.062s-1.04-.383-1.982-1.223c-.733-.654-1.228-1.463-1.372-1.709s-.015-.378.108-.501c.111-.111.246-.287.369-.431.123-.144.164-.246.246-.41.082-.164.041-.308-.021-.431s-.554-1.334-.759-1.826c-.201-.482-.405-.417-.554-.425l-.472-.008c-.164 0-.431.062-.656.308s-.861.841-.861 2.051.882 2.378 1.005 2.542c.123.164 1.735 2.65 4.204 3.716.587.254 1.046.406 1.403.52.589.187 1.125.161 1.548.098.472-.07 1.456-.595 1.661-1.169.205-.574.205-1.066.143-1.169-.061-.103-.225-.185-.471-.308z'></path>
+</svg>
+<span>0812-3995-7828 / 0853-3410-1516</span>
+</div>
 </div>
 <hr class='struk-divider'/>
-<div class='pdam-row'><span>ID Pelanggan</span><span>: <span id='strukID'>-</span></span></div>
-<div class='pdam-row'><span>Nama Warga</span><span>: <span id='strukNama'>-</span></span></div>
+<div class='pdam-row'><span>ID Anggota</span><span>: <span id='strukID'>-</span></span></div>
+<div class='pdam-row'><span>Nama Anggota</span><span>: <span id='strukNama'>-</span></span></div>
 <div class='pdam-row'><span>Periode Bulan</span><span>: <span id='strukBulan'>-</span></span></div>
 <hr class='struk-divider'/>
 <!-- RINCIAN METER & TARIF -->
 <div class='pdam-row'><span>Stand Awal - Akhir</span><span>: <span id='strukStandAwal'>0</span> - <span id='strukStandAkhir'>0</span></span></div>
 <div class='pdam-row'><span>Pemakaian Air</span><span>: <span id='strukMeter'>0 m&#179;</span></span></div>
-<div class='pdam-row'><span>Tarif / m&#179;</span><span>: <span id='strukTarifUnit'>Rp 4.000</span></span></div>
+<div class='pdam-row'><span>Tarif / m&#179;</span><span>: <span id='strukTarifUnit'>0</span></span></div>
 <hr class='struk-divider'/>
 <div class='pdam-row'><span>Tagihan Air</span><span>: <span id='strukNominalTagihan'>Rp 0</span></span></div>
 <div class='pdam-row'><span>Biaya Admin</span><span>: Rp 0</span></div>
@@ -1153,7 +1311,7 @@ background: #ffffff !important;
 <p style='font-size: 12px; color: #64748b;'>Masukkan password baru Anda di bawah ini.</p>
 </div>
 <div class='form-group'>
-<label for='inputPasswordBaru'>Password Baru:</label>
+<label for='inputPasswordBaru'>Password Baru :</label>
 <input id='inputPasswordBaru' placeholder='Masukkan password baru' type='password'/>
 </div>
 <button class='btn-aksi-utama' onclick='prosesGantiPassword()'>Simpan Password Baru</button>
@@ -1289,8 +1447,7 @@ function muatDataPelanggan() {
 
         console.log("✅ ID Ditemukan di baris data:", matchTagihan);
 
-        // Cek password dari indeks kolom (Coba cek kolom berapa password Anda disimpan)
-        // Jika index 16 salah, Anda bisa melihat isi array matchTagihan di Console untuk mencari posisi kolom password yang benar
+        
         const dbPass = matchTagihan[41] ? matchTagihan[41].replace(/"/g, '').trim() : '123456';
         console.log("Password dari Sheet (Index 16):", dbPass, "| Password Diinput:", inputPass);
 
@@ -1549,7 +1706,6 @@ function tampilkanStruk() {
         if (btnCetak) btnCetak.style.display = 'none';
         pesanStatus.innerText = '⚠️ Bulan ' + namaBln + ' belum lunas (Pemakaian: ' + formatMeter + ' | Tagihan: ' + formatRupiah + ').';
     }
-
     if (boxPrintArea) boxPrintArea.style.display = 'block';
 }
 
@@ -1558,12 +1714,10 @@ function prosesGantiPassword() {
     const passBaru = inputPassBaru ? inputPassBaru.value.trim() : '';
     const pesanGanti = document.getElementById('pesanGantiPass');
     if (!pesanGanti) return;
-
     if (!passBaru) {
         pesanGanti.innerHTML = '<span class="pesan-error">Password baru tidak boleh kosong!</span>';
         return;
     }
-
     currentPasswordAktif = passBaru;
     pesanGanti.innerHTML = '<span class="pesan-sukses">✅ Password berhasil diubah untuk sesi ini!<br/><small style="color:#64748b">Catatan: Harap informasikan password baru ini ke pengurus HIPPAM.</small></span>';
     if (inputPassBaru) inputPassBaru.value = '';
@@ -1595,6 +1749,7 @@ function prosesLogout() {
     if (berandaDuaKolom) berandaDuaKolom.classList.remove('diterbitkan-hidden');
     if (panelSingleKolom) panelSingleKolom.classList.remove('active-single-column');
 }
+
 
 function cetakStrukDokumen() {
     const printArea = document.getElementById('printArea');
@@ -1674,16 +1829,18 @@ function formatTerbilangRupiah(nominalAngka) {
 <div class='footer-widget'>
 <h4>Lapor Kendala & Bantuan</h4>
 <p class='portal-desc'>
-        "Menawi wonten kendala aliran toya utawi kebocoran pipa, sumangga saged langsung menghubungi pengurus HIPPAM Dusun Karangtalun."
+        "Menawi wonten kendala aliran toya utawi kebocoran pipa, kesalahan pencatatan meteran, sumangga saged langsung menghubungi pengurus HIPPAM Dusun Karangtalun."
       </p>
-<div class='portal-quote'>
-        💧 <i>"Pelayanan cepat, toya lancar kagem paseduluran"</i>
-</div>
+<!-- Tombol Aksi Cepat (Call to Action) WhatsApp Pengaduan -->
+<a class='footer-cta-btn' href='https://wa.me/6280000000000?text=Halo%20Pengurus%20HIPPAM,%20saya%20mau%20melaporkan%20kendala' rel='noopener' target='_blank'>
+<svg fill='none' height='16' stroke='currentColor' stroke-width='2' viewBox='0 0 24 24' width='16'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'></path></svg>
+<span>Hubungi Pengurus (WhatsApp)</span>
+</a>
 </div>
 <!-- Widget 3: Tautan Sosial Media / Ikuti Kami -->
 <div class='footer-widget'>
 <h4>Ikuti Kami</h4>
-<ul>
+<ul class='footer-social-list'>
 <li>
 <a class='footer-social-link' href='https://karangtalunku.blogspot.com/' rel='noopener' target='_blank' title='Website Karangtalun'>
 <svg class='footer-icon' viewBox='0 0 24 24'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'></path></svg>
@@ -1693,13 +1850,13 @@ function formatTerbilangRupiah(nominalAngka) {
 <li>
 <a class='footer-social-link' href='https://www.instagram.com/dusun_karangtalun/' rel='noopener' target='_blank' title='Instagram Karangtalun'>
 <svg class='footer-icon' viewBox='0 0 24 24'><path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'></path></svg>
-<span>Instagram Kami</span>
+<span>Instagram Karangtalun</span>
 </a>
 </li>
 <li>
 <a class='footer-social-link' href='https://www.youtube.com/channel/UCsNTNY7McRRgOx9EAOgATBQ/' rel='noopener' target='_blank' title='YouTube Karangtalun'>
 <svg class='footer-icon' viewBox='0 0 24 24'><path d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'></path></svg>
-<span>YouTube Kami</span>
+<span>YouTube Karangtalun</span>
 </a>
 </li>
 </ul>
