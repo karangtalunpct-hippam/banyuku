@@ -468,12 +468,14 @@ fill: #15803d;
 width: 12px;
 height: 12px;
 }
-.nama-pelanggan-aktif-text {
+h3.nama-pelanggan-aktif-text,
+.detail-pelanggan-info h3 {
 margin: 2px 0 0 0;
 color: var(--text-main, #0f172a);
 font-size: clamp(14px, 0.5vw + 0.85rem, 16px);
 font-weight: 700;
 line-height: 1.2;
+font-family: inherit; /* Menjaga konsistensi font */
 }
 /* Tombol Keluar / Logout Modern */
 .btn-logout {
@@ -877,7 +879,7 @@ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 gap: 30px;
 margin-bottom: 30px;
 }
-.footer-widget h4 {
+.footer-widget h3 {
 color: #ffffff;
 font-size: 16px;
 font-weight: 600;
@@ -1142,7 +1144,7 @@ background: #ffffff !important;
 <span>Aktif</span>
 </span>
 </div>
-<h4 class='nama-pelanggan-aktif-text' id='txtNamaAktif'>-</h4>
+<h3 class='nama-pelanggan-aktif-text' id='txtNamaAktif'>-</h3>
 </div>
 </div>
 <!-- Tombol Logout / Keluar -->
@@ -1320,27 +1322,27 @@ background: #ffffff !important;
 <!-- HIPPAM MEMBER FLOATING NAVIGATION (TERHUBUNG KE TAB) -->
 <nav class='hippam-member-nav' id='hippamMemberBar'>
 <!-- Menu 1: Tagihan -->
-<a class='hippam-nav-item' href='javascript:void(0);' onclick='gantiMenu("tagihan", this); setActiveBottom(this);'>
+<a class='hippam-nav-item' href='#tagihan' onclick='event.preventDefault(); gantiMenu(&#39;tagihan&#39;, this); setActiveBottom(this);'>
 <svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M9 5H7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2V7a2 2 0 0 0 -2 -2h-2'></path><path d='M9 5a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z'></path><path d='M9 12h6'></path><path d='M9 16h6'></path></svg>
 <span class='hippam-nav-label'>Tagihan</span>
 </a>
 <!-- Menu 2: Status -->
-<a class='hippam-nav-item' href='javascript:void(0);' onclick='gantiMenu("status", this); setActiveBottom(this);'>
+<a class='hippam-nav-item' href='#status' onclick='event.preventDefault(); gantiMenu(&#39;status&#39;, this); setActiveBottom(this);'>
 <svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0'></path><path d='M12 12l3 2'></path><path d='M12 7v5'></path></svg>
 <span class='hippam-nav-label'>Status</span>
 </a>
 <!-- Menu 3: Tunggakan -->
-<a class='hippam-nav-item' href='javascript:void(0);' onclick='gantiMenu("tunggakan", this); setActiveBottom(this);'>
+<a class='hippam-nav-item' href='#tunggakan' onclick='event.preventDefault(); gantiMenu(&#39;tunggakan&#39;, this); setActiveBottom(this);'>
 <svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M12 9v4'></path><path d='M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.875h16.214a1.914 1.914 0 0 0 1.636 -2.875l-8.106 -13.534a1.914 1.914 0 0 0 -3.274 0z'></path><path d='M12 16h.01'></path></svg>
 <span class='hippam-nav-label'>Tunggakan</span>
 </a>
 <!-- Menu 4: Struk -->
-<a class='hippam-nav-item active' href='javascript:void(0);' onclick='gantiMenu("struk", this); setActiveBottom(this);'>
+<a class='hippam-nav-item active' href='#struk' onclick='event.preventDefault(); gantiMenu(&#39;struk&#39;, this); setActiveBottom(this);'>
 <svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2'></path><path d='M9 8h6'></path><path d='M9 12h6'></path><path d='M9 16h4'></path></svg>
 <span class='hippam-nav-label'>Struk</span>
 </a>
 <!-- Menu 5: Ubah PIN -->
-<a class='hippam-nav-item' href='javascript:void(0);' onclick='gantiMenu("gantipass", this); setActiveBottom(this);'>
+<a class='hippam-nav-item' href='#gantipass' onclick='event.preventDefault(); gantiMenu(&#39;gantipass&#39;, this); setActiveBottom(this);'>
 <svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M12 15v2'></path><path d='M12 11v1'></path><path d='M12 7v1'></path><path d='M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0'></path></svg>
 <span class='hippam-nav-label'>Ubah PIN</span>
 </a>
@@ -1817,7 +1819,7 @@ function formatTerbilangRupiah(nominalAngka) {
 <div class='footer-widgets'>
 <!-- Widget 1: Informasi Warga -->
 <div class='footer-widget'>
-<h4>Informasi Warga</h4>
+<h3>Informasi Warga</h3>
 <p class='portal-desc'>
         "Layanan menika gratis (mboten dipunpundhut biaya) kagem nyaosi pirsa pelayanan para Anggota HIPPAM Dusun Karangtalun, Desa Gedompol, Kecamatan Donorojo, Kabupaten Pacitan."
       </p>
@@ -1827,7 +1829,7 @@ function formatTerbilangRupiah(nominalAngka) {
 </div>
 <!-- Widget 2: Layanan Aduan -->
 <div class='footer-widget'>
-<h4>Lapor Kendala & Bantuan</h4>
+<h3>Lapor Kendala & Bantuan</h3>
 <p class='portal-desc'>
         "Menawi wonten kendala aliran toya utawi kebocoran pipa, kesalahan pencatatan meteran, sumangga saged langsung menghubungi pengurus HIPPAM Dusun Karangtalun."
       </p>
@@ -1839,7 +1841,7 @@ function formatTerbilangRupiah(nominalAngka) {
 </div>
 <!-- Widget 3: Tautan Sosial Media / Ikuti Kami -->
 <div class='footer-widget'>
-<h4>Ikuti Kami</h4>
+<h3>Ikuti Kami</h3>
 <ul class='footer-social-list'>
 <li>
 <a class='footer-social-link' href='https://karangtalunku.blogspot.com/' rel='noopener' target='_blank' title='Website Karangtalun'>
