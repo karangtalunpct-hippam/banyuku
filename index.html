@@ -60,9 +60,6 @@ align-items: center;
 -webkit-font-smoothing: antialiased;
 }
 /* =========================================================
-PENGATURAN TYPOGRAPHY (H1, H2, H3) PORTAL HIPPAM
-========================================================= */
-/* =========================================================
 1. TYPOGRAPHY HEADINGS & NAMA VARIABEL BERSIH
 ========================================================= */
 .cek-tagihan-box h1,
@@ -1144,6 +1141,8 @@ background: #ffffff !important;
 <span>Aktif</span>
 </span>
 </div>
+<!-- Teks Ucapan Salam WIB Dinamis -->
+<div class='salam-pelanggan-text' id='salamPengguna'>Selamat Datang,</div>
 <h3 class='nama-pelanggan-aktif-text' id='txtNamaAktif'>-</h3>
 </div>
 </div>
@@ -1382,6 +1381,44 @@ function parseCSV(text) {
         return values;
     });
 }
+
+function initProfilPelanggan(namaPelanggan) {
+    // 1. Update Ucapan Salam berdasarkan Jam WIB
+    const elSalam = document.getElementById('salamPengguna');
+    if (elSalam) {
+        const jamWIB = parseInt(new Intl.DateTimeFormat('id-ID', {
+            timeZone: 'Asia/Jakarta',
+            hour: 'numeric',
+            hour12: false
+        }).format(new Date()));
+
+        let ucapan = "Selamat Datang,";
+        if (jamWIB >= 3 && jamWIB < 11) {
+            ucapan = "Selamat Pagi, ☀️";
+        } else if (jamWIB >= 11 && jamWIB < 15) {
+            ucapan = "Selamat Siang, 🌤️";
+        } else if (jamWIB >= 15 && jamWIB < 18) {
+            ucapan = "Selamat Sore, 🌅";
+        } else {
+            ucapan = "Selamat Malam, 🌙";
+        }
+        elSalam.innerHTML = ucapan;
+    }
+
+    // 2. Update Nama Pelanggan Aktif jika ada data
+    const elNama = document.getElementById('txtNamaAktif');
+    if (elNama && namaPelanggan) {
+        elNama.innerText = namaPelanggan;
+    }
+}
+
+// Jalankan otomatis saat halaman selesai dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    initProfilPelanggan(); // Panggil ucapan salam
+});
+
+
+
 
 function gantiMenu(menuId, btn) {
     document.querySelectorAll('.panel-section').forEach(el => el.classList.remove('active-panel'));
