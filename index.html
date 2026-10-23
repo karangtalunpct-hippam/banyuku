@@ -17,9 +17,6 @@
 <meta content='300' property='og:image:height'/>
 <meta content='website' property='og:type'/>
 <style id='page-skin-1' type='text/css'><!--
-/* =========================================================
-1. RESET & VARIABEL UTAMA (ROOT)
-========================================================= */
 *, *:before, *:after {
 box-sizing: border-box;
 }
@@ -27,10 +24,11 @@ box-sizing: border-box;
 /* Penerapan pada UI */
 --primary-color: #0284c7;        /* Biru Air Utama (Header/Tombol/Aksen) */
 --primary-dark: #0f172a;         /* Deep Slate Dark (Latar Banner/Footer/Side-Card) */
---primary-hover: #0369a1;        /* Biru Gelap Hover */
+--primary-hover: #059669;        /* Biru Gelap Hover#0369a1 #059669*/
 --text-color : #ffffff;
 --accent-color: #38bdf8;         /* Sky Water Blue (Sorotan/Badge/Sub-title) */
 --accent-green: #10b981;         /* Hijau Lunas / WhatsApp / Status Sukses */
+--accent-red: #ef4444;
 --text-main: #222222;            /* Warna Teks Utama (Sangat Tajam & Kontras) */
 --text-muted: #64748b;           /* Warna Teks Sekunder / Deskripsi Pudar */
 --text-light: #f8fafc;           /* Warna Teks Terang di Atas Latar Gelap */
@@ -61,6 +59,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+text-rendering: optimizeLegibility;
 }
 /* =========================================================
 1. TYPOGRAPHY HEADINGS & NAMA VARIABEL BERSIH
@@ -90,16 +90,13 @@ color: var(--text-main);
 margin-bottom: 6px;
 line-height: 1.4;
 }
-/* =========================================================
-2. PEMBUNGKUS UTAMA (OUTER WRAPPER)
-========================================================= */
 .outer-wrapper {
 width: 100%;
 max-width: 960px;
 min-height: 100vh;
 margin: 0 auto;
 padding: 0;
-background: #ffffff;
+background: var(--text-light);
 position: relative;
 overflow: hidden;
 display: flex;
@@ -122,12 +119,11 @@ color: #ffffff;
 position: relative;
 overflow: hidden;
 text-align: left;
-clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);/* Potongan Miring Geometris */
+clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
 border-bottom: 3px solid var(--accent-color);
 box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
 box-sizing: border-box;
 }
-/* 1. TEKSTUR GELOMBANG UTAMA (BACKGROUND WAVE PATTERN) */
 .header-banner-hippam::before {
 content: '';
 position: absolute;
@@ -141,7 +137,6 @@ background-position: center;
 pointer-events: none;
 z-index: 1;
 }
-/* 2. GELOMBANG SECONDARY (LAYERED WAVE 3D EFFECT) */
 .header-banner-hippam::after {
 content: '';
 position: absolute;
@@ -154,7 +149,6 @@ background-size: cover;
 pointer-events: none;
 z-index: 1;
 }
-/* 3. ORNAMEN CAHAYA RADIAL HALUS (KANAN ATAS) */
 .header-banner-hippam .banner-ornament-1 {
 position: absolute;
 top: -25px;
@@ -166,7 +160,6 @@ border-radius: 50%;
 pointer-events: none;
 z-index: 1;
 }
-/* KONTEN BRAND & TEKS */
 .banner-brand {
 display: flex;
 align-items: center;
@@ -267,13 +260,12 @@ margin: 0 0 10px 0;
 font-family: var(--font-heading);
 }
 .login-col-left .welcome-sub {
-color: var(--bg-footer) !important;
+color: #dddddd !important;
 font-size: clamp(13px, 0.5vw + 0.75rem, 14px);
 line-height: 1.6;
 margin: 0;
-font-weight: 500;
+font-weight: 400;
 }
-/* Kolom Kanan (Form Input) */
 .login-col-right {
 flex: 1;
 min-width: 280px;
@@ -384,90 +376,31 @@ text-align: center;
 display: none;
 width: 100%;
 padding: 0 4px;
+text-align: right !important;
 }
 .panel-setelah-login.active-single-column {
 display: block !important;
 }
-.info-pelanggan-aktif-box {
-display: flex;
-justify-content: space-between;
-align-items: center;
-background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-border: 1px solid var(--border-color);
-border-left: 4px solid var(--primary-color);
-border-radius: var(--radius-btn, 10px);
-padding: 12px 16px;
-margin-bottom: 20px;
-box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-}
-.profil-pelanggan-wrapper {
-display: flex;
-align-items: center;
-gap: 12px;
-}
-/* Avatar Bulat Ikon Pengguna */
-.avatar-pelanggan-icon {
-width: 42px;
-height: 42px;
-background: #e0f2fe;
-border: 1px solid #bae6fd;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 18px;
-flex-shrink: 0;
-}
-.detail-pelanggan-info {
+.header-profil-container-wrapper {
 display: flex;
 flex-direction: column;
-text-align: left;
+align-items: flex-end;
+gap: 6px;
+margin-bottom: 20px;
+width: 100%;
 }
-.badge-status-row {
-display: flex;
-align-items: center;
-gap: 8px;
-}
-.badge-label-aktif {
-font-size: 10.5px;
-color: var(--text-muted);
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-}
-/* Badge Status Aktif Hijau Soft */
-.badge-lingkaran-hijau {
-display: inline-flex;
-align-items: center;
-gap: 4px;
-background: #dcfce7;
-color: #15803d;
-padding: 2px 8px;
-border-radius: 12px;
-font-size: 10px;
-font-weight: 700;
-}
-.badge-lingkaran-hijau svg {
-fill: #15803d;
-width: 12px;
-height: 12px;
-}
-h3.nama-pelanggan-aktif-text,
-.detail-pelanggan-info h3 {
-margin: 2px 0 0 0;
+.nama-pelanggan-aktif-text {
+margin: 4px 0 0 0;
 color: var(--text-main);
-font-size: clamp(14px, 0.5vw + 0.85rem, 16px);
-font-weight: 700;
-line-height: 1.2;
-font-family: inherit; /* Menjaga konsistensi font */
+font-size: clamp(13px, 0.5vw + 0.8rem, 14.5px);
+font-weight: bold;
 }
-/* Tombol Keluar / Logout Modern */
 .btn-logout {
 display: inline-flex;
 align-items: center;
 gap: 6px;
 background: #fef2f2;
-color: var(--accent-red, #ef4444);
+color: var(--accent-red);
 border: 1px solid #fecaca;
 padding: 8px 14px;
 font-size: 12px;
@@ -475,6 +408,8 @@ border-radius: 8px;
 cursor: pointer;
 font-weight: 600;
 transition: all 0.2s ease;
+flex-shrink: 0;
+margin-left: auto;
 }
 .btn-logout svg {
 width: 14px;
@@ -482,20 +417,261 @@ height: 14px;
 fill: currentColor;
 }
 .btn-logout:hover {
-background: var(--accent-red, #ef4444);
+background: var(--accent-red);
 color: #ffffff;
-border-color: var(--accent-red, #ef4444);
+border-color: var(--accent-red);
+}
+.portal-main-wrapper {
+display: flex !important;
+flex-direction: column !important;
+align-items: center !important;
+gap: 16px !important;
+width: 100% !important;
+}
+.hippam-card-atm-container {
+margin: 0 !important;
+flex: 1 !important;
+min-width: 280px !important;
+max-width: 420px !important;
+width: 100% !important;
+display: flex;
+flex-direction: column;
+gap: 8px;
+align-items: flex-start !important;
+}
+.hippam-card-body {
+position: relative;
+width: 100%;
+aspect-ratio: 85.6 / 53.9;
+border-radius: 14px;
+background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0284c7 100%);
+color: #ffffff;
+padding: 16px 20px;
+box-sizing: border-box;
+box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.4), 0 8px 10px -6px rgba(2, 132, 199, 0.2);
+overflow: hidden;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-start !important;
+border: 1px solid rgba(255, 255, 255, 0.15);
+font-family: var(--font-main, 'Segoe UI', -apple-system, sans-serif);
+}
+.card-pattern-overlay {
+position: absolute;
+inset: 0;
+background-image: radial-gradient(circle at 90% 10%, rgba(2, 132, 199, 0.25) 0%, transparent 50%),
+radial-gradient(circle at 10% 90%, rgba(56, 189, 248, 0.15) 0%, transparent 40%);
+pointer-events: none;
+}
+.card-glow-effect {
+position: absolute;
+top: -50%;
+right: -20%;
+width: 200px;
+height: 200px;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent);
+transform: rotate(45deg);
+pointer-events: none;
+}
+.card-header-row,
+.card-footer-info {
+width: 100% !important;
+display: flex !important;
+justify-content: space-between !important;
+align-items: center !important;
+}
+.card-header-row {
+align-items: flex-start !important;
+z-index: 1;
+}
+.card-brand {
+display: flex;
+align-items: center;
+gap: 8px;
+text-align: left !important;
+}
+.brand-water-icon {
+width: 22px;
+height: 22px;
+color: #38bdf8;
+filter: drop-shadow(0 2px 4px rgba(56, 189, 248, 0.4));
+}
+.brand-text {
+display: flex;
+flex-direction: column;
+text-align: left !important;
+}
+.brand-title {
+font-size: clamp(10px, 1vw + 0.4rem, 13px);
+font-weight: 800;
+letter-spacing: 0.8px;
+color: #f8fafc;
+text-transform: uppercase;
+}
+.brand-sub {
+font-size: 8.5px;
+color: #94a3b8;
+font-weight: 500;
+}
+.card-status-badge {
+display: flex;
+align-items: center;
+gap: 5px;
+background: rgba(34, 197, 94, 0.15);
+border: 1px solid rgba(34, 197, 94, 0.4);
+padding: 3px 8px;
+border-radius: 20px;
+font-size: 9px;
+font-weight: 700;
+color: #4ade80;
+letter-spacing: 0.5px;
+}
+.status-dot {
+width: 6px;
+height: 6px;
+background-color: #22c55e;
+border-radius: 50%;
+box-shadow: 0 0 6px #22c55e;
+}
+.card-qr-row {
+display: flex !important;
+align-items: center !important;
+justify-content: flex-end !important;
+gap: 10px !important;
+margin-left: auto !important;
+width: fit-content !important;
+}
+.qr-label-info {
+display: flex !important;
+flex-direction: column !important;
+text-align: right !important;
+justify-content: center !important;
+}
+.qr-label-info .qr-title,
+.qr-title {
+font-size: 9px !important;
+font-weight: 800 !important;
+letter-spacing: 0.8px !important;
+color: #38bdf8 !important;
+text-transform: uppercase !important;
+}
+.qr-label-info .qr-desc,
+.qr-desc {
+font-size: 7.5px !important;
+color: #94a3b8 !important;
+font-weight: 500 !important;
+}
+.atm-chip {
+background: #ffffff !important;
+padding: 2px !important;
+width: 45px !important;
+height: 45px !important;
+border-radius: 4px !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+border: 2px solid rgba(255, 255, 255, 0.7) !important;
+box-sizing: border-box !important;
+flex-shrink: 0 !important;
+}
+.atm-chip img {
+width: 100% !important;
+height: 100% !important;
+object-fit: contain !important;
+}
+.btn-cetak-kartu {
+background: #0284c7 !important;
+color: #ffffff !important;
+border: none !important;
+padding: 8px 14px !important;
+border-radius: 8px !important;
+font-weight: 600 !important;
+cursor: pointer !important;
+font-size: 12px !important;
+display: inline-flex !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 6px !important;
+width: auto !important;
+margin-top: 12px !important;
+transition: background 0.2s ease !important;
+}
+.btn-cetak-kartu:hover {
+background: var(--primary-hover) !important;
+}
+.card-footer-info {
+align-items: flex-end !important;
+z-index: 1;
+}
+.card-user-details {
+display: flex !important;
+flex-direction: column !important;
+align-items: flex-start !important;
+max-width: 72% !important;
+overflow: hidden !important;
+}
+.salam-pelanggan-text {
+font-size: clamp(12px, 1vw + 0.7rem, 14px);
+color: var(--primary-color);
+font-weight: 700;
+text-align: left !important;
+}
+h3.nama-pelanggan-aktif-text {
+margin: 1px 0 !important;
+font-size: clamp(13px, 1.2vw + 0.6rem, 15px) !important;
+font-weight: 800 !important;
+color: #ffffff !important;
+letter-spacing: 0.5px !important;
+text-transform: uppercase !important;
+text-shadow: 0 2px 4px rgba(0,0,0,0.4) !important;
+text-align: left !important;
+white-space: nowrap !important;
+overflow: hidden !important;
+text-overflow: ellipsis !important;
+width: 100% !important;
+}
+/* Nomor ID Anggota di baris kedua */
+.card-id-number {
+display: block !important;
+visibility: visible !important;
+font-family: 'Consolas', monospace !important;
+font-size: 11px !important;
+color: #38bdf8 !important;
+letter-spacing: 1.5px !important;
+font-weight: 600 !important;
+margin-top: 3px !important;
+white-space: nowrap !important;
+overflow: hidden !important;
+text-overflow: ellipsis !important;
+width: auto !important;
+}
+.card-hologram {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(56, 189, 248, 0.3), rgba(234, 179, 8, 0.3));
+border: 1px solid rgba(255,255,255,0.5);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 6px;
+font-weight: 800;
+color: #ffffff;
+letter-spacing: 0.5px;
+box-shadow: inset 0 0 6px rgba(255,255,255,0.4);
 }
 .menu-tabs {
 display: flex;
 gap: clamp(4px, 1.5vw, 10px);
-margin-bottom: var(--spacing-lg);
+margin-top: var(--spacing-lg);
 overflow-x: auto;
-padding-bottom: 5px;
+padding-top: 10px;
+border-top: 1px solid var(--border-color);
 box-sizing: border-box;
 }
 .tab-btn {
-background: #ffffff;
+background: var(--border-color);
 border: none;
 padding: clamp(6px, 1.2vw, 10px) clamp(10px, 2vw, 16px);
 border-radius: clamp(4px, 1vw, 8px);
@@ -523,8 +699,8 @@ margin-top: var(--spacing-md);
 .panel-section.active-panel {
 display: block;
 }
-.kartu-info, .kartu-tagihan {
-background: #ffffff;
+.kartu-info,  .kartu-tagihan {
+background: #ffffff;color: var(--text-main);
 border-left: 4px solid var(--primary-color);
 padding: clamp(12px, 2.5vw, 20px);
 border-radius: clamp(6px, 1.5vw, 10px);
@@ -543,7 +719,7 @@ line-height: 1.5;
 }
 .table-wrapper {
 overflow-x: auto;
-border-radius: 10px;
+border-radius: 4px;
 border: 1px solid var(--border-color);
 background: var(--card-bg, #ffffff);
 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -839,85 +1015,108 @@ border-radius: var(--radius-btn, 8px);
 box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 .btn-cetak-struk:hover {
-background-color: #059669;
+background-color: var(--primary-hover);
 }
+/* =========================================================
+FOOTER WRAPPER & LAYOUT (SLATE DARK & OCEAN WATER)
+========================================================= */
 #footer-wrapper {
 background-color: var(--bg-footer);
-color: var(--border-color);
-padding: clamp(30px, 4vw, 45px) clamp(20px, 3vw, 25px) clamp(20px, 2vw, 25px) clamp(25px, 4vw, 45px);
-font-size: clamp(13.5px, 1.3vw, 14.5px);
+color: var(--border-color, #94a3b8);
+padding: clamp(32px, 4vw, 48px) clamp(16px, 3vw, 24px) clamp(20px, 2vw, 28px);
+font-size: clamp(13px, 1.2vw, 14px);
 line-height: 1.6;
+border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 .footer-widgets {
 max-width: 1100px;
-margin: 0 auto;
+margin:  0 auto clamp(28px, 3.5vw, 40px) auto;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: clamp(24px, 3vw, 35px);
-margin-bottom: clamp(24px, 3vw, 35px);
+gap: clamp(24px, 3.5vw, 36px);
+margin-bottom: 30px;
 }
 .footer-widget h3 {
 color: #ffffff;
-font-size: clamp(15.5px, 1.6vw, 17px);
+font-size: clamp(15px, 1.5vw, 17px);
 font-weight: 600;
 margin-bottom: clamp(12px, 1.5vw, 16px);
 position: relative;
 padding-bottom: 6px;
-border-bottom: 2px solid var(--primary-color);
+border-bottom: 2px solid #0284c7;
 display: inline-block;
 }
 .portal-desc {
 color: #94a3b8;
 margin-bottom: 12px;
 font-size: clamp(13px, 1.2vw, 14px);
+line-height: 1.65;
 }
 .portal-quote {
 color: var(--accent-color);
 font-size: clamp(12.5px, 1.1vw, 13.5px);
-margin-top: 8px;
+font-style: italic;
+margin-top: 6px;
+display: block;
 }
-/* Tombol CTA WhatsApp Pengaduan */
 .footer-cta-btn {
 display: inline-flex;
 align-items: center;
+justify-content: center;
 gap: 8px;
 background: var(--accent-green);
-color: #ffffff;
-padding: clamp(8px, 1.2vw, 10px) clamp(12px, 1.8vw, 16px);
-border-radius: 6px;
+color: #ffffff !important;
+padding: clamp(9px, 1.2vw, 11px) clamp(14px, 1.8vw, 18px);
+border-radius: 8px;
 text-decoration: none;
-font-weight: 500;
+font-weight: 600;
 font-size: clamp(13px, 1.1vw, 14px);
-margin-top: 10px;
-transition: background 0.2s;
+margin-top: 12px;
+width: fit-content;
+box-shadow: 0 2px 10px rgba(22, 163, 74, 0.2);
+transition: all 0.25s ease;
 }
 .footer-cta-btn:hover {
-background: #059669;
-color: #ffffff;
+background: #15803d;
+color: #ffffff !important;
+transform: translateY(-2px);
+box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+}
+.footer-cta-btn svg {
+width: 16px;
+height: 16px;
+fill: #ffffff;
 }
 .footer-social-list {
 list-style: none;
 padding: 0;
 margin: 0;
+display: flex;
+flex-direction: column;
+gap: 10px;
 }
 .footer-social-list li {
-margin-bottom: 8px;
+margin: 0;
 }
 .footer-social-link {
 display: inline-flex;
 align-items: center;
 gap: 10px;
-color: var(--border-color);
+color: #cbd5e1;
 text-decoration: none;
-transition: color 0.2s;
+font-size: clamp(13px, 1.1vw, 14px);
+font-weight: 500;
+transition: all 0.2s ease;
 }
 .footer-social-link:hover {
-color: var(--accent-color);
+color: var(--primary-hover);
+transform: translateX(4px);
 }
 .footer-icon {
 width: clamp(18px, 1.6vw, 20px);
 height: clamp(18px, 1.6vw, 20px);
 fill: currentColor;
+flex-shrink: 0;
 }
 .footer-bottom {
 max-width: 1100px;
@@ -926,7 +1125,15 @@ border-top: 1px solid #334155;
 padding-top: clamp(18px, 2vw, 24px);
 text-align: center;
 font-size: clamp(12.5px, 1.1vw, 13.5px);
-color: var(--text-muted);
+color: var(--text-muted, #64748b);
+line-height: 1.5;
+}
+.footer-bottom a {
+color: var(--accent-color, #38bdf8);
+text-decoration: none;
+}
+.footer-bottom a:hover {
+text-decoration: underline;
 }
 /* ==========================================================
 HIPPAM MEMBER FLOATING NAVIGATION (MURNI TANPA JS)
@@ -947,7 +1154,9 @@ z-index: 9999;
 box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
 padding-bottom: env(safe-area-inset-bottom);
 }
-.hippam-member-nav .hippam-nav-item {
+.hippam-member-nav .hippam-nav-item,
+.hippam-member-nav .hippam-nav-item:link,
+.hippam-member-nav .hippam-nav-item:visited {
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -975,14 +1184,12 @@ line-height: 1;
 }
 .hippam-member-nav .hippam-nav-item:active,
 .hippam-member-nav .hippam-nav-item.active {
-color: var(--accent-color);
+color: var(--accent-color) !important;
 }
 /* ==========================================================
 10. MEDIA QUERIES, FOOTER, & HIPPAM MEMBER NAVIGATION
 ========================================================== */
-/* Pengaturan Tampilan Mobile (<= 768px) */
 @media screen and (max-width: 768px) {
-/* Menu Navigasi Bawah Member */
 .hippam-member-nav {
 display: flex !important;
 }
@@ -1007,6 +1214,34 @@ main[role='main'],
 padding: 10px;
 min-height: 300px;
 }
+.hippam-card-atm-container {
+width: 92%;
+margin: 0 auto;
+}
+.hippam-card-body {
+padding: 12px 14px;
+}
+.brand-title {
+font-size: 11.5px !important;
+}
+.brand-sub {
+font-size: 8.5px !important;
+}
+.qr-title {
+font-size: 9px !important;
+}
+.qr-desc {
+font-size: 8px !important;
+}
+.nama-pelanggan-aktif-text {
+font-size: 13px !important;
+}
+body.print-kartu .nama-pelanggan-aktif-text {
+font-size: 14pt !important;
+color: #ffffff !important;
+-webkit-print-color-adjust: exact !important;
+print-color-adjust: exact !important;
+}
 }
 @media screen and (max-width: 360px) {
 .tabel-data th,
@@ -1015,7 +1250,7 @@ padding: 6px 3px;
 font-size: 11px;
 }
 }
-@media print {
+@media print struk{
 body * {
 visibility: hidden !important;
 }
@@ -1032,6 +1267,68 @@ font-family: var(--font-receipt) !important;
 font-size: 10pt !important;
 padding: 4mm !important;
 background: #ffffff !important;
+}
+}
+@media print {
+@page {
+size: 85.6mm 53.9mm;
+margin: 0 !important;
+}
+html, body {
+width: 85.6mm !important;
+height: 53.9mm !important;
+margin: 0 !important;
+padding: 0 !important;
+overflow: hidden !important;
+}
+body * {
+visibility: hidden !important;
+}
+#printCard, #printCard * {
+visibility: visible !important;
+}
+#printCard {
+position: fixed !important;
+left: 0 !important;
+top: 0 !important;
+width: 85.6mm !important;
+height: 53.9mm !important;
+margin: 0 !important;
+padding: 0 !important;
+overflow: hidden !important;
+page-break-inside: avoid !important;
+break-inside: avoid !important;
+}
+.hippam-card-atm-container {
+width: 85.6mm !important;
+height: 53.9mm !important;
+max-width: none !important;
+margin: 0 !important;
+padding: 0 !important;
+box-shadow: none !important;
+border: none !important;
+display: flex !important;
+flex-direction: column !important;
+overflow: hidden !important;
+page-break-inside: avoid !important;
+break-inside: avoid !important;
+}
+.hippam-card-body {
+width: 100% !important;
+height: 100% !important;
+border-radius: 0 !important;
+box-shadow: none !important;
+overflow: hidden !important;
+-webkit-print-color-adjust: exact !important;
+print-color-adjust: exact !important;
+}
+.atm-chip {
+background: #ffffff !important;
+-webkit-print-color-adjust: exact !important;
+print-color-adjust: exact !important;
+}
+.btn-cetak-kartu {
+display: none !important;
 }
 }
 
@@ -1103,33 +1400,78 @@ background: #ffffff !important;
 </div>
 <!-- KARTU USER AKTIF & TOMBOL LOGOUT (MUNCUL JIKA SUDAH LOGIN) -->
 <div class='panel-setelah-login' id='containerMenu'>
-<!-- HEADER INFO PELANGGAN AKTIF (E-WALLET STYLE) -->
-<div class='info-pelanggan-aktif-box'>
-<div class='profil-pelanggan-wrapper'>
-<!-- Avatar / Inisial Ikon Air & Pengguna -->
-<div class='avatar-pelanggan-icon'>
-<span>👤</span>
-</div>
-<!-- Detail Teks Nama & ID -->
-<div class='detail-pelanggan-info'>
-<div class='badge-status-row'>
-<span class='badge-label-aktif'>Anggota HIPPAM</span>
-<span class='badge-lingkaran-hijau' title='Status Layanan: Aktif'>
-<svg viewBox='0 0 24 24'><path d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'></path></svg>
-<span>Aktif</span>
-</span>
-</div>
-<!-- Teks Ucapan Salam WIB Dinamis -->
-<div class='salam-pelanggan-text' id='salamPengguna'>Selamat Datang,</div>
-<h3 class='nama-pelanggan-aktif-text' id='txtNamaAktif'>-</h3>
-</div>
-</div>
-<!-- Tombol Logout / Keluar -->
-<button class='btn-logout' onclick='prosesLogout()' type='button'>
+<div class='header-profil-container-wrapper'>
+<button class='btn-logout' onclick='prosesLogout()' style='width: auto; justify-content: flex-start;' type='button'>
 <svg viewBox='0 0 24 24'><path d='M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z'></path></svg>
 <span>Keluar</span>
 </button>
+<!-- KONTAINER UTAMA PORTAL -->
+<div class='portal-main-wrapper'>
+<!-- KARTU ATM ANGGOTA HIPPAM -->
+<div id='printCard'>
+<div class='hippam-card-atm-container'>
+<div class='hippam-card-body'>
+<!-- Pattern Motif Air & Waves Background -->
+<div class='card-pattern-overlay'></div>
+<div class='card-glow-effect'></div>
+<!-- HEADER KARTU (LOGO & NAMA INSTITUSI) -->
+<div class='card-header-row'>
+<div class='card-brand'>
+<svg class='brand-water-icon' viewBox='0 0 24 24'>
+<path d='M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z' fill='currentColor'></path>
+</svg>
+<div class='brand-text'>
+<span class='brand-title'>HIPPAM TIRTA KENCANA</span>
+<span class='brand-sub'>Dusun Karangtalun &#8226; Desa Gedompol</span>
 </div>
+</div>
+<!-- Status Badge -->
+<div class='card-status-badge' title='Status Layanan: Aktif'>
+<span class='status-dot'></span>
+<span>AKTIF</span>
+</div>
+</div>
+<!-- MIDDLE ROW (QR CODE & TEXT LABEL) -->
+<div class='card-qr-row'>
+<!-- Teks Info di Sebelah Kiri -->
+<div class='qr-label-info'>
+<span class='qr-title'>SCAN MEMBER ID</span>
+<span class='qr-desc'>HIPPAM TIRTA KENCANA</span>
+</div>
+<!-- Kotak QR Code di Sebelah Kanan -->
+<div class='atm-chip'>
+<img alt='QR ID' id='imgQrCode' src=''/>
+</div>
+</div>
+<!-- BOTTOM ROW (INFO PEMEGANG KARTU) -->
+<div class='card-footer-info'>
+<div class='card-user-details'>
+<div class='card-id-number' id='txtIdAktif'>-</div>
+<h3 class='nama-pelanggan-aktif-text' id='txtNamaAktif'>-</h3>
+</div>
+<!-- Hologram Seal Kualitatif -->
+<div class='card-hologram'>
+<span>OFFICIAL</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TOMBOL CETAK KARTU (Diluar printCard agar ikut tersembunyi saat print) -->
+<button class='btn-cetak-kartu' onclick='cetakMode("kartu")' type='button'>
+    🖨&#65039; Cetak Kartu / Simpan PDF
+</button>
+<!-- KOLOM KANAN: TOMBOL AKSI (KELUAR & CETAK KARTU) -->
+<div style='display: flex; flex-direction: column; gap: 10px; min-width: 160px;'>
+</div>
+</div>
+</div>
+<div class='kartu-info'>
+<div class='salam-pelanggan-text' id='salamPengguna'></div>
+<p><strong>ID Anggota :</strong>
+<span id='resTagID'>-</span></p>
+<p><strong>Nama Anggota :</strong>
+<span id='resTagNama'>-</span></p>
 <!-- MENU TABS DASHBOARD -->
 <div class='menu-tabs'>
 <button class='tab-btn active' onclick='gantiMenu("tagihan", this)'>Tagihan</button>
@@ -1140,12 +1482,6 @@ background: #ffffff !important;
 </div>
 <!-- MENU 1: RINCIAN TAGIHAN -->
 <div class='panel-section active-panel' id='menu-tagihan'>
-<div class='kartu-info'>
-<p><strong>ID Anggota :</strong>
-<span id='resTagID'>-</span></p>
-<p><strong>Nama Anggota :</strong>
-<span id='resTagNama'>-</span></p>
-</div>
 <div class='table-wrapper'>
 <table class='tabel-data'>
 <thead>
@@ -1164,12 +1500,6 @@ background: #ffffff !important;
 </div>
 <!-- MENU 2: STATUS PEMBAYARAN -->
 <div class='panel-section' id='menu-status'>
-<div class='kartu-info'>
-<p><strong>ID Anggota :</strong>
-<span id='resStatID'>-</span></p>
-<p><strong>Nama Anggota :</strong>
-<span id='resStatNama'>-</span></p>
-</div>
 <div class='table-wrapper'>
 <table class='tabel-data'>
 <thead>
@@ -1187,12 +1517,6 @@ background: #ffffff !important;
 </div>
 <!-- MENU 3: CEK TUNGGAKAN -->
 <div class='panel-section' id='menu-tunggakan'>
-<div class='kartu-info'>
-<p><strong>ID Anggota :</strong>
-<span id='resTungID'>-</span></p>
-<p><strong>Nama Anggota :</strong>
-<span id='resTungNama'>-</span></p>
-</div>
 <div class='table-wrapper'>
 <table class='tabel-data'>
 <thead>
@@ -1214,12 +1538,6 @@ background: #ffffff !important;
 </div>
 <!-- MENU 4: CETAK STRUK GAYA PDAM & QR CODE -->
 <div class='panel-section' id='menu-struk'>
-<div class='kartu-info'>
-<p><strong>ID Anggota :</strong>
-<span id='resStrukID'>-</span></p>
-<p><strong>Nama Anggota :</strong>
-<span id='resStrukNama'>-</span></p>
-</div>
 <div class='form-group'>
 <label for='selectStrukBulan'>Pilih Bulan untuk Cetak Struk:</label>
 <select id='selectStrukBulan' onchange='tampilkanStruk()'>
@@ -1325,7 +1643,8 @@ background: #ffffff !important;
 </a>
 </nav>
 </div>
-<!-- Penutup akhir untuk <div class='panel-setelah-login' id='containerMenu'> -->
+</div>
+<!-- Penutup akhirpanel-setelah-login -->
 </main>
 <script>
 //<![CDATA[
@@ -1370,17 +1689,33 @@ function initProfilPelanggan(namaPelanggan) {
             hour12: false
         }).format(new Date()));
 
-        let ucapan = "Selamat Datang,";
+       let ucapanText = "Selamat Datang";
+        let svgIcon = "";
+
+        // Template SVG untuk masing-masing waktu (ukuran dan warna bisa disesuaikan)
+        const svgSun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #f59e0b;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+        
+        const svgCloudSun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #38bdf8;"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.94 12.5a3.5 3.5 0 f 0-6.83 1.05h-.11a4 4 0 0 0 0 8h8a3.5 3.5 0 0 0-.06-9.05Z"/></svg>`;
+
+        const svgSunset = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #fb923c;"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h20"/><path d="M20 10h2"/><path d="m16.07 12.34 1.41-1.41"/><path d="M12 14v4"/><path d="M12 22h.01"/></svg>`;
+
+        const svgMoon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #818cf8;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
+
         if (jamWIB >= 3 && jamWIB < 11) {
-            ucapan = "Selamat Pagi, ☀️";
+            ucapanText = "Selamat Pagi";
+            svgIcon = svgSun;
         } else if (jamWIB >= 11 && jamWIB < 15) {
-            ucapan = "Selamat Siang, 🌤️";
+            ucapanText = "Selamat Siang";
+            svgIcon = svgCloudSun;
         } else if (jamWIB >= 15 && jamWIB < 18) {
-            ucapan = "Selamat Sore, 🌅";
+            ucapanText = "Selamat Sore";
+            svgIcon = svgSunset;
         } else {
-            ucapan = "Selamat Malam, 🌙";
+            ucapanText = "Selamat Malam";
+            svgIcon = svgMoon;
         }
-        elSalam.innerHTML = ucapan;
+        
+        elSalam.innerHTML = ucapanText + ', ' + svgIcon;
     }
 
     // 2. Update Nama Pelanggan Aktif jika ada data
@@ -1395,8 +1730,55 @@ document.addEventListener('DOMContentLoaded', function() {
     initProfilPelanggan(); // Panggil ucapan salam
 });
 
+function updateCardData(namaAnggota, idAnggota) {
+    let rawNama = namaAnggota ? String(namaAnggota).trim() : '-';
+    let rawId = idAnggota ? String(idAnggota).trim() : '';
 
+    let namaBersih = rawNama;
+    let idBersih = rawId;
 
+    // 1. Ambil ID dari dalam tanda kurung jika idBersih masih kosong
+    if (rawNama.includes('(') && rawNama.includes(')')) {
+        let parts = rawNama.split('(');
+        namaBersih = parts[0].trim();
+        if (!idBersih || idBersih === '-' || idBersih === '') {
+            idBersih = parts[1].replace(')', '').trim();
+        }
+    } 
+    // 2. Atau ambil jika dipisah spasi dengan tanda hubung '-' di belakang
+    else if (!idBersih || idBersih === '-' || idBersih === '') {
+        let parts = rawNama.split(' ');
+        let kataTerakhir = parts[parts.length - 1];
+        if (kataTerakhir && kataTerakhir.includes('-')) {
+            idBersih = parts.pop();
+            namaBersih = parts.join(' ');
+        }
+    }
+
+    // 3. PENGAMAN MUTLAK: Hapus semua sisa tanda kurung dan isinya dari nama atas
+    namaBersih = namaBersih.replace(/\s*\(.*?\)/g, '').trim();
+
+    // Masukkan ke elemen HTML Baris Atas (Nama)
+    const txtNama = document.getElementById('txtNamaAktif');
+    if (txtNama) {
+        txtNama.innerText = namaBersih;
+    }
+
+    // Masukkan ke elemen HTML Baris Bawah (ID)
+    const txtId = document.getElementById('txtIdAktif');
+    if (txtId) {
+        txtId.innerText = idBersih;
+    }
+
+    // Format teks data untuk QR Code
+    let teksData = `HIPPAM TIRTA KENCANA Karangtalun - Gedompol - ID: ${idBersih} - Nama: ${namaBersih}`;
+    let encodedData = encodeURIComponent(teksData);
+    
+    let qrImgElem = document.getElementById('imgQrCode');
+    if (qrImgElem) {
+        qrImgElem.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodedData}`;
+    }
+}
 
 function gantiMenu(menuId, btn) {
     document.querySelectorAll('.panel-section').forEach(el => el.classList.remove('active-panel'));
@@ -1509,9 +1891,9 @@ function dapatkanNamaBersih(row) {
 function renderSemuaMenu(rowTagihan, rowTunggakan) {
     const idPelanggan = rowTunggakan[0].replace(/"/g, '');
     const namaPelanggan = dapatkanNamaBersih(rowTunggakan);
-
-    const txtNamaAktif = document.getElementById('txtNamaAktif');
-    if (txtNamaAktif) txtNamaAktif.innerText = namaPelanggan + ' (' + idPelanggan + ')';
+    
+    // Cukup panggil fungsi ini saja untuk memisahkan nama & ID
+    updateCardData(namaPelanggan, idPelanggan);
 
     if (document.getElementById('resTagID')) document.getElementById('resTagID').innerText = idPelanggan;
     if (document.getElementById('resTagNama')) document.getElementById('resTagNama').innerText = namaPelanggan;
@@ -1725,6 +2107,23 @@ function tampilkanStruk() {
     }
     if (boxPrintArea) boxPrintArea.style.display = 'block';
 }
+
+function cetakMode(jenis) {
+    const bodyEl = document.body;
+    // Bersihkan dulu kelas sebelumnya
+    bodyEl.classList.remove('print-kartu-saja', 'print-struk-saja');
+    
+    // Tambahkan kelas target cetak
+    if (jenis === 'kartu') {
+        bodyEl.classList.add('print-kartu-saja');
+    } else if (jenis === 'struk') {
+        bodyEl.classList.add('print-struk-saja');
+    }
+    
+    // Jalankan perintah print browser
+    window.print();
+}
+
 
 function prosesGantiPassword() {
     const inputPassBaru = document.getElementById('inputPasswordBaru');
