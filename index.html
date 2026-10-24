@@ -314,6 +314,165 @@ background-color: #ffffff;
 border-color: var(--primary-color);
 box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
 }
+/* ==========================================
+1. GAYA KOTAK PASSWORD & IKON MATA DI DALAM
+========================================== */
+.password-wrapper {
+position: relative !important;
+display: block;
+width: 100%;
+}
+.password-wrapper input {
+width: 100%;
+padding-right: 45px !important; /* Memberi ruang agar teks tidak menabrak ikon mata */
+box-sizing: border-box;
+}
+.password-toggle {
+position: absolute !important;
+top: 50% !important;
+right: 14px !important;
+transform: translateY(-50%) !important;
+cursor: pointer;
+user-select: none;
+font-size: 18px;
+z-index: 2;
+opacity: 0.7;
+transition: opacity 0.2s ease;
+}
+.password-toggle:hover {
+opacity: 1;
+}
+/* ==========================================
+PANEL GANTI PASSWORD (KOMPAK & TERPUSAT)
+========================================== */
+/* ==========================================
+PANEL GANTI PASSWORD (KOMPAK & TERPUSAT)
+========================================== */
+#menu-gantipass {
+box-sizing: border-box;
+width: 92%;               /* Lebar responsif mengikuti layar dengan sisa sedikit di pinggir */
+max-width: 400px;         /* Batas maksimal agar tidak terlalu lebar */
+margin: 1.5rem auto;      /* Memposisikan kotak di tengah-tengah halaman */
+padding: 1.15rem 1.25rem; /* Jarak dalam yang pas dan nyaman */
+background: var(--bg-card, #ffffff);
+border-radius: 12px;
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+border: 1px solid var(--border-color, #e2e8f0);
+}
+/* Pastikan semua elemen di dalamnya mematuhi batas box */
+#menu-gantipass * {
+box-sizing: border-box;
+}
+/* Bagian Header Kartu Info di dalam panel */
+#menu-gantipass .kartu-info {
+margin-bottom: 0.85rem;
+padding-bottom: 0.6rem;
+border-bottom: 1px dashed var(--border-color, #cbd5e1);
+}
+#menu-gantipass .kartu-info p {
+margin: 0 0 0.2rem 0;
+line-height: 1.35;
+color: var(--text-primary, #1e293b);
+}
+/* Grup Form */
+#menu-gantipass .form-group {
+margin-bottom: 0.85rem;
+}
+#menu-gantipass .form-group label {
+display: block;
+font-size: 0.8125rem;
+font-weight: 600;
+color: var(--text-primary, #334155);
+margin-bottom: 0.35rem;
+}
+/* Pembungkus Input Password */
+#menu-gantipass .password-wrapper {
+position: relative;
+display: flex;
+align-items: center;
+width: 100%;
+}
+/* Kotak Input */
+#menu-gantipass .password-wrapper input {
+width: 100% !important;
+height: 40px;
+padding: 0 2.5rem 0 0.75rem !important;
+font-size: 0.875rem !important;
+border: 1px solid var(--input-border, #cbd5e1);
+border-radius: 8px;
+background: var(--bg-input, #f8fafc);
+color: var(--text-primary, #0f172a);
+outline: none;
+transition: border-color 0.2s, box-shadow 0.2s;
+}
+#menu-gantipass .password-wrapper input:focus {
+border-color: var(--primary-color, #0284c7);
+box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+background: #ffffff;
+}
+/* Ikon Toggle Mata */
+#menu-gantipass .password-toggle {
+position: absolute;
+right: 10px;
+height: 100%;
+display: flex;
+align-items: center;
+cursor: pointer;
+user-select: none;
+color: var(--text-muted, #64748b);
+background: transparent;
+border: none;
+padding: 0;
+}
+#menu-gantipass .password-toggle:hover {
+color: var(--primary-color, #0284c7);
+}
+/* Tombol Aksi Utama */
+#menu-gantipass .btn-aksi-utama {
+width: 100%;
+height: 42px;
+margin-top: 0.75rem;
+font-size: 0.875rem;
+font-weight: 600;
+color: #ffffff;
+background-color: var(--primary-color, #0284c7);
+border: none;
+border-radius: 8px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: background-color 0.2s, transform 0.1s;
+}
+#menu-gantipass .btn-aksi-utama:hover {
+background-color: var(--primary-hover, #0369a1);
+}
+#menu-gantipass .btn-aksi-utama:active {
+transform: scale(0.98);
+}
+/* Area Pesan/Notifikasi */
+#menu-gantipass .pesan-ganti-pass-wrap {
+margin-top: 0.5rem;
+font-size: 0.8rem;
+}
+/* ==========================================
+2. GAYA TAUTAN LUPA PASSWORD
+========================================== */
+.lupa-password-container {
+margin-top: 8px;
+text-align: right; /* Posisinya rata kanan di bawah kolom password */
+}
+.link-lupa-password {
+font-size: 13px;
+color: var(--primary-color, #0052cc); /* Menyesuaikan warna utama tema */
+text-decoration: none;
+font-family: inherit;
+transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+.link-lupa-password:hover {
+color: #003d99;
+text-decoration: underline;
+}
 /* Tombol Masuk Utama */
 .btn-aksi-utama {
 width: 100%;
@@ -488,7 +647,7 @@ z-index: 1;
 .card-brand {
 display: flex;
 align-items: center;
-gap: 8px;
+gap: 2px;
 text-align: left !important;
 }
 .brand-water-icon {
@@ -938,7 +1097,6 @@ font-weight: 600;
 fill: currentColor;
 flex-shrink: 0;
 }
-/* Pembatas Garis Putus-Putus */
 .struk-divider {
 border: 0;
 border-top: 1px dashed var(--border-color);
@@ -1004,22 +1162,18 @@ margin-top: 6px;
 line-height: 1.45;
 font-style: italic;
 }
-/* Tombol Cetak Struk Modern */
 .btn-cetak-struk {
-margin-top: 15px;
+margin: 15px auto 0 auto;
 display: none;
-width: 100%;
+width: auto;
 background-color: var(--accent-green);
 color: #ffffff;
-border-radius: var(--radius-btn, 8px);
+border-radius: var(--radius-btn);
 box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 .btn-cetak-struk:hover {
 background-color: var(--primary-hover);
 }
-/* =========================================================
-FOOTER WRAPPER & LAYOUT (SLATE DARK & OCEAN WATER)
-========================================================= */
 #footer-wrapper {
 background-color: var(--bg-footer);
 color: var(--border-color, #94a3b8);
@@ -1339,15 +1493,12 @@ display: none !important;
 </head>
 <body>
 <div class='outer-wrapper'>
-<!-- BANNER ATAS DENGAN SHAPE GEOMETRIS -->
 <header>
 <div class='header-banner-hippam'>
-<!-- Ornamen Light & Air -->
 <div class='banner-ornament-1'></div>
 <div class='banner-ornament-2'></div>
 <div class='banner-ornament-bubble-1'></div>
 <div class='banner-ornament-bubble-2'></div>
-<!-- Konten Brand Header -->
 <div class='banner-brand'>
 <div class='banner-icon-drop'>
 <span>💧</span>
@@ -1371,7 +1522,7 @@ display: none !important;
 <!-- Badge Sambutan Komunitas / Wilayah -->
 <div class='welcome-badge'>
 <span class='badge-dot'></span>
-<span>Portal Resmi HIPPAM Karangtalun</span>
+<span>Portal Resmi HIPPAM Tirta Kencana</span>
 </div>
 <h2 class='welcome-title'>Sugeng Rawuh, Warga Karangtalun!</h2>
 <p class='welcome-sub'>
@@ -1382,14 +1533,23 @@ display: none !important;
 <div class='login-col-right'>
 <div class='box-login-single'>
 <div class='form-group'>
-<label for='inputIDUtama'>ID Anggota :</label>
-<!-- Perbaikan: ditutup dengan /> -->
+<label for='inputIDUtama'>ID Pelanggan :</label>
 <input id='inputIDUtama' placeholder='Contoh: KRT-001-0609' type='text'/>
 </div>
 <div class='form-group mb-extra'>
 <label for='inputPasswordUtama'>Password / PIN :</label>
-<!-- Perbaikan: ditutup dengan /> -->
-<input id='inputPasswordUtama' placeholder='Masukkan Password / PIN' type='password'/>
+<!-- Bungkus input password dan ikon mata SVG -->
+<div style='position: relative; display: flex; align-items: center;'>
+<input id='inputPasswordUtama' placeholder='Masukkan Password / PIN' style='width: 100%; padding-right: 40px;' type='password'/>
+<span id='toggleEye' onclick='togglePassword()' style='position: absolute; right: 12px; cursor: pointer; user-select: none; display: flex; align-items: center; color: #64748b;'>
+<!-- SVG Mata Terbuka -->
+<svg fill='none' height='18' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='18'><path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'></path><circle cx='12' cy='12' r='3'></circle></svg>
+</span>
+</div>
+<!-- Tambahan Tautan Lupa Password di Sini -->
+<div class='lupa-password-container'>
+<a class='link-lupa-password' href='https://facebook.com/Purwanto.Ok/' onclick='bukaMenuLupaPassword(event)'>Lupa Password?</a>
+</div>
 </div>
 <button class='btn-aksi-utama' onclick='muatDataPelanggan()'>MLEBET (LOGIN)</button>
 <div class='login-loading-text' id='loading'>&#9203; Menyambungkan ke database HIPPAM...</div>
@@ -1598,20 +1758,39 @@ display: none !important;
           * Struk ini adalah bukti pembayaran yang sah *<br/>Terima Kasih atas Pembayaran Tepat Waktu
         </div>
 </div>
-<button class='btn-aksi-utama btn-cetak-struk' id='btnCetakAksi' onclick='cetakStrukDokumen()'>🖨&#65039; Cetak Struk / Simpan PDF</button>
+<button class='btn-aksi-utama btn-cetak-struk' id='btnCetakAksi' onclick='cetakStrukDokumen()'>🖨&#65039;  Cetak Struk / Simpan PDF  </button>
 <div class='pesan-error pesan-error-struk' id='pesanStrukStatus'></div>
 </div>
 <!-- MENU 5: GANTI PASSWORD -->
 <div class='panel-section' id='menu-gantipass'>
 <div class='kartu-info'>
 <p><strong>Ubah Password / PIN</strong></p>
-<p style='font-size: 12px; color: #64748b;'>Masukkan password baru Anda di bawah ini.</p>
+<p style='font-size: 12px; color: #64748b;'>Masukkan PIN lama dan password baru Anda di bawah ini.</p>
 </div>
+<!-- Input untuk PIN Lama dengan ikon mata -->
 <div class='form-group'>
-<label for='inputPasswordBaru'>Password Baru :</label>
-<input id='inputPasswordBaru' placeholder='Masukkan password baru' type='password'/>
+<label for='inputPINLama'>PIN Lama:</label>
+<div class='password-wrapper' style='position: relative; display: flex; align-items: center;'>
+<input id='inputPINLama' placeholder='Masukkan PIN lama' style='width: 100%; padding-right: 40px;' type='password'/>
+<span class='password-toggle' id='eyePINLama' onclick='togglePassword("inputPINLama", "eyePINLama")' style='position: absolute; right: 12px; cursor: pointer; user-select: none; display: flex; align-items: center; color: #64748b;'>
+<!-- SVG Mata Terbuka -->
+<svg fill='none' height='18' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='18'><path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'></path><circle cx='12' cy='12' r='3'></circle></svg>
+</span>
+</div>
+</div>
+<!-- Input untuk Password Baru dengan ikon mata -->
+<div class='form-group'>
+<label for='inputPasswordBaru'>Password Baru:</label>
+<div class='password-wrapper' style='position: relative; display: flex; align-items: center;'>
+<input id='inputPasswordBaru' placeholder='Masukkan password baru' style='width: 100%; padding-right: 40px;' type='password'/>
+<span class='password-toggle' id='eyePasswordBaru' onclick='togglePassword("inputPasswordBaru", "eyePasswordBaru")' style='position: absolute; right: 12px; cursor: pointer; user-select: none; display: flex; align-items: center; color: #64748b;'>
+<!-- SVG Mata Terbuka -->
+<svg fill='none' height='18' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='18'><path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'></path><circle cx='12' cy='12' r='3'></circle></svg>
+</span>
+</div>
 </div>
 <button class='btn-aksi-utama' onclick='prosesGantiPassword()'>Simpan Password Baru</button>
+<!-- Penutup div standar -->
 <div class='pesan-ganti-pass-wrap' id='pesanGantiPass'></div>
 </div>
 <!-- HIPPAM MEMBER FLOATING NAVIGATION (TERHUBUNG KE TAB) -->
@@ -1648,86 +1827,125 @@ display: none !important;
 </main>
 <script>
 //<![CDATA[
-// CONFIGURASI LINK CSV GOOGLE SHEETS
-const URL_CSV_TAGIHAN = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRvGkaCTvqmi2M8mDWylQCNMEGgT9XI5uWsyOcyme3-OsJY-Uo5fc2JdLYCRL6JdGP-BNFyBL-PDjgE/pub?gid=1272464510&single=true&output=csv';
-const URL_CSV_TUNGGAKAN = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRvGkaCTvqmi2M8mDWylQCNMEGgT9XI5uWsyOcyme3-OsJY-Uo5fc2JdLYCRL6JdGP-BNFyBL-PDjgE/pub?gid=1564302058&single=true&output=csv';
+const URL_WEB_APPS = "https://script.google.com/macros/s/AKfycbyWRBCwDEIH2WV72-m1V8I-JKz3mujRtyVzb3qzqGao4HbWdvJRnW_L5EQNfiUiS7CVjg/exec";
 const namaBulanArr = ["", "", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
 let dataCacheTagihan = null;
 let dataCacheTunggakan = null;
 let currentPasswordAktif = "";
 
-function parseCSV(text) {
-    let lines = text.split('\n');
-    return lines.map(line => {
-        let values = [];
-        let current = '';
-        let inQuotes = false;
-        for (let i = 0; i < line.length; i++) {
-            let char = line[i];
-            if (char === '"') {
-                inQuotes = !inQuotes;
-            } else if (char === ',' && !inQuotes) {
-                values.push(current.trim());
-                current = '';
-            } else {
-                current += char;
+async function muatDataPelanggan() {
+    const inputID = document.getElementById('inputIDUtama') ? document.getElementById('inputIDUtama').value.trim() : '';
+    const inputPass = document.getElementById('inputPasswordUtama') ? document.getElementById('inputPasswordUtama').value.trim() : '';
+    const pesanGlobal = document.getElementById('pesanGlobal');
+    const loadingElem = document.getElementById('loading');
+
+    if (pesanGlobal) pesanGlobal.innerText = '';
+
+    if (!inputID || !inputPass) {
+        if (pesanGlobal) pesanGlobal.innerText = 'ID Pelanggan dan Password wajib diisi!';
+        return;
+    }
+
+    if (loadingElem) loadingElem.style.display = 'block';
+
+    try {
+        const response = await fetch(URL_WEB_APPS, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ idPelanggan: inputID, password: inputPass })
+        });
+
+        const hasil = await response.json();
+        if (loadingElem) loadingElem.style.display = 'none';
+
+        if (hasil.status === 'success') {
+            const matchTagihan = hasil.dataTagihan;
+            const matchTunggakan = hasil.dataTunggakan;
+
+            const cleanID = matchTagihan && matchTagihan[0] ? String(matchTagihan[0]).replace(/"/g, '').trim() : inputID;
+            localStorage.setItem('hippam_id', cleanID);
+
+            dataCacheTagihan = matchTagihan;
+            dataCacheTunggakan = matchTunggakan;
+            currentPasswordAktif = inputPass;
+
+            const boxLogin = document.getElementById('boxLogin');
+            if (boxLogin) boxLogin.style.display = 'none';
+
+            const containerMenu = document.getElementById('containerMenu');
+            if (containerMenu) containerMenu.style.display = 'block';
+
+            if (typeof renderSemuaMenu === 'function') {
+                renderSemuaMenu(matchTagihan, matchTunggakan);
             }
-        }
-        values.push(current.trim());
-        return values;
-    });
-}
 
-function initProfilPelanggan(namaPelanggan) {
-    // 1. Update Ucapan Salam berdasarkan Jam WIB
-    const elSalam = document.getElementById('salamPengguna');
-    if (elSalam) {
-        const jamWIB = parseInt(new Intl.DateTimeFormat('id-ID', {
-            timeZone: 'Asia/Jakarta',
-            hour: 'numeric',
-            hour12: false
-        }).format(new Date()));
-
-       let ucapanText = "Selamat Datang";
-        let svgIcon = "";
-
-        // Template SVG untuk masing-masing waktu (ukuran dan warna bisa disesuaikan)
-        const svgSun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #f59e0b;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
-        
-        const svgCloudSun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #38bdf8;"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.94 12.5a3.5 3.5 0 f 0-6.83 1.05h-.11a4 4 0 0 0 0 8h8a3.5 3.5 0 0 0-.06-9.05Z"/></svg>`;
-
-        const svgSunset = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #fb923c;"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h20"/><path d="M20 10h2"/><path d="m16.07 12.34 1.41-1.41"/><path d="M12 14v4"/><path d="M12 22h.01"/></svg>`;
-
-        const svgMoon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #818cf8;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
-
-        if (jamWIB >= 3 && jamWIB < 11) {
-            ucapanText = "Selamat Pagi";
-            svgIcon = svgSun;
-        } else if (jamWIB >= 11 && jamWIB < 15) {
-            ucapanText = "Selamat Siang";
-            svgIcon = svgCloudSun;
-        } else if (jamWIB >= 15 && jamWIB < 18) {
-            ucapanText = "Selamat Sore";
-            svgIcon = svgSunset;
         } else {
-            ucapanText = "Selamat Malam";
-            svgIcon = svgMoon;
+            if (pesanGlobal) pesanGlobal.innerText = hasil.message || 'ID Pelanggan atau Password salah!';
         }
-        
-        elSalam.innerHTML = ucapanText + ', ' + svgIcon;
-    }
 
-    // 2. Update Nama Pelanggan Aktif jika ada data
-    const elNama = document.getElementById('txtNamaAktif');
-    if (elNama && namaPelanggan) {
-        elNama.innerText = namaPelanggan;
+    } catch (err) {
+        if (loadingElem) loadingElem.style.display = 'none';
+        if (pesanGlobal) pesanGlobal.innerText = 'Gagal terhubung ke database Google Apps Script.';
+        console.error("❌ Error Fetch GAS:", err);
     }
 }
 
-// Jalankan otomatis saat halaman selesai dimuat
+
+function initProfilPelanggan(namaPelanggan, idPelanggan) {
+    const elSalam = document.getElementById('salamPengguna');
+    const elNama = document.getElementById('resTagNama');
+    const elID = document.getElementById('resTagID');
+
+  
+    const jamWIB = parseInt(new Intl.DateTimeFormat('id-ID', {
+        timeZone: 'Asia/Jakarta',
+        hour: 'numeric',
+        hour12: false
+    }).format(new Date()));
+
+    let ucapanText = "Selamat Datang";
+    let svgIcon = "";
+
+       // Matahari (Pagi) - Garis lebih tipis dan proporsional
+const svgSun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #f59e0b;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+
+// Matahari Berawan (Siang)
+const svgCloudSun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #38bdf8;"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.94 12.5a3.5 3.5 0 0 0-6.83 1.05h-.11a4 4 0 0 0 0 8h8a3.5 3.5 0 0 0-.06-9.05Z"/></svg>`;
+
+// Matahari Terbenam (Sore) - Garis ufuk dan pancaran lebih rapi
+const svgSunset = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #fb923c;"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="m17.66 12.34 1.41-1.41"/><path d="M2 18h20"/><path d="M12 14v4"/></svg>`;
+
+// Bulan Sabit (Malam) - Menggunakan ikon bulan sabit klasik yang jauh lebih bersih
+const svgMoon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #818cf8;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+    if (jamWIB >= 3 && jamWIB < 11) {
+        ucapanText = "Selamat Pagi";
+        svgIcon = svgSun;
+    } else if (jamWIB >= 11 && jamWIB < 15) {
+        ucapanText = "Selamat Siang";
+        svgIcon = svgCloudSun;
+    } else if (jamWIB >= 15 && jamWIB < 18) {
+        ucapanText = "Selamat Sore";
+        svgIcon = svgSunset;
+    } else {
+        ucapanText = "Selamat Malam";
+        svgIcon = svgMoon;
+    }
+    
+    if (elSalam) {
+        if (namaPelanggan) {
+            elSalam.innerHTML = `${ucapanText}, <strong>${namaPelanggan}</strong> ${svgIcon}`;
+        } else {
+            elSalam.innerHTML = `${ucapanText} ${svgIcon}`;
+        }
+    }
+
+       if (elNama && namaPelanggan) elNama.innerText = namaPelanggan;
+    if (elID && idPelanggan) elID.innerText = idPelanggan;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    initProfilPelanggan(); // Panggil ucapan salam
+    initProfilPelanggan();
 });
 
 function updateCardData(namaAnggota, idAnggota) {
@@ -1737,16 +1955,13 @@ function updateCardData(namaAnggota, idAnggota) {
     let namaBersih = rawNama;
     let idBersih = rawId;
 
-    // 1. Ambil ID dari dalam tanda kurung jika idBersih masih kosong
     if (rawNama.includes('(') && rawNama.includes(')')) {
         let parts = rawNama.split('(');
         namaBersih = parts[0].trim();
         if (!idBersih || idBersih === '-' || idBersih === '') {
             idBersih = parts[1].replace(')', '').trim();
         }
-    } 
-    // 2. Atau ambil jika dipisah spasi dengan tanda hubung '-' di belakang
-    else if (!idBersih || idBersih === '-' || idBersih === '') {
+    } else if (!idBersih || idBersih === '-' || idBersih === '') {
         let parts = rawNama.split(' ');
         let kataTerakhir = parts[parts.length - 1];
         if (kataTerakhir && kataTerakhir.includes('-')) {
@@ -1755,22 +1970,14 @@ function updateCardData(namaAnggota, idAnggota) {
         }
     }
 
-    // 3. PENGAMAN MUTLAK: Hapus semua sisa tanda kurung dan isinya dari nama atas
     namaBersih = namaBersih.replace(/\s*\(.*?\)/g, '').trim();
 
-    // Masukkan ke elemen HTML Baris Atas (Nama)
     const txtNama = document.getElementById('txtNamaAktif');
-    if (txtNama) {
-        txtNama.innerText = namaBersih;
-    }
+    if (txtNama) txtNama.innerText = namaBersih;
 
-    // Masukkan ke elemen HTML Baris Bawah (ID)
     const txtId = document.getElementById('txtIdAktif');
-    if (txtId) {
-        txtId.innerText = idBersih;
-    }
+    if (txtId) txtId.innerText = idBersih;
 
-    // Format teks data untuk QR Code
     let teksData = `HIPPAM TIRTA KENCANA Karangtalun - Gedompol - ID: ${idBersih} - Nama: ${namaBersih}`;
     let encodedData = encodeURIComponent(teksData);
     
@@ -1793,109 +2000,24 @@ function gantiMenu(menuId, btn) {
     }
 }
 
-function muatDataPelanggan() {
-    const inputID = document.getElementById('inputIDUtama').value.trim().toLowerCase();
-    const inputPass = document.getElementById('inputPasswordUtama').value.trim();
-    const pesanGlobal = document.getElementById('pesanGlobal');
-    if (pesanGlobal) pesanGlobal.innerText = '';
-
-    if (!inputID || !inputPass) {
-        if (pesanGlobal) pesanGlobal.innerText = 'ID Pelanggan dan Password wajib diisi!';
-        return;
-    }
-
-    const loadingElem = document.getElementById('loading');
-    if (loadingElem) loadingElem.style.display = 'block';
-
-    Promise.all([
-        fetch(URL_CSV_TAGIHAN).then(res => res.text()),
-        fetch(URL_CSV_TUNGGAKAN).then(res => res.text())
-    ])
-    .then(([csvTagihan, csvTunggakan]) => {
-        if (loadingElem) loadingElem.style.display = 'none';
-
-        const rowsTagihan = parseCSV(csvTagihan);
-        const rowsTunggakan = parseCSV(csvTunggakan);
-
-        console.log("=== DEBUG LOGIN HIPPAM ===");
-        console.log("Mencari ID Pelanggan:", inputID);
-        console.log("Total baris tagihan:", rowsTagihan.length);
-
-        let matchTagihan = null;
-        let matchTunggakan = null;
-
-        for (let i = 1; i < rowsTagihan.length; i++) {
-            if (rowsTagihan[i][0] && rowsTagihan[i][0].replace(/"/g, '').trim().toLowerCase() === inputID) {
-                matchTagihan = rowsTagihan[i];
-                break;
-            }
-        }
-
-        for (let i = 1; i < rowsTunggakan.length; i++) {
-            if (rowsTunggakan[i][0] && rowsTunggakan[i][0].replace(/"/g, '').trim().toLowerCase() === inputID) {
-                matchTunggakan = rowsTunggakan[i];
-                break;
-            }
-        }
-
-        if (!matchTagihan || !matchTunggakan) {
-            console.log("❌ Gagal: ID Pelanggan tidak ditemukan di data CSV.");
-            if (pesanGlobal) pesanGlobal.innerText = 'ID Pelanggan tidak ditemukan di sistem.';
-            return;
-        }
-
-        console.log("✅ ID Ditemukan di baris data:", matchTagihan);
-
-        
-        const dbPass = matchTagihan[41] ? matchTagihan[41].replace(/"/g, '').trim() : '123456';
-        console.log("Password dari Sheet (Index 16):", dbPass, "| Password Diinput:", inputPass);
-
-        if (inputPass !== dbPass) {
-            console.log("❌ Gagal: Password tidak cocok!");
-            if (pesanGlobal) pesanGlobal.innerText = 'Password / PIN salah! (Nilai di sheet: ' + dbPass + ')';
-            return;
-        }
-
-        console.log("✅ Login Berhasil!");
-
-        dataCacheTagihan = matchTagihan;
-        dataCacheTunggakan = matchTunggakan;
-        currentPasswordAktif = dbPass;
-
-        const boxLogin = document.getElementById('boxLogin');
-        if (boxLogin) boxLogin.style.display = 'none';
-        
-        const infoPelanggan = document.getElementById('info-pelanggan-aktif');
-        if (infoPelanggan) infoPelanggan.style.display = 'flex';
-
-        renderSemuaMenu(matchTagihan, matchTunggakan);
-        
-        const containerMenu = document.getElementById('containerMenu');
-        if (containerMenu) containerMenu.style.display = 'block';
-    })
-    .catch(err => {
-        if (loadingElem) loadingElem.style.display = 'none';
-        if (pesanGlobal) pesanGlobal.innerText = 'Gagal terhubung ke database Google Sheets.';
-        console.error("❌ Error Fetch CSV:", err);
-    });
-}
 function dapatkanNamaBersih(row) {
     if (!row || !row[1]) return 'Pelanggan / Warga';
-    let nama = row[1].replace(/"/g, '').trim();
+    let nama = String(row[1]).replace(/"/g, '').trim();
     if (nama === '0' || nama === '') {
         return 'Pelanggan / Warga';
     }
     return nama;
 }
 
+
 function renderSemuaMenu(rowTagihan, rowTunggakan) {
-    const idPelanggan = rowTunggakan[0].replace(/"/g, '');
+    if (!rowTunggakan) return;
+    const idPelanggan = String(rowTunggakan[0]).replace(/"/g, '');
     const namaPelanggan = dapatkanNamaBersih(rowTunggakan);
     
-    // Cukup panggil fungsi ini saja untuk memisahkan nama & ID
     updateCardData(namaPelanggan, idPelanggan);
 
-    if (document.getElementById('resTagID')) document.getElementById('resTagID').innerText = idPelanggan;
+       if (document.getElementById('resTagID')) document.getElementById('resTagID').innerText = idPelanggan;
     if (document.getElementById('resTagNama')) document.getElementById('resTagNama').innerText = namaPelanggan;
     
     let tbodyTagihan = document.getElementById('tabelTagihanBody');
@@ -1907,7 +2029,7 @@ function renderSemuaMenu(rowTagihan, rowTunggakan) {
             let namaBln = namaBulanArr[col];
             let colMeter = col + 17;
 
-            let rawMeter = (rowTagihan && rowTagihan[colMeter]) ? rowTagihan[colMeter].replace(/"/g, '') : '0';
+            let rawMeter = (rowTagihan && rowTagihan[colMeter] !== undefined && rowTagihan[colMeter] !== null) ? String(rowTagihan[colMeter]).replace(/"/g, '') : '0';
             let cleanMeter = parseFloat(rawMeter.replace(/[^0-9.]/g, '')) || 0;
             let totalTarif = cleanMeter * tarifPerM3;
 
@@ -1925,11 +2047,6 @@ function renderSemuaMenu(rowTagihan, rowTunggakan) {
         }
     }
 
-    if (document.getElementById('resStatID')) document.getElementById('resStatID').innerText = idPelanggan;
-    if (document.getElementById('resStatNama')) document.getElementById('resStatNama').innerText = namaPelanggan;
-    if (document.getElementById('resTungID')) document.getElementById('resTungID').innerText = idPelanggan;
-    if (document.getElementById('resTungNama')) document.getElementById('resTungNama').innerText = namaPelanggan;
-
     let tbodyStatus = document.getElementById('tabelStatusBody');
     let tbodyTunggakan = document.getElementById('tabelTunggakanBody');
     if (tbodyStatus) tbodyStatus.innerHTML = '';
@@ -1944,10 +2061,10 @@ function renderSemuaMenu(rowTagihan, rowTunggakan) {
         let namaBln = namaBulanArr[col];
         let colMeter = col + 17;
 
-        let rawVal = rowTunggakan[col] ? rowTunggakan[col].replace(/"/g, '') : '0';
+        let rawVal = (rowTunggakan[col] !== undefined && rowTunggakan[col] !== null) ? String(rowTunggakan[col]).replace(/"/g, '') : '0';
         let cleanNum = parseInt(rawVal.replace(/[^0-9]/g, '')) || 0;
         
-        let rawMeterTung = (rowTagihan && rowTagihan[colMeter]) ? rowTagihan[colMeter].replace(/"/g, '') : '0';
+        let rawMeterTung = (rowTagihan && rowTagihan[colMeter] !== undefined && rowTagihan[colMeter] !== null) ? String(rowTagihan[colMeter]).replace(/"/g, '') : '0';
         let cleanMeterTung = parseFloat(rawMeterTung.replace(/[^0-9.]/g, '')) || 0;
         let nominalTunggakanDihitung = cleanMeterTung * tarifPerM3;
         
@@ -2004,7 +2121,7 @@ function tampilkanStruk() {
         return;
     }
 
-    const idPelanggan = activeDataTunggakan[0] ? activeDataTunggakan[0].replace(/"/g, '').trim() : '-';
+    const idPelanggan = (activeDataTunggakan[0] !== undefined && activeDataTunggakan[0] !== null) ? String(activeDataTunggakan[0]).replace(/"/g, '').trim() : '-';
     const namaPelanggan = dapatkanNamaBersih(activeDataTunggakan);
     const selectElem = document.getElementById('selectStrukBulan');
     
@@ -2014,29 +2131,28 @@ function tampilkanStruk() {
     const namaBln = namaBulanArr[idxBulan];
     const colMeter = idxBulan + 17;
     
-    const rawValTunggakan = activeDataTunggakan[idxBulan] ? activeDataTunggakan[idxBulan].replace(/"/g, '').trim() : '0';
+    const rawValTunggakan = (activeDataTunggakan[idxBulan] !== undefined && activeDataTunggakan[idxBulan] !== null) ? String(activeDataTunggakan[idxBulan]).replace(/"/g, '').trim() : '0';
     let cleanValTunggakan = parseInt(rawValTunggakan.replace(/[^0-9]/g, '')) || 0;
 
-    // --- PEMETAAN STAND AWAL & AKHIR DARI KOLOM P SAMPAI AM ---
     let valStandAwal = '0';
     let valStandAkhir = '0';
     try {
-        let colStartIdx = (idxBulan * 2) + 11; // Mulai dari Kolom P (index 15) untuk Januari
-        let colEndIdx = colStartIdx + 1;       // Kolom Stand Akhir tepat di sebelah kanannya
+        let colStartIdx = (idxBulan * 2) + 11; 
+        let colEndIdx = colStartIdx + 1;        
 
-        if (activeDataTunggakan[colStartIdx]) {
-            valStandAwal = activeDataTunggakan[colStartIdx].replace(/"/g, '').trim();
+        if (activeDataTunggakan[colStartIdx] !== undefined && activeDataTunggakan[colStartIdx] !== null) {
+            valStandAwal = String(activeDataTunggakan[colStartIdx]).replace(/"/g, '').trim();
         }
-        if (activeDataTunggakan[colEndIdx]) {
-            valStandAkhir = activeDataTunggakan[colEndIdx].replace(/"/g, '').trim();
+        if (activeDataTunggakan[colEndIdx] !== undefined && activeDataTunggakan[colEndIdx] !== null) {
+            valStandAkhir = String(activeDataTunggakan[colEndIdx]).replace(/"/g, '').trim();
         }
     } catch (e) {
         console.log("Catatan Stand Meter: " + e);
     }
 
     let rawMeter = '0';
-    if (activeDataTagihan && activeDataTagihan[colMeter]) {
-        rawMeter = activeDataTagihan[colMeter].replace(/"/g, '').trim();
+    if (activeDataTagihan && activeDataTagihan[colMeter] !== undefined && activeDataTagihan[colMeter] !== null) {
+        rawMeter = String(activeDataTagihan[colMeter]).replace(/"/g, '').trim();
     }
     let cleanMeter = parseFloat(rawMeter.replace(/[^0-9.]/g, '')) || 0;
 
@@ -2050,8 +2166,6 @@ function tampilkanStruk() {
     let formatMeter = cleanMeter > 0 ? cleanMeter + ' m³' : '0 m³';
     let formatRupiah = 'Rp ' + cleanNominal.toLocaleString('id-ID');
 
-    if (document.getElementById('resStrukID')) document.getElementById('resStrukID').innerText = idPelanggan;
-    if (document.getElementById('resStrukNama')) document.getElementById('resStrukNama').innerText = namaPelanggan;
     if (document.getElementById('strukID')) document.getElementById('strukID').innerText = idPelanggan;
     if (document.getElementById('strukNama')) document.getElementById('strukNama').innerText = namaPelanggan;
     if (document.getElementById('strukBulan')) document.getElementById('strukBulan').innerText = namaBln;
@@ -2110,76 +2224,27 @@ function tampilkanStruk() {
 
 function cetakMode(jenis) {
     const bodyEl = document.body;
-    // Bersihkan dulu kelas sebelumnya
     bodyEl.classList.remove('print-kartu-saja', 'print-struk-saja');
     
-    // Tambahkan kelas target cetak
     if (jenis === 'kartu') {
         bodyEl.classList.add('print-kartu-saja');
     } else if (jenis === 'struk') {
         bodyEl.classList.add('print-struk-saja');
     }
-    
-    // Jalankan perintah print browser
     window.print();
 }
-
-
-function prosesGantiPassword() {
-    const inputPassBaru = document.getElementById('inputPasswordBaru');
-    const passBaru = inputPassBaru ? inputPassBaru.value.trim() : '';
-    const pesanGanti = document.getElementById('pesanGantiPass');
-    if (!pesanGanti) return;
-    if (!passBaru) {
-        pesanGanti.innerHTML = '<span class="pesan-error">Password baru tidak boleh kosong!</span>';
-        return;
-    }
-    currentPasswordAktif = passBaru;
-    pesanGanti.innerHTML = '<span class="pesan-sukses">✅ Password berhasil diubah untuk sesi ini!<br/><small style="color:#64748b">Catatan: Harap informasikan password baru ini ke pengurus HIPPAM.</small></span>';
-    if (inputPassBaru) inputPassBaru.value = '';
-}
-
-function prosesLogout() {
-    dataCacheTagihan = null;
-    dataCacheTunggakan = null;
-    currentPasswordAktif = "";
-
-    const inputID = document.getElementById('inputIDUtama');
-    const inputPass = document.getElementById('inputPasswordUtama');
-    const pesanGlobal = document.getElementById('pesanGlobal');
-
-    if (inputID) inputID.value = '';
-    if (inputPass) inputPass.value = '';
-    if (pesanGlobal) pesanGlobal.innerText = '';
-
-    const boxLogin = document.getElementById('boxLogin');
-    const infoPelanggan = document.getElementById('info-pelanggan-aktif');
-    const containerMenu = document.getElementById('containerMenu');
-    const berandaDuaKolom = document.getElementById('berandaDuaKolom');
-    const panelSingleKolom = document.getElementById('panelSingleKolom');
-
-    if (containerMenu) containerMenu.style.display = 'none';
-    if (infoPelanggan) infoPelanggan.style.display = 'none';
-    if (boxLogin) boxLogin.style.display = 'block';
-
-    if (berandaDuaKolom) berandaDuaKolom.classList.remove('diterbitkan-hidden');
-    if (panelSingleKolom) panelSingleKolom.classList.remove('active-single-column');
-}
-
 
 function cetakStrukDokumen() {
     const printArea = document.getElementById('printArea');
     if (!printArea) return;
 
     const winPrint = window.open('', '', 'width=600,height=600');
-    
     winPrint.document.write('<html><head><title>Struk Pembayaran HIPPAM</title><style>body{font-family: "Consolas", Courier New, Courier, monospace; padding:20px; font-size:13px;} .pdam-row{display:flex; justify-content:space-between; margin:2px 0;}</style></head><body>');
     winPrint.document.write(printArea.innerHTML);
     winPrint.document.write('</body></html>');
     winPrint.document.close();
 
     const qrImg = winPrint.document.getElementById('qrCodeImg');
-
     const jalankanCetak = () => {
         winPrint.focus();
         winPrint.print();
@@ -2194,6 +2259,103 @@ function cetakStrukDokumen() {
     } else {
         jalankanCetak();
     }
+}
+
+
+async function prosesGantiPassword() {
+    const inputPINLama = document.getElementById('inputPINLama');
+    const inputPassBaru = document.getElementById('inputPasswordBaru');
+    const pesanGanti = document.getElementById('pesanGantiPass');
+    
+    if (!pesanGanti) return;
+
+    const passLama = inputPINLama ? inputPINLama.value.trim() : '';
+    const passBaru = inputPassBaru ? inputPassBaru.value.trim() : '';
+    const idPelanggan = (localStorage.getItem('hippam_id') || '').trim().toLowerCase();
+
+    if (!idPelanggan) {
+        pesanGanti.innerHTML = '<span style="color: red;">⚠️ Sesi login tidak ditemukan, silakan login ulang!</span>';
+        return;
+    }
+    if (!passLama) {
+        pesanGanti.innerHTML = '<span style="color: red;">⚠️ PIN lama wajib diisi!</span>';
+        return;
+    }
+    if (!passBaru) {
+        pesanGanti.innerHTML = '<span style="color: red;">⚠️ Password baru tidak boleh kosong!</span>';
+        return;
+    }
+
+    pesanGanti.innerHTML = '<span style="color: #0284c7;">⏳ Menyimpan perubahan ke database...</span>';
+
+    const formData = new URLSearchParams();
+    formData.append('idPelanggan', idPelanggan);
+    formData.append('oldPin', passLama);
+    formData.append('newPin', passBaru);
+
+    try {
+        let response = await fetch(URL_WEB_APPS, {
+            method: 'POST',
+            body: formData
+        });
+
+        let hasil = await response.json();
+
+        if (hasil.status === "success") {
+            pesanGanti.innerHTML = `<span style="color: #16a34a; font-weight: 600;">✅ ${hasil.message}</span>`;
+            if (inputPINLama) inputPINLama.value = '';
+            if (inputPassBaru) inputPassBaru.value = '';
+        } else {
+            pesanGanti.innerHTML = `<span style="color: red;">❌ ${hasil.message}</span>`;
+        }
+    } catch (error) {
+        console.error("Error Detail:", error);
+        pesanGanti.innerHTML = '<span style="color: red;">❌ Gagal terhubung ke server database HIPPAM.</span>';
+    }
+}
+
+function togglePassword(fieldId = 'inputPasswordUtama', iconId = 'toggleEye') {
+    const passwordInput = document.getElementById(fieldId);
+    const toggleEye = document.getElementById(iconId);
+    
+    if (!passwordInput || !toggleEye) return;
+    
+   
+    const svgEyeOpen = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+    
+    
+    const svgEyeClosed = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleEye.innerHTML = svgEyeClosed; 
+    } else {
+        passwordInput.type = 'password';
+        toggleEye.innerHTML = svgEyeOpen; 
+    }
+}
+
+function prosesLogout() {
+    dataCacheTagihan = null;
+    dataCacheTunggakan = null;
+    currentPasswordAktif = "";
+
+    localStorage.removeItem('hippam_id');
+    localStorage.removeItem('namaPelanggan');
+
+    const inputID = document.getElementById('inputIDUtama');
+    const inputPass = document.getElementById('inputPasswordUtama');
+    const pesanGlobal = document.getElementById('pesanGlobal');
+
+    if (inputID) inputID.value = '';
+    if (inputPass) inputPass.value = '';
+    if (pesanGlobal) pesanGlobal.innerText = '';
+
+    const boxLogin = document.getElementById('boxLogin');
+    const containerMenu = document.getElementById('containerMenu');
+
+    if (containerMenu) containerMenu.style.display = 'none';
+    if (boxLogin) boxLogin.style.display = 'block';
 }
 
 function terbilang(nilai) {
@@ -2226,6 +2388,21 @@ function formatTerbilangRupiah(nominalAngka) {
     let hasilText = terbilang(nominalAngka);
     return hasilText + ' Rupiah';
 }
+
+function setActiveBottom(element) {
+   
+    const bottomItems = document.querySelectorAll('.hippam-nav-item');
+    bottomItems.forEach(el => {
+        el.classList.remove('active');
+    });
+    
+    // 2. Tambahkan kelas 'active' hanya ke menu bawah yang sedang diklik
+    if (element) {
+        element.classList.add('active');
+    }
+}
+
+
 //]]>
 </script>
 <!-- Footer -->
@@ -2252,8 +2429,10 @@ function formatTerbilangRupiah(nominalAngka) {
 </div>
 </p>
 <!-- Tombol Aksi Cepat (Call to Action) WhatsApp Pengaduan -->
-<a class='footer-cta-btn' href='https://wa.me/6280000000000?text=Halo%20Pengurus%20HIPPAM,%20saya%20mau%20melaporkan%20kendala' rel='noopener' target='_blank'>
-<svg fill='none' height='16' stroke='currentColor' stroke-width='2' viewBox='0 0 24 24' width='16'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'></path></svg>
+<a class='footer-cta-btn' href='https://wa.me/6280000000000?text=Nuwun%20sewu%20Pengurus%20HIPPAM,%20kula%20badhe%20ngaturaken%20lapuran%20bilih%20wonten%20kendala.' rel='noopener' target='_blank'>
+<svg fill='currentColor' height='16' style='flex-shrink: 0;' viewBox='0 0 24 24' width='16'>
+<path d='M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z'></path>
+</svg>
 <span>Hubungi Pengurus (WhatsApp)</span>
 </a>
 </div>
