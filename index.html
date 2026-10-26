@@ -24,11 +24,13 @@ box-sizing: border-box;
 /* Penerapan pada UI */
 --primary-color: #0284c7;        /* Biru Air Utama (Header/Tombol/Aksen) */
 --primary-dark: #0f172a;         /* Deep Slate Dark (Latar Banner/Footer/Side-Card) */
---primary-hover: #059669;        /* Biru Gelap Hover#0369a1 #059669*/
+--primary-hover: #059669;        /* Biru Gelap Hover#0369a1 #059669 #94a3b8*/
 --text-color : #ffffff;
+--accent-light: #94a3b8;
 --accent-color: #38bdf8;         /* Sky Water Blue (Sorotan/Badge/Sub-title) */
 --accent-green: #10b981;         /* Hijau Lunas / WhatsApp / Status Sukses */
 --accent-red: #ef4444;
+--text-primary: #334155;
 --text-main: #222222;            /* Warna Teks Utama (Sangat Tajam & Kontras) */
 --text-muted: #64748b;           /* Warna Teks Sekunder / Deskripsi Pudar */
 --text-light: #f8fafc;           /* Warna Teks Terang di Atas Latar Gelap */
@@ -210,7 +212,7 @@ width: 100%;
 min-height: 350px;
 box-sizing: border-box;
 margin: 0 auto;
-padding: clamp(12px, 2vw, 20px);
+padding: 0 clamp(12px, 2vw, 20px) 0 clamp(12px, 2vw, 20px);
 position: relative;
 z-index: 1;
 }
@@ -264,7 +266,7 @@ color: #dddddd !important;
 font-size: clamp(13px, 0.5vw + 0.75rem, 14px);
 line-height: 1.6;
 margin: 0;
-font-weight: 400;
+font-weight: 400;font-style: italic;
 }
 .login-col-right {
 flex: 1;
@@ -324,7 +326,7 @@ width: 100%;
 }
 .password-wrapper input {
 width: 100%;
-padding-right: 45px !important; /* Memberi ruang agar teks tidak menabrak ikon mata */
+padding-right: 45px !important;
 box-sizing: border-box;
 }
 .password-toggle {
@@ -342,28 +344,20 @@ transition: opacity 0.2s ease;
 .password-toggle:hover {
 opacity: 1;
 }
-/* ==========================================
-PANEL GANTI PASSWORD (KOMPAK & TERPUSAT)
-========================================== */
-/* ==========================================
-PANEL GANTI PASSWORD (KOMPAK & TERPUSAT)
-========================================== */
 #menu-gantipass {
 box-sizing: border-box;
-width: 92%;               /* Lebar responsif mengikuti layar dengan sisa sedikit di pinggir */
-max-width: 400px;         /* Batas maksimal agar tidak terlalu lebar */
-margin: 1.5rem auto;      /* Memposisikan kotak di tengah-tengah halaman */
-padding: 1.15rem 1.25rem; /* Jarak dalam yang pas dan nyaman */
-background: var(--bg-card, #ffffff);
+width: 92%;
+max-width: 400px;
+margin: 1.5rem auto;
+padding: 1.15rem 1.25rem;
+background: var(--bg-card);
 border-radius: 12px;
 box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 border: 1px solid var(--border-color, #e2e8f0);
 }
-/* Pastikan semua elemen di dalamnya mematuhi batas box */
 #menu-gantipass * {
 box-sizing: border-box;
 }
-/* Bagian Header Kartu Info di dalam panel */
 #menu-gantipass .kartu-info {
 margin-bottom: 0.85rem;
 padding-bottom: 0.6rem;
@@ -372,9 +366,8 @@ border-bottom: 1px dashed var(--border-color, #cbd5e1);
 #menu-gantipass .kartu-info p {
 margin: 0 0 0.2rem 0;
 line-height: 1.35;
-color: var(--text-primary, #1e293b);
+color: var(--bg-footer);
 }
-/* Grup Form */
 #menu-gantipass .form-group {
 margin-bottom: 0.85rem;
 }
@@ -382,35 +375,32 @@ margin-bottom: 0.85rem;
 display: block;
 font-size: 0.8125rem;
 font-weight: 600;
-color: var(--text-primary, #334155);
+color: var(--text-primary);
 margin-bottom: 0.35rem;
 }
-/* Pembungkus Input Password */
 #menu-gantipass .password-wrapper {
 position: relative;
 display: flex;
 align-items: center;
 width: 100%;
 }
-/* Kotak Input */
 #menu-gantipass .password-wrapper input {
 width: 100% !important;
 height: 40px;
 padding: 0 2.5rem 0 0.75rem !important;
 font-size: 0.875rem !important;
-border: 1px solid var(--input-border, #cbd5e1);
+border: 1px solid var(--input-border);
 border-radius: 8px;
 background: var(--bg-input, #f8fafc);
-color: var(--text-primary, #0f172a);
+color: var(--primary-dark);
 outline: none;
 transition: border-color 0.2s, box-shadow 0.2s;
 }
 #menu-gantipass .password-wrapper input:focus {
-border-color: var(--primary-color, #0284c7);
+border-color: var(--primary-color);
 box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
 background: #ffffff;
 }
-/* Ikon Toggle Mata */
 #menu-gantipass .password-toggle {
 position: absolute;
 right: 10px;
@@ -419,15 +409,14 @@ display: flex;
 align-items: center;
 cursor: pointer;
 user-select: none;
-color: var(--text-muted, #64748b);
+color: var(--text-muted);
 background: transparent;
 border: none;
 padding: 0;
 }
 #menu-gantipass .password-toggle:hover {
-color: var(--primary-color, #0284c7);
+color: var(--primary-color);
 }
-/* Tombol Aksi Utama */
 #menu-gantipass .btn-aksi-utama {
 width: 100%;
 height: 42px;
@@ -435,7 +424,7 @@ margin-top: 0.75rem;
 font-size: 0.875rem;
 font-weight: 600;
 color: #ffffff;
-background-color: var(--primary-color, #0284c7);
+background-color: var(--primary-color);
 border: none;
 border-radius: 8px;
 cursor: pointer;
@@ -450,14 +439,10 @@ background-color: var(--primary-hover, #0369a1);
 #menu-gantipass .btn-aksi-utama:active {
 transform: scale(0.98);
 }
-/* Area Pesan/Notifikasi */
 #menu-gantipass .pesan-ganti-pass-wrap {
 margin-top: 0.5rem;
 font-size: 0.8rem;
 }
-/* ==========================================
-2. GAYA TAUTAN LUPA PASSWORD
-========================================== */
 .lupa-password-container {
 margin-top: 8px;
 text-align: right; /* Posisinya rata kanan di bawah kolom password */
@@ -473,7 +458,6 @@ transition: color 0.2s ease, text-decoration 0.2s ease;
 color: #003d99;
 text-decoration: underline;
 }
-/* Tombol Masuk Utama */
 .btn-aksi-utama {
 width: 100%;
 height: 46px;
@@ -528,9 +512,6 @@ margin-top: 12px;
 font-size: 12px;
 text-align: center;
 }
-/* =========================================================
-5. DASHBOARD SETELAH LOGIN & MENU TABS
-========================================================= */
 .panel-setelah-login {
 display: none;
 width: 100%;
@@ -544,7 +525,7 @@ display: block !important;
 display: flex;
 flex-direction: column;
 align-items: flex-end;
-gap: 6px;
+gap: 13px;
 margin-bottom: 20px;
 width: 100%;
 }
@@ -560,7 +541,7 @@ align-items: center;
 gap: 6px;
 background: #fef2f2;
 color: var(--accent-red);
-border: 1px solid #fecaca;
+border: 2px solid #fecaca;
 padding: 8px 14px;
 font-size: 12px;
 border-radius: 8px;
@@ -584,7 +565,7 @@ border-color: var(--accent-red);
 display: flex !important;
 flex-direction: column !important;
 align-items: center !important;
-gap: 16px !important;
+gap: 13px !important;
 width: 100% !important;
 }
 .hippam-card-atm-container {
@@ -670,7 +651,7 @@ text-transform: uppercase;
 }
 .brand-sub {
 font-size: 8.5px;
-color: #94a3b8;
+color: var(--accent-light);
 font-weight: 500;
 }
 .card-status-badge {
@@ -718,7 +699,7 @@ text-transform: uppercase !important;
 .qr-label-info .qr-desc,
 .qr-desc {
 font-size: 7.5px !important;
-color: #94a3b8 !important;
+color: var(--accent-light) !important;
 font-weight: 500 !important;
 }
 .atm-chip {
@@ -740,7 +721,7 @@ height: 100% !important;
 object-fit: contain !important;
 }
 .btn-cetak-kartu {
-background: #0284c7 !important;
+background: var(--primary-color) !important;
 color: #ffffff !important;
 border: none !important;
 padding: 8px 14px !important;
@@ -790,7 +771,6 @@ overflow: hidden !important;
 text-overflow: ellipsis !important;
 width: 100% !important;
 }
-/* Nomor ID Anggota di baris kedua */
 .card-id-number {
 display: block !important;
 visibility: visible !important;
@@ -848,9 +828,6 @@ background: var(--primary-hover);color: #ffffff;
 background: var(--primary-color);
 color: #ffffff;
 }
-/* =========================================================
-6. PANEL SECTION, KARTU INFO & TABEL DATA
-========================================================= */
 .panel-section {
 display: none;
 margin-top: var(--spacing-md);
@@ -983,9 +960,6 @@ transition: border-color 0.2s ease, box-shadow 0.2s ease;
 border-color: var(--primary-color);
 box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.15);
 }
-/* =========================================================
-7. KARTU KONTAK WHATSAPP PENGURUS
-========================================================= */
 .kontak-card-item {
 display: flex;
 align-items: center;
@@ -1045,9 +1019,6 @@ height: 14px;
 fill: #ffffff;
 flex-shrink: 0;
 }
-/* =========================================================
-8 STRUK PREVIEW FORMAT PDAM / PPOB (ELEGAN & KEKENIAN)
-========================================================= */
 .print-container {
 background: #ffffff;
 border: 1px dashed var(--border-color);
@@ -1055,7 +1026,7 @@ border-radius: var(--radius-btn, 12px);
 padding: 18px 16px;
 max-width: 320px;
 margin: 20px auto;
-font-family: var(--font-receipt, 'Consolas', monospace);
+font-family: var(--font-receipt);
 font-size: 12px;
 color: var(--text-main);
 box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
@@ -1108,7 +1079,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 font-size: 11px;
-font-family: var(--font-receipt, 'Consolas', monospace);
+font-family: var(--font-receipt);
 margin: 4px 0;
 color: var(--text-main);
 }
@@ -1174,124 +1145,144 @@ box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 .btn-cetak-struk:hover {
 background-color: var(--primary-hover);
 }
-#footer-wrapper {
+#footer-atas {
 background-color: var(--bg-footer);
-color: var(--border-color, #94a3b8);
-padding: clamp(32px, 4vw, 48px) clamp(16px, 3vw, 24px) clamp(20px, 2vw, 28px);
-font-size: clamp(13px, 1.2vw, 14px);
-line-height: 1.6;
+color: var(--border-color);font-size: clamp(13px, 1.2vw, 14px);
+width: 100vw;
+position: relative;
+left: 50%;
+right: 50%;
+margin-left: -50vw;
+margin-right: -50vw;
+padding: clamp(32px, 4vw, 48px) clamp(20px, 4vw, 40px);
+box-sizing: border-box;
 border-top: 1px solid rgba(255, 255, 255, 0.05);
+text-align: left;
 }
 .footer-widgets {
-max-width: 1100px;
-margin:  0 auto clamp(28px, 3.5vw, 40px) auto;
+max-width: 900px;
+margin: 0 auto;
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+grid-template-columns: repeat(2, minmax(0, 1fr));
 gap: clamp(24px, 3.5vw, 36px);
-margin-bottom: 30px;
 }
 .footer-widget h3 {
 color: #ffffff;
 font-size: clamp(15px, 1.5vw, 17px);
-font-weight: 600;
-margin-bottom: clamp(12px, 1.5vw, 16px);
-position: relative;
-padding-bottom: 6px;
 border-bottom: 2px solid #0284c7;
+padding-bottom: 2px;
 display: inline-block;
-}
-.portal-desc {
-color: #94a3b8;
 margin-bottom: 12px;
-font-size: clamp(13px, 1.2vw, 14px);
-line-height: 1.65;
-}
-.portal-quote {
-color: var(--accent-color);
-font-size: clamp(12.5px, 1.1vw, 13.5px);
-font-style: italic;
-margin-top: 6px;
-display: block;
 }
 .footer-cta-btn {
 display: inline-flex;
 align-items: center;
-justify-content: center;
-gap: 8px;
+gap: clamp(6px, 1vw, 10px);
 background: var(--accent-green);
 color: #ffffff !important;
-padding: clamp(9px, 1.2vw, 11px) clamp(14px, 1.8vw, 18px);
+padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 20px);
 border-radius: 8px;
 text-decoration: none;
 font-weight: 600;
-font-size: clamp(13px, 1.1vw, 14px);
 margin-top: 12px;
-width: fit-content;
-box-shadow: 0 2px 10px rgba(22, 163, 74, 0.2);
-transition: all 0.25s ease;
-}
-.footer-cta-btn:hover {
-background: #15803d;
-color: #ffffff !important;
-transform: translateY(-2px);
-box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
-}
-.footer-cta-btn svg {
-width: 16px;
-height: 16px;
-fill: #ffffff;
-}
-.footer-social-list {
-list-style: none;
-padding: 0;
-margin: 0;
-display: flex;
-flex-direction: column;
-gap: 10px;
-}
-.footer-social-list li {
-margin: 0;
-}
-.footer-social-link {
-display: inline-flex;
-align-items: center;
-gap: 10px;
-color: #cbd5e1;
-text-decoration: none;
-font-size: clamp(13px, 1.1vw, 14px);
-font-weight: 500;
-transition: all 0.2s ease;
-}
-.footer-social-link:hover {
-color: var(--primary-hover);
-transform: translateX(4px);
-}
-.footer-icon {
-width: clamp(18px, 1.6vw, 20px);
-height: clamp(18px, 1.6vw, 20px);
-fill: currentColor;
-flex-shrink: 0;
+font-size: clamp(12px, 1.5vw, 14px);
 }
 .footer-bottom {
-max-width: 1100px;
+background-color: var(--primary-dark);
+color: var(--accent-light);
+padding: clamp(16px, 3vw, 28px) clamp(16px, 4vw, 32px);
+border-top: 1px solid #1e293b;
+font-size: clamp(12px, 1.2vw, 13px);
+}
+.footer-bottom-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: clamp(12px, 2vw, 24px);
+max-width: clamp(700px, 90vw, 960px);
 margin: 0 auto;
-border-top: 1px solid #334155;
-padding-top: clamp(18px, 2vw, 24px);
-text-align: center;
-font-size: clamp(12.5px, 1.1vw, 13.5px);
-color: var(--text-muted, #64748b);
-line-height: 1.5;
 }
-.footer-bottom a {
-color: var(--accent-color, #38bdf8);
+.footer-copyright {
+text-align: right;
+flex: 1 1 100px;
+}
+.footer-bottom-socials {
+display: flex;
+flex-wrap: wrap;
+justify-content: left;
+gap: clamp(8px, 1.5vw, 12px);
+flex: 1 1 400px;
+}
+.footer-social-link {
+display: flex;
+align-items: center;
+gap: clamp(6px, 1vw, 8px);
+color: var(--accent-light);
 text-decoration: none;
+transition: all 0.25s ease;
+font-size: clamp(12px, 1.2vw, 13px);
+background-color: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255, 255, 255, 0.1);
+padding: clamp(6px, 1vw, 8px) clamp(12px, 1.8vw, 16px);
+border-radius: 50px;
 }
-.footer-bottom a:hover {
-text-decoration: underline;
+.footer-social-link:hover {
+background-color: rgba(255, 255, 255, 0.12);
+border-color: rgba(255, 255, 255, 0.25);
+color: #ffffff;
+transform: translateY(-2px);
 }
-/* ==========================================================
-HIPPAM MEMBER FLOATING NAVIGATION (MURNI TANPA JS)
-========================================================== */
+.footer-icon {
+width: clamp(16px, 1.8vw, 18px);
+height: clamp(16px, 1.8vw, 18px);
+flex-shrink: 0;
+fill: currentColor;
+}
+.panel-section#menu-rekapitulasi {
+display: none;
+background: #ffffff;
+border-radius: var(--radius-box, 16px);
+margin-top: 20px;
+text-align: left;
+}
+.rekap-header {
+margin-bottom: 20px;
+border-bottom: 2px solid #f1f5f9;
+padding-bottom: 15px;
+}
+.rekap-header h3 {
+margin: 0 0 5px 0;
+font-size: clamp(16px, 2vw, 18px);
+color: var(--text-main);
+font-family: var(--font-heading);
+}
+.rekap-header p {
+margin: 0;
+font-size: clamp(12px, 1.5vw, 13px);
+color: var(--text-muted);
+}
+.rekap-info-meta {
+margin-top: 10px;
+font-size: clamp(12px, 1.5vw, 13px);
+font-weight: 600;
+color: var(--primary-color);
+}
+/* Pengaturan Tabel & Garis Pembatas di dalam Panel Rekap */
+#menu-rekapitulasi .tabel-data tr {
+border-bottom: 1px solid #e2e8f0;
+}
+#menu-rekapitulasi .tabel-data th,
+#menu-rekapitulasi .tabel-data td {
+padding: clamp(8px, 1.5vw, 12px) clamp(8px, 1.5vw, 12px);
+font-size: clamp(12px, 1.5vw, 13px);
+}
+#menu-rekapitulasi tfoot tr {
+background: #f8fafc;
+font-weight: bold;
+border-top: 2px solid var(--border-color);
+color: var(--text-main);
+}
 .hippam-member-nav {
 display: none;
 position: fixed;
@@ -1300,8 +1291,8 @@ left: 0;
 right: 0;
 width: 100%;
 height: clamp(56px, 7vh, 64px);
-background: var(--card-bg, #ffffff);
-border-top: 1px solid var(--border-color, #e2e8f0);
+background: var(--bg-footer);
+border-top: 1px solid var(--border-color);
 justify-content: space-around;
 align-items: center;
 z-index: 9999;
@@ -1316,7 +1307,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 text-decoration: none;
-color: var(--text-main);
+color: var(--text-color);
 gap: clamp(2px, 0.5vw, 4px);
 flex: 1;
 height: 100%;
@@ -1340,20 +1331,37 @@ line-height: 1;
 .hippam-member-nav .hippam-nav-item.active {
 color: var(--accent-color) !important;
 }
-/* ==========================================================
-10. MEDIA QUERIES, FOOTER, & HIPPAM MEMBER NAVIGATION
-========================================================== */
 @media screen and (max-width: 768px) {
 .hippam-member-nav {
 display: flex !important;
 }
 body {
-padding-bottom: 70px !important;
+padding-bottom: clamp(48px, 6vw, 70px) !important;
 }
 .footer-widgets {
 grid-template-columns: 1fr !important;
-gap: 24px;
-padding: 20px 16px;
+}
+.footer-bottom-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 8px;
+max-width: clamp(700px, 90vw, 960px);
+margin: 0 auto;
+}
+.footer-copyright {
+display: flex;
+width: 100%;
+justify-content: center;
+box-sizing: border-box;
+}
+.footer-bottom-socials {
+display: flex;
+flex-direction: column; /* Diperbaiki dari 'columns' ke 'column' */
+width: auto;
+justify-content: center;
+gap: 12px;
 }
 }
 @media screen and (min-width: 769px) {
@@ -1365,7 +1373,6 @@ display: none !important;
 main,
 main[role='main'],
 .main-wrapper {
-padding: 10px;
 min-height: 300px;
 }
 .hippam-card-atm-container {
@@ -1526,14 +1533,14 @@ display: none !important;
 </div>
 <h2 class='welcome-title'>Sugeng Rawuh, Warga Karangtalun!</h2>
 <p class='welcome-sub'>
-    Mangga mlebetaken <strong>ID Anggota</strong> kagem mriksani rincian tagihan, riwayat konsumsi, status lan cetak struk mandiri pembayaran toya kanthi gampil lan cepet.
+    Mangga mlebetaken <strong>ID Anggota</strong> kagem mriksani rincian tagihan, riwayat konsumsi, status pembayaran lan cetak struk kanthi mandiri. ID Anggota meniko sampun tercantum wonten ing Kartu Meteran ingkang sampun dipasang cerakipun meteran toya.
   </p>
 </div>
 <!-- BAGIAN KANAN: Form Input & Tombol Login -->
 <div class='login-col-right'>
 <div class='box-login-single'>
 <div class='form-group'>
-<label for='inputIDUtama'>ID Pelanggan :</label>
+<label for='inputIDUtama'>ID Anggota :</label>
 <input id='inputIDUtama' placeholder='Contoh: KRT-001-0609' type='text'/>
 </div>
 <div class='form-group mb-extra'>
@@ -1548,7 +1555,7 @@ display: none !important;
 </div>
 <!-- Tambahan Tautan Lupa Password di Sini -->
 <div class='lupa-password-container'>
-<a class='link-lupa-password' href='https://facebook.com/Purwanto.Ok/' onclick='bukaMenuLupaPassword(event)'>Lupa Password?</a>
+<a class='link-lupa-password' href='https://www.instagram.com/purwanto_ok/' onclick='bukaMenuLupaPassword(event)'>Lupa Password?</a>
 </div>
 </div>
 <button class='btn-aksi-utama' onclick='muatDataPelanggan()'>MLEBET (LOGIN)</button>
@@ -1638,6 +1645,7 @@ display: none !important;
 <button class='tab-btn' onclick='gantiMenu("status", this)'>Status</button>
 <button class='tab-btn' onclick='gantiMenu("tunggakan", this)'>Tunggakan</button>
 <button class='tab-btn' onclick='gantiMenu("struk", this)'>Struk</button>
+<button class='tab-btn' onclick='gantiMenu(&#39;rekap&#39;, this); muatDataRekapitulasi();'>Rekap</button>
 <button class='tab-btn' onclick='gantiMenu("gantipass", this)'>Ubah PIN</button>
 </div>
 <!-- MENU 1: RINCIAN TAGIHAN -->
@@ -1701,18 +1709,18 @@ display: none !important;
 <div class='form-group'>
 <label for='selectStrukBulan'>Pilih Bulan untuk Cetak Struk:</label>
 <select id='selectStrukBulan' onchange='tampilkanStruk()'>
-<option value='2'>Januari</option>
-<option value='3'>Februari</option>
-<option value='4'>Maret</option>
-<option value='5'>April</option>
-<option value='6'>Mei</option>
-<option value='7'>Juni</option>
-<option value='8'>Juli</option>
-<option value='9'>Agustus</option>
-<option value='10'>September</option>
-<option value='11'>Oktober</option>
-<option value='12'>November</option>
-<option value='13'>Desember</option>
+<option value='1'>Januari</option>
+<option value='2'>Februari</option>
+<option value='3'>Maret</option>
+<option value='4'>April</option>
+<option value='5'>Mei</option>
+<option value='6'>Juni</option>
+<option value='7'>Juli</option>
+<option value='8'>Agustus</option>
+<option value='9'>September</option>
+<option value='10'>Oktober</option>
+<option value='11'>November</option>
+<option value='12'>Desember</option>
 </select>
 </div>
 <div class='print-container' id='printArea' style='display:none;'>
@@ -1760,6 +1768,46 @@ display: none !important;
 </div>
 <button class='btn-aksi-utama btn-cetak-struk' id='btnCetakAksi' onclick='cetakStrukDokumen()'>🖨&#65039;  Cetak Struk / Simpan PDF  </button>
 <div class='pesan-error pesan-error-struk' id='pesanStrukStatus'></div>
+</div>
+<!-- ========================================================= PANEL REKAPITULASI (MERGED & LEGA) ========================================================= -->
+<div class='panel-section' id='menu-rekapitulasi'>
+<!-- Header Informasi Rekap -->
+<div class='rekap-header'>
+<h3>Rekapitulasi Penggunaan & Pembayaran Air</h3>
+<p>Rincian transaksi riwayat HIPPAM "Tirta Kencana" selama 1 Tahun.</p>
+<div class='rekap-info-meta'>
+            ID Anggota: <span id='rekap-id-anggota'>-</span> | Nama: <span id='rekap-nama-anggota'>-</span>
+</div>
+</div>
+<!-- Tabel Data 12 Bulan -->
+<div class='table-wrapper'>
+<table class='tabel-data'>
+<thead>
+<tr>
+<th style='width: 40px; text-align: center;'>No</th>
+<th>Bulan</th>
+<th style='text-align: center;'>Pemakaian</th>
+<th style='text-align: right;'>Tagihan</th>
+<th style='text-align: right;'>Dibayar</th>
+<th style='text-align: center;'>Status</th>
+<th style='text-align: right;'>Tunggakan</th>
+</tr>
+</thead>
+<tbody id='tbody-rekap-data'>
+<!-- Baris data akan diisi secara otomatis oleh JavaScript -->
+</tbody>
+<tfoot>
+<tr>
+<td colspan='2' style='text-align: right;'>TOTAL:</td>
+<td id='total-pemakaian' style='text-align: center;'>0 m&#179;</td>
+<td id='total-tagihan' style='text-align: right;'>Rp 0</td>
+<td id='total-dibayar' style='text-align: right;'>Rp 0</td>
+<td style='text-align: center;'>-</td>
+<td id='total-tunggakan' style='text-align: right; color: #dc2626;'>Rp 0</td>
+</tr>
+</tfoot>
+</table>
+</div>
 </div>
 <!-- MENU 5: GANTI PASSWORD -->
 <div class='panel-section' id='menu-gantipass'>
@@ -1811,7 +1859,7 @@ display: none !important;
 <span class='hippam-nav-label'>Tunggakan</span>
 </a>
 <!-- Menu 4: Struk -->
-<a class='hippam-nav-item active' href='#struk' onclick='event.preventDefault(); gantiMenu(&#39;struk&#39;, this); setActiveBottom(this);'>
+<a class='hippam-nav-item' href='#struk' onclick='event.preventDefault(); gantiMenu(&#39;struk&#39;, this); setActiveBottom(this);'>
 <svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2'></path><path d='M9 8h6'></path><path d='M9 12h6'></path><path d='M9 16h4'></path></svg>
 <span class='hippam-nav-label'>Struk</span>
 </a>
@@ -1820,19 +1868,30 @@ display: none !important;
 <svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M12 15v2'></path><path d='M12 11v1'></path><path d='M12 7v1'></path><path d='M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0'></path></svg>
 <span class='hippam-nav-label'>Ubah PIN</span>
 </a>
+<!-- Menu 6: Rekapitulasi -->
+<a class='hippam-nav-item' href='#rekap' onclick='event.preventDefault(); gantiMenu(&#39;rekapitulasi&#39;, this); setActiveBottom(this); muatDataRekapitulasi();'>
+<svg class='hippam-nav-icon' viewBox='0 0 24 24'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'></path><polyline points='14 2 14 8 20 8'></polyline><line x1='16' x2='8' y1='13' y2='13'></line><line x1='16' x2='8' y1='17' y2='17'></line><polyline points='10 9 9 9 8 9'></polyline></svg>
+<span class='hippam-nav-label'>Rekap</span>
+</a>
 </nav>
 </div>
-</div>
-<!-- Penutup akhirpanel-setelah-login -->
-</main>
 <script>
 //<![CDATA[
-const URL_WEB_APPS = "https://script.google.com/macros/s/AKfycbyWRBCwDEIH2WV72-m1V8I-JKz3mujRtyVzb3qzqGao4HbWdvJRnW_L5EQNfiUiS7CVjg/exec";
-const namaBulanArr = ["", "", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+const URL_WEB_APPS = "https://script.google.com/macros/s/AKfycbyWxwSsO2gyGm0YNdEnPPQIqaUncpmLiFW6vUDnHmTMw_hM3w_f9apoH8Fkf3BsznUT/exec";
+const namaBulanArr = ["", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
-let dataCacheTagihan = null;
-let dataCacheTunggakan = null;
+// Menyimpan data 1 baris pelanggan hasil login
+let dataCachePelanggan = null;
 let currentPasswordAktif = "";
+
+function dapatkanTarifPerM3(idPelanggan) {
+    const idStr = String(idPelanggan || '').toUpperCase();
+    
+    if (idStr.includes('JBK') || idStr.includes('JBE')) {
+        return 5000;
+    }
+        return 4000;
+}
 
 async function muatDataPelanggan() {
     const inputID = document.getElementById('inputIDUtama') ? document.getElementById('inputIDUtama').value.trim() : '';
@@ -1860,14 +1919,12 @@ async function muatDataPelanggan() {
         if (loadingElem) loadingElem.style.display = 'none';
 
         if (hasil.status === 'success') {
-            const matchTagihan = hasil.dataTagihan;
-            const matchTunggakan = hasil.dataTunggakan;
+            const rowData = hasil.dataPelanggan; 
 
-            const cleanID = matchTagihan && matchTagihan[0] ? String(matchTagihan[0]).replace(/"/g, '').trim() : inputID;
+            const cleanID = rowData && rowData[0] ? String(rowData[0]).replace(/"/g, '').trim() : inputID;
             localStorage.setItem('hippam_id', cleanID);
 
-            dataCacheTagihan = matchTagihan;
-            dataCacheTunggakan = matchTunggakan;
+            dataCachePelanggan = rowData;
             currentPasswordAktif = inputPass;
 
             const boxLogin = document.getElementById('boxLogin');
@@ -1877,7 +1934,7 @@ async function muatDataPelanggan() {
             if (containerMenu) containerMenu.style.display = 'block';
 
             if (typeof renderSemuaMenu === 'function') {
-                renderSemuaMenu(matchTagihan, matchTunggakan);
+                renderSemuaMenu(rowData);
             }
 
         } else {
@@ -1891,13 +1948,20 @@ async function muatDataPelanggan() {
     }
 }
 
+function dapatkanNamaBersih(row) {
+    if (!row || !row[1]) return 'Pelanggan / Warga';
+    let nama = String(row[1]).replace(/"/g, '').trim();
+    if (nama === '0' || nama === '') {
+        return 'Pelanggan / Warga';
+    }
+    return nama;
+}
 
 function initProfilPelanggan(namaPelanggan, idPelanggan) {
     const elSalam = document.getElementById('salamPengguna');
     const elNama = document.getElementById('resTagNama');
     const elID = document.getElementById('resTagID');
 
-  
     const jamWIB = parseInt(new Intl.DateTimeFormat('id-ID', {
         timeZone: 'Asia/Jakarta',
         hour: 'numeric',
@@ -1907,29 +1971,19 @@ function initProfilPelanggan(namaPelanggan, idPelanggan) {
     let ucapanText = "Selamat Datang";
     let svgIcon = "";
 
-       // Matahari (Pagi) - Garis lebih tipis dan proporsional
-const svgSun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #f59e0b;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+    const svgSun = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #f59e0b;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+    const svgCloudSun = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #38bdf8;"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.94 12.5a3.5 3.5 0 0 0-6.83 1.05h-.11a4 4 0 0 0 0 8h8a3.5 3.5 0 0 0-.06-9.05Z"/></svg>`;
+    const svgSunset = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #fb923c;"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="m17.66 12.34 1.41-1.41"/><path d="M2 18h20"/><path d="M12 14v4"/></svg>`;
+    const svgMoon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #818cf8;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
 
-// Matahari Berawan (Siang)
-const svgCloudSun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #38bdf8;"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.94 12.5a3.5 3.5 0 0 0-6.83 1.05h-.11a4 4 0 0 0 0 8h8a3.5 3.5 0 0 0-.06-9.05Z"/></svg>`;
-
-// Matahari Terbenam (Sore) - Garis ufuk dan pancaran lebih rapi
-const svgSunset = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #fb923c;"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="m17.66 12.34 1.41-1.41"/><path d="M2 18h20"/><path d="M12 14v4"/></svg>`;
-
-// Bulan Sabit (Malam) - Menggunakan ikon bulan sabit klasik yang jauh lebih bersih
-const svgMoon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #818cf8;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
     if (jamWIB >= 3 && jamWIB < 11) {
-        ucapanText = "Selamat Pagi";
-        svgIcon = svgSun;
+        ucapanText = "Selamat Pagi"; svgIcon = svgSun;
     } else if (jamWIB >= 11 && jamWIB < 15) {
-        ucapanText = "Selamat Siang";
-        svgIcon = svgCloudSun;
+        ucapanText = "Selamat Siang"; svgIcon = svgCloudSun;
     } else if (jamWIB >= 15 && jamWIB < 18) {
-        ucapanText = "Selamat Sore";
-        svgIcon = svgSunset;
+        ucapanText = "Selamat Sore"; svgIcon = svgSunset;
     } else {
-        ucapanText = "Selamat Malam";
-        svgIcon = svgMoon;
+        ucapanText = "Selamat Malam"; svgIcon = svgMoon;
     }
     
     if (elSalam) {
@@ -1940,7 +1994,7 @@ const svgMoon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" str
         }
     }
 
-       if (elNama && namaPelanggan) elNama.innerText = namaPelanggan;
+    if (elNama && namaPelanggan) elNama.innerText = namaPelanggan;
     if (elID && idPelanggan) elID.innerText = idPelanggan;
 }
 
@@ -1987,58 +2041,37 @@ function updateCardData(namaAnggota, idAnggota) {
     }
 }
 
-function gantiMenu(menuId, btn) {
-    document.querySelectorAll('.panel-section').forEach(el => el.classList.remove('active-panel'));
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+function renderSemuaMenu(rowData) {
+    if (!rowData) return;
     
-    let targetMenu = document.getElementById('menu-' + menuId);
-    if(targetMenu) targetMenu.classList.add('active-panel');
-    if (btn) btn.classList.add('active');
-
-    if (menuId === 'struk' && dataCacheTunggakan) {
-        tampilkanStruk();
-    }
-}
-
-function dapatkanNamaBersih(row) {
-    if (!row || !row[1]) return 'Pelanggan / Warga';
-    let nama = String(row[1]).replace(/"/g, '').trim();
-    if (nama === '0' || nama === '') {
-        return 'Pelanggan / Warga';
-    }
-    return nama;
-}
-
-
-function renderSemuaMenu(rowTagihan, rowTunggakan) {
-    if (!rowTunggakan) return;
-    const idPelanggan = String(rowTunggakan[0]).replace(/"/g, '');
-    const namaPelanggan = dapatkanNamaBersih(rowTunggakan);
+    const idPelanggan = String(rowData[0]).replace(/"/g, '').trim();
+    const namaPelanggan = dapatkanNamaBersih(rowData);
     
+    
+    const tarifAktif = dapatkanTarifPerM3(idPelanggan);
+
     updateCardData(namaPelanggan, idPelanggan);
+    initProfilPelanggan(namaPelanggan, idPelanggan);
 
-       if (document.getElementById('resTagID')) document.getElementById('resTagID').innerText = idPelanggan;
-    if (document.getElementById('resTagNama')) document.getElementById('resTagNama').innerText = namaPelanggan;
     
     let tbodyTagihan = document.getElementById('tabelTagihanBody');
     if (tbodyTagihan) {
         tbodyTagihan.innerHTML = '';
-        const tarifPerM3 = 4000;
 
-        for (let col = 2; col <= 13; col++) {
-            let namaBln = namaBulanArr[col];
-            let colMeter = col + 17;
+        for (let bulan = 1; bulan <= 12; bulan++) {
+            let namaBln = namaBulanArr[bulan];
+            let colMeterIdx = bulan + 14;
 
-            let rawMeter = (rowTagihan && rowTagihan[colMeter] !== undefined && rowTagihan[colMeter] !== null) ? String(rowTagihan[colMeter]).replace(/"/g, '') : '0';
+            let rawMeter = (rowData[colMeterIdx] !== undefined && rowData[colMeterIdx] !== null) ? String(rowData[colMeterIdx]).replace(/"/g, '') : '0';
             let cleanMeter = parseFloat(rawMeter.replace(/[^0-9.]/g, '')) || 0;
-            let totalTarif = cleanMeter * tarifPerM3;
+            let totalTarif = cleanMeter * tarifAktif;
 
             let displayMeter = cleanMeter > 0 ? cleanMeter + ' m³' : '0 m³';
             let displayTotal = totalTarif > 0 ? 'Rp ' + totalTarif.toLocaleString('id-ID') : 'Rp 0';
 
             let tr = document.createElement('tr');
             tr.innerHTML = `
-                <td style="text-align:center;">${col - 1}</td>
+                <td style="text-align:center;">${bulan}</td>
                 <td>${namaBln}</td>
                 <td style="text-align:center; font-weight: bold; color: #0284c7;">${displayMeter}</td>
                 <td style="text-align: right; font-weight: bold;">${displayTotal}</td>
@@ -2055,25 +2088,26 @@ function renderSemuaMenu(rowTagihan, rowTunggakan) {
     let totalTunggakanNominal = 0;
     let countTunggakan = 0;
     let noUrutTung = 1;
-    const tarifPerM3 = 4000;
 
-    for (let col = 2; col <= 13; col++) {
-        let namaBln = namaBulanArr[col];
-        let colMeter = col + 17;
+    for (let bulan = 1; bulan <= 12; bulan++) {
+        let namaBln = namaBulanArr[bulan];
+        
+        let colStatusIdx = bulan + 2; 
+        let colMeterIdx = bulan + 14;
 
-        let rawVal = (rowTunggakan[col] !== undefined && rowTunggakan[col] !== null) ? String(rowTunggakan[col]).replace(/"/g, '') : '0';
-        let cleanNum = parseInt(rawVal.replace(/[^0-9]/g, '')) || 0;
-        
-        let rawMeterTung = (rowTagihan && rowTagihan[colMeter] !== undefined && rowTagihan[colMeter] !== null) ? String(rowTagihan[colMeter]).replace(/"/g, '') : '0';
-        let cleanMeterTung = parseFloat(rawMeterTung.replace(/[^0-9.]/g, '')) || 0;
-        let nominalTunggakanDihitung = cleanMeterTung * tarifPerM3;
-        
+        let rawStatusVal = (rowData[colStatusIdx] !== undefined && rowData[colStatusIdx] !== null) ? String(rowData[colStatusIdx]).replace(/"/g, '') : '0';
+        let cleanStatusNum = parseInt(rawStatusVal.replace(/[^0-9]/g, '')) || 0;
+
+        let rawMeterVal = (rowData[colMeterIdx] !== undefined && rowData[colMeterIdx] !== null) ? String(rowData[colMeterIdx]).replace(/"/g, '') : '0';
+        let cleanMeterNum = parseFloat(rawMeterVal.replace(/[^0-9.]/g, '')) || 0;
+
+        let nominalTunggakanDihitung = cleanMeterNum * tarifAktif;
         let displayValTung = nominalTunggakanDihitung > 0 ? 'Rp ' + nominalTunggakanDihitung.toLocaleString('id-ID') : 'Rp 0';
 
         let statusBadge = '';
-        if (cleanNum === 0) {
+        if (cleanStatusNum === 0) {
             statusBadge = `<span style="color: #64748b; background: #f1f5f9; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">0 Tagihan</span>`;
-        } else if (cleanNum === 1) {
+        } else if (cleanStatusNum === 1) {
             statusBadge = `<span style="color: #16a34a; background: #dcfce7; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">LUNAS</span>`;
         } else {
             statusBadge = `<span style="color: #dc2626; background: #fee2e2; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">Belum / Kurang Bayar</span>`;
@@ -2081,11 +2115,11 @@ function renderSemuaMenu(rowTagihan, rowTunggakan) {
 
         if (tbodyStatus) {
             let tr2 = document.createElement('tr');
-            tr2.innerHTML = `<td style="text-align:center;">${col - 1}</td><td>${namaBln}</td><td>${statusBadge}</td>`;
+            tr2.innerHTML = `<td style="text-align:center;">${bulan}</td><td>${namaBln}</td><td>${statusBadge}</td>`;
             tbodyStatus.appendChild(tr2);
         }
 
-        if (cleanNum > 1 && tbodyTunggakan) {
+        if (cleanStatusNum > 1 && tbodyTunggakan) {
             countTunggakan++;
             totalTunggakanNominal += nominalTunggakanDihitung;
             let tr3 = document.createElement('tr');
@@ -2112,57 +2146,39 @@ function tampilkanStruk() {
     if (!pesanStatus) return;
     pesanStatus.innerText = '';
 
-    const activeDataTunggakan = dataCacheTunggakan;
-    const activeDataTagihan = dataCacheTagihan;
-
-    if (!activeDataTunggakan) {
+    const rowData = dataCachePelanggan;
+    if (!rowData) {
         pesanStatus.innerText = '⚠️ Silakan login terlebih dahulu.';
         if (boxPrintArea) boxPrintArea.style.display = 'none';
         return;
     }
 
-    const idPelanggan = (activeDataTunggakan[0] !== undefined && activeDataTunggakan[0] !== null) ? String(activeDataTunggakan[0]).replace(/"/g, '').trim() : '-';
-    const namaPelanggan = dapatkanNamaBersih(activeDataTunggakan);
+    const idPelanggan = String(rowData[0] || '').replace(/"/g, '').trim();
+    const tarifAktif = dapatkanTarifPerM3(idPelanggan);
+
+    const namaPelanggan = dapatkanNamaBersih(rowData);
     const selectElem = document.getElementById('selectStrukBulan');
-    
     if (!selectElem) return;
     
     const idxBulan = parseInt(selectElem.value);
     const namaBln = namaBulanArr[idxBulan];
-    const colMeter = idxBulan + 17;
     
-    const rawValTunggakan = (activeDataTunggakan[idxBulan] !== undefined && activeDataTunggakan[idxBulan] !== null) ? String(activeDataTunggakan[idxBulan]).replace(/"/g, '').trim() : '0';
-    let cleanValTunggakan = parseInt(rawValTunggakan.replace(/[^0-9]/g, '')) || 0;
+    const colStatusIdx = idxBulan + 2;   
+    const colMeterIdx = idxBulan + 14;   
+    
+    const colStandAwalIdx = 27 + ((idxBulan - 1) * 2);
+    const colStandAkhirIdx = colStandAwalIdx + 1;
 
-    let valStandAwal = '0';
-    let valStandAkhir = '0';
-    try {
-        let colStartIdx = (idxBulan * 2) + 11; 
-        let colEndIdx = colStartIdx + 1;        
+    const rawStatusVal = String(rowData[colStatusIdx] || '0').replace(/"/g, '').trim();
+    let cleanStatusNum = parseInt(rawStatusVal.replace(/[^0-9]/g, '')) || 0;
 
-        if (activeDataTunggakan[colStartIdx] !== undefined && activeDataTunggakan[colStartIdx] !== null) {
-            valStandAwal = String(activeDataTunggakan[colStartIdx]).replace(/"/g, '').trim();
-        }
-        if (activeDataTunggakan[colEndIdx] !== undefined && activeDataTunggakan[colEndIdx] !== null) {
-            valStandAkhir = String(activeDataTunggakan[colEndIdx]).replace(/"/g, '').trim();
-        }
-    } catch (e) {
-        console.log("Catatan Stand Meter: " + e);
-    }
+    let valStandAwal = String(rowData[colStandAwalIdx] || '0').replace(/"/g, '').trim();
+    let valStandAkhir = String(rowData[colStandAkhirIdx] || '0').replace(/"/g, '').trim();
 
-    let rawMeter = '0';
-    if (activeDataTagihan && activeDataTagihan[colMeter] !== undefined && activeDataTagihan[colMeter] !== null) {
-        rawMeter = String(activeDataTagihan[colMeter]).replace(/"/g, '').trim();
-    }
+    let rawMeter = String(rowData[colMeterIdx] || '0').replace(/"/g, '').trim();
     let cleanMeter = parseFloat(rawMeter.replace(/[^0-9.]/g, '')) || 0;
 
-    const tarifPerM3 = 4000;
-    let cleanNominal = cleanMeter * tarifPerM3;
-
-    if (cleanValTunggakan > 1) {
-        cleanNominal = cleanValTunggakan;
-    }
-
+    let cleanNominal = cleanMeter * tarifAktif;
     let formatMeter = cleanMeter > 0 ? cleanMeter + ' m³' : '0 m³';
     let formatRupiah = 'Rp ' + cleanNominal.toLocaleString('id-ID');
 
@@ -2173,8 +2189,7 @@ function tampilkanStruk() {
     if (document.getElementById('strukStandAwal')) document.getElementById('strukStandAwal').innerText = valStandAwal;
     if (document.getElementById('strukStandAkhir')) document.getElementById('strukStandAkhir').innerText = valStandAkhir;
     if (document.getElementById('strukTarifUnit')) {
-        let nominalTarif = typeof tarifPerM3 !== 'undefined' ? tarifPerM3 : 4000;
-        document.getElementById('strukTarifUnit').innerText = 'Rp ' + Number(nominalTarif).toLocaleString('id-ID');
+        document.getElementById('strukTarifUnit').innerText = 'Rp ' + tarifAktif.toLocaleString('id-ID');
     }
 
     if (document.getElementById('strukMeter')) document.getElementById('strukMeter').innerText = formatMeter;
@@ -2191,7 +2206,7 @@ function tampilkanStruk() {
         document.getElementById('tanggalCetakText').innerText = new Date().toLocaleDateString('id-ID', options);
     }
 
-    if (cleanValTunggakan === 1) {
+    if (cleanStatusNum === 1) {
         if (document.getElementById('strukStatus')) {
             document.getElementById('strukStatus').innerText = 'LUNAS';
             document.getElementById('strukStatus').style.color = '#16a34a';
@@ -2204,7 +2219,7 @@ function tampilkanStruk() {
         if (qrImgElem) {
             qrImgElem.src = `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=` + encodeURIComponent(isiDataQR);
         }
-    } else if (cleanValTunggakan === 0) {
+    } else if (cleanStatusNum === 0) {
         if (document.getElementById('strukStatus')) {
             document.getElementById('strukStatus').innerText = '0 TAGIHAN';
             document.getElementById('strukStatus').style.color = '#64748b';
@@ -2221,6 +2236,50 @@ function tampilkanStruk() {
     }
     if (boxPrintArea) boxPrintArea.style.display = 'block';
 }
+
+function gantiMenu(namaMenu, elemenNav) {
+    const semuaTab = document.querySelectorAll('.tab-btn');
+    semuaTab.forEach(btn => btn.classList.remove('active'));
+
+    if (elemenNav) {
+        elemenNav.classList.add('active');
+    }
+
+    const semuaPanel = document.querySelectorAll('.panel-section');
+    semuaPanel.forEach(panel => panel.style.display = 'none');
+
+    let targetPanel = document.getElementById('menu-' + namaMenu) || document.getElementById(namaMenu);
+    if (targetPanel) {
+        targetPanel.style.display = 'block';
+    }
+
+   
+    const salamElement = document.getElementById('salamPengguna') || document.getElementById('containerMenu');
+    if (salamElement) {
+        const offsetTop = salamElement.getBoundingClientRect().top + window.pageYOffset - 15;
+        window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+        });
+    } else {
+       
+        window.scrollTo({  top: 0, behavior: 'smooth'
+        });
+    }
+   
+    if (typeof setActiveBottom === 'function' && elemenNav) {
+        setActiveBottom(elemenNav);
+    }
+}
+
+function setActiveBottom(elemenNav) {
+    const semuaNav = document.querySelectorAll('.hippam-nav-item');
+    semuaNav.forEach(item => {
+        item.classList.remove('active');
+    });
+    elemenNav.classList.add('active');
+}
+
 
 function cetakMode(jenis) {
     const bodyEl = document.body;
@@ -2260,7 +2319,6 @@ function cetakStrukDokumen() {
         jalankanCetak();
     }
 }
-
 
 async function prosesGantiPassword() {
     const inputPINLama = document.getElementById('inputPINLama');
@@ -2320,10 +2378,7 @@ function togglePassword(fieldId = 'inputPasswordUtama', iconId = 'toggleEye') {
     
     if (!passwordInput || !toggleEye) return;
     
-   
     const svgEyeOpen = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
-    
-    
     const svgEyeClosed = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
 
     if (passwordInput.type === 'password') {
@@ -2336,8 +2391,7 @@ function togglePassword(fieldId = 'inputPasswordUtama', iconId = 'toggleEye') {
 }
 
 function prosesLogout() {
-    dataCacheTagihan = null;
-    dataCacheTunggakan = null;
+    dataCachePelanggan = null;
     currentPasswordAktif = "";
 
     localStorage.removeItem('hippam_id');
@@ -2390,23 +2444,146 @@ function formatTerbilangRupiah(nominalAngka) {
 }
 
 function setActiveBottom(element) {
-   
     const bottomItems = document.querySelectorAll('.hippam-nav-item');
     bottomItems.forEach(el => {
         el.classList.remove('active');
     });
-    
-    // 2. Tambahkan kelas 'active' hanya ke menu bawah yang sedang diklik
     if (element) {
         element.classList.add('active');
     }
 }
+// --- FUNGSI RENDER REKAPITULASI 12 BULAN (VERSI AMAN) ---
+function muatDataRekapitulasi() {
+    console.log("🔄 Menjalankan muatDataRekapitulasi()...");
+    
+    const areaRekap = document.getElementById('menu-rekapitulasi');
+    const tbody = document.getElementById('tbody-rekap-data');
+    
+    // 1. Cek apakah elemen HTML-nya ada di halaman
+    if (!areaRekap || !tbody) {
+        console.error("❌ Elemen HTML #menu-rekapitulasi atau #tbody-rekap-data tidak ditemukan di halaman!");
+        return;
+    }
 
+    // 2. Cek apakah data cache pelanggan tersedia
+    if (typeof dataCachePelanggan === 'undefined' || !dataCachePelanggan) {
+        console.warn("⚠️ dataCachePelanggan belum ada. Silakan login ulang terlebih dahulu.");
+        alert("Sesi data pelanggan belum dimuat. Silakan login kembali.");
+        return;
+    }
 
+    const rowData = dataCachePelanggan;
+    console.log("📦 Data cache ditemukan:", rowData);
+
+    const idPelanggan = String(rowData[0] || '').replace(/"/g, '').trim();
+    
+    // 3. Gunakan fallback aman jika fungsi helper tidak tersedia di skrip Anda
+    let namaPelanggan = "Warga";
+    if (typeof dapatkanNamaBersih === 'function') {
+        namaPelanggan = dapatkanNamaBersih(rowData);
+    } else {
+        namaPelanggan = String(rowData[1] || 'Warga').replace(/"/g, '').trim(); 
+    }
+
+    let tarifAktif = 2500; // Nilai default aman jika fungsi tarif tidak ada
+    if (typeof dapatkanTarifPerM3 === 'function') {
+        tarifAktif = dapatkanTarifPerM3(idPelanggan);
+    }
+
+    // Array nama bulan pengaman
+    const arrBulan = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+    // Set Identitas pada Header Rekap
+    const elId = document.getElementById('rekap-id-anggota');
+    const elNama = document.getElementById('rekap-nama-anggota');
+    if (elId) elId.innerText = idPelanggan;
+    if (elNama) elNama.innerText = namaPelanggan;
+
+    // Bersihkan isi tabel lama
+    tbody.innerHTML = "";
+
+    let totalPemakaianVal = 0;
+    let totalTagihanVal = 0;
+    let totalDibayarVal = 0;
+    let totalTunggakanVal = 0;
+
+    // Looping 12 bulan
+    for (let i = 1; i <= 12; i++) {
+        let namaBln = arrBulan[i] || ('Bulan ' + i);
+        
+        let colStatusIdx = i + 2;  
+        let colMeterIdx = i + 14;
+
+        let rawStatusVal = String(rowData[colStatusIdx] || '0').replace(/"/g, '').trim();
+        let cleanStatusNum = parseInt(rawStatusVal.replace(/[^0-9]/g, '')) || 0;
+
+        let rawMeterVal = String(rowData[colMeterIdx] || '0').replace(/"/g, '').trim();
+        let pemakaian = parseFloat(rawMeterVal.replace(/[^0-9.]/g, '')) || 0;
+
+        let tagihan = pemakaian * tarifAktif;
+        let dibayar = 0;
+        let status = "Belum/tidak ada tagihan";
+        let tunggakan = 0;
+
+        if (cleanStatusNum === 1) {
+            dibayar = tagihan;
+            status = "LUNAS";
+            tunggakan = 0;
+        } else if (cleanStatusNum > 1 || (cleanStatusNum === 0 && pemakaian > 0)) {
+            dibayar = 0;
+            status = "BELUM BAYAR";
+            tunggakan = tagihan;
+        } else {
+            status = "Belum/tidak ada tagihan";
+            tunggakan = 0;
+        }
+
+        totalPemakaianVal += pemakaian;
+        totalTagihanVal += tagihan;
+        totalDibayarVal += dibayar;
+        totalTunggakanVal += tunggakan;
+
+        // Warna Badge Status
+        let badgeStyle = "padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block;";
+        if (status === "LUNAS") {
+            badgeStyle += "background: #dcfce7; color: #16a34a;";
+        } else if (status === "BELUM BAYAR") {
+            badgeStyle += "background: #fee2e2; color: #dc2626;";
+        } else {
+            badgeStyle += "background: #f1f5f9; color: #64748b;";
+        }
+
+        let tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="text-align: center; padding: 10px; border-bottom: 1px solid #f1f5f9;">${i}</td>
+            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${namaBln}</td>
+            <td style="text-align: center; padding: 10px; border-bottom: 1px solid #f1f5f9;">${pemakaian > 0 ? pemakaian + ' m³' : '-'}</td>
+            <td style="text-align: right; padding: 10px; border-bottom: 1px solid #f1f5f9;">Rp ${tagihan.toLocaleString('id-ID')}</td>
+            <td style="text-align: right; padding: 10px; border-bottom: 1px solid #f1f5f9;">Rp ${dibayar.toLocaleString('id-ID')}</td>
+            <td style="text-align: center; padding: 10px; border-bottom: 1px solid #f1f5f9;"><span style="${badgeStyle}">${status}</span></td>
+            <td style="text-align: right; padding: 10px; border-bottom: 1px solid #f1f5f9; color: ${tunggakan > 0 ? '#dc2626' : 'inherit'};">${tunggakan > 0 ? 'Rp ' + tunggakan.toLocaleString('id-ID') : '-'}</td>
+        `;
+        tbody.appendChild(tr);
+    }
+
+    // Update Footer Grand Total
+    const elTotPemakaian = document.getElementById('total-pemakaian');
+    const elTotTagihan = document.getElementById('total-tagihan');
+    const elTotDibayar = document.getElementById('total-dibayar');
+    const elTotTunggakan = document.getElementById('total-tunggakan');
+
+    if (elTotPemakaian) elTotPemakaian.innerText = totalPemakaianVal + ' m³';
+    if (elTotTagihan) elTotTagihan.innerText = 'Rp ' + totalTagihanVal.toLocaleString('id-ID');
+    if (elTotDibayar) elTotDibayar.innerText = 'Rp ' + totalDibayarVal.toLocaleString('id-ID');
+    if (elTotTunggakan) elTotTunggakan.innerText = 'Rp ' + totalTunggakanVal.toLocaleString('id-ID');
+
+    // Tampilkan panel rekap
+    areaRekap.style.display = 'block';
+    console.log("✅ Data rekapitulasi berhasil dirender ke tabel.");
+}
 //]]>
 </script>
-<!-- Footer -->
-<footer id='footer-wrapper'>
+<div id='footer-atas'>
 <div class='footer-widgets'>
 <!-- Widget 1: Informasi Warga -->
 <div class='footer-widget'>
@@ -2415,59 +2592,70 @@ function setActiveBottom(element) {
         "Layanan menika gratis (mboten dipunpundhut biaya) kagem nyaosi pirsa pelayanan para Anggota HIPPAM Dusun Karangtalun, Desa Gedompol, Kecamatan Donorojo, Kabupaten Pacitan."
       </p>
 <div class='portal-quote'>
-        🌱 <i>"Mugi-mugi berkah barokah, toya lancar, rejeki jembar"</i>
+        🌱 <i>"Mugi-mugi berkah barokah, toya tansah lancar, rejeki ingkang jembar"</i>
 </div>
 </div>
 <!-- Widget 2: Layanan Aduan -->
 <div class='footer-widget'>
 <h3>Lapor Kendala & Bantuan</h3>
 <p class='portal-desc'>
-        "Menawi panjenengan mbetahaken pitulungan babangan layanan toya HIPPAM Dusun Karangtalun, Sumangga saged langsung sesambungan kaliyan Pengurus HIPPAM Dusun Karangtalun."
-
+        "Menawi panjenengan mbetahaken pitulungan babangan layanan toya, Sumangga saged langsung sesambungan kaliyan Pengurus HIPPAM HIPPAM Tirta Kencana - Karangtalun."
+      </p>
 <div class='portal-quote'>
-        🛠&#65039; <i>"Aliran toya mboten lancar / mampet, Kebocoran jaringan pipa, Pemasangan lan instalasi pipa anyar, Klarifikasi utawi kekirangan catetan meteran"</i>
+        🛠&#65039; <i>"Aliran toya mboten lancar / mampet, Kebocoran jaringan pipa / meteran mboten muter, Pemasangan lan instalasi pipa/meteran enggal, Klarifikasi / cocokan catetan meteran"</i>
 </div>
-</p>
 <!-- Tombol Aksi Cepat (Call to Action) WhatsApp Pengaduan -->
-<a class='footer-cta-btn' href='https://wa.me/6280000000000?text=Nuwun%20sewu%20Pengurus%20HIPPAM,%20kula%20badhe%20ngaturaken%20lapuran%20bilih%20wonten%20kendala.' rel='noopener' target='_blank'>
+<a class='footer-cta-btn' href='https://wa.me/6281239957828?text=Nuwun%20sewu%20Pengurus%20HIPPAM,%20kula%20badhe%20ngaturaken%20lapuran%20bilih%20wonten%20kendala.' rel='noopener' target='_blank'>
 <svg fill='currentColor' height='16' style='flex-shrink: 0;' viewBox='0 0 24 24' width='16'>
 <path d='M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z'></path>
 </svg>
-<span>Hubungi Pengurus (WhatsApp)</span>
+<span>Halo... Pak Midi</span>
+</a>
+<a class='footer-cta-btn' href='https://wa.me/6285334101516?text=Nuwun%20sewu%20Pengurus%20HIPPAM,%20kula%20badhe%20ngaturaken%20lapuran%20bilih%20wonten%20kendala.' rel='noopener' target='_blank'>
+<svg fill='currentColor' height='16' style='flex-shrink: 0;' viewBox='0 0 24 24' width='16'>
+<path d='M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z'></path>
+</svg>
+<span>Halo... Pak Tri</span>
 </a>
 </div>
-<!-- Widget 3: Tautan Sosial Media / Ikuti Kami -->
-<div class='footer-widget'>
-<h3>Ikuti Kami</h3>
-<ul class='footer-social-list'>
-<li>
+</div>
+</div>
+</div><!-- Penutup-setelah-login -->
+</main>
+<footer class='footer-bottom' id='footer-bawah'>
+<div class='footer-bottom-container'>
+<!-- SISI KIRI: Kumpulan Media Sosial (Model Kapsul Masing-masing Item) -->
+<div class='footer-bottom-socials'>
+<!-- WEBSITE -->
 <a class='footer-social-link' href='https://karangtalunku.blogspot.com/' rel='noopener' target='_blank' title='Website Karangtalun'>
-<svg class='footer-icon' viewBox='0 0 24 24'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'></path></svg>
-<span>Webblog Karangtalun</span>
+<svg class='footer-icon icon-website' viewBox='0 0 24 24'>
+<path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'></path>
+</svg>
+<span>karangtalunku.com</span>
 </a>
-</li>
-<li>
+<!-- INSTAGRAM -->
 <a class='footer-social-link' href='https://www.instagram.com/dusun_karangtalun/' rel='noopener' target='_blank' title='Instagram Karangtalun'>
-<svg class='footer-icon' viewBox='0 0 24 24'><path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'></path></svg>
-<span>Instagram Karangtalun</span>
+<svg class='footer-icon icon-instagram' viewBox='0 0 24 24'>
+<path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'></path>
+</svg>
+<span>@dusun_karangtalun</span>
 </a>
-</li>
-<li>
-<a class='footer-social-link' href='https://www.youtube.com/channel/UCsNTNY7McRRgOx9EAOgATBQ/' rel='noopener' target='_blank' title='YouTube Karangtalun'>
-<svg class='footer-icon' viewBox='0 0 24 24'><path d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'></path></svg>
-<span>YouTube Karangtalun</span>
+<!-- YOUTUBE -->
+<a class='footer-social-link' href='https://www.youtube.com/channel/UCsNTNY7McRRgOx9EAOgATBQ/' rel='noopener' target='_blank' title='Karangtalun-Pacitan'>
+<svg class='footer-icon icon-youtube' viewBox='0 0 24 24'>
+<path d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'></path>
+</svg>
+<span>@karangtalunpacitan</span>
 </a>
-</li>
-</ul>
 </div>
-</div>
-<!-- Copyright -->
+<!-- SISI KANAN: Teks Copyright -->
 <div class='footer-copyright'>
-   Karangtalun &#169; 2026 - Hak Cipta Dilindungi Undang-Undang.
-  </div>
+      Karangtalun &#169; 2026 - Oprekan dhewe.
+    </div>
+</div>
 </footer>
 </div>
-<!-- PENUTUP .outer-wrapper -->
+<!-- end .outer-wrapper -->
 
 </body>
 </html>
