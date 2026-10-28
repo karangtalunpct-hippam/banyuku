@@ -3,10 +3,14 @@
 <head>
 <meta charset='UTF-8'/>
 <meta content='width=device-width, initial-scale=1, shrink-to-fit=no' name='viewport'/>
+<!-- Seterusnya... -->
+<!-- Judul Bawaan Blogger yang Dinamis -->
 <title>HIPPAM TIRTA KENCANA</title>
+<!-- Meta Tag Khusus WhatsApp (Sudah Disesuaikan untuk XML Blogger) -->
 <meta content='Cek Status Pembayaran, Tunggakan & Cetak Struk - HIPPAM Tirta Kencana' property='og:title'/>
-<meta content='Silahkan masuk untuk memeriksa status pembayaran air, melihat rincian tunggakan, dan mencetak struk secara mandiri.' name='description'/>
+<meta content='Monggo pinarak mlebet kangge mriksa status pembayaran toya, ningali rincian tanggungan, saha nyetak bukti pembayaran piyambak.' name='description'/>
 <meta content='Silahkan masuk untuk memeriksa status pembayaran air, melihat rincian tunggakan, dan mencetak struk secara mandiri.' property='og:description'/>
+<!-- Link Gambar Thumbnail (Ubah URL jika ada karakter '&' menjadi '&amp;') -->
 <meta content='https://lh3.googleusercontent.com/d/1xxxxxx' property='og:image'/>
 <meta content='image/jpeg' property='og:image:type'/>
 <meta content='300' property='og:image:width'/>
@@ -17,7 +21,7 @@
 box-sizing: border-box;
 }
 :root {
-
+/* Penerapan pada UI */
 --primary-color: #0284c7;
 --primary-dark: #0f172a;
 --primary-hover: #059669;
@@ -348,7 +352,7 @@ box-sizing: border-box;
 #menu-gantipass .kartu-info {
 margin-bottom: 0.85rem;
 padding-bottom: 0.6rem;
-border-bottom: 1px dashed var(--border-color, #cbd5e1);
+border-bottom: 1px dashed var(--border-color);
 }
 #menu-gantipass .kartu-info p {
 margin: 0 0 0.2rem 0;
@@ -421,7 +425,7 @@ justify-content: center;
 transition: background-color 0.2s, transform 0.1s;
 }
 #menu-gantipass .btn-aksi-utama:hover {
-background-color: var(--primary-hover, #0369a1);
+background-color: var(--primary-hover);
 }
 #menu-gantipass .btn-aksi-utama:active {
 transform: scale(0.98);
@@ -480,7 +484,7 @@ font-weight: 600;
 text-align: center;
 }
 .pesan-error {
-color: #ef4444;
+color: var(--accent-red);
 background:transparent;
 border-radius: 6px;
 padding: 8px;
@@ -1174,6 +1178,12 @@ font-weight: 600;
 margin-top: 12px;
 font-size: clamp(12px, 1.5vw, 14px);
 }
+.footer-cta-btn:hover {
+background-color: #25D366 !important;
+color: #ffffff !important;
+transform: translateY(-3px);
+box-shadow: 0 6px 15px rgba(37, 211, 102, 0.35);
+}
 .footer-bottom {
 background-color: var(--primary-dark);
 color: var(--accent-light);
@@ -1185,7 +1195,7 @@ font-size: clamp(12px, 1.2vw, 13px);
 display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
-align-items: center;
+align-items: center;box-shadow: 0 6px 15px #;
 gap: clamp(12px, 2vw, 24px);
 max-width: clamp(700px, 90vw, 960px);
 margin: 0 auto;
@@ -1215,7 +1225,7 @@ padding: clamp(6px, 1vw, 8px) clamp(12px, 1.8vw, 16px);
 border-radius: 50px;
 }
 .footer-social-link:hover {
-background-color: rgba(255, 255, 255, 0.12);
+background-color: rgba(255, 255, 255, 0.12);box-shadow: 0 6px 15px rgba(37, 211, 102, 0.35);
 border-color: rgba(255, 255, 255, 0.25);
 color: #ffffff;
 transform: translateY(-2px);
@@ -1229,13 +1239,11 @@ fill: currentColor;
 .panel-section#menu-rekapitulasi {
 display: none;
 background: #ffffff;
-border-radius: var(--radius-box, 16px);
 margin-top: 20px;
 padding: 20px;
 text-align: left;
-border: 2px dashed #cbd5e1; /* Garis putus-putus */
+border: 2px dashed var(--border-color);
 }
-/* Header Standar & Informasi Anggota */
 .rekap-header {
 margin-bottom: 15px;
 border-bottom: 2px solid #f1f5f9;
@@ -1261,7 +1269,7 @@ color: var(--primary-color);
 .rekap-header-kop {
 text-align: center;
 margin-bottom: 20px;
-border-bottom: 2px solid #cbd5e1;
+border-bottom: 2px solid var(--border-color);
 padding-bottom: 15px;
 }
 .kop-title {
@@ -1278,7 +1286,7 @@ color: #64748b;
 .kop-divider {
 border-bottom: 2px solid #1e3a8a;
 margin: 8px auto;
-width: 50px;
+width: 75%;
 }
 .kop-doc-name {
 margin: 0;
@@ -1329,14 +1337,14 @@ font-size: clamp(12px, 1.5vw, 13px);
 #menu-rekapitulasi tfoot tr {
 background: #f8fafc;
 font-weight: bold;
-border-top: 2px solid var(--border-color, #cbd5e1);
+border-top: 2px solid var(--border-color);
 color: var(--text-main);
 }
 .rekap-footer-note {
 margin-top: 15px;
 font-size: 12px;
 color: #64748b;
-border-top: 1px dashed #cbd5e1;
+border-top: 1px dashed var(--border-color);
 padding-top: 10px;
 }
 .rekap-footer-note p {
@@ -1580,7 +1588,7 @@ margin-top: 2px !important;
 }
 body.printing-rekap .tabel-data th,
 body.printing-rekap .tabel-data td {
-border: 1px solid #cbd5e1 !important;
+border: 1px solid var(--border-color) !important;
 padding: 3px 5px !important;
 }
 body.printing-rekap .tabel-data th {
@@ -2057,20 +2065,17 @@ async function muatDataPelanggan() {
             const rowData = hasil.dataPelanggan; 
 
             const cleanID = rowData && rowData[0] ? String(rowData[0]).replace(/"/g, '').trim() : inputID;
+            
+            // --- SIMPAN SESI KE LOCALSTORAGE ---
             localStorage.setItem('hippam_id', cleanID);
+            localStorage.setItem('hippam_pass', inputPass);
+            localStorage.setItem('hippam_data', JSON.stringify(rowData));
+            localStorage.setItem('hippam_logged_in', 'true');
 
             dataCachePelanggan = rowData;
             currentPasswordAktif = inputPass;
 
-            const boxLogin = document.getElementById('boxLogin');
-            if (boxLogin) boxLogin.style.display = 'none';
-
-            const containerMenu = document.getElementById('containerMenu');
-            if (containerMenu) containerMenu.style.display = 'block';
-
-            if (typeof renderSemuaMenu === 'function') {
-                renderSemuaMenu(rowData);
-            }
+            terapkanTampilanLoginBerhasil(rowData);
 
         } else {
             if (pesanGlobal) pesanGlobal.innerText = hasil.message || 'ID Pelanggan atau Password salah!';
@@ -2081,6 +2086,29 @@ async function muatDataPelanggan() {
         if (pesanGlobal) pesanGlobal.innerText = 'Gagal terhubung ke database Google Apps Script.';
         console.error("❌ Error Fetch GAS:", err);
     }
+}
+
+function terapkanTampilanLoginBerhasil(rowData) {
+    const boxLogin = document.getElementById('boxLogin');
+    if (boxLogin) boxLogin.style.display = 'none';
+
+    const containerMenu = document.getElementById('containerMenu');
+    if (containerMenu) containerMenu.style.display = 'block';
+
+    if (typeof renderSemuaMenu === 'function') {
+        renderSemuaMenu(rowData);
+    }
+}
+
+function prosesLogout() {
+    // Hapus semua data sesi HIPPAM dari localStorage
+    localStorage.removeItem('hippam_id');
+    localStorage.removeItem('hippam_pass');
+    localStorage.removeItem('hippam_data');
+    localStorage.removeItem('hippam_logged_in');
+
+    // Muat ulang halaman untuk kembali ke form login
+    window.location.reload();
 }
 
 function dapatkanNamaBersih(row) {
@@ -2106,10 +2134,10 @@ function initProfilPelanggan(namaPelanggan, idPelanggan) {
     let ucapanText = "Selamat Datang";
     let svgIcon = "";
 
-    const svgSun = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #f59e0b;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
-    const svgCloudSun = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #38bdf8;"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.94 12.5a3.5 3.5 0 0 0-6.83 1.05h-.11a4 4 0 0 0 0 8h8a3.5 3.5 0 0 0-.06-9.05Z"/></svg>`;
-    const svgSunset = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #fb923c;"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="m17.66 12.34 1.41-1.41"/><path d="M2 18h20"/><path d="M12 14v4"/></svg>`;
-    const svgMoon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #818cf8;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+	const svgSun = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 		style="vertical-align: middle; margin-left: 6px; color: #38bdf8;"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 		1.41"/><path d="M15.94 12.5a3.5 3.5 0 0 0-6.83 1.05h-.11a4 4 0 0 0 0 8h8a3.5 3.5 0 0 0-.06-9.05Z"/></svg>`;
+	const svgCloudSun = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-					linejoin="round" style="vertical-align: middle; margin-left: 6px; color: #f59e0b;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path 			d="m4.93 	4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 		1.41"/></svg>`;
+	const svgSunset = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 	style="vertical-align: middle; margin-left: 6px; color: #f97316;"><path d="M17 12 A5 5 0 0 0 7 12"/><path d="M12 2v3"/><path d="m4.93 4.93 1.41 1.41"/><path d="m19.07 		4.93-1.41 1.41"/><path d="M2 18h20"/></svg>`;
+	const svgMoon = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 		style="vertical-align: middle; margin-left: 6px; color: #a78bfa;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>`;
 
     if (jamWIB >= 3 && jamWIB < 11) {
         ucapanText = "Selamat Pagi"; svgIcon = svgSun;
@@ -2564,27 +2592,7 @@ function togglePassword(fieldId = 'inputPasswordUtama', iconId = 'toggleEye') {
     }
 }
 
-function prosesLogout() {
-    dataCachePelanggan = null;
-    currentPasswordAktif = "";
 
-    localStorage.removeItem('hippam_id');
-    localStorage.removeItem('namaPelanggan');
-
-    const inputID = document.getElementById('inputIDUtama');
-    const inputPass = document.getElementById('inputPasswordUtama');
-    const pesanGlobal = document.getElementById('pesanGlobal');
-
-    if (inputID) inputID.value = '';
-    if (inputPass) inputPass.value = '';
-    if (pesanGlobal) pesanGlobal.innerText = '';
-
-    const boxLogin = document.getElementById('boxLogin');
-    const containerMenu = document.getElementById('containerMenu');
-
-    if (containerMenu) containerMenu.style.display = 'none';
-    if (boxLogin) boxLogin.style.display = 'block';
-}
 
 function terbilang(nilai) {
     var angka = Math.abs(parseInt(nilai));
@@ -2816,6 +2824,23 @@ function cetakKartuPNG() {
         alert('Terjadi kesalahan saat membuat gambar kartu.');
     });
 }
+document.addEventListener("DOMContentLoaded", function() {
+    const isLoggedIn = localStorage.getItem('hippam_logged_in');
+    
+    if (isLoggedIn === 'true') {
+        const savedData = localStorage.getItem('hippam_data');
+        const savedPass = localStorage.getItem('hippam_pass');
+
+        if (savedData && savedPass) {
+            // Pulihkan data cache dan password aktif
+            dataCachePelanggan = JSON.parse(savedData);
+            currentPasswordAktif = savedPass;
+
+            // Langsung buka menu utama tanpa tampilkan form login
+            terapkanTampilanLoginBerhasil(dataCachePelanggan);
+        }
+    }
+});
 //]]>
 </script>
 <div id='footer-atas'>
@@ -2834,10 +2859,10 @@ function cetakKartuPNG() {
 <div class='footer-widget'>
 <h3>Lapor Kendala & Bantuan</h3>
 <p class='portal-desc'>
-        "Menawi panjenengan mbetahaken pitulungan babangan layanan toya, Sumangga saged langsung sesambungan kaliyan Pengurus HIPPAM HIPPAM Tirta Kencana - Karangtalun."
+        "Menawi panjenengan mbetahaken pitulungan babangan layanan toya, Sumangga saged langsung sesambetan kaliyan Pengurus HIPPAM Tirta Kencana - Karangtalun."
       </p>
 <div class='portal-quote'>
-        🛠&#65039; <i>"Aliran toya mboten lancar / mampet, Kebocoran jaringan pipa / meteran mboten muter, Pemasangan lan instalasi pipa/meteran enggal, Klarifikasi / cocokan catetan meteran"</i>
+        🛠&#65039; <i>"Aliran toya mboten lancar / mampet, Kebocoran jaringan pipa, gangguan meteran mboten muter, instalasi pipa / meteran enggal, klarifikasi utawi cocokan catetan meteran"</i>
 </div>
 <!-- Tombol Aksi Cepat (Call to Action) WhatsApp Pengaduan -->
 <a class='footer-cta-btn' href='https://wa.me/6281239957828?text=Nuwun%20sewu%20Pengurus%20HIPPAM,%20kula%20badhe%20ngaturaken%20lapuran%20bilih%20wonten%20kendala.' rel='noopener' target='_blank'>
