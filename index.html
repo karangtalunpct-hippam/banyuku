@@ -54,7 +54,7 @@ box-sizing: border-box;
 }
 body {
 font-family: var(--font-main);
-background:  radial-gradient(circle at 90% 10%, rgba(2, 132, 199, 0.25) 0%, transparent 50%), radial-gradient(circle at 10% 90%, rgba(56, 189, 248, 0.15) 0%, transparent 40%), linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0284c7 100%);
+background:  var(--bg-color);
 color: var(--text-main);
 margin: 0;
 padding: 0;
@@ -82,14 +82,6 @@ color: var(--primary-color);
 font-family: var(--font-heading);
 margin-bottom: 8px;
 line-height: 1.35;
-}
-.cek-tagihan-box h3,
-.container-menu-hippam h3 {
-font-size: clamp(14px, 1.5vw + 0.7rem, 16px);
-font-weight: 600;
-color: var(--text-main);
-margin-bottom: 6px;
-line-height: 1.4;
 }
 .outer-wrapper {
 width: 100%;
@@ -822,7 +814,7 @@ box-sizing: border-box;
 background: var(--border-color);
 border: none;
 padding: clamp(6px, 1.2vw, 10px) clamp(10px, 2vw, 16px);
-border-radius: clamp(4px, 1vw, 8px);
+border-radius: 50px;
 font-size: clamp(11px, 1vw + 0.6rem, 13px);
 font-weight: bold;
 cursor: pointer;
@@ -1730,7 +1722,7 @@ padding: 0 !important;
 </head>
 <body>
 <div class='outer-wrapper'>
-<header>
+<header class='no-print'>
 <div class='header-banner-hippam'>
 <div class='banner-ornament-1'></div>
 <div class='banner-ornament-2'></div>
@@ -1747,7 +1739,6 @@ padding: 0 !important;
 </div>
 </div>
 </header>
-<!-- Area Konten Utama Blogger -->
 <main class='main-wrapper' role='main'>
 <div class='no-items section' id='main-content'></div>
 <!-- ========================================== -->
@@ -1950,7 +1941,7 @@ padding: 0 !important;
 <div id='subViewFormAnggota' style='display: none;'>
 <h3>
 <button class='btn-kembali-menu' onclick='kembaliKePilihanMenu()' style='width: 100%; background: #ffffff; color: #ef4444; border: 0px solid #fecaca; padding: 12px; margin-top: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;'>
-            Kembali ke Beranda
+            &#11013; Kembali ke Beranda
           </button></h3>
 <!-- Kotak Input ID Anggota -->
 <div class='form-group'>
@@ -1980,7 +1971,7 @@ padding: 0 !important;
 <!-- TAMPILAN 2B: FORM LOGIN PETUGAS -->
 <div id='subViewFormPetugas' style='display: none;'>
 <h3><button class='btn-kembali-menu' onclick='kembaliKePilihanMenu()' style='width: 100%; background: #ffffff; color: #ef4444; border: 0px solid var(--border-color); padding: 12px; margin-top: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;'>
-            Kembali ke Beranda
+            &#11013; Kembali ke Beranda
           </button></h3>
 <form onsubmit='event.preventDefault(); prosesLoginPetugas();'>
 <div class='form-group'>
@@ -2016,7 +2007,8 @@ padding: 0 !important;
 <button class='tab-admin-btn' onclick='bukaTabAdmin(&#39;kamarRekapCetakAdmin&#39;, this); muatRekapSiapCetakTotal();' style='padding: 10px 20px; font-weight: bold; border: none; background: var(--accent-abu); color: #334155; border-radius: 4px; cursor: pointer;' type='button'>
         🖨&#65039; Rekap Siap Cetak (A4)
     </button>
-<h3 style='margin: 0; color: #00537A;'>Selamat Bekerja Bro...!💪</h3>
+<h3 style='align-text:margin: 10x; color: #00537A;'>Input Data Meteran</h3>
+<p style='margin: 5px 0 0 0; font-size: 13px; color: #64748b;'>📝 Isi kolom Stan Akhir saja sesuai dengan kondisi meteran saat dicek, maka sistem akan menghitung secara otomatis jumlah pemakaian meter3 sesuai tarif harga yang berlaku, simpan setiap 10 sebelum klik halaman berikutnya, Selamat Bekerja ...... Semangat! </p>
 <!-- === MENU NAVIGASI TAB ADMIN 2 & 3 === -->
 <div class='no-print' id='menuNavTabAdmin23' style='display: none; gap: 10px; margin-bottom: 20px; background: #f1f5f9; padding: 10px; border-radius: 8px;'></div>
 <div>
@@ -2250,6 +2242,15 @@ padding: 0 !important;
 </div>
 <!-- MENU 1: RINCIAN TAGIHAN -->
 <div class='panel-section active-panel' id='menu-tagihan'>
+<div class='kartu-info mb-3'>
+<div style='display: flex; align-items: center; gap: 10px; margin-bottom: 8px;'>
+<div style='font-size: 24px; color: #0277bd;'>📊</div>
+<div>
+<h3 style='margin: 0; color: #0f172a; font-size: 16px;'>Riwayat Pemakaian Air</h3>
+<p style='margin: 2px 0 0; color: #64748b; font-size: 12px;'>Informasi pemakaian air Anda selama periode berjalan</p>
+</div>
+</div>
+</div>
 <div class='table-wrapper'>
 <table class='tabel-data'>
 <thead>
@@ -2268,6 +2269,15 @@ padding: 0 !important;
 </div>
 <!-- MENU 2: STATUS PEMBAYARAN -->
 <div class='panel-section' id='menu-status'>
+<div class='kartu-info mb-3'>
+<div style='display: flex; align-items: center; gap: 10px; margin-bottom: 8px;'>
+<div style='font-size: 24px; color: #2e7d32;'>💳</div>
+<div>
+<h3 style='margin: 0; color: #0f172a; font-size: 16px;'>Status Pembayaran</h3>
+<p style='margin: 2px 0 0; color: #64748b; font-size: 12px;'>Informasi status pembayaran tagihan air Anda</p>
+</div>
+</div>
+</div>
 <div class='table-wrapper'>
 <table class='tabel-data'>
 <thead>
@@ -2286,6 +2296,15 @@ padding: 0 !important;
 </div>
 <!-- MENU 3: CEK TUNGGAKAN -->
 <div class='panel-section' id='menu-tunggakan'>
+<div class='kartu-info mb-3'>
+<div style='display: flex; align-items: center; gap: 10px; margin-bottom: 8px;'>
+<div style='font-size: 24px; color: #e65100;'>&#9888;&#65039;</div>
+<div>
+<h3 style='margin: 0; color: #0f172a; font-size: 16px;'>Tunggakan</h3>
+<p style='margin: 2px 0 0; color: #64748b; font-size: 12px;'>Informasi tagihan yang belum dibayar</p>
+</div>
+</div>
+</div>
 <div class='table-wrapper'>
 <table class='tabel-data'>
 <thead>
@@ -2307,6 +2326,15 @@ padding: 0 !important;
 </div>
 <!-- MENU 4: CETAK STRUK GAYA PDAM & QR CODE -->
 <div class='panel-section' id='menu-struk'>
+<div class='kartu-info mb-3'>
+<div style='display: flex; align-items: center; gap: 10px; margin-bottom: 8px;'>
+<div style='font-size: 24px; color: #0277bd;'>🧾</div>
+<div>
+<h3 style='margin: 0; color: #0f172a; font-size: 16px;'>Struk Pembayaran</h3>
+<p style='margin: 2px 0 0; color: #64748b; font-size: 12px;'>Cetak atau lihat struk pembayaran Anda</p>
+</div>
+</div>
+</div>
 <div class='form-group'>
 <label for='selectStrukBulan'>Pilih Bulan untuk Cetak Struk:</label>
 <select id='selectStrukBulan' onchange='tampilkanStruk()'>
@@ -3957,14 +3985,6 @@ function bukaTabAdmin(idKamarTarget, tombolElemen) {
 
 
 
-
-
-
-
-
-
-
-
 // ==========================================
 // INISIALISASI & LOGIN SATU PINTU ADMIN
 // ==========================================
@@ -4113,6 +4133,17 @@ window.prosesLoginPetugas = function(event) {
         return prosesLoginAdminSatuDoor(event);
     }
 };
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4388,7 +4419,8 @@ function admin1Logout() {
 
 //]]>
 </script>
-<div id='footer-atas'>
+<!-- FOOTER ATAS (DIKASIH KELAS NO-PRINT) -->
+<div class='no-print' id='footer-atas'>
 <div class='footer-widgets'>
 <!-- Widget 1: Informasi Warga -->
 <div class='footer-widget'>
@@ -4427,9 +4459,10 @@ function admin1Logout() {
 </div>
 </div><!-- Penutup-setelah-login -->
 </main>
-<footer class='footer-bottom' id='footer-bawah'>
+<!-- FOOTER BAWAH (DIKASIH KELAS NO-PRINT) -->
+<footer class='footer-bottom no-print' id='footer-bawah'>
 <div class='footer-bottom-container'>
-<!-- SISI KIRI: Kumpulan Media Sosial (Model Kapsul Masing-masing Item) -->
+<!-- SISI KIRI: Kumpulan Media Sosial -->
 <div class='footer-bottom-socials'>
 <!-- WEBSITE -->
 <a class='footer-social-link' href='https://karangtalunku.blogspot.com/' rel='noopener' target='_blank' title='Website Karangtalun'>
