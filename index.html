@@ -5,7 +5,7 @@
 <meta content='width=device-width, initial-scale=1, shrink-to-fit=no' name='viewport'/>
 <!-- Seterusnya... -->
 <!-- Judul Bawaan Blogger yang Dinamis -->
-<title>draft template</title>
+<title>HIPPAM TIRTA KENCANA</title>
 <!-- Meta Tag Khusus WhatsApp (Sudah Disesuaikan untuk XML Blogger) -->
 <meta content='Cek Status Pembayaran, Tunggakan & Cetak Struk - HIPPAM Tirta Kencana' property='og:title'/>
 <meta content='Monggo pinarak mlebet kangge mriksa status pembayaran toya, ningali rincian tanggungan, saha nyetak bukti pembayaran piyambak.' name='description'/>
@@ -654,7 +654,7 @@ body{padding:12px 10px}
 /* ===== Tombol mata pada kolom password ===== */
 .kolom-sandi{position:relative;display:block;width:100%}
 .dash .kolom-sandi{max-width:380px}
-.dash .form-pin .kolom-sandi{max-width:none}
+.dash .form-pin .kolom-sandi{width:100%}
 .kolom-sandi input{width:100%;padding-right:48px}
 .mata-sandi{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:38px;height:38px;border:0;border-radius:50%;background:transparent;color:#4D6586;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
 .mata-sandi:hover{background:#E3EFFC;color:#0A57BD}
@@ -768,9 +768,9 @@ body{padding:12px 10px}
 #v-catat #tabel-input td{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:0;border:0}
 #v-catat #tabel-input td::before{content:attr(data-label);white-space:nowrap;color:#4D6586;font-size:.78rem;font-weight:600}
 #v-catat #tabel-input td.no{display:none}
-#v-catat #tabel-input td.idc{grid-column:1 / -1;font-weight:800;color:#0A3A8A}
+#v-catat #tabel-input td.idc{grid-column:1 / -1;color:#0A3A8A}
 #v-catat #tabel-input td.idc::before,#tabel-input td.nmc::before{display:none}
-#v-catat #tabel-input td.nmc{grid-column:1 / -1;margin-top:-4px}
+#v-catat #tabel-input td.nmc{grid-column:1 / -1;font-weight:800;margin-top:-4px}
 #v-catat #tabel-input td.st{grid-column:1 / -1}
 #v-catat #tabel-input td.kol-k{position:absolute;top:10px;right:10px}
 #v-catat #tabel-input td.kol-k::before{display:none}
@@ -1160,6 +1160,12 @@ body{padding:8px 6px}
 .struk.belum-lunas{opacity:.9}
 @media print{#struk.belum-lunas{display:none !important}}
 .baris-saldo-awal td{font-style:italic;background:#F4F8FF}
+/* Tagihan bulan berjalan (sudah dirilis, belum dianggap tunggakan) */
+.tag-bulan-ini{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:#FFF1C9;color:#8A5A00;font-size:.68rem;font-weight:700;vertical-align:middle;white-space:nowrap}
+.pem-tabel tbody tr.baris-ini,.pem-tabel tbody tr.baris-ini:nth-child(even){background:#FFFBEA}
+.pem-tabel tbody tr.baris-ini td:first-child{box-shadow:inset 3px 0 0 #E3A400}
+.form-bku #bku-f-pilih{margin-bottom:8px}
+.pem-tabel td.angka{white-space:nowrap}   /* nominal Rp tidak terpotong jadi dua baris di HP */
 /* 10. Cetak: kembalikan ke lebar penuh */
 @media print{
 body{padding:0 !important;overflow:visible !important}
@@ -1239,7 +1245,7 @@ body{padding:0 !important;overflow:visible !important}
 <a class='lupa' href='#' onclick='document.getElementById(&#39;info-lupa-anggota&#39;).classList.toggle(&#39;tampil&#39;);return false;'>Lupa password?</a>
 <p class='info-lupa' id='info-lupa-anggota'>Silakan hubungi pengurus HIPPAM Tirta Kencana untuk mereset password Anda.</p>
 </form>
-<div class='watermark'>HIPPAM</div>
+<div class='watermark'>TIRTA KENCANA</div>
 <svg class='tetes kiri-bawah'><use href='#ikon-tetes'></use></svg>
 </main>
 <!-- ======================================================= -->
@@ -1260,7 +1266,7 @@ body{padding:0 !important;overflow:visible !important}
 <a class='lupa' href='#' onclick='document.getElementById(&#39;info-lupa-admin&#39;).classList.toggle(&#39;tampil&#39;);return false;'>Lupa password?</a>
 <p class='info-lupa' id='info-lupa-admin'>Hubungi pengelola sistem untuk mereset sandi administrator.</p>
 </form>
-<div class='watermark'>HIPPAM</div>
+<div class='watermark'>TIRTA KENCANA</div>
 <svg class='tetes kiri-bawah'><use href='#ikon-tetes'></use></svg>
 </main>
 <!-- ======================================================= -->
@@ -1554,7 +1560,7 @@ body{padding:0 !important;overflow:visible !important}
 <div class='hdr-garis'></div>
 <div class='hdr-teks'>
 <h1>HIPPAM TIRTA KENCANA</h1>
-<p class='sapaan'><span id='cat-ikon'>👋</span> Halo, <b><span id='nama-admin'>Admin</span> - Pencatat Meter</b></p>
+<p class='sapaan'><span id='cat-ikon'>👋</span> Halo, <b><span id='nama-admin'>Admin</span> - Selamat Bekerja</b></p>
 <p class='hdr-id'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z'></path></svg><span id='area-admin'></span></p>
 </div>
 <div class='hdr-kanan'>
@@ -1969,8 +1975,10 @@ body{padding:0 !important;overflow:visible !important}
 <select id='bku-f-jenis'><option value='masuk'>Pemasukan</option><option value='keluar'>Pengeluaran</option></select>
 <label for='bku-f-kat'>Kategori</label>
 <select id='bku-f-kat'><option value='Air'>Air</option><option value='Operasional'>Operasional</option><option value='Lainnya'>Lainnya</option><option value='Saldo Awal'>Saldo Awal</option></select>
-<label for='bku-f-ket'>Keterangan</label>
-<input id='bku-f-ket' maxlength='80' required='required' type='text'/>
+<label for='bku-f-pilih'>Keterangan</label>
+<select id='bku-f-pilih'><option value=''>&#8212; Pilih dari daftar &#8212;</option></select>
+<input id='bku-f-ket' list='bku-ket-saran' maxlength='80' placeholder='atau ketik sendiri' required='required' type='text'/>
+<datalist id='bku-ket-saran'></datalist>
 <label for='bku-f-jml'>Jumlah (Rp)</label>
 <input id='bku-f-jml' inputmode='numeric' min='1' required='required' step='1' type='number'/>
 <p class='pesan err' id='bku-f-pesan'></p>
@@ -1986,6 +1994,9 @@ body{padding:0 !important;overflow:visible !important}
 </div>
 </div>
 <div class='toast no-print' id='toast'></div>
+<!-- Pustaka pembuat QR Code (butuh internet; bila gagal dimuat, kotak QR kosong ditampilkan) -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'></script>
 <script>//<![CDATA[
 /* =====================================================================
    BAGIAN A : PENGATURAN
@@ -2006,13 +2017,39 @@ const HOTLINE_WA = '6285229355814'; // cadangan bila nomor Admin 2 / Admin 3 bel
 const WA_ADMIN2 = '6281239957828';         // nomor WhatsApp Admin 2 (contoh: 6281234567890)
 const WA_ADMIN3 = '6285334101516';         // nomor WhatsApp Admin 3 (contoh: 6281234567890)
 const PER_HALAMAN = 10;
+/* ===== Daftar pilihan KETERANGAN transaksi BKU (silakan ubah, tambah, atau hapus baris) =====
+   ket = teks yang muncul pada pilihan;  kat = kategori yang otomatis terpilih:
+   Air | Operasional | Lainnya | Saldo Awal.  Daftar pemasukan dan pengeluaran dipisah.
+   Contoh isi di bawah hanyalah contoh. Jangan lupa koma di akhir tiap baris kecuali baris terakhir. */
+const KET_PEMASUKAN = [
+  { ket:'Setoran iuran air Karangtalun',                 kat:'Air' },
+  { ket:'Setoran iuran air Jlubang',               kat:'Air' },
+  { ket:'Biaya pemasangan sambungan baru',   kat:'Lainnya' },
+  { ket:'Denda keterlambatan',               kat:'Lainnya' },
+  { ket:'Bantuan / hibah',                   kat:'Lainnya' },
+  { ket:'Bunga bank',                        kat:'Lainnya' },
+  { ket:'Saldo awal',                        kat:'Saldo Awal' }
+];
+const KET_PENGELUARAN = [
+  { ket:'Pembayaran listrik pompa air',                     kat:'Operasional' },
+  { ket:'Honor Pengurus HIPPAM',            kat:'Operasional' },
+  { ket:'Perbaikan pipa / kebocoran',        kat:'Operasional' },
+  { ket:'Pembelian bahan / sparepart pipa',       kat:'Operasional' },
+  { ket:'Pembelian ATK / cetak struk',       kat:'Operasional' },
+  { ket:'Rapat / konsumsi',                  kat:'Lainnya' },
+  { ket:'Sumbangan ',              kat:'Lainnya' }
+];
 const bulanBerjalan = new Date().getMonth();
+/* Pengontrolan meter dilakukan di akhir bulan untuk tagihan bulan berikutnya (dirilis tanggal 1).
+   Mulai tanggal ini, pilihan bulan awal di halaman pencatat otomatis bulan depan. Isi 32 untuk menonaktifkan. */
+const HARI_CATAT_BULAN_DEPAN = 25;
+const bulanCatatAwal = () => { const d = new Date(); return (d.getDate() >= HARI_CATAT_BULAN_DEPAN && d.getMonth() < 11) ? d.getMonth() + 1 : d.getMonth(); };
 
 // Pembagian tugas pencatat
 const AWAL_JLUBANG = /^(JBK|JBE|JBM)/i;
 const PETUGAS = {
-  2: { nama:'Admin 2', wilayah:'DUSUN KARANGTALUN', pendek:'Karangtalun', area:'Anggota dengan ID selain JBK, JBE, JBM', cocok: id => !AWAL_JLUBANG.test(id) },
-  3: { nama:'Admin 3', wilayah:'AREA JLUBANG', pendek:'Jlubang', area:'Area Jlubang (ID berawalan JBK, JBE, JBM)', cocok: id => AWAL_JLUBANG.test(id) }
+  2: { nama:'Admin 2', wilayah:'DUSUN KARANGTALUN', pendek:'Karangtalun', area:'kontrol meter air di lingkungan Karangtalun', cocok: id => !AWAL_JLUBANG.test(id) },
+  3: { nama:'Admin 3', wilayah:'AREA JLUBANG', pendek:'Jlubang', area:'kontrol meter air di lingkungan Jlubang', cocok: id => AWAL_JLUBANG.test(id) }
 };
 
 // Data anggota (diisi dari server setelah login): { id, nama, awalJan, akhir:[12], rp:[12], dibayar:[12] }
@@ -2201,7 +2238,8 @@ function mulaiDash(a){
       const pakai = akhir - awal;
       const tarif = pakai > 0 ? tarifUntuk(a.id) : 0;
       const admin = pakai > 0 ? ADMIN : 0;
-      return { nama, awal, akhir, tarif, admin, tagihan: (a.rp && a.rp[i] != null) ? Number(a.rp[i]) : pakai * tarif + admin, dibayar: a.dibayar[i], dicatat: a.akhir[i] !== null, tgl:'' };
+      return { nama, awal, akhir, tarif, admin, tagihan: (a.rp && a.rp[i] != null) ? Number(a.rp[i]) : pakai * tarif + admin, dibayar: a.dibayar[i], dicatat: a.akhir[i] !== null, tgl:'',
+               berjalan: i === bulanBerjalan, depan: i > bulanBerjalan };   // tagihan bulan berjalan sudah keluar (rilis tanggal 1); bulan depan belum
     })
   };
   document.getElementById('form-pin').reset();
@@ -2222,7 +2260,7 @@ const badge = s => `<span class="status ${s.kelas}">${s.teks}</span>`;
 
 function renderPemakaian(){
   const fmt = n => n.toLocaleString('id-ID', { maximumFractionDigits:1 });
-  const baris = DATA.bulan.filter(b => b.dicatat);          // hanya bulan yang sudah dicatat
+  const baris = DATA.bulan.filter(b => b.dicatat && !b.depan);   // bulan yang sudah dicatat dan sudah dirilis (bulan depan belum tampil)
   document.getElementById('isi-pemakaian').innerHTML = baris.length ? baris.map((b, i) => `
     <tr><td>${String(i + 1).padStart(2, '0')}</td><td>${b.nama}</td>
     <td class="c">${b.awal}</td><td class="c">${b.akhir}</td>
@@ -2250,38 +2288,54 @@ function setKartu(id, warna, ikon, judul, nilai, ket){
   k.querySelector('.ket').textContent = ket;
 }
 function renderStatus(){
-  const total = DATA.bulan.reduce((s, b) => s + tunggakanDari(b), 0);
+  // tunggakan = bulan yang sudah lewat; tagihan bulan berjalan dipisah karena baru dirilis tanggal 1
+  const lalu = DATA.bulan.filter(b => !b.berjalan && !b.depan && tunggakanDari(b) > 0);
+  const ini = DATA.bulan.find(b => b.berjalan);
+  const sisaIni = ini ? tunggakanDari(ini) : 0;
+  const totalLalu = lalu.reduce((s, b) => s + tunggakanDari(b), 0);
   const bayar = DATA.bulan.filter(b => b.dibayar > 0);
-  const terakhir = bayar.length ? bayar[bayar.length - 1].tgl : '-';
-  const nBelum = DATA.bulan.filter(b => tunggakanDari(b) > 0).length;
+  const terakhir = bayar.length ? (bayar[bayar.length - 1].tgl || '-') : '-';
   const ketTgl = terakhir !== '-' ? ' · Pembayaran terakhir: ' + terakhir : '';
-  if (total === 0) setKartu('kartu-status', 'hijau', IK_CEK, 'Status Anda saat ini', 'Lunas', 'Semua tagihan sudah lunas.' + ketTgl);
-  else setKartu('kartu-status', 'jingga', IK_AWAS, 'Status Anda saat ini', nBelum + ' bulan belum lunas', 'Total tunggakan: ' + rp(total) + ketTgl);
-  // semua bulan yang bertagihan (tidak dibatasi 6 bulan), terbaru di atas
-  const daftar = DATA.bulan.filter(b => b.tagihan > 0).reverse();
+  if (totalLalu === 0 && sisaIni === 0) setKartu('kartu-status', 'hijau', IK_CEK, 'Status Anda saat ini', 'Lunas', 'Semua tagihan sudah lunas.' + ketTgl);
+  else if (totalLalu === 0) setKartu('kartu-status', 'jingga', IK_AWAS, 'Status Anda saat ini', 'Tagihan ' + ini.nama + ' belum lunas', 'Tagihan bulan ini: ' + rp(sisaIni) + ketTgl);
+  else setKartu('kartu-status', 'jingga', IK_AWAS, 'Status Anda saat ini', lalu.length + ' bulan belum lunas',
+    'Total tunggakan: ' + rp(totalLalu) + (sisaIni > 0 ? ' · ditambah tagihan bulan ini ' + rp(sisaIni) : '') + ketTgl);
+  // semua bulan yang sudah ditagihkan (termasuk bulan berjalan), terbaru di atas; bulan depan belum ada tagihan
+  const daftar = DATA.bulan.filter(b => b.tagihan > 0 && !b.depan).reverse();
   document.getElementById('isi-status').innerHTML = daftar.length ? daftar.map((b, i) => `
-    <tr class="${tunggakanDari(b) > 0 ? 'baris-belum' : ''}"><td>${i + 1}</td><td>${b.nama}</td>
+    <tr class="${tunggakanDari(b) > 0 ? (b.berjalan ? 'baris-ini' : 'baris-belum') : ''}"><td>${i + 1}</td>
+    <td>${b.nama}${b.berjalan ? ' <span class="tag-bulan-ini">bulan ini</span>' : ''}</td>
     <td class="angka">${rp(b.tagihan)}</td><td class="c">${badge(statusDari(b))}</td>
     <td class="c">${b.tgl || '-'}</td></tr>`).join('')
     : '<tr><td colspan="5" class="kosong">Belum ada riwayat pembayaran.</td></tr>';
 }
 function renderTunggakan(){
-  const daftar = DATA.bulan.filter(b => tunggakanDari(b) > 0);
+  // Tunggakan = bulan yang sudah lewat. Tagihan bulan berjalan ditampilkan terpisah (tanpa denda).
+  const lalu = DATA.bulan.filter(b => !b.berjalan && !b.depan && tunggakanDari(b) > 0);
+  const ini = DATA.bulan.find(b => b.berjalan && tunggakanDari(b) > 0);
   const tbody = document.getElementById('isi-tunggakan');
   const tfoot = document.getElementById('foot-tunggakan');
   const jumlah = b => tunggakanDari(b) + DENDA;
-  if (!daftar.length){
+  if (!lalu.length && !ini){
     setKartu('kartu-tunggakan', 'jingga', IK_JEMPOL, 'Status Tunggakan', 'Tidak ada tunggakan.', 'Terima kasih telah tepat waktu dalam pembayaran.');
     tbody.innerHTML = '<tr><td colspan="5" class="kosong">Tidak ada data tunggakan. Selalu bayar tepat waktu ya!</td></tr>';
     tfoot.innerHTML = '';
     return;
   }
-  const total = daftar.reduce((s, b) => s + jumlah(b), 0);
-  setKartu('kartu-tunggakan', 'merah', IK_AWAS, 'Status Tunggakan', `${daftar.length} bulan belum lunas`, 'Total yang harus dibayar: ' + rp(total));
-  tbody.innerHTML = daftar.map((b, i) => `
+  const totalLalu = lalu.reduce((s, b) => s + jumlah(b), 0);
+  const sisaIni = ini ? tunggakanDari(ini) : 0;
+  if (lalu.length) setKartu('kartu-tunggakan', 'merah', IK_AWAS, 'Status Tunggakan', `${lalu.length} bulan belum lunas`,
+    'Total tunggakan: ' + rp(totalLalu) + (ini ? ' · belum termasuk tagihan bulan ini ' + rp(sisaIni) : ''));
+  else setKartu('kartu-tunggakan', 'jingga', IK_JEMPOL, 'Status Tunggakan', 'Tidak ada tunggakan.',
+    'Tagihan bulan ini (' + ini.nama + ') ' + rp(sisaIni) + ' belum dibayar.');
+  tbody.innerHTML = lalu.map((b, i) => `
     <tr><td>${i + 1}</td><td>${b.nama}</td><td class="angka">${rp(tunggakanDari(b))}</td>
-    <td class="angka">${rp(DENDA)}</td><td class="angka"><b>${rp(jumlah(b))}</b></td></tr>`).join('');
-  tfoot.innerHTML = `<tr><td colspan="4">Total Tunggakan</td><td class="angka">${rp(total)}</td></tr>`;
+    <td class="angka">${rp(DENDA)}</td><td class="angka"><b>${rp(jumlah(b))}</b></td></tr>`).join('')
+    + (ini ? `<tr class="baris-ini"><td>${lalu.length + 1}</td><td>${ini.nama} <span class="tag-bulan-ini">bulan ini</span></td>
+    <td class="angka">${rp(sisaIni)}</td><td class="angka">${rp(0)}</td><td class="angka"><b>${rp(sisaIni)}</b></td></tr>` : '');
+  tfoot.innerHTML = (lalu.length ? `<tr><td colspan="4">Total Tunggakan</td><td class="angka">${rp(totalLalu)}</td></tr>` : '')
+    + (ini ? `<tr><td colspan="4">Tagihan Bulan Ini</td><td class="angka">${rp(sisaIni)}</td></tr>` : '')
+    + (lalu.length && ini ? `<tr><td colspan="4"><b>Total yang harus dibayar</b></td><td class="angka"><b>${rp(totalLalu + sisaIni)}</b></td></tr>` : '');
 }
 
 /* Terbilang rupiah, mis. 15000 -> "Lima Belas Ribu Rupiah" */
@@ -2500,7 +2554,7 @@ async function mulaiCatat(role){
   ['bulan-input','bulan-rekap'].forEach(id => {
     const sel = document.getElementById(id);
     sel.innerHTML = BULAN.map((n, i) => `<option value="${i}">${n}</option>`).join('');
-    sel.value = bulanBerjalan;   // bulan aktif saat muat pertama
+    sel.value = bulanCatatAwal();   // bulan yang sedang dicatat saat muat pertama
   });
   aktifkanTab('v-catat', 'input');
   renderInput();
@@ -2863,7 +2917,7 @@ async function mulaiBendahara(){
   const tahun = new Date().getFullYear();
   const sel = document.getElementById('bend-bulan');
   sel.innerHTML = BULAN.map((n, i) => `<option value="${i}">${n} ${tahun}</option>`).join('');
-  sel.value = Math.max(bulanBerjalan - 1, 0);          // bulan terakhir yang sudah dicatat
+  sel.value = bulanBerjalan;                           // tagihan bulan berjalan sudah dirilis tanggal 1
   document.getElementById('bend-status').value = 'semua';
   document.getElementById('grafik-rentang').value = '6';
   document.getElementById('bend-tanggal').textContent =
@@ -3251,6 +3305,47 @@ const IK_SVG = {
   pensil:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75z"/></svg>',
   sampah:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 14H7zM9 3h6l1 2h4v2H4V5h4z"/></svg>'
 };
+/* ---------- Pilihan keterangan: dropdown + saran saat mengetik, dipisah pemasukan / pengeluaran ---------- */
+const jenisBKU = () => document.getElementById('bku-f-jenis').value;            // 'masuk' | 'keluar'
+const daftarKet = j => (j === 'keluar' ? KET_PENGELUARAN : KET_PEMASUKAN);
+function riwayatKet(j){                       // keterangan yang pernah dipakai (jenis sama), paling sering dulu
+  const peta = {}, preset = daftarKet(j).map(p => p.ket.toLowerCase());
+  BKU.forEach(t => {
+    const nominal = j === 'keluar' ? t.keluar : t.masuk, k = String(t.ket || '').trim();
+    if (!(nominal > 0) || !k || t.kat === KAT_SALDO_AWAL || preset.indexOf(k.toLowerCase()) >= 0) return;
+    const o = peta[k.toLowerCase()] || (peta[k.toLowerCase()] = { ket:k, kat:t.kat, n:0 });
+    o.n++; o.kat = t.kat;
+  });
+  return Object.keys(peta).map(k => peta[k]).sort((a, b) => b.n - a.n || a.ket.localeCompare(b.ket)).slice(0, 15);
+}
+function isiSaranKet(){
+  const j = jenisBKU(), preset = daftarKet(j), riwayat = riwayatKet(j);
+  document.getElementById('bku-f-pilih').innerHTML = '<option value="">— Pilih dari daftar —</option>'
+    + preset.map((p, i) => `<option value="p${i}">${esc(p.ket)}</option>`).join('')
+    + (riwayat.length ? '<optgroup label="Pernah dipakai">' + riwayat.map((r, i) => `<option value="r${i}">${esc(r.ket)}</option>`).join('') + '</optgroup>' : '');
+  document.getElementById('bku-ket-saran').innerHTML = preset.concat(riwayat).map(x => `<option value="${esc(x.ket)}"></option>`).join('');
+}
+function cocokKet(teks, j){
+  const t = String(teks || '').trim().toLowerCase();
+  return t ? daftarKet(j).concat(riwayatKet(j)).find(x => x.ket.toLowerCase() === t) || null : null;
+}
+document.getElementById('bku-f-pilih').addEventListener('change', e => {
+  const v = e.target.value, j = jenisBKU();
+  if (!v) return;
+  const x = v.charAt(0) === 'p' ? daftarKet(j)[Number(v.slice(1))] : riwayatKet(j)[Number(v.slice(1))];
+  if (x){ document.getElementById('bku-f-ket').value = x.ket; document.getElementById('bku-f-kat').value = x.kat; }
+  e.target.value = '';                                  // kembali ke judul agar bisa memilih lagi
+});
+document.getElementById('bku-f-ket').addEventListener('input', e => {    // ketik/pilih saran yang cocok -> kategori ikut terisi
+  const x = cocokKet(e.target.value, jenisBKU());
+  if (x) document.getElementById('bku-f-kat').value = x.kat;
+});
+document.getElementById('bku-f-jenis').addEventListener('change', () => {
+  const inp = document.getElementById('bku-f-ket'), lama = jenisBKU() === 'masuk' ? 'keluar' : 'masuk';
+  if (cocokKet(inp.value, lama)) inp.value = '';        // isian dari daftar jenis sebelumnya dikosongkan
+  isiSaranKet();
+});
+
 function bukaFormBKU(id){
   bkuEditId = id || null;
   const t = id ? BKU.find(x => x.id === id) : null;
@@ -3258,6 +3353,7 @@ function bukaFormBKU(id){
   const per = document.getElementById('bku-periode').value;
   document.getElementById('bku-f-tgl').value = t ? t.tgl : (per ? per + '-01' : '');
   document.getElementById('bku-f-jenis').value = t && t.keluar ? 'keluar' : 'masuk';
+  isiSaranKet();
   document.getElementById('bku-f-kat').value = t ? t.kat : 'Air';
   document.getElementById('bku-f-ket').value = t ? t.ket : '';
   document.getElementById('bku-f-jml').value = t ? (t.masuk || t.keluar) : '';
@@ -3426,9 +3522,6 @@ document.getElementById('lap-cetak').addEventListener('click', () => cetakBendah
 //]]></script>
 </main>
 </div>
-<!-- Pustaka pembuat QR Code (butuh internet; bila gagal dimuat, kotak QR kosong ditampilkan) -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'></script>
 
 </body>
 </html>
