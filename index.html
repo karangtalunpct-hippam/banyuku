@@ -5,7 +5,7 @@
 <meta content='width=device-width, initial-scale=1, shrink-to-fit=no' name='viewport'/>
 <!-- Seterusnya... -->
 <!-- Judul Bawaan Blogger yang Dinamis -->
-<title>draft template</title>
+<title>HIPPAM TIRTA KENCANA</title>
 <!-- Meta Tag Khusus WhatsApp (Sudah Disesuaikan untuk XML Blogger) -->
 <meta content='Cek Status Pembayaran, Tunggakan & Cetak Struk - HIPPAM Tirta Kencana' property='og:title'/>
 <meta content='Monggo pinarak mlebet kangge mriksa status pembayaran toya, ningali rincian tanggungan, saha nyetak bukti pembayaran piyambak.' name='description'/>
@@ -16,7 +16,7 @@
 <meta content='300' property='og:image:width'/>
 <meta content='300' property='og:image:height'/>
 <meta content='website' property='og:type'/>
-<style id='page-skin-1' type='text/css'><!--
+<style id='page-skin-1' type='text/css'>
 :root{
 /* Palet biru air (mengikuti desain dashboard) */
 --navy:#0A3A8A;        /* Biru tua   : header, judul */
@@ -1221,7 +1221,7 @@ body{padding:8px 6px}
 /* nav menu anggota pindah ke bawah layar */
 #v-dash.aktif{padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))}
 #v-dash nav.menu-anggota{position:fixed !important;left:0;right:0;bottom:0;z-index:60;margin:0;
-display:grid !important;grid-template-columns:repeat(7,minmax(0,1fr)) !important;gap:2px !important;overflow:visible !important;
+display:grid !important;grid-template-columns:repeat(6,minmax(0,1fr)) !important;gap:2px !important;overflow:visible !important;
 padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px)) !important;
 background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
 border-top:1px solid #D3E5F8;border-radius:18px 18px 0 0;box-shadow:0 -6px 20px rgba(10,60,140,.14)}
@@ -1288,6 +1288,78 @@ box-shadow:0 16px 40px rgba(10,50,120,.28);display:flex;flex-direction:column;ga
 .pk-meter b{color:#0B2E5E}
 .pk-kosong{padding:18px;text-align:center}
 @media (prefers-reduced-motion:reduce){.pk-bar i{transition:none}.pk-bar i::after{animation:none}}
+/* ===== Menu Status gabungan (Status + Tunggakan) ===== */
+.filter-status{display:flex;gap:8px;margin:14px 0 6px}
+.filter-status button{flex:1 1 0;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;border-radius:999px;border:1.5px solid #C9E0F7;background:#fff;color:#0B2E5E;font:inherit;font-weight:700;font-size:.92rem;cursor:pointer}
+.filter-status button i{font-style:normal;min-width:22px;padding:1px 7px;border-radius:999px;background:#E3EFFC;font-size:.78rem;text-align:center}
+.filter-status button.aktif{background:#0A63C9;border-color:#0A63C9;color:#fff}
+.filter-status button.aktif i{background:rgba(255,255,255,.25)}
+.pem-tabel tfoot td{font-weight:700}
+.pem-tabel.tabel-status table{min-width:0 !important}
+.pem-tabel.tabel-status td,.pem-tabel.tabel-status th{padding-left:12px;padding-right:12px}
+.pem-tabel small.sisa{display:block;font-weight:600;font-size:.72rem;color:#B83A12}
+.rg-utama{cursor:pointer}
+.rg-lihat{display:block;margin-top:6px;font-size:.76rem;font-weight:700;text-decoration:underline}
+/* ===== Rekap tahunan: tabel lengkap di desktop & cetak, kartu ringkas di HP ===== */
+.aksi-atas,.rekap-kartu{display:none}
+.rekap-tarif{font-size:.85rem;color:#4D6586;margin:4px 0 0}
+.rekap-ringkas{margin:14px 0 4px;font-size:.92rem;line-height:1.7;color:#0B2E5E}
+.rekap-ringkas p{margin:0}
+.baris-pasif td{color:#8A9BB3}
+.rk-item{background:#F1F7FE;border:1px solid #D3E5F8;border-radius:16px;padding:10px 14px;min-width:0}
+.rk-item small{display:block;font-size:.76rem;color:#4D6586}
+.rk-item b{display:block;font-size:1.15rem;color:#0B2E5E;overflow-wrap:anywhere}
+.rk-item.rk-kurang{background:#FFF1E6;border-color:#F8D3B4}
+.rk-item.rk-kurang b{color:#B83A12}
+.rk-item.rk-kurang.ok{background:#E6F7EF;border-color:#BFE5D3}
+.rk-item.rk-kurang.ok b{color:#0A7A52}
+.rk-catatan{grid-column:1 / -1;margin:2px 0 0;font-size:.78rem;color:#4D6586}
+@media (max-width:768px){
+#v-dash .tabel-rekap-anggota,#v-dash .rekap-ringkas,#v-dash .tab[data-tab=rekap] .aksi-bawah{display:none}
+#v-dash .rekap-kartu{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+#v-dash .tab[data-tab=rekap] .aksi-atas{display:flex;margin:0 0 12px}
+}
+@media print{
+#v-dash .tabel-rekap-anggota,#v-dash .rekap-ringkas{display:block !important}
+#v-dash .rekap-kartu,#v-dash .aksi-atas{display:none !important}
+}
+/* ===== Bendahara: Data Anggota & Pembayaran ===== */
+.ang-chip{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip-ang{padding:6px 14px;border-radius:999px;background:#E3EFFC;color:#0A3A8A;font-size:.85rem}
+.ang-blok{margin-top:16px}
+.ang-blok h3{font-size:1.05rem;color:#0A3A8A;margin:0 0 8px}
+.ang-blok h3 small{font-weight:500;color:#4D6586;font-size:.8rem;margin-left:6px}
+#v-bend table.tbl-ang{min-width:0}
+.byr-legenda{margin:12px 0 8px;font-size:.85rem;color:#4D6586;line-height:1.7}
+.byr-legenda .lg{display:inline-block;min-width:22px;padding:0 8px;border-radius:8px;font-weight:700;text-align:center}
+.lg.ok,.byr-sel.ok{background:#DDF3E8;color:#0A7A52}
+.lg.belum,.byr-sel.belum{background:#FFE1E5;color:#C0263C}
+.lg.kurang,.byr-sel.kurang{background:#FFE9D2;color:#B35A00}
+.lg.nol,.byr-sel.nol{background:#F0F3F8;color:#8A9BB3}
+#v-bend table.tbl-byr{min-width:860px}
+#v-bend .tbl-byr th,#v-bend .tbl-byr td{padding:9px 7px;font-size:.85rem}
+.byr-nama{display:block;max-width:128px;margin-top:1px;font-size:.74rem;font-weight:500;color:#4D6586;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (min-width:769px){.byr-nama{display:none}}
+@media (max-width:768px){
+#v-bend table.tbl-byr{min-width:0}
+.tbl-byr th:nth-child(2),.tbl-byr td:nth-child(2){display:none}
+.tbl-byr th:first-child,.tbl-byr td:first-child{min-width:124px;box-shadow:2px 0 0 #E1ECF9}
+}
+#v-bend .tbl-byr th:nth-child(n+3),#v-bend .tbl-byr td:nth-child(n+3){padding-left:3px;padding-right:3px}
+.tbl-byr td.byr-sel{font-weight:700;white-space:nowrap}
+.tbl-byr td.byr-sel[data-m]{cursor:pointer;box-shadow:inset 0 0 0 2px transparent}
+.tbl-byr td.byr-sel[data-m]:hover,.tbl-byr td.byr-sel[data-m]:focus{box-shadow:inset 0 0 0 2px #0B63D1;outline:0}
+.tbl-byr th:first-child,.tbl-byr td:first-child{position:sticky;left:0;z-index:2;background:#fff;min-width:92px}
+.tbl-byr th:first-child{background:#D6E6FA}
+.tbl-byr td:nth-child(2){min-width:140px}
+@media (min-width:769px){
+.tbl-byr th:nth-child(2),.tbl-byr td:nth-child(2){position:sticky;left:92px;z-index:2;background:#fff;box-shadow:2px 0 0 #E1ECF9}
+.tbl-byr th:nth-child(2){background:#D6E6FA}
+}
+.byr-peringatan{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:#FFF6DD;color:#7A5200;font-size:.85rem}
+.pesan-modal{margin:8px 0 0;min-height:1.2em;font-size:.85rem;color:#C0263C}
+#modal-bend.konfirmasi .modal-isi > .aksi{display:none}
+#modal-bend .modal-isi .aksi{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
 /* 10. Cetak: kembalikan ke lebar penuh */
 @media print{
 body{padding:0 !important;overflow:visible !important}
@@ -1295,7 +1367,7 @@ body{padding:0 !important;overflow:visible !important}
 .tabel-wrap,.pem-tabel{overflow:visible !important}
 }
 
---></style>
+</style>
 <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
 <meta name='google-adsense-platform-domain' content='blogspot.com'/>
 
@@ -1423,7 +1495,6 @@ body{padding:0 !important;overflow:visible !important}
 <nav class='menu menu-anggota'>
 <button class='aktif' data-tab='pemakaian'><svg viewBox='0 0 24 24'><path d='M12 2.5C12 2.5 5.5 10 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10 12 2.5 12 2.5z'></path></svg>Pemakaian</button>
 <button data-tab='status'><svg viewBox='0 0 24 24'><path d='M4 20h4V10H4zm6 0h4V4h-4zm6 0h4v-7h-4z'></path></svg>Status</button>
-<button data-tab='tunggakan'><svg viewBox='0 0 24 24'><path d='M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM4 9v2h16V9z' fill-rule='evenodd'></path></svg>Tunggakan</button>
 <button data-tab='struk'><svg viewBox='0 0 24 24'><path d='M6 2h9l5 5v15H6zM14 3.5V8h4.5zM9 12h8v1.5H9zm0 3.5h8V17H9z' fill-rule='evenodd'></path></svg>Struk</button>
 <button data-tab='rekap'><svg viewBox='0 0 24 24'><path d='M19 8a8 8 0 0 0-13.5-2M5 16a8 8 0 0 0 13.5 2' fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2.4'></path><path d='M19.5 3v5.5H14M4.5 21v-5.5H10' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.4'></path></svg>Rekap</button>
 <button data-tab='kartu'><svg viewBox='0 0 24 24'><path d='M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm4.500 3.500a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM4.500 16c.5-1.700 1.800-2.500 3-2.500s2.500.8 3 2.500zM13 9h6v1.500h-6zm0 3h6v1.500h-6z' fill-rule='evenodd'></path></svg><span class='lbl-pj'>Kartu Anggota</span><span class='lbl-pd'>Kartu</span></button>
@@ -1436,7 +1507,7 @@ body{padding:0 !important;overflow:visible !important}
 <div class='ringkas-grid'>
 <div class='rg-item'><small>Pemakaian bulan ini</small><b id='rg-pakai'>-</b></div>
 <div class='rg-item'><small>Tagihan bulan ini</small><b id='rg-tagihan'>-</b><em id='rg-tagihan-ket'></em></div>
-<div class='rg-item rg-utama'><small>Total tunggakan</small><b id='rg-tunggakan'>-</b><em id='rg-tunggakan-ket'></em></div>
+<div class='rg-item rg-utama' onclick='bukaTunggakan()' onkeydown='if(event.key===&#39;Enter&#39;)bukaTunggakan()' role='button' tabindex='0' title='Lihat rincian'><small>Total tunggakan</small><b id='rg-tunggakan'>-</b><em id='rg-tunggakan-ket'></em><span class='rg-lihat' id='rg-lihat'>Lihat rincian &#8250;</span></div>
 </div>
 </div>
 <div class='pem-kepala kecil'>
@@ -1485,7 +1556,7 @@ body{padding:0 !important;overflow:visible !important}
 <div class='pem-kepala no-print'>
 <div class='pem-judul'>
 <span class='ik-bulat'><svg viewBox='0 0 24 24'><path d='M4 20h4v-8H4zm6 0h4V4h-4zm6 0h4v-12h-4z'></path></svg></span>
-<div><h3>Status Pembayaran</h3><p>Pantau status pembayaran iuran air Anda</p></div>
+<div><h3>Status Pembayaran</h3><p>Pantau pembayaran dan tunggakan iuran air Anda</p></div>
 </div>
 </div>
 <div class='kartu-pem hijau kartu-lebar' id='kartu-status'>
@@ -1493,31 +1564,16 @@ body{padding:0 !important;overflow:visible !important}
 <span class='ik-bulat besar hijau'><svg viewBox='0 0 24 24'><path d='M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.8 7.2 19.4 5.8z'></path></svg></span>
 <div class='pem-isi'><small></small><b></b><span class='ket'></span></div>
 </div>
-<h4 class='sub-judul'><svg viewBox='0 0 24 24'><path d='M19 8a8 8 0 0 0-13.5-2M5 16a8 8 0 0 0 13.5 2' fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2.4'></path><path d='M19.5 3v5.5H14M4.5 21v-5.5H10' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.4'></path></svg>Riwayat Pembayaran Tahun Ini</h4>
-<div class='pem-tabel tabel-wrap'>
+<div aria-label='Filter status' class='filter-status no-print' id='filter-status' role='group'>
+<button class='aktif' data-f='belum' type='button'>Belum Bayar <i id='fs-belum'>0</i></button>
+<button data-f='semua' type='button'>Semua <i id='fs-semua'>0</i></button>
+</div>
+<h4 class='sub-judul'><svg viewBox='0 0 24 24'><path d='M19 8a8 8 0 0 0-13.5-2M5 16a8 8 0 0 0 13.5 2' fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2.4'></path><path d='M19.5 3v5.5H14M4.5 21v-5.5H10' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.4'></path></svg>Rincian per Bulan</h4>
+<div class='pem-tabel tabel-wrap tabel-status'>
 <table>
-<thead><tr><th>No</th><th>Bulan</th><th class='angka'>Tagihan</th><th class='c'>Status</th><th class='c'>Tanggal Bayar</th></tr></thead>
+<thead><tr><th>Bulan</th><th class='angka'>Tagihan</th><th class='c'>Status</th></tr></thead>
 <tbody id='isi-status'></tbody>
-</table>
-</div>
-</div>
-<div class='tab' data-tab='tunggakan'>
-<div class='pem-kepala no-print'>
-<div class='pem-judul'>
-<span class='ik-bulat'><svg viewBox='0 0 24 24'><path d='M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM4 9v2h16V9z' fill-rule='evenodd'></path></svg></span>
-<div><h3>Tunggakan</h3><p>Daftar bulan yang belum dibayar</p></div>
-</div>
-</div>
-<div class='kartu-pem jingga kartu-lebar' id='kartu-tunggakan'>
-<svg aria-hidden='true' class='dekor' preserveAspectRatio='xMaxYMax slice' viewBox='0 0 300 120'><path d='M0 100C60 70 110 40 170 70S260 100 300 50V120H0Z' fill='rgba(80,160,240,.16)'></path><path d='M80 120C140 90 200 104 300 70V120Z' fill='rgba(80,160,240,.24)'></path></svg>
-<span class='ik-bulat besar jingga'><svg viewBox='0 0 24 24'><path d='M2 10h4v11H2zm6 11h9.4a2 2 0 0 0 2-1.6l1.4-7a2 2 0 0 0-2-2.4H14l.9-4.1A2.5 2.5 0 0 0 12.5 3L8 10z'></path></svg></span>
-<div class='pem-isi'><small></small><b></b><span class='ket'></span></div>
-</div>
-<div class='pem-tabel tabel-wrap'>
-<table>
-<thead><tr><th>No</th><th>Bulan Tunggakan</th><th class='angka'>Tagihan</th><th class='angka'>Denda</th><th class='angka'>Jumlah</th></tr></thead>
-<tbody id='isi-tunggakan'></tbody>
-<tfoot id='foot-tunggakan'></tfoot>
+<tfoot id='foot-status'></tfoot>
 </table>
 </div>
 </div>
@@ -1538,35 +1594,49 @@ body{padding:0 !important;overflow:visible !important}
 <b class='kop-nama'>HIPPAM "TIRTA KENCANA"</b>
 <span>Dusun Karangtalun, Desa Gedompol, Kec. Donorojo</span>
 <h2>REKAPITULASI TAHUNAN PEMAKAIAN DAN PEMBAYARAN AIR</h2>
-<p>Rincian transaksi riwayat HIPPAM selama 1 Tahun.</p>
+<p>Rincian pemakaian dan pembayaran HIPPAM selama Tahun <b id='kop-tahun'></b>.</p>
 <p>ID Anggota: <b id='kop-id'></b> | Nama: <b id='kop-nama'></b></p>
+<p class='rekap-tarif' id='rekap-tarif'></p>
 </div>
 <div class='pem-kepala no-print'>
 <div class='pem-judul'>
 <span class='ik-bulat'><svg viewBox='0 0 24 24'><path d='M19 8a8 8 0 0 0-13.5-2M5 16a8 8 0 0 0 13.5 2' fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2.4'></path><path d='M19.5 3v5.5H14M4.5 21v-5.5H10' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.4'></path></svg></span>
-<div><h3>Rekap Pemakaian</h3><p>Rekapitulasi pemakaian air per tahun</p></div>
+<div><h3>Rekap Tahunan</h3><p>Rekapitulasi pemakaian dan pembayaran air per tahun</p></div>
 </div>
+<label class='pil-tahun'><svg viewBox='0 0 24 24'><path d='M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2zM5 10h14v10H5z' fill-rule='evenodd'></path></svg><select aria-label='Tahun' id='rekap-tahun-anggota'></select></label>
 </div>
-<div class='pem-tabel tabel-wrap'>
+<div class='aksi aksi-atas no-print'>
+<button class='btn' onclick='cetakHalaman(&#39;rekap-anggota&#39;,true)'>Simpan *.pdf</button>
+<button class='btn garis' onclick='cetakHalaman(&#39;rekap-anggota&#39;)'>Cetak A4</button>
+</div>
+<div class='rekap-kartu no-print'>
+<div class='rk-item'><small>Total pemakaian</small><b id='rk-pakai'>-</b></div>
+<div class='rk-item'><small>Total tagihan</small><b id='rk-tagihan'>-</b></div>
+<div class='rk-item'><small>Total dibayar</small><b id='rk-bayar'>-</b></div>
+<div class='rk-item rk-kurang'><small>Kurang bayar</small><b id='rk-kurang'>-</b></div>
+<p class='rk-catatan'>Tabel lengkap tampil pada layar lebar dan pada hasil cetak. Ketuk Cetak A4 atau Simpan PDF untuk dokumennya.</p>
+</div>
+<div class='pem-tabel tabel-wrap tabel-rekap-anggota'>
 <table class='lebar'>
 <thead>
-<tr><th>No</th><th>Bulan</th><th class='angka'>Pemakaian</th><th class='angka'>Tagihan</th><th class='angka'>Dibayar</th><th>Status</th><th class='angka'>Tunggakan</th></tr>
+<tr><th>Bulan</th><th class='c'>Stan Awal</th><th class='c'>Stan Akhir</th><th class='angka'>Pemakaian</th><th class='angka'>Tagihan</th><th class='angka'>Dibayar</th><th class='angka'>Kurang Bayar</th><th>Status</th></tr>
 </thead>
 <tbody id='isi-rekap'></tbody>
 <tfoot id='foot-rekap'></tfoot>
 </table>
 </div>
+<div class='rekap-ringkas' id='rekap-ringkas'></div>
 <div class='catatan'>
 <p>* Dokumen ini merupakan rekapitulasi resmi pemakaian dan setoran air minum HIPPAM Tirta Kencana.</p>
 <p>* Jika terdapat ketidaksesuaian data, silakan konfirmasi ke Pengurus/Bendahara HIPPAM.</p>
 <div class='ttd'>
-<p>Karangtalun, -</p>
+<p id='ttd-tgl'>Karangtalun, -</p>
 <p>Ttd.</p>
 <div class='ruang'></div>
 <p><b>Bendahara HIPPAM</b></p>
 </div>
 </div>
-<div class='aksi'>
+<div class='aksi aksi-bawah'>
 <button class='btn' onclick='cetakHalaman(&#39;rekap-anggota&#39;,true)'>Simpan *.pdf</button>
 <button class='btn garis' onclick='cetakHalaman(&#39;rekap-anggota&#39;)'>Cetak A4</button>
 </div>
@@ -1796,9 +1866,9 @@ body{padding:0 !important;overflow:visible !important}
 <div class='merk'><svg aria-hidden='true' class='logo-sb' viewBox='0 0 64 64'><use href='#ikon-tetes-putih'></use></svg><span>HIPPAM<small>Tirta Kencana</small></span></div>
 <nav class='nav-bend' id='nav-bend'>
 <button class='aktif' data-menu='Dashboard' data-view='bv-dash'><svg viewBox='0 0 24 24'><path d='M12 3 2 12h3v8h5v-6h4v6h5v-8h3z'></path></svg>Dashboard</button>
-<button data-menu='Data Anggota'><svg viewBox='0 0 24 24'><path d='M9 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm7 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM9 14c-3 0-7 1.5-7 4v2h14v-2c0-2.5-4-4-7-4zm7 0c-.4 0-.8 0-1.2.1 1.3.9 2.2 2.1 2.2 3.9v2h5v-2c0-2.2-3.2-4-6-4z'></path></svg>Data Anggota</button>
-<button data-menu='Tagihan Air'><svg viewBox='0 0 24 24'><path d='M6 2h9l5 5v15H6zm8 1.5V8h4.5zM9 12h8v1.5H9zm0 3.5h8V17H9z'></path></svg>Tagihan Air</button>
-<button data-menu='Pembayaran'><svg viewBox='0 0 24 24'><path d='M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 4v2h16V9z'></path></svg>Pembayaran</button>
+<button data-menu='Data Anggota' data-view='bv-anggota'><svg viewBox='0 0 24 24'><path d='M9 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm7 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM9 14c-3 0-7 1.5-7 4v2h14v-2c0-2.5-4-4-7-4zm7 0c-.4 0-.8 0-1.2.1 1.3.9 2.2 2.1 2.2 3.9v2h5v-2c0-2.2-3.2-4-6-4z'></path></svg>Data Anggota</button>
+<button data-menu='Tagihan Air' data-view='bv-tagihan'><svg viewBox='0 0 24 24'><path d='M6 2h9l5 5v15H6zm8 1.5V8h4.5zM9 12h8v1.5H9zm0 3.5h8V17H9z'></path></svg>Tagihan Air</button>
+<button data-menu='Pembayaran' data-view='bv-bayar'><svg viewBox='0 0 24 24'><path d='M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 4v2h16V9z'></path></svg>Pembayaran</button>
 <button data-menu='Buku Kas Umum' data-view='bv-bku'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M5 2h11a2 2 0 0 1 2 2v2h1a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm1 4v2h8V6zm0 5v2h5v-2zm0 4v2h8v-2z' fill-rule='evenodd'></path></svg>Buku Kas Umum</button>
 <button data-menu='Rekap Pemakaian Air' data-view='bv-rekap'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2.5C12 2.5 5.5 10 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10 12 2.5 12 2.5z'></path></svg>Rekap Pemakaian Air</button>
 <button data-menu='Laporan 1 Tahunan' data-view='bv-lap'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2zM5 10h14v10H5z' fill-rule='evenodd'></path></svg>Laporan 1 Tahunan</button>
@@ -1872,7 +1942,9 @@ body{padding:0 !important;overflow:visible !important}
 </div>
 </div>
 </section>
-<!-- Rekapitulasi tagihan (lebar penuh) -->
+</section>
+<section class='bview' id='bv-tagihan'>
+<!-- Rekapitulasi tagihan: dipindah dari Dashboard ke menu Tagihan Air -->
 <section class='bend-row2'>
 <div class='panel-bend'>
 <div class='rekap-atas no-print'>
@@ -1915,12 +1987,41 @@ body{padding:0 !important;overflow:visible !important}
 </div>
 </section>
 </section>
+<section class='bview' id='bv-anggota'>
+<div class='panel-bend vw-panel'>
+<div class='vw-kepala no-print'>
+<div class='vw-judul'><span class='vw-ik'><svg viewBox='0 0 24 24'><path d='M9 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm7 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM9 14c-3 0-7 1.5-7 4v2h14v-2c0-2.5-4-4-7-4zm7 0c-.4 0-.8 0-1.2.1 1.3.9 2.2 2.1 2.2 3.9v2h5v-2c0-2.2-3.2-4-6-4z'></path></svg></span><div><h2>Data Anggota</h2><p>Daftar anggota menurut area, diambil dari database DataAnggota</p></div></div>
+<div class='vw-kanan'><label class='kotak-cari'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><circle cx='11' cy='11' fill='none' r='6.5' stroke='currentColor' stroke-width='2.2'></circle><path d='M16 16l5 5' stroke='currentColor' stroke-linecap='round' stroke-width='2.2'></path></svg><input aria-label='Cari anggota' id='ang-cari' placeholder='Cari nama atau ID...' type='search'/></label></div>
+</div>
+<div class='ang-chip no-print' id='ang-ringkas'></div>
+<div id='ang-isi'></div>
+</div>
+</section>
+<section class='bview' id='bv-bayar'>
+<div class='panel-bend vw-panel'>
+<div class='vw-kepala no-print'>
+<div class='vw-judul'><span class='vw-ik'><svg viewBox='0 0 24 24'><path d='M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 4v2h16V9z'></path></svg></span><div><h2>Pembayaran</h2><p>Validasi status pembayaran per bulan <span id='byr-tahun'></span></p></div></div>
+<div class='vw-kanan'>
+<select aria-label='Area' id='byr-area'><option value='semua'>Semua area</option><option value='Karangtalun'>Area Karangtalun</option><option value='Jlubang'>Area Jlubang</option></select>
+<select aria-label='Saring' id='byr-saring'><option value='semua'>Semua anggota</option><option value='belum'>Ada yang belum lunas</option></select>
+<label class='kotak-cari'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><circle cx='11' cy='11' fill='none' r='6.5' stroke='currentColor' stroke-width='2.2'></circle><path d='M16 16l5 5' stroke='currentColor' stroke-linecap='round' stroke-width='2.2'></path></svg><input aria-label='Cari anggota' id='byr-cari' placeholder='Cari nama atau ID...' type='search'/></label>
+</div>
+</div>
+<p class='byr-legenda no-print'><b>Cara pakai:</b> ketuk angka berwarna <span class='lg belum'>merah</span> (tagihan belum dibayar) atau <span class='lg kurang'>oranye</span> (cicilan) untuk menandai <b>Lunas</b>. Sel di sheet DataAnggota diganti menjadi <b>1</b>. <span class='lg ok'>1</span> = Lunas, <span class='lg nol'>0</span> atau <span class='lg nol'>-</span> = belum ada tagihan.</p>
+<div class='tabel-wrap byr-wrap'>
+<table class='tbl-byr'>
+<thead id='byr-kepala'></thead>
+<tbody id='byr-isi'></tbody>
+</table>
+</div>
+<div class='navigasi no-print'>
+<button class='btn garis' id='byr-prev' type='button'>&#8249; Sebelumnya</button>
+<span class='halaman-info' id='byr-info'>Halaman 1 dari 1</span>
+<button class='btn garis' id='byr-next' type='button'>Berikutnya &#8250;</button>
+</div>
+</div>
+</section>
 <section class='bview' id='bv-bku'>
-<nav aria-label='Menu laporan' class='menu-kartu no-print'>
-<button class='aktif' data-view='bv-bku' type='button'><span class='mk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M5 2h11a2 2 0 0 1 2 2v2h1a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm1 4v2h8V6zm0 5v2h5v-2zm0 4v2h8v-2z' fill-rule='evenodd'></path></svg></span><span class='mk-teks'><b>Buku Kas Umum</b><small>Laporan pemasukan dan pengeluaran kas</small></span><span class='mk-panah'>&#8250;</span></button>
-<button data-view='bv-lap' type='button'><span class='mk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2zM5 10h14v10H5z' fill-rule='evenodd'></path></svg></span><span class='mk-teks'><b>Laporan 1 Tahunan</b><small>Rekapitulasi keuangan dalam 1 tahun</small></span><span class='mk-panah'>&#8250;</span></button>
-<button data-view='bv-rekap' type='button'><span class='mk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2.5C12 2.5 5.5 10 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10 12 2.5 12 2.5z'></path></svg></span><span class='mk-teks'><b>Rekap Pemakaian Air</b><small>Rekapitulasi pemakaian dan tagihan</small></span><span class='mk-panah'>&#8250;</span></button>
-</nav>
 <div class='panel-bend vw-panel'>
 <div class='vw-kepala no-print'>
 <div class='vw-judul'><span class='vw-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M5 2h11a2 2 0 0 1 2 2v2h1a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm1 4v2h8V6zm0 5v2h5v-2zm0 4v2h8v-2z' fill-rule='evenodd'></path></svg></span><div><h2>Buku Kas Umum</h2><p>Catatan pemasukan dan pengeluaran HIPPAM</p></div></div>
@@ -1966,11 +2067,6 @@ body{padding:0 !important;overflow:visible !important}
 </div>
 </section>
 <section class='bview' id='bv-rekap'>
-<nav aria-label='Menu laporan' class='menu-kartu no-print'>
-<button data-view='bv-bku' type='button'><span class='mk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M5 2h11a2 2 0 0 1 2 2v2h1a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm1 4v2h8V6zm0 5v2h5v-2zm0 4v2h8v-2z' fill-rule='evenodd'></path></svg></span><span class='mk-teks'><b>Buku Kas Umum</b><small>Laporan pemasukan dan pengeluaran kas</small></span><span class='mk-panah'>&#8250;</span></button>
-<button data-view='bv-lap' type='button'><span class='mk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2zM5 10h14v10H5z' fill-rule='evenodd'></path></svg></span><span class='mk-teks'><b>Laporan 1 Tahunan</b><small>Rekapitulasi keuangan dalam 1 tahun</small></span><span class='mk-panah'>&#8250;</span></button>
-<button class='aktif' data-view='bv-rekap' type='button'><span class='mk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2.5C12 2.5 5.5 10 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10 12 2.5 12 2.5z'></path></svg></span><span class='mk-teks'><b>Rekap Pemakaian Air</b><small>Rekapitulasi pemakaian dan tagihan</small></span><span class='mk-panah'>&#8250;</span></button>
-</nav>
 <div class='panel-bend vw-panel'>
 <div class='vw-kepala no-print'>
 <div class='vw-judul'><span class='vw-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2.5C12 2.5 5.5 10 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10 12 2.5 12 2.5z'></path></svg></span><div><h2>Rekap Pemakaian Air</h2><p>Laporan pemakaian air pelanggan dalam periode tertentu</p></div></div>
@@ -2020,11 +2116,6 @@ body{padding:0 !important;overflow:visible !important}
 </div>
 </section>
 <section class='bview' id='bv-lap'>
-<nav aria-label='Menu laporan' class='menu-kartu no-print'>
-<button data-view='bv-bku' type='button'><span class='mk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M5 2h11a2 2 0 0 1 2 2v2h1a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm1 4v2h8V6zm0 5v2h5v-2zm0 4v2h8v-2z' fill-rule='evenodd'></path></svg></span><span class='mk-teks'><b>Buku Kas Umum</b><small>Laporan pemasukan dan pengeluaran kas</small></span><span class='mk-panah'>&#8250;</span></button>
-<button class='aktif' data-view='bv-lap' type='button'><span class='mk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2zM5 10h14v10H5z' fill-rule='evenodd'></path></svg></span><span class='mk-teks'><b>Laporan 1 Tahunan</b><small>Rekapitulasi keuangan dalam 1 tahun</small></span><span class='mk-panah'>&#8250;</span></button>
-<button data-view='bv-rekap' type='button'><span class='mk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2.5C12 2.5 5.5 10 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10 12 2.5 12 2.5z'></path></svg></span><span class='mk-teks'><b>Rekap Pemakaian Air</b><small>Rekapitulasi pemakaian dan tagihan</small></span><span class='mk-panah'>&#8250;</span></button>
-</nav>
 <div class='panel-bend vw-panel'>
 <div class='vw-kepala no-print'>
 <div class='vw-judul'><span class='vw-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M4 20h4v-8H4zm6 0h4V4h-4zm6 0h4v-12h-4z'></path></svg></span><div><h2>Laporan 1 Tahunan</h2><p>Rekapitulasi keuangan, pemakaian dan pembayaran dalam 1 tahun</p></div></div>
@@ -2159,7 +2250,8 @@ const bulanBerjalan = new Date().getMonth();
 /* Pengontrolan meter dilakukan di akhir bulan untuk tagihan bulan berikutnya (dirilis tanggal 1).
    Mulai tanggal ini, pilihan bulan awal di halaman pencatat otomatis bulan depan. Isi 32 untuk menonaktifkan. */
 const HARI_CATAT_BULAN_DEPAN = 25;
-const bulanCatatAwal = () => { const d = new Date(); return (d.getDate() >= HARI_CATAT_BULAN_DEPAN && d.getMonth() < 11) ? d.getMonth() + 1 : d.getMonth(); };
+let tahunCatat = new Date().getFullYear();     // tahun sheet DataPetugas yang dipakai (server memilih; akhir Desember bisa tahun depan)
+const bulanCatatAwal = () => { const d = new Date(); if (tahunCatat > d.getFullYear()) return 0; return (d.getDate() >= HARI_CATAT_BULAN_DEPAN && d.getMonth() < 11) ? d.getMonth() + 1 : d.getMonth(); };
 
 // Pembagian tugas pencatat
 const AWAL_JLUBANG = /^(JBK|JBE|JBM)/i;
@@ -2208,6 +2300,7 @@ function adaptAnggota(g){
   const dibayar = b.map((x, i) => ada(x) ? Math.min(Number(x.dibayar) || 0, tagih[i]) : 0);   // dihitung server
   return { id:g.id, nama:g.nama, awalJan:(b[0] && b[0].awal != null) ? b[0].awal : 0,
            awalBulan:b.map(x => x.awal == null ? null : x.awal),      // stan awal apa adanya dari sheet
+           statusRaw:b.map(x => (x.status === undefined || x.status === null) ? '' : x.status), label:b.map(x => x.label),   // isi sel status (untuk validasi bendahara)
            akhir:b.map(x => x.akhir === undefined ? null : x.akhir), rp:tagih, dibayar };
 }
 // Ubah 1 baris dari respons GAS (DataPetugas / stan_list)
@@ -2285,10 +2378,7 @@ document.querySelectorAll('.menu').forEach(menu => {
     if (!tombol) return;
     const layarId = menu.closest('.layar').id;
     aktifkanTab(layarId, tombol.dataset.tab);
-    if (layarId === 'v-dash' && window.matchMedia('(max-width:768px)').matches){   // HP: tampilkan awal konten tab
-      const panel = document.querySelector('#v-dash .panel');
-      window.scrollTo({ top: Math.max(panel.getBoundingClientRect().top + window.scrollY - 10, 0), behavior:'smooth' });
-    }
+    if (layarId === 'v-dash') gulirKePanel();
     if (layarId === 'v-catat' && tombol.dataset.tab === 'rekap') renderRekapCatat();
   });
 });
@@ -2304,7 +2394,7 @@ document.getElementById('form-login-anggota').addEventListener('submit', async e
   try{
     const r = await panggilGAS(URL_BASE_ANGGOTA, { action:'login_warga', username:user, password:sandi });
     if (!sukesGAS(r)){ pesan.textContent = (r && r.error) || 'ID atau password salah.'; return; }
-    mulaiDash(adaptAnggota(r));
+    mulaiDash(adaptTahunan(r));
   }catch(err){ pesan.textContent = (err && err.message) || 'Server tidak dapat dihubungi. Coba lagi.'; }
 });
 
@@ -2338,7 +2428,7 @@ function keluar(){
   ANGGOTA = [];
   ANGGOTA_SEMUA = [];
   kredAdmin = null;
-  DATA = { nama:'', id:'', bulan:[] };
+  DATA = { nama:'', id:'', bulan:[], tahunan:[] };
   Object.keys(draft).forEach(k => delete draft[k]);
   pindahLayar('v-portal');
 }
@@ -2348,24 +2438,40 @@ function keluar(){
    ===================================================================== */
 const SINGKAT = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
 let anggotaLogin = null;
-let DATA = { nama:'', id:'', bulan:[] };
+let DATA = { nama:'', id:'', bulan:[], tahunan:[] };
 
-function mulaiDash(a){
-  anggotaLogin = a;
+/* respons login_warga -> daftar objek per tahun (urut naik); respons lama tanpa daftar tahun dianggap satu tahun */
+function adaptTahunan(r){
+  const daftar = (r.tahun && r.tahun.length) ? r.tahun : [{ tahun:new Date().getFullYear(), bulan:r.bulan }];
+  return daftar.map(t => Object.assign(adaptAnggota({ id:r.id, nama:r.nama, bulan:t.bulan }), { tahun:t.tahun }));
+}
+let tahunPem = new Date().getFullYear(), tahunRekap = new Date().getFullYear();
+let filterStatus = 'belum', filterAwalDiatur = false;
+
+function bangunBulan(a, mode){      // mode: 'berjalan' (tahun kalender) | 'lalu' (semua bulan sudah dirilis) | 'depan'
   let stan = a.awalJan;
-  DATA = {
-    nama: a.nama, id: a.id,
-    bulan: BULAN.map((nama, i) => {
-      const awal = (a.awalBulan && a.awalBulan[i] != null) ? a.awalBulan[i] : stan;   // dari sheet
-      const akhir = a.akhir[i] === null ? awal : a.akhir[i];
-      stan = akhir;
-      const pakai = akhir - awal;
-      const tarif = pakai > 0 ? tarifUntuk(a.id) : 0;
-      const admin = pakai > 0 ? ADMIN : 0;
-      return { nama, awal, akhir, tarif, admin, tagihan: (a.rp && a.rp[i] != null) ? Number(a.rp[i]) : pakai * tarif + admin, dibayar: a.dibayar[i], dicatat: a.akhir[i] !== null, tgl:'',
-               berjalan: i === bulanBerjalan, depan: i > bulanBerjalan };   // tagihan bulan berjalan sudah keluar (rilis tanggal 1); bulan depan belum
-    })
-  };
+  return BULAN.map((nama, i) => {
+    const awal = (a.awalBulan && a.awalBulan[i] != null) ? a.awalBulan[i] : stan;   // dari sheet
+    const akhir = a.akhir[i] === null ? awal : a.akhir[i];
+    stan = akhir;
+    const pakai = akhir - awal;
+    const tarif = pakai > 0 ? tarifUntuk(a.id) : 0;
+    const admin = pakai > 0 ? ADMIN : 0;
+    return { nama, tahun:a.tahun, awal, akhir, tarif, admin, tagihan: (a.rp && a.rp[i] != null) ? Number(a.rp[i]) : pakai * tarif + admin, dibayar: a.dibayar[i], dicatat: a.akhir[i] !== null, tgl:'',
+             berjalan: mode === 'berjalan' && i === bulanBerjalan,                       // tagihan bulan berjalan sudah keluar (rilis tanggal 1)
+             depan: mode === 'depan' || (mode === 'berjalan' && i > bulanBerjalan) };    // bulan depan belum ada tagihan
+  });
+}
+
+function mulaiDash(th){
+  if (!Array.isArray(th)) th = [Object.assign({ tahun:new Date().getFullYear() }, th)];
+  const kal = new Date().getFullYear();
+  anggotaLogin = th[th.length - 1];
+  DATA = { nama: anggotaLogin.nama, id: anggotaLogin.id, bulan:[], tahunAktif:kal,
+    tahunan: th.map(a => ({ tahun:a.tahun, bulan:bangunBulan(a, a.tahun === kal ? 'berjalan' : (a.tahun < kal ? 'lalu' : 'depan')) })) };
+  const utama = DATA.tahunan.filter(t => t.tahun === kal)[0] || DATA.tahunan[DATA.tahunan.length - 1];
+  DATA.bulan = utama.bulan; DATA.tahunAktif = utama.tahun;
+  tahunPem = utama.tahun; tahunRekap = utama.tahun; filterAwalDiatur = false;
   document.getElementById('form-pin').reset();
   document.getElementById('pesan-pin').textContent = '';
   aktifkanTab('v-dash', 'pemakaian');
@@ -2384,7 +2490,8 @@ const badge = s => `<span class="status ${s.kelas}">${s.teks}</span>`;
 
 function renderPemakaian(){
   const fmt = n => n.toLocaleString('id-ID', { maximumFractionDigits:1 });
-  const baris = DATA.bulan.filter(b => b.dicatat && !b.depan);   // bulan yang sudah dicatat dan sudah dirilis (bulan depan belum tampil)
+  const thnObj = DATA.tahunan.filter(t => t.tahun === tahunPem)[0] || { bulan:DATA.bulan };
+  const baris = thnObj.bulan.filter(b => b.dicatat && !b.depan);   // bulan yang sudah dicatat dan sudah dirilis (bulan depan belum tampil)
   const maks = baris.reduce((m, b) => Math.max(m, pakaiDari(b)), 0);
   const mini = baris.reduce((m, b) => Math.min(m, pakaiDari(b)), Infinity);
   document.getElementById('isi-pemakaian').innerHTML = baris.length ? baris.map(b => {
@@ -2404,9 +2511,10 @@ function renderPemakaian(){
   document.getElementById('pem-total-ket').textContent = baris.length ? `dalam ${baris.length} bulan terakhir` : 'belum ada data';
   document.getElementById('pem-rata').innerHTML = `${fmt(rata)} <span>m³</span>`;
   document.getElementById('pem-total2').textContent = `${fmt(total)} m³`;
-  const tahun = new Date().getFullYear();
-  document.getElementById('pem-tahun').innerHTML = `<option value="${tahun}">Tahun ${tahun}</option>`;
+  document.getElementById('pem-tahun').innerHTML = DATA.tahunan.map(t => t.tahun).sort((a, b) => b - a)
+    .map(y => `<option value="${y}"${y === tahunPem ? ' selected' : ''}>Tahun ${y}</option>`).join('');
 }
+document.getElementById('pem-tahun').addEventListener('change', e => { tahunPem = Number(e.target.value); renderPemakaian(); });
 function animasiPemakaian(){      // bar terisi bertahap (efek loading); dipanggil saat render dan saat tab dibuka
   const bar = [...document.querySelectorAll('#isi-pemakaian .pk-bar i')];
   bar.forEach(i => { i.style.transition = 'none'; i.style.width = '0'; });
@@ -2425,11 +2533,13 @@ function setKartu(id, warna, ikon, judul, nilai, ket){
   k.querySelector('b').textContent = nilai;
   k.querySelector('.ket').textContent = ket;
 }
-/* Satu kriteria tunggakan: bulan yang sudah ditagihkan (termasuk bulan berjalan) dan belum lunas, meski hanya 1 bulan */
-const tunggakanList = () => DATA.bulan.filter(b => !b.depan && tunggakanDari(b) > 0);
+/* Satu kriteria tunggakan: bulan yang sudah ditagihkan (termasuk bulan berjalan dan tahun-tahun lalu) dan belum lunas, meski hanya 1 bulan */
+const semuaBulan = () => DATA.tahunan.reduce((h, t) => h.concat(t.bulan), []);
+const tunggakanList = () => semuaBulan().filter(b => !b.depan && tunggakanDari(b) > 0);
 const dendaDari = b => (b.berjalan ? 0 : DENDA);                 // bulan berjalan belum dikenai denda
 const jumlahBayar = b => tunggakanDari(b) + dendaDari(b);
 const tagBulanIni = b => (b.berjalan ? ' <span class="tag-bulan-ini">bulan ini</span>' : '');
+const labelBulan = b => (b.tahun !== DATA.tahunAktif ? b.nama + ' ' + b.tahun : b.nama);
 
 function renderRingkas(){
   const ini = DATA.bulan[bulanBerjalan];
@@ -2446,41 +2556,52 @@ function renderRingkas(){
   else { el('rg-tagihan').textContent = '—'; el('rg-tagihan-ket').textContent = 'Belum ada tagihan'; }
   el('rg-tunggakan').textContent = rp(total);
   el('rg-tunggakan-ket').textContent = total === 0 ? 'Tidak ada tunggakan' : daftar.length + ' bulan belum dibayar';
+  el('rg-lihat').style.display = total === 0 ? 'none' : '';
 }
+
+function gulirKePanel(){            // HP: nav menu di bawah layar, jadi tampilkan awal konten tab
+  if (!window.matchMedia('(max-width:768px)').matches) return;
+  const panel = document.querySelector('#v-dash .panel');
+  window.scrollTo({ top: Math.max(panel.getBoundingClientRect().top + window.scrollY - 10, 0), behavior:'smooth' });
+}
+function bukaTunggakan(){           // ketuk kotak "Total tunggakan" -> menu Status, hanya yang belum bayar
+  filterStatus = 'belum'; filterAwalDiatur = true;
+  aktifkanTab('v-dash', 'status'); renderStatus(); gulirKePanel();
+}
+document.querySelectorAll('#filter-status button').forEach(b => b.addEventListener('click', () => {
+  filterStatus = b.dataset.f; filterAwalDiatur = true; renderStatus();
+}));
 
 function renderStatus(){
   const daftarT = tunggakanList();
   const total = daftarT.reduce((s, b) => s + jumlahBayar(b), 0);
-  const bayar = DATA.bulan.filter(b => b.dibayar > 0);
+  const totalDenda = daftarT.reduce((s, b) => s + dendaDari(b), 0);
+  const bayar = semuaBulan().filter(b => b.dibayar > 0);
   const terakhir = bayar.length ? (bayar[bayar.length - 1].tgl || '-') : '-';
   const ketTgl = terakhir !== '-' ? ' · Pembayaran terakhir: ' + terakhir : '';
   if (!daftarT.length) setKartu('kartu-status', 'hijau', IK_CEK, 'Status Anda saat ini', 'Lunas', 'Semua tagihan sudah lunas.' + ketTgl);
   else setKartu('kartu-status', 'jingga', IK_AWAS, 'Status Anda saat ini', daftarT.length + ' bulan belum lunas', 'Total tunggakan: ' + rp(total) + ketTgl);
-  // semua bulan yang sudah ditagihkan (termasuk bulan berjalan), terbaru di atas; bulan depan belum ada tagihan
-  const daftar = DATA.bulan.filter(b => b.tagihan > 0 && !b.depan).reverse();
-  document.getElementById('isi-status').innerHTML = daftar.length ? daftar.map((b, i) => `
-    <tr class="${tunggakanDari(b) > 0 ? 'baris-belum' : ''}"><td>${i + 1}</td>
-    <td>${b.nama}${tagBulanIni(b)}</td>
-    <td class="angka">${rp(b.tagihan)}</td><td class="c">${badge(statusDari(b))}</td>
-    <td class="c">${b.tgl || '-'}</td></tr>`).join('')
-    : '<tr><td colspan="5" class="kosong">Belum ada riwayat pembayaran.</td></tr>';
-}
-function renderTunggakan(){
-  const daftar = tunggakanList();
-  const tbody = document.getElementById('isi-tunggakan');
-  const tfoot = document.getElementById('foot-tunggakan');
-  if (!daftar.length){
-    setKartu('kartu-tunggakan', 'jingga', IK_JEMPOL, 'Status Tunggakan', 'Tidak ada tunggakan.', 'Terima kasih telah tepat waktu dalam pembayaran.');
-    tbody.innerHTML = '<tr><td colspan="5" class="kosong">Tidak ada data tunggakan. Selalu bayar tepat waktu ya!</td></tr>';
-    tfoot.innerHTML = '';
-    return;
-  }
-  const total = daftar.reduce((s, b) => s + jumlahBayar(b), 0);
-  setKartu('kartu-tunggakan', 'merah', IK_AWAS, 'Status Tunggakan', `${daftar.length} bulan belum lunas`, 'Total yang harus dibayar: ' + rp(total));
-  tbody.innerHTML = daftar.map((b, i) => `
-    <tr><td>${i + 1}</td><td>${b.nama}${tagBulanIni(b)}</td><td class="angka">${rp(tunggakanDari(b))}</td>
-    <td class="angka">${rp(dendaDari(b))}</td><td class="angka"><b>${rp(jumlahBayar(b))}</b></td></tr>`).join('');
-  tfoot.innerHTML = `<tr><td colspan="4">Total Tunggakan</td><td class="angka">${rp(total)}</td></tr>`;
+
+  const riwayat = semuaBulan().filter(b => b.tagihan > 0 && !b.depan);          // urut waktu naik
+  if (!filterAwalDiatur){ filterStatus = daftarT.length ? 'belum' : 'semua'; filterAwalDiatur = true; }
+  document.querySelectorAll('#filter-status button').forEach(b => b.classList.toggle('aktif', b.dataset.f === filterStatus));
+  document.getElementById('fs-belum').textContent = daftarT.length;
+  document.getElementById('fs-semua').textContent = riwayat.length;
+  const daftar = filterStatus === 'belum' ? daftarT : riwayat.slice().reverse();   // tunggakan: terlama di atas; semua: terbaru di atas
+  const catatan = b => {            // keterangan kecil di bawah tagihan: sisa (cicilan) dan denda
+    const t = [];
+    if (b.dibayar > 0 && tunggakanDari(b) > 0) t.push('sisa ' + rp(tunggakanDari(b)));
+    if (tunggakanDari(b) > 0 && dendaDari(b) > 0) t.push('+ denda ' + rp(dendaDari(b)));
+    return t.length ? '<small class="sisa">' + t.join(' ') + '</small>' : '';
+  };
+  document.getElementById('isi-status').innerHTML = daftar.length ? daftar.map(b => `
+    <tr class="${tunggakanDari(b) > 0 ? 'baris-belum' : ''}">
+    <td>${labelBulan(b)}${tagBulanIni(b)}</td>
+    <td class="angka"><b>${rp(b.tagihan)}</b>${catatan(b)}</td>
+    <td class="c">${badge(statusDari(b))}</td></tr>`).join('')
+    : `<tr><td colspan="3" class="kosong">${filterStatus === 'belum' ? 'Tidak ada tunggakan. Terima kasih telah tepat waktu!' : 'Belum ada riwayat tagihan.'}</td></tr>`;
+  document.getElementById('foot-status').innerHTML = daftarT.length
+    ? `<tr><td>Total yang harus dibayar</td><td class="angka"><b>${rp(total)}</b>${totalDenda > 0 ? '<small class="sisa">termasuk denda ' + rp(totalDenda) + '</small>' : ''}</td><td></td></tr>` : '';
 }
 
 /* Terbilang rupiah, mis. 15000 -> "Lima Belas Ribu Rupiah" */
@@ -2552,20 +2673,49 @@ function renderStruk(){
 }
 
 function renderRekapAnggota(){
-  document.getElementById('isi-rekap').innerHTML = DATA.bulan.map((b, i) => `
-    <tr><td>${i+1}</td><td>${b.nama}</td>
-    <td class="angka">${pakaiDari(b)} m³</td><td class="angka">${rp(b.tagihan)}</td>
-    <td class="angka">${rp(b.dibayar)}</td><td>${badge(statusDari(b))}</td>
-    <td class="angka">${rp(tunggakanDari(b))}</td></tr>`).join('');
-  const sum = f => DATA.bulan.reduce((s, b) => s + f(b), 0);
+  const th = DATA.tahunan.filter(t => t.tahun === tahunRekap)[0] || DATA.tahunan[DATA.tahunan.length - 1];
+  tahunRekap = th.tahun;
+  document.getElementById('rekap-tahun-anggota').innerHTML = DATA.tahunan.map(t => t.tahun).sort((a, b) => b - a)
+    .map(y => `<option value="${y}"${y === tahunRekap ? ' selected' : ''}>Tahun ${y}</option>`).join('');
+  const fmt = n => n.toLocaleString('id-ID', { maximumFractionDigits:1 });
+  const aktif = th.bulan.filter(b => !b.depan && b.dicatat);                  // bulan yang sudah dirilis dan tercatat
+  document.getElementById('isi-rekap').innerHTML = th.bulan.map(b => {
+    if (b.depan || !b.dicatat)
+      return `<tr class="baris-pasif"><td>${b.nama}</td><td class="c">-</td><td class="c">-</td><td class="angka">-</td><td class="angka">-</td><td class="angka">-</td><td class="angka">-</td>
+        <td><span class="status nol">${b.depan ? 'Belum berjalan' : 'Belum dicatat'}</span></td></tr>`;
+    return `<tr><td>${b.nama}</td><td class="c">${b.awal}</td><td class="c">${b.akhir}</td>
+      <td class="angka">${fmt(pakaiDari(b))} m³</td><td class="angka">${rp(b.tagihan)}</td>
+      <td class="angka">${rp(b.dibayar)}</td><td class="angka">${rp(tunggakanDari(b))}</td><td>${badge(statusDari(b))}</td></tr>`;
+  }).join('');
+  const sum = f => aktif.reduce((s, b) => s + f(b), 0);
+  const tPakai = sum(pakaiDari), tTagih = sum(b => b.tagihan), tBayar = sum(b => b.dibayar), tKurang = sum(tunggakanDari);
   document.getElementById('foot-rekap').innerHTML = `
-    <tr><td colspan="2">Total</td>
-    <td class="angka">${sum(pakaiDari)} m³</td><td class="angka">${rp(sum(b => b.tagihan))}</td>
-    <td class="angka">${rp(sum(b => b.dibayar))}</td><td></td>
-    <td class="angka">${rp(sum(tunggakanDari))}</td></tr>`;
+    <tr><td colspan="3">Total</td><td class="angka">${fmt(tPakai)} m³</td><td class="angka">${rp(tTagih)}</td>
+    <td class="angka">${rp(tBayar)}</td><td class="angka">${rp(tKurang)}</td><td></td></tr>`;
+  // ringkasan di bawah tabel
+  const nKurang = aktif.filter(b => tunggakanDari(b) > 0).length;
+  const maks = aktif.reduce((m, b) => Math.max(m, pakaiDari(b)), 0), mini = aktif.reduce((m, b) => Math.min(m, pakaiDari(b)), Infinity);
+  const tertinggi = aktif.filter(b => pakaiDari(b) === maks)[0];
+  document.getElementById('rekap-ringkas').innerHTML =
+    `<p>Rata-rata pemakaian: <b>${fmt(aktif.length ? tPakai / aktif.length : 0)} m³</b> per bulan (dari ${aktif.length} bulan tercatat).</p>`
+    + (aktif.length > 1 && maks > mini ? `<p>Pemakaian tertinggi: <b>${tertinggi.nama} (${fmt(maks)} m³)</b>.</p>` : '')
+    + (tKurang === 0 ? `<p>Status akhir: <b>Lunas</b>, seluruh tagihan tahun ${th.tahun} sudah dibayar.</p>`
+                     : `<p>Status akhir: <b>Belum lunas</b>, kurang bayar ${rp(tKurang)} (${nKurang} bulan).</p>`);
+  // kartu ringkas untuk layar kecil
+  document.getElementById('rk-pakai').textContent = fmt(tPakai) + ' m³';
+  document.getElementById('rk-tagihan').textContent = rp(tTagih);
+  document.getElementById('rk-bayar').textContent = rp(tBayar);
+  document.getElementById('rk-kurang').textContent = rp(tKurang);
+  document.getElementById('rk-kurang').parentNode.classList.toggle('ok', tKurang === 0);
+  // kop surat
   document.getElementById('kop-id').textContent = DATA.id;
   document.getElementById('kop-nama').textContent = DATA.nama;
+  document.getElementById('kop-tahun').textContent = th.tahun;
+  document.getElementById('rekap-tarif').textContent = th.tahun === DATA.tahunAktif
+    ? 'Tarif air: ' + rp(tarifUntuk(DATA.id)) + ' per m³ · Biaya admin: ' + rp(ADMIN) + ' per bulan' : '';
+  document.getElementById('ttd-tgl').textContent = 'Karangtalun, ' + new Date().toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric' });
 }
+document.getElementById('rekap-tahun-anggota').addEventListener('change', e => { tahunRekap = Number(e.target.value); renderRekapAnggota(); });
 
 /* Salam sesuai waktu perangkat */
 function perbaruiSapaan(){
@@ -2673,7 +2823,7 @@ function renderSemua(){
   const sel = document.getElementById('pilih-bulan-struk');
   sel.innerHTML = BULAN.map((n, i) => `<option value="${i}">${n}</option>`).join('');
   sel.value = bulanBerjalan;
-  renderRingkas(); renderPemakaian(); renderStatus(); renderTunggakan(); renderStruk(); renderRekapAnggota(); renderKartu();
+  renderRingkas(); renderPemakaian(); renderStatus(); renderStruk(); renderRekapAnggota(); renderKartu();
   perbaruiSapaan();
 }
 document.getElementById('pilih-bulan-struk').addEventListener('change', renderStruk);
@@ -2713,11 +2863,12 @@ async function mulaiCatat(role){
   if (!URL_ADMIN23) throw new Error('URL_ADMIN23 belum diisi.');
   const r = await panggilGAS(URL_ADMIN23, tambahKred({ action:'stan_list', petugas:petugas.nama }));
   if (!sukesGAS(r)) throw new Error((r && r.error) || 'Data petugas ditolak server.');
+  tahunCatat = Number(r.tahun) || new Date().getFullYear();
   ANGGOTA = (r.data || []).map(adaptStan).filter(a => petugas.cocok(a.id));   // hanya area petugas ini
   halamanCatat = 1;
   Object.keys(draft).forEach(k => delete draft[k]);
   document.getElementById('nama-admin').textContent = (kredAdmin && kredAdmin.nama) || petugas.nama;   // nama dari sheet UserAdmin
-  document.getElementById('area-admin').textContent = 'Area: ' + petugas.area;
+  document.getElementById('area-admin').textContent = 'Area: ' + petugas.area + (tahunCatat !== new Date().getFullYear() ? ' · Tahun ' + tahunCatat : '');
   perbaruiIkonCatat();
   document.getElementById('cari-anggota').value = '';
   document.getElementById('rekap-head').textContent = 'Rekapitulasi Bulanan ' + petugas.pendek;
@@ -2903,7 +3054,7 @@ document.getElementById('btn-simpan').addEventListener('click', async () => {
   if (URL_ADMIN23){
     setStatus('ubah', 'Mengirim ke server...');
     try{
-      const r = await panggilGAS(URL_ADMIN23, tambahKred({ action:'simpan_stan', petugas:petugas.nama, data:JSON.stringify(kirim) }));
+      const r = await panggilGAS(URL_ADMIN23, tambahKred({ action:'simpan_stan', petugas:petugas.nama, tahun:tahunCatat, data:JSON.stringify(kirim) }));
       if (!sukesGAS(r)){ setStatus('err', '❌ ' + ((r && r.error) || 'Server menolak data.') + ' Perubahan belum tersimpan.'); return; }
     }catch(err){ setStatus('err', '❌ Server tidak dapat dihubungi. Perubahan belum tersimpan.'); return; }
   }
@@ -3026,7 +3177,7 @@ function cetakHalaman(zona, pdf){
   } else if (zona === 'kartu'){
     nama = `Kartu_Anggota_${DATA.id}`;
   } else if (zona === 'rekap-anggota'){
-    nama = `Rekap_Tahunan_${thn}_${DATA.id}`;
+    nama = `Rekap_Tahunan_${tahunRekap}_${DATA.id}`;
   } else if (zona === 'rekap-catat'){
     renderRekapCatat();
     nama = `Rekap_Bulanan_${BULAN[Number(document.getElementById('bulan-rekap').value)]}_${thn}_${petugas.nama}`;
@@ -3085,6 +3236,7 @@ async function mulaiBendahara(){
   if (!sukesGAS(r)) throw new Error((r && r.error) || 'Data anggota ditolak server.');
   ANGGOTA_SEMUA = (r.data || []).map(adaptAnggota);
   document.getElementById('nama-bend').textContent = (kredAdmin && kredAdmin.nama) || 'Bendahara';
+  tahunBend = Number(r.tahun) || new Date().getFullYear();
   const tahun = new Date().getFullYear();
   const sel = document.getElementById('bend-bulan');
   sel.innerHTML = BULAN.map((n, i) => `<option value="${i}">${n} ${tahun}</option>`).join('');
@@ -3247,6 +3399,7 @@ document.getElementById('isi-bend').addEventListener('click', e => {
     baris('Tagihan Air', rp(r.tagihan - admin)) + baris('Biaya Admin', rp(admin)) +
     baris('Total Tagihan', rp(r.tagihan)) + baris('Sudah Dibayar', rp(r.dibayar)) +
     baris('Tunggakan', rp(Math.max(r.tagihan - r.dibayar, 0))) + baris('Status', LABEL_STATUS[r.status].teks);
+  document.getElementById('modal-bend').classList.remove('konfirmasi');
   document.getElementById('modal-bend').classList.add('tampil');
 });
 document.getElementById('modal-tutup').addEventListener('click', () => document.getElementById('modal-bend').classList.remove('tampil'));
@@ -3285,17 +3438,111 @@ function tampilView(id){
   if (id === 'bv-bku') renderBKU();
   else if (id === 'bv-rekap') renderRekapAir();
   else if (id === 'bv-lap') renderLaporan();
+  else if (id === 'bv-anggota') renderDataAnggota();
+  else if (id === 'bv-bayar') renderBayar();
   window.scrollTo(0, 0);
 }
-document.getElementById('v-bend').addEventListener('click', e => {
-  const k = e.target.closest('.menu-kartu button[data-view]');
-  if (k) tampilView(k.dataset.view);
-});
 
 const angka = n => Number(n).toLocaleString('id-ID');
 const tglIndo = iso => iso.slice(8, 10) + '/' + iso.slice(5, 7) + '/' + iso.slice(0, 4);
 const tglCetakTeks = () => 'Karangtalun, ' + new Date().toLocaleDateString('id-ID', { day:'numeric', month:'long', year:'numeric' });
 function isiTglCetak(){ document.querySelectorAll('#v-bend .tgl-cetak').forEach(p => { p.textContent = tglCetakTeks(); }); }
+
+/* =====================================================================
+   BENDAHARA : DATA ANGGOTA (per area) & PEMBAYARAN (validasi status Lunas)
+   ===================================================================== */
+let tahunBend = new Date().getFullYear();
+const areaAnggota = id => (/^(JBK|JBE|JBM)/i.test(String(id)) ? 'Jlubang' : 'Karangtalun');
+const urutId = (a, b) => String(a.id).localeCompare(String(b.id), 'id', { numeric:true });
+const cocokCari = (a, q) => !q || String(a.id).toLowerCase().indexOf(q) >= 0 || String(a.nama).toLowerCase().indexOf(q) >= 0;
+
+function renderDataAnggota(){
+  const q = document.getElementById('ang-cari').value.trim().toLowerCase();
+  const kel = { Karangtalun:[], Jlubang:[] };
+  ANGGOTA_SEMUA.slice().sort(urutId).forEach(a => { if (cocokCari(a, q)) kel[areaAnggota(a.id)].push(a); });
+  const total = ANGGOTA_SEMUA.length, nJ = ANGGOTA_SEMUA.filter(a => areaAnggota(a.id) === 'Jlubang').length;
+  document.getElementById('ang-ringkas').innerHTML =
+    `<span class="chip-ang">Total <b>${total}</b> anggota</span><span class="chip-ang">Area Karangtalun <b>${total - nJ}</b></span><span class="chip-ang">Area Jlubang <b>${nJ}</b></span>`;
+  const ket = { Karangtalun:'ID selain JBK, JBE, JBM', Jlubang:'ID berawalan JBK, JBE, JBM' };
+  document.getElementById('ang-isi').innerHTML = ['Karangtalun', 'Jlubang'].map(ar => `
+    <div class="ang-blok">
+      <h3>Area ${ar} <small>${ket[ar]} · ${kel[ar].length} anggota</small></h3>
+      <div class="tabel-wrap"><table class="tbl-ang"><thead><tr><th class="c">No</th><th>Nama</th><th>ID Anggota</th></tr></thead><tbody>
+        ${kel[ar].length ? kel[ar].map((a, i) => `<tr><td class="c">${i + 1}</td><td>${esc(a.nama)}</td><td><b>${esc(a.id)}</b></td></tr>`).join('')
+          : '<tr><td colspan="3" class="kosong">Tidak ada data.</td></tr>'}
+      </tbody></table></div>
+    </div>`).join('');
+}
+document.getElementById('ang-cari').addEventListener('input', renderDataAnggota);
+
+/* ---------- Pembayaran: tampilkan isi sel status (AB-AM) dan validasi Lunas ---------- */
+const BYR_PER_HAL = 15;
+let byrHal = 1, byrDaftar = [];
+function selBayar(a, m){          // isi sel apa adanya + kelas warna + apakah bisa diketuk
+  const nilai = a.statusRaw ? a.statusRaw[m] : '', lab = a.label ? a.label[m] : 'belum_ada';
+  if (lab === 'lunas') return { teks:'1', kls:'ok', klik:false };
+  if (lab === 'belum_bayar') return { teks:angka(nilai), kls:'belum', klik:true };
+  if (lab === 'kurang') return { teks:angka(nilai), kls:'kurang', klik:true };
+  if (String(nilai).trim() === '-') return { teks:'-', kls:'nol', klik:false };
+  return { teks:'0', kls:'nol', klik:false };
+}
+function renderBayar(){
+  document.getElementById('byr-tahun').textContent = '· Tahun ' + tahunBend;
+  document.getElementById('byr-kepala').innerHTML = '<tr><th>ID Anggota</th><th>Nama Anggota</th>' + BULAN.map(n => `<th class="c">${n.slice(0, 3)}</th>`).join('') + '</tr>';
+  const area = document.getElementById('byr-area').value, saring = document.getElementById('byr-saring').value;
+  const q = document.getElementById('byr-cari').value.trim().toLowerCase();
+  byrDaftar = ANGGOTA_SEMUA.slice().sort(urutId).filter(a => (area === 'semua' || areaAnggota(a.id) === area) && cocokCari(a, q)
+    && (saring !== 'belum' || a.label.some(l => l === 'belum_bayar' || l === 'kurang')));
+  const halaman = Math.max(Math.ceil(byrDaftar.length / BYR_PER_HAL), 1);
+  byrHal = Math.min(Math.max(byrHal, 1), halaman);
+  const mulai = (byrHal - 1) * BYR_PER_HAL;
+  document.getElementById('byr-isi').innerHTML = byrDaftar.length
+    ? byrDaftar.slice(mulai, mulai + BYR_PER_HAL).map((a, i) => `<tr><td><b>${esc(a.id)}</b><small class="byr-nama">${esc(a.nama)}</small></td><td>${esc(a.nama)}</td>${
+        BULAN.map((n, m) => { const c = selBayar(a, m);
+          return `<td class="c byr-sel ${c.kls}"${c.klik ? ` data-i="${mulai + i}" data-m="${m}" role="button" tabindex="0" title="Ketuk untuk menandai Lunas"` : ''}>${c.teks}</td>`; }).join('')}</tr>`).join('')
+    : `<tr><td colspan="14" class="kosong">Tidak ada anggota yang cocok.</td></tr>`;
+  document.getElementById('byr-info').textContent = `Halaman ${byrHal} dari ${halaman} · ${byrDaftar.length} anggota`;
+  document.getElementById('byr-prev').disabled = byrHal <= 1;
+  document.getElementById('byr-next').disabled = byrHal >= halaman;
+}
+['byr-area', 'byr-saring'].forEach(id => document.getElementById(id).addEventListener('change', () => { byrHal = 1; renderBayar(); }));
+document.getElementById('byr-cari').addEventListener('input', () => { byrHal = 1; renderBayar(); });
+document.getElementById('byr-prev').addEventListener('click', () => { byrHal--; renderBayar(); });
+document.getElementById('byr-next').addEventListener('click', () => { byrHal++; renderBayar(); });
+function pilihSelBayar(e){
+  const td = e.target.closest('td.byr-sel[data-m]');
+  if (td) konfirmasiLunas(byrDaftar[Number(td.dataset.i)], Number(td.dataset.m));
+}
+document.getElementById('byr-isi').addEventListener('click', pilihSelBayar);
+document.getElementById('byr-isi').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); pilihSelBayar(e); } });
+
+function konfirmasiLunas(a, m){
+  if (!a) return;
+  const baris = (k, v) => `<div class="baris-detail"><span>${k}</span><b>${v}</b></div>`;
+  const modal = document.getElementById('modal-bend');
+  document.getElementById('modal-judul').textContent = 'Tandai Lunas';
+  document.getElementById('modal-badan').innerHTML =
+    baris('ID Anggota', esc(a.id)) + baris('Nama', esc(a.nama)) + baris('Bulan', BULAN[m] + ' ' + tahunBend) +
+    baris('Tagihan', rp(a.rp[m])) + baris('Isi sel sekarang', angka(a.statusRaw[m])) +
+    `<p class="byr-peringatan">Sel status di sheet DataAnggota akan diganti menjadi <b>1</b> (Lunas). Rumus atau angka cicilan di sel itu ikut tergantikan.</p>
+     <p class="pesan-modal" id="byr-pesan"></p>
+     <div class="aksi"><button class="btn garis" id="byr-batal" type="button">Batal</button><button class="btn hijau" id="byr-ya" type="button">Ya, tandai Lunas</button></div>`;
+  modal.classList.add('konfirmasi'); modal.classList.add('tampil');
+  document.getElementById('byr-batal').onclick = () => modal.classList.remove('tampil');
+  document.getElementById('byr-ya').onclick = async () => {
+    const ya = document.getElementById('byr-ya'), pesan = document.getElementById('byr-pesan');
+    if (!URL_BASE_ANGGOTA){ pesan.textContent = 'URL_BASE_ANGGOTA belum diisi.'; return; }
+    ya.disabled = true; pesan.textContent = 'Menyimpan ke sheet...';
+    try{
+      const r = await panggilGAS(URL_BASE_ANGGOTA, tambahKred({ action:'set_status', id:a.id, bulan:m, tahun:tahunBend }));
+      if (!sukesGAS(r)){ pesan.textContent = (r && r.error) || 'Server menolak perubahan.'; ya.disabled = false; return; }
+    }catch(err){ pesan.textContent = (err && err.message) || 'Server tidak terjangkau.'; ya.disabled = false; return; }
+    a.statusRaw[m] = 1; a.label[m] = 'lunas'; a.dibayar[m] = a.rp[m];       // perbarui tampilan setelah server sukses
+    modal.classList.remove('tampil');
+    renderBayar(); renderBend();
+    tampilToast(`${a.nama}: ${BULAN[m]} ditandai Lunas.`);
+  };
+}
 
 /* ---------- Grafik batang (SVG buatan sendiri) ----------
    o: { kategori:[], seri:[{nama, warna, nilai:[], kanan:bool}], fmtKiri, fmtKanan, minKiri }  */
