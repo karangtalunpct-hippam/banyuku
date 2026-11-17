@@ -1207,7 +1207,7 @@ body{padding:8px 6px}
 #v-dash .pem-total .kiri{font-size:.88rem;gap:10px;min-width:0}
 #v-dash .pem-total .ik-kotak{width:30px;height:30px;border-radius:9px;flex:0 0 30px}
 #v-dash .pem-total .ik-kotak svg{width:18px;height:18px}
-#v-dash .pem-total .pil-total{font-size:1.1rem;padding:5px 14px;gap:6px;border-radius:12px;white-space:nowrap;flex:0 0 auto}
+#v-dash .pem-total .pil-total{font-size:1.1rem;padding:5px 14px;gap:6px;border-radius:12px;white-space:nowrap;flex:0 0 auto;width:auto;}
 #v-dash .pem-total .pil-total svg{width:16px;height:16px}
 /* label menu singkat (dipakai hanya di nav bawah HP) */
 .lbl-pd{display:none}
@@ -1365,6 +1365,85 @@ box-shadow:0 16px 40px rgba(10,50,120,.28);display:flex;flex-direction:column;ga
 body{padding:0 !important;overflow:visible !important}
 .outer-wrapper{max-width:none !important}
 .tabel-wrap,.pem-tabel{overflow:visible !important}
+}
+/* =====================================================
+DASHBOARD BENDAHARA: menu geser (burger), perbaikan kotak, keuangan, laporan
+===================================================== */
+.bend-topbar,.burger,.drawer-lapis{display:none}
+.tag-tahun{padding:5px 12px;border-radius:999px;background:#E1EEFB;color:#0A3A8A;font-size:.8rem;font-weight:700}
+.bend-row.sama{grid-template-columns:1fr 1fr}
+.stat-keu .isi-stat b{overflow-wrap:anywhere}
+.dash-list{display:flex;flex-direction:column;gap:8px}
+.dash-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #D6E7F9;border-radius:12px;background:#fff;min-width:0}
+.dash-item .ik{flex:0 0 34px;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.dash-item .ik.m{background:#E8F7EF;color:#0B6B4A}
+.dash-item .ik.k{background:#FFE9EC;color:#C0263C}
+.dash-item .ik.t{background:#FFF3E3;color:#B85C00}
+.dash-item .tx{flex:1;min-width:0}
+.dash-item .tx b{display:block;font-size:.9rem;color:#12294A;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dash-item .tx small{color:#4D6586;font-size:.78rem}
+.dash-item .nom{font-weight:800;font-size:.9rem;white-space:nowrap}
+.dash-item .nom.m{color:#0B6B4A}.dash-item .nom.k{color:#C0263C}.dash-item .nom.t{color:#B85C00}
+.dash-kosong{padding:18px;text-align:center;color:#4D6586;font-size:.88rem}
+.panel-atas .btn.kecil{padding:6px 12px;font-size:.8rem}
+/* Perbaikan: isi kotak Ringkasan (Rekap Pemakaian Air) tidak meluap */
+.ring{min-width:0}
+.ring>div{min-width:0}
+.ring b{display:block;overflow-wrap:anywhere}
+.ring-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))}
+@media (min-width:1101px){
+.rekap-grid{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+}
+/* Laporan 1 Tahunan: info grafis */
+.lap-sorot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.sorot{padding:12px 14px;border-radius:14px;border:1px solid #D6E7F9;background:#fff;min-width:0}
+.sorot small{display:block;color:#4D6586;font-size:.8rem}
+.sorot b{display:block;font-size:1.15rem;color:#0A3A8A;overflow-wrap:anywhere}
+.sorot em{font-style:normal;font-size:.76rem;color:#4D6586}
+.sorot.plus b{color:#0B6B4A}.sorot.minus b{color:#C0263C}
+.lap-dua{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;margin-top:16px}
+.lap-arus{margin-top:16px}
+.tbl-arus{width:100%;border-collapse:collapse}
+.tbl-arus th,.tbl-arus td{padding:8px 10px;border-bottom:1px solid #E1ECF9;text-align:left;font-size:.88rem}
+.tbl-arus th{background:#D6E6FA;color:#0A3A8A}
+.tbl-arus .angka{text-align:right;white-space:nowrap}
+.tbl-arus .neg{color:#C0263C}
+.tbl-arus tfoot td{font-weight:800;background:#EAF3FD}
+.komp{display:grid;grid-template-columns:minmax(0,100px) 1fr auto;align-items:center;gap:10px;margin:10px 0;font-size:.86rem}
+.komp .bar{height:10px;border-radius:6px;background:#E1ECF9;overflow:hidden}
+.komp .bar i{display:block;height:100%;background:linear-gradient(90deg,#1B80E8,#0A3A8A);border-radius:6px}
+.komp b{white-space:nowrap}.komp em{font-style:normal;color:#4D6586;font-weight:500}
+@media (max-width:1100px){
+.bend-row.sama,.lap-dua{grid-template-columns:1fr}
+.lap-sorot{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){.lap-sorot{grid-template-columns:1fr}.komp{grid-template-columns:80px 1fr auto}}
+@media print{
+.lap-sorot{grid-template-columns:repeat(4,1fr)}
+.lap-dua{grid-template-columns:1.4fr 1fr}
+.lap-arus,.sorot{break-inside:avoid}
+.burger,.drawer-lapis,.bend-topbar{display:none !important}
+}
+/* Menu samping: layar lebar tetap di kiri; layar sempit jadi menu geser dari kanan + tombol burger */
+@media (max-width:1100px){
+.layar.bend.aktif{display:block}
+.sidebar{position:fixed;top:0;right:0;bottom:0;left:auto;width:min(84vw,300px);flex:none;z-index:1002;overflow-y:auto;
+padding:72px 14px 24px;border-radius:20px 0 0 20px;transform:translateX(105%);transition:transform .28s ease}
+.layar.bend.drawer-buka .sidebar{transform:none;box-shadow:-12px 0 30px rgba(10,58,138,.35)}
+.sidebar .merk{padding:0 8px 16px}
+.nav-bend{flex-direction:column;overflow:visible;padding-bottom:0}
+.nav-bend button{width:100%;flex:none;white-space:normal;padding:13px 14px}
+.nav-bend svg.panah{display:block}
+.burger{display:flex;position:fixed;top:12px;right:12px;z-index:1003;width:46px;height:46px;border:0;border-radius:14px;
+background:#0A4DB0;box-shadow:0 4px 12px rgba(10,58,138,.35);flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}
+.burger span{display:block;width:22px;height:2.5px;border-radius:2px;background:#fff;transition:transform .25s,opacity .2s}
+.layar.bend.drawer-buka .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.layar.bend.drawer-buka .burger span:nth-child(2){opacity:0}
+.layar.bend.drawer-buka .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.drawer-lapis{display:block;position:fixed;top:0;right:0;bottom:0;left:0;z-index:1001;background:rgba(7,28,66,.45);opacity:0;pointer-events:none;transition:opacity .25s}
+.layar.bend.drawer-buka .drawer-lapis{opacity:1;pointer-events:auto}
+.bend-topbar{display:flex;align-items:center;gap:8px;min-height:46px;padding-right:58px;color:#0A3A8A;font-size:1.05rem}
+.bend-topbar span{color:#4D6586;font-size:.9rem}
 }
 
 </style>
@@ -1862,6 +1941,8 @@ body{padding:0 !important;overflow:visible !important}
 <!-- LAYAR 6 : DASHBOARD BENDAHARA (ADMIN 1) -->
 <!-- ======================================================= -->
 <main class='layar bend' id='v-bend'>
+<button aria-controls='nav-bend' aria-expanded='false' aria-label='Buka menu' class='burger no-print' id='btn-burger' type='button'><span></span><span></span><span></span></button>
+<div class='drawer-lapis no-print' id='drawer-lapis'></div>
 <aside class='sidebar no-print'>
 <div class='merk'><svg aria-hidden='true' class='logo-sb' viewBox='0 0 64 64'><use href='#ikon-tetes-putih'></use></svg><span>HIPPAM<small>Tirta Kencana</small></span></div>
 <nav class='nav-bend' id='nav-bend'>
@@ -1879,6 +1960,7 @@ body{padding:0 !important;overflow:visible !important}
 </nav>
 </aside>
 <div class='bend-main'>
+<div class='bend-topbar no-print'><b>HIPPAM</b><span id='topbar-judul'>Dashboard</span></div>
 <section class='bview aktif' id='bv-dash'>
 <!-- Header -->
 <header class='bend-head no-print'>
@@ -1918,16 +2000,31 @@ body{padding:0 !important;overflow:visible !important}
 <span class='delta turun' id='bs-belum-pct'></span>
 </div>
 </section>
+<!-- Kartu keuangan (dari Buku Kas Umum & tunggakan) -->
+<section class='stat-grid stat-keu no-print'>
+<div class='kartu-stat'>
+<div class='ikon-stat' style='background:#D9F3E8;color:#0B6B4A'><svg viewBox='0 0 24 24'><path d='M5 2h11a2 2 0 0 1 2 2v2h1a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm1 4v2h8V6zm0 5v2h5v-2zm0 4v2h8v-2z' fill-rule='evenodd'></path></svg></div>
+<div class='isi-stat'><b id='bk-saldo'>Rp 0</b><span>Saldo Kas Saat Ini</span></div>
+</div>
+<div class='kartu-stat'>
+<div class='ikon-stat' style='background:#17A672;color:#fff'><svg viewBox='0 0 24 24'><path d='M12 19V7M6 12l6-6 6 6' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'></path></svg></div>
+<div class='isi-stat'><b id='bk-masuk'>Rp 0</b><span>Pemasukan Bulan Ini</span></div>
+</div>
+<div class='kartu-stat'>
+<div class='ikon-stat' style='background:#D6334A;color:#fff'><svg viewBox='0 0 24 24'><path d='M12 5v12M6 12l6 6 6-6' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'></path></svg></div>
+<div class='isi-stat'><b id='bk-keluar'>Rp 0</b><span>Pengeluaran Bulan Ini</span></div>
+</div>
+<div class='kartu-stat'>
+<div class='ikon-stat' style='background:#f08a00;color:#fff'><svg viewBox='0 0 24 24'><path d='M11 5h2v9h-2zm0 11h2v2h-2z'></path></svg></div>
+<div class='isi-stat'><b id='bk-tunggak'>Rp 0</b><span>Total Tunggakan</span><span id='bk-tunggak-sub'></span></div>
+</div>
+</section>
 <!-- Grafik pemakaian & ringkasan sistem (berjajar) -->
 <section class='bend-row no-print'>
 <div class='panel-bend'>
 <div class='panel-atas'>
 <h3>📊 Grafik Pemakaian Air</h3>
-<select id='grafik-rentang'>
-<option value='3'>3 Bulan Terakhir</option>
-<option selected='selected' value='6'>6 Bulan Terakhir</option>
-<option value='12'>12 Bulan Terakhir</option>
-</select>
+<span class='tag-tahun' id='grafik-tahun'></span>
 </div>
 <div id='grafik-isi'></div>
 </div>
@@ -1940,6 +2037,17 @@ body{padding:0 !important;overflow:visible !important}
 <span class='tetes-kecil'>💧</span>
 <div><small>Pemakaian Rata-rata</small><b id='bend-rata'>0 m&#179; / bulan</b></div>
 </div>
+</div>
+</section>
+<!-- Transaksi kas terakhir & tunggakan terbesar -->
+<section class='bend-row sama no-print'>
+<div class='panel-bend'>
+<div class='panel-atas'><h3>🧾 Transaksi Kas Terakhir</h3><button class='btn garis kecil' data-ke='bv-bku' type='button'>Buku Kas &#8250;</button></div>
+<div class='dash-list' id='dash-bku'></div>
+</div>
+<div class='panel-bend'>
+<div class='panel-atas'><h3>&#9888;&#65039; Tunggakan Terbesar</h3><button class='btn garis kecil' data-ke='bv-bayar' type='button'>Pembayaran &#8250;</button></div>
+<div class='dash-list' id='dash-tunggak'></div>
 </div>
 </section>
 </section>
@@ -2087,10 +2195,10 @@ body{padding:0 !important;overflow:visible !important}
 <div class='kotak-isi'>
 <div class='kotak-kepala'><h3><svg aria-hidden='true' class='ik-kecil' viewBox='0 0 24 24'><path d='M4 20h4v-8H4zm6 0h4V4h-4zm6 0h4v-12h-4z'></path></svg>Ringkasan</h3></div>
 <div class='ring-grid'>
-<div class='ring'><span class='ring-ik b'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2.5C12 2.5 5.5 10 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10 12 2.5 12 2.5z'></path></svg></span><div><small>Total Pemakaian</small><b id='rk-pakai'>0 m&#179;</b></div></div>
-<div class='ring'><span class='ring-ik b'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM4 9v2h16V9z' fill-rule='evenodd'></path></svg></span><div><small>Total Tagihan</small><b id='rk-tagihan'>Rp 0</b></div></div>
-<div class='ring hijau'><span class='ring-ik h'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.500 14.500L6 12l1.400-1.400 3.100 3.100 6.100-6.100L18 9z'></path></svg></span><div><small>Total Penerimaan</small><b id='rk-terima'>Rp 0</b></div></div>
-<div class='ring oranye'><span class='ring-ik o'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><ellipse cx='12' cy='6' rx='8' ry='3'></ellipse><path d='M4 8.500v3.500c0 1.700 3.600 3 8 3s8-1.300 8-3V8.500C18.400 10 15.400 11 12 11S5.600 10 4 8.500zM4 14.500V18c0 1.700 3.600 3 8 3s8-1.300 8-3v-3.500c-1.600 1.500-4.600 2.500-8 2.500s-6.400-1-8-2.500z'></path></svg></span><div><small>Saldo Akhir</small><b id='rk-saldo'>Rp 0</b></div></div>
+<div class='ring'><span class='ring-ik b'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2.5C12 2.5 5.5 10 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10 12 2.5 12 2.5z'></path></svg></span><div><small>Total Pemakaian</small><b id='rkb-pakai'>0 m&#179;</b></div></div>
+<div class='ring'><span class='ring-ik b'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM4 9v2h16V9z' fill-rule='evenodd'></path></svg></span><div><small>Total Tagihan</small><b id='rkb-tagihan'>Rp 0</b></div></div>
+<div class='ring hijau'><span class='ring-ik h'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.500 14.500L6 12l1.400-1.400 3.100 3.100 6.100-6.100L18 9z'></path></svg></span><div><small>Total Penerimaan</small><b id='rkb-terima'>Rp 0</b></div></div>
+<div class='ring oranye'><span class='ring-ik o'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><ellipse cx='12' cy='6' rx='8' ry='3'></ellipse><path d='M4 8.500v3.500c0 1.700 3.600 3 8 3s8-1.300 8-3V8.500C18.400 10 15.400 11 12 11S5.600 10 4 8.500zM4 14.500V18c0 1.700 3.600 3 8 3s8-1.300 8-3v-3.500c-1.600 1.500-4.600 2.500-8 2.500s-6.400-1-8-2.500z'></path></svg></span><div><small>Saldo Akhir</small><b id='rkb-saldo'>Rp 0</b></div></div>
 </div>
 </div>
 </div>
@@ -2132,10 +2240,31 @@ body{padding:0 !important;overflow:visible !important}
 <div class='lk hijau'><span class='lk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><ellipse cx='12' cy='6' rx='8' ry='3'></ellipse><path d='M4 8.500v3.500c0 1.700 3.600 3 8 3s8-1.300 8-3V8.500C18.400 10 15.400 11 12 11S5.600 10 4 8.500zM4 14.500V18c0 1.700 3.600 3 8 3s8-1.300 8-3v-3.500c-1.600 1.500-4.600 2.500-8 2.500s-6.400-1-8-2.500z'></path></svg></span><div><small>Total Pengeluaran</small><b id='lp-keluar'>Rp 0</b></div></div>
 <div class='lk ungu'><span class='lk-ik'><svg aria-hidden='true' class='' viewBox='0 0 24 24'><path d='M3 17l6-6 4 4 8-8' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.4'></path><path d='M15 7h6v6' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.4'></path></svg></span><div><small>Saldo Akhir</small><b id='lp-saldo'>Rp 0</b></div></div>
 </div>
+<div class='lap-sorot' id='lap-sorot'></div>
 <div class='kotak-isi lap-grafik'>
 <div class='kotak-kepala'><h3><svg aria-hidden='true' class='ik-kecil' viewBox='0 0 24 24'><path d='M4 20h4v-8H4zm6 0h4V4h-4zm6 0h4v-12h-4z'></path></svg>Grafik Keuangan Tahunan</h3>
 <div class='legenda'><span><i class='dot biru'></i>Pemasukan</span><span><i class='dot oranye'></i>Pengeluaran</span></div></div>
 <div id='lap-grafik'></div>
+</div>
+<div class='lap-dua'>
+<div class='kotak-isi'>
+<div class='kotak-kepala'><h3>Tren Saldo Kas</h3></div>
+<div id='lap-saldo-grafik'></div>
+</div>
+<div class='kotak-isi'>
+<div class='kotak-kepala'><h3>Komposisi Pengeluaran</h3></div>
+<div id='lap-komposisi'></div>
+</div>
+</div>
+<div class='kotak-isi lap-arus'>
+<div class='kotak-kepala'><h3>Arus Kas Bulanan</h3></div>
+<div class='tabel-wrap'>
+<table class='tbl-arus'>
+<thead><tr><th>Bulan</th><th class='angka'>Pemasukan</th><th class='angka'>Pengeluaran</th><th class='angka'>Selisih</th><th class='angka'>Saldo Akhir</th></tr></thead>
+<tbody id='isi-arus'></tbody>
+<tfoot id='foot-arus'></tfoot>
+</table>
+</div>
 </div>
 <div class='lap-bawah'>
 <div class='kotak-isi'>
@@ -2268,8 +2397,8 @@ let kredAdmin = null;     // { user, sandi } admin yang sedang login (hanya di m
    KONFIGURASI SERVER (Google Apps Script Web App)
    Isi dengan URL Web App (akhiran /exec) hasil Terapkan > Deployment baru di Apps Script.
    ===================================================================== */
-URL_BASE_ANGGOTA = 'https://script.google.com/macros/s/AKfycbwOtQOnet20V70RoiySyL6lZ5EIUO9hcBrPBgBzQKIivy0pAw2V3nhAkwBhTlcnOT3VbA/exec';   // login anggota (action login_warga), ganti password (action ganti_password)
-const URL_ADMIN23      = 'https://script.google.com/macros/s/AKfycbwdkIHfHdF0dzxCMyS39DoKLbf2XgXKE656x1FPcis-K0JznnsfJxJ5TNiPgqIBmjmFvg/exec';   // pencatat Admin 2 / 3 (action simpan_stan)
+URL_BASE_ANGGOTA = 'https://script.google.com/macros/s/AKfycbxrnalclTofWs30fSlOZJukt3dQIemWwAdAvw2BjHjWZwxE3Tb_iSA9Ipzejn7OVv4VIA/exec';   // login anggota (action login_warga), ganti password (action ganti_password)
+const URL_ADMIN23      = 'https://script.google.com/macros/s/AKfycbzRnt-v5AlwnfbFCxb5s4l3hKyvxHmgw7bISfl7tl4Hc2e0ZNqypQIGYMe5-XOZ2G2JwQ/exec';   // pencatat Admin 2 / 3 (action simpan_stan)
 const URL_ADMIN1       = 'https://script.google.com/macros/s/AKfycbz_zWfWUmE5So7eNDayW5J2MiBV5giUe6rxEtYiSKHNjXBGCh5XNLyOl2lNKDuXvFFsQw/exec';   // bendahara Admin 1: BKU (action bku_list, bku_simpan, bku_hapus)
 const URL_PW_ADMIN123  = 'https://script.google.com/macros/s/AKfycbzQfMjZ7BiGlp0aH0FGxzyPkX0_3zcxoYB6L9gqb22YNK5yBEGmNgTeVg1zaAuj2Egi3Q/exec';   // verifikasi sandi Admin 1/2/3 (action login_admin)
 
@@ -2357,7 +2486,13 @@ function sembunyikanSandi(){
 }
 pasangMataSandi();
 
+let sudahPanas = false;
+function pemanasanServer(){      // bangunkan GAS lebih dulu agar login tidak menunggu cold start
+  if (sudahPanas) return; sudahPanas = true;
+  [URL_PW_ADMIN123, URL_BASE_ANGGOTA, URL_ADMIN1].forEach(u => { if (u) fetch(String(u).trim() + '?action=ping', { mode:'no-cors' }).catch(() => {}); });
+}
 function pindahLayar(id){
+  if (id === 'v-admin') pemanasanServer();
   sembunyikanSandi();
   tutupBantuan();
   document.querySelectorAll('.layar').forEach(l => l.classList.remove('aktif'));
@@ -3232,7 +3367,8 @@ function tampilToast(teks){
 
 async function mulaiBendahara(){
   if (!URL_BASE_ANGGOTA) throw new Error('URL_BASE_ANGGOTA belum diisi.');
-  const r = await panggilGAS(URL_BASE_ANGGOTA, tambahKred({ action:'daftar_anggota' }));
+  // Data anggota dan BKU diminta BERSAMAAN (sebelumnya berurutan, jadi waktu tunggu dijumlahkan)
+  const [r] = await Promise.all([panggilGAS(URL_BASE_ANGGOTA, tambahKred({ action:'daftar_anggota' })), muatBKUServer()]);
   if (!sukesGAS(r)) throw new Error((r && r.error) || 'Data anggota ditolak server.');
   ANGGOTA_SEMUA = (r.data || []).map(adaptAnggota);
   document.getElementById('nama-bend').textContent = (kredAdmin && kredAdmin.nama) || 'Bendahara';
@@ -3242,12 +3378,10 @@ async function mulaiBendahara(){
   sel.innerHTML = BULAN.map((n, i) => `<option value="${i}">${n} ${tahun}</option>`).join('');
   sel.value = bulanBerjalan;                           // tagihan bulan berjalan sudah dirilis tanggal 1
   document.getElementById('bend-status').value = 'semua';
-  document.getElementById('grafik-rentang').value = '6';
   document.getElementById('bend-tanggal').textContent =
     new Date().toLocaleDateString('id-ID', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
   bendHal = 1;
   bendSemua = false;
-  await muatBKUServer();
   document.getElementById('bku-periode').value = '';
   isiPilihTahun('rekap-tahun'); isiPilihTahun('lap-tahun');
   renderBend();
@@ -3281,29 +3415,26 @@ function renderBend(){
     dEl.textContent = `${d >= 0 ? '↑' : '↓'} ${Math.abs(d)}%`;
   } else { dEl.className = 'delta'; dEl.textContent = ''; }
 
+  renderBendKeuangan(m);
   renderBendGrafik();
   renderBendDonut(pctLunas);
   renderBendTabel();
 }
 
 function renderBendGrafik(){
-  const m = bendBulan();
-  const n = Number(document.getElementById('grafik-rentang').value);
-  const awal = Math.max(0, m - n + 1);
-  const label = [], nilai = [];
-  for (let i = awal; i <= m; i++){
-    label.push(BULAN[i].slice(0, 3));
-    nilai.push(ANGGOTA_SEMUA.reduce((s, a) => s + recBend(a, i).volume, 0));
-  }
-  const W = 600, H = 250, L = 52, R = 16, T = 36, B = 34;
-  const kasar = Math.max(Math.max(...nilai), 4) * 1.15 / 4;
+  const tahun = new Date().getFullYear(), mKini = new Date().getMonth();
+  const label = BULAN.map(n => n.slice(0, 3));
+  const nilai = BULAN.map((n, i) => i <= mKini ? ANGGOTA_SEMUA.reduce((s, a) => s + recBend(a, i).volume, 0) : null);
+  const ada = nilai.filter(v => v !== null);
+  const W = 640, H = 250, L = 52, R = 16, T = 36, B = 34;
+  const kasar = Math.max(Math.max(...ada), 4) * 1.15 / 4;
   const p = Math.pow(10, Math.floor(Math.log10(kasar)));
   const langkah = Math.ceil(kasar / p) * p;
   const yMax = langkah * 4;
-  const x = i => L + (i + 0.5) * (W - L - R) / label.length;
+  const x = i => L + (i + 0.5) * (W - L - R) / 12;
   const y = v => T + (H - T - B) * (1 - v / yMax);
 
-  let svg = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto" role="img" aria-label="Grafik pemakaian air">
+  let svg = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto" role="img" aria-label="Grafik pemakaian air 12 bulan ${tahun}">
     <defs><linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0B63D1" stop-opacity=".35"/><stop offset="1" stop-color="#0B63D1" stop-opacity=".02"/>
     </linearGradient></defs>`;
@@ -3312,20 +3443,56 @@ function renderBendGrafik(){
     svg += `<line x1="${L}" y1="${yy}" x2="${W - R}" y2="${yy}" stroke="#DCE9F7"/>
             <text x="${L - 8}" y="${yy + 4}" text-anchor="end" font-size="11" fill="#4D6586">${v.toLocaleString('id-ID')}</text>`;
   }
-  const titik = nilai.map((v, i) => [x(i), y(v)]);
+  label.forEach((lb, i) => { svg += `<text x="${x(i)}" y="${H - 10}" text-anchor="middle" font-size="11" fill="#4D6586">${lb}</text>`; });
+  const titik = ada.map((v, i) => [x(i), y(v)]);
   const garis = titik.map((t, i) => (i ? 'L' : 'M') + t[0] + ' ' + t[1]).join(' ');
   svg += `<path d="${garis} L${titik[titik.length - 1][0]} ${H - B} L${titik[0][0]} ${H - B} Z" fill="url(#gArea)"/>
           <path d="${garis}" fill="none" stroke="#0B63D1" stroke-width="2.5"/>`;
   titik.forEach((t, i) => {
-    svg += `<circle cx="${t[0]}" cy="${t[1]}" r="4.5" fill="#0B63D1" stroke="#fff" stroke-width="2"/>
-            <text x="${t[0]}" y="${t[1] - 11}" text-anchor="middle" font-size="12" font-weight="700" fill="#12294A">${nilai[i].toLocaleString('id-ID')}</text>
-            <text x="${t[0]}" y="${H - 10}" text-anchor="middle" font-size="11" fill="#4D6586">${label[i]}</text>`;
+    svg += `<circle cx="${t[0]}" cy="${t[1]}" r="4" fill="#0B63D1" stroke="#fff" stroke-width="2"><title>${BULAN[i]}: ${ada[i].toLocaleString('id-ID')} m³</title></circle>
+            <text x="${t[0]}" y="${t[1] - 10}" text-anchor="middle" font-size="11" font-weight="700" fill="#12294A">${ada[i].toLocaleString('id-ID')}</text>`;
   });
   svg += '</svg>';
   document.getElementById('grafik-isi').innerHTML = svg;
+  document.getElementById('grafik-tahun').textContent = `12 bulan · ${tahun}`;
 
-  const rata = Math.round(nilai.reduce((s, v) => s + v, 0) / nilai.length);
+  const berisi = ada.filter(v => v > 0);
+  const rata = berisi.length ? Math.round(berisi.reduce((s, v) => s + v, 0) / berisi.length) : 0;
   document.getElementById('bend-rata').textContent = `${rata.toLocaleString('id-ID')} m³ / bulan`;
+}
+
+/* Kartu keuangan, transaksi kas terakhir, dan tunggakan terbesar (dashboard) */
+function renderBendKeuangan(m){
+  const tahun = new Date().getFullYear();
+  const saldo = BKU.reduce((s, t) => s + t.masuk - t.keluar, 0);
+  const bln = BKU.filter(t => Number(t.tgl.slice(0, 4)) === tahun && Number(t.tgl.slice(5, 7)) - 1 === m);
+  const masuk = bln.filter(t => t.kat !== KAT_SALDO_AWAL).reduce((s, t) => s + t.masuk, 0);
+  const keluar = bln.filter(t => t.kat !== KAT_SALDO_AWAL).reduce((s, t) => s + t.keluar, 0);
+  const per = ANGGOTA_SEMUA.map(a => {
+    let jml = 0, bulan = 0;
+    for (let i = 0; i <= m; i++){
+      const r = recBend(a, i);
+      if (r.status === 'belum' || r.status === 'kurang'){ jml += r.tagihan - r.dibayar; bulan++; }
+    }
+    return { a, jml, bulan };
+  }).filter(x => x.jml > 0).sort((x, y) => y.jml - x.jml);
+  const totTunggak = per.reduce((s, x) => s + x.jml, 0);
+  document.getElementById('bk-saldo').textContent = (saldo < 0 ? '-' : '') + rp(Math.abs(saldo));
+  document.getElementById('bk-masuk').textContent = rp(masuk);
+  document.getElementById('bk-keluar').textContent = rp(keluar);
+  document.getElementById('bk-tunggak').textContent = rp(totTunggak);
+  document.getElementById('bk-tunggak-sub').textContent = per.length ? `${per.length} anggota · s.d. ${BULAN[m]}` : 'Tidak ada tunggakan';
+  const akhir = BKU.slice().sort((x, y) => y.tgl.localeCompare(x.tgl) || Number(y.id) - Number(x.id)).slice(0, 5);
+  document.getElementById('dash-bku').innerHTML = akhir.length ? akhir.map(t => {
+    const mk = t.masuk > 0 && t.keluar === 0;
+    return `<div class="dash-item"><span class="ik ${mk ? 'm' : 'k'}">${mk ? '↑' : '↓'}</span>
+      <div class="tx"><b>${esc(t.ket || t.kat)}</b><small>${tglIndo(t.tgl)} · ${esc(t.kat)}</small></div>
+      <span class="nom ${mk ? 'm' : 'k'}">${mk ? '+' : '-'}${rp(mk ? t.masuk : t.keluar)}</span></div>`;
+  }).join('') : '<div class="dash-kosong">Belum ada transaksi kas.</div>';
+  document.getElementById('dash-tunggak').innerHTML = per.length ? per.slice(0, 5).map(x => `
+    <div class="dash-item"><span class="ik t">!</span>
+      <div class="tx"><b>${esc(x.a.nama)}</b><small>${esc(x.a.id)} · ${x.bulan} bulan</small></div>
+      <span class="nom t">${rp(x.jml)}</span></div>`).join('') : '<div class="dash-kosong">Tidak ada tunggakan. 🎉</div>';
 }
 
 function renderBendDonut(pct){
@@ -3343,7 +3510,7 @@ function renderBendTabel(){
   const m = bendBulan();
   const tahun = new Date().getFullYear();
   const filter = document.getElementById('bend-status').value;
-  bendDaftar = ANGGOTA_SEMUA.map(a => recBend(a, m)).filter(r => filter === 'semua' || r.status === filter);
+  bendDaftar = ANGGOTA_SEMUA.slice().sort(urutId).map(a => recBend(a, m)).filter(r => filter === 'semua' || r.status === filter);
 
   const totalHal = Math.max(1, Math.ceil(bendDaftar.length / PER_HAL_BEND));
   if (bendHal > totalHal) bendHal = totalHal;
@@ -3369,7 +3536,6 @@ function renderBendTabel(){
 /* Interaksi bendahara */
 document.getElementById('bend-bulan').addEventListener('change', () => { bendHal = 1; renderBend(); });
 document.getElementById('bend-status').addEventListener('change', () => { bendHal = 1; renderBendTabel(); });
-document.getElementById('grafik-rentang').addEventListener('change', renderBendGrafik);
 document.getElementById('bend-prev').addEventListener('click', () => { if (bendHal > 1){ bendHal--; renderBendTabel(); } });
 document.getElementById('bend-next').addEventListener('click', () => { bendHal++; renderBendTabel(); });
 document.getElementById('btn-lonceng').addEventListener('click', () => tampilToast('Belum ada pemberitahuan baru.'));
@@ -3378,6 +3544,7 @@ document.getElementById('nav-bend').addEventListener('click', e => {
   const tombol = e.target.closest('button[data-menu]');
   if (!tombol) return;
   const menu = tombol.dataset.menu;
+  tutupDrawer();
   if (menu === 'Keluar') keluar();
   else if (tombol.dataset.view) tampilView(tombol.dataset.view);
   else tampilToast(`Menu "${menu}" akan dilengkapi pada tahap berikutnya.`);
@@ -3440,6 +3607,9 @@ function tampilView(id){
   else if (id === 'bv-lap') renderLaporan();
   else if (id === 'bv-anggota') renderDataAnggota();
   else if (id === 'bv-bayar') renderBayar();
+  const tb = document.querySelector('#nav-bend button[data-view="' + id + '"]');
+  if (tb) document.getElementById('topbar-judul').textContent = tb.dataset.menu;
+  tutupDrawer();
   window.scrollTo(0, 0);
 }
 
@@ -3453,7 +3623,13 @@ function isiTglCetak(){ document.querySelectorAll('#v-bend .tgl-cetak').forEach(
    ===================================================================== */
 let tahunBend = new Date().getFullYear();
 const areaAnggota = id => (/^(JBK|JBE|JBM)/i.test(String(id)) ? 'Jlubang' : 'Karangtalun');
-const urutId = (a, b) => String(a.id).localeCompare(String(b.id), 'id', { numeric:true });
+const noUrut = id => {          // 3 digit tengah ID (…-001-…) = no urut/registrasi
+  const s = String(id || ''), p = s.split('-');
+  if (p.length >= 3 && /^\d+$/.test(p[1])) return Number(p[1]);
+  const m = s.match(/-(\d{3})(?:-|$)/) || s.match(/(\d{3})/);
+  return m ? Number(m[1]) : 1e9;
+};
+const urutId = (a, b) => noUrut(a.id) - noUrut(b.id) || String(a.id).localeCompare(String(b.id), 'id', { numeric:true });
 const cocokCari = (a, q) => !q || String(a.id).toLowerCase().indexOf(q) >= 0 || String(a.nama).toLowerCase().indexOf(q) >= 0;
 
 function renderDataAnggota(){
@@ -3594,11 +3770,23 @@ const BLN3 = BULAN.map(n => n.slice(0, 3));
 const juta = v => (v / 1000000).toLocaleString('id-ID', { maximumFractionDigits: 1 }) + ' jt';
 
 /* ---------- Data pemakaian air per bulan (sumber: data pencatat) ---------- */
+const ANGGOTA_TAHUN = {}, tahunDimuat = {};     // data anggota tahun selain tahun berjalan (dimuat sesuai kebutuhan)
+const anggotaUntuk = tahun => tahun === new Date().getFullYear() ? ANGGOTA_SEMUA : (ANGGOTA_TAHUN[tahun] || null);
+async function muatTahunLain(tahun, ulang){
+  if (tahunDimuat[tahun]) return;
+  tahunDimuat[tahun] = true;
+  tampilToast('Memuat data tahun ' + tahun + '...');
+  try{
+    const r = await panggilGAS(URL_BASE_ANGGOTA, tambahKred({ action:'daftar_anggota', tahun:tahun }));
+    ANGGOTA_TAHUN[tahun] = (sukesGAS(r) && Number(r.tahun) === tahun) ? (r.data || []).map(adaptAnggota) : [];
+  }catch(err){ ANGGOTA_TAHUN[tahun] = []; }
+  ulang();
+}
 function dataAir(tahun){
-  const sekarang = new Date().getFullYear();
+  const daftar = anggotaUntuk(tahun);
   return BULAN.map((nama, m) => {
-    if (tahun !== sekarang) return { nama, vol:0, tagihan:0, bayar:0, dicatat:false, status:'-' };
-    const recs = ANGGOTA_SEMUA.map(a => recBend(a, m));
+    if (!daftar) return { nama, vol:0, tagihan:0, bayar:0, dicatat:false, status:'-' };
+    const recs = daftar.map(a => recBend(a, m));
     const dicatat = recs.some(r => r.status !== 'belum-catat');
     const vol = recs.reduce((s, r) => s + r.volume, 0);
     const tagihan = recs.reduce((s, r) => s + r.tagihan, 0);
@@ -3854,15 +4042,16 @@ let rekapLihatSemua = false;
 function renderRekapAir(){
   isiPilihTahun('rekap-tahun');
   const tahun = Number(document.getElementById('rekap-tahun').value);
+  if (tahun !== new Date().getFullYear() && !tahunDimuat[tahun]) muatTahunLain(tahun, renderRekapAir);
   const d = dataAir(tahun);
   const totPakai = d.reduce((s, x) => s + x.vol, 0);
   const totTagihan = d.reduce((s, x) => s + x.tagihan, 0);
   const totBayar = d.reduce((s, x) => s + x.bayar, 0);
   const saldo = BKU.filter(t => Number(t.tgl.slice(0, 4)) <= tahun).reduce((s, t) => s + t.masuk - t.keluar, 0);
-  document.getElementById('rk-pakai').textContent = angka(totPakai) + ' m³';
-  document.getElementById('rk-tagihan').textContent = rp(totTagihan);
-  document.getElementById('rk-terima').textContent = rp(totBayar);
-  document.getElementById('rk-saldo').textContent = rp(saldo);
+  document.getElementById('rkb-pakai').textContent = angka(totPakai) + ' m³';
+  document.getElementById('rkb-tagihan').textContent = rp(totTagihan);
+  document.getElementById('rkb-terima').textContent = rp(totBayar);
+  document.getElementById('rkb-saldo').textContent = rp(saldo);
   document.getElementById('rekap-grafik').innerHTML = grafikBatang({
     label:'Grafik pemakaian dan tagihan air', kategori:BLN3, fmtKiri:v => angka(v), fmtKanan:juta,
     seri:[{ nama:'Pemakaian (m³)', warna:'#1B80E8', nilai:d.map(x => x.vol) },
@@ -3886,6 +4075,7 @@ document.getElementById('rekap-semua').addEventListener('click', () => { rekapLi
 function renderLaporan(){
   isiPilihTahun('lap-tahun');
   const tahun = Number(document.getElementById('lap-tahun').value);
+  if (tahun !== new Date().getFullYear() && !tahunDimuat[tahun]) muatTahunLain(tahun, renderLaporan);
   const masukBln = Array(12).fill(0), keluarBln = Array(12).fill(0);
   BKU.filter(t => Number(t.tgl.slice(0, 4)) === tahun).forEach(t => {
     const m = Number(t.tgl.slice(5, 7)) - 1;
@@ -3907,9 +4097,40 @@ function renderLaporan(){
   document.getElementById('isi-lap').innerHTML = baris.map((b, i) =>
       `<tr><td class="no-c">${i + 1}</td><td>${b[0]}</td><td class="angka">${b[1]}</td></tr>`).join('') +
     `<tr class="total"><td class="no-c">6</td><td>Saldo Akhir Tahun</td><td class="angka">${rp(saldo)}</td></tr>`;
+  const tahunKini = new Date().getFullYear(), mKini = new Date().getMonth();
+  const sampai = tahun === tahunKini ? mKini : (tahun < tahunKini ? 11 : -1);
+  const awalTahun = saldo - masuk + keluar;
+  const rpS = v => (v < 0 ? '-' : '') + rp(Math.abs(v));
+  let kum = awalTahun; const saldoBln = [];
+  document.getElementById('isi-arus').innerHTML = BULAN.map((n, m) => {
+    if (m > sampai){ saldoBln.push(null); return `<tr><td>${n}</td><td class="angka">-</td><td class="angka">-</td><td class="angka">-</td><td class="angka">-</td></tr>`; }
+    const sel = masukBln[m] - keluarBln[m];
+    kum += sel; saldoBln.push(kum);
+    return `<tr><td>${n}</td><td class="angka">${rp(masukBln[m])}</td><td class="angka">${rp(keluarBln[m])}</td><td class="angka ${sel < 0 ? 'neg' : ''}">${rpS(sel)}</td><td class="angka">${rpS(kum)}</td></tr>`;
+  }).join('');
+  document.getElementById('foot-arus').innerHTML =
+    `<tr><td>Total ${tahun}</td><td class="angka">${rp(masuk)}</td><td class="angka">${rp(keluar)}</td><td class="angka">${rpS(masuk - keluar)}</td><td class="angka">${rpS(saldo)}</td></tr>`;
+  document.getElementById('lap-saldo-grafik').innerHTML = grafikGaris({ label:'Tren saldo kas ' + tahun, kategori:BLN3, nilai:saldoBln, fmt:juta });
+  const kat = {};
+  BKU.filter(t => Number(t.tgl.slice(0, 4)) === tahun && t.kat !== KAT_SALDO_AWAL && t.keluar > 0).forEach(t => { kat[t.kat] = (kat[t.kat] || 0) + t.keluar; });
+  const daftarKat = Object.entries(kat).sort((a, b) => b[1] - a[1]);
+  document.getElementById('lap-komposisi').innerHTML = daftarKat.length ? daftarKat.map(([k, v]) => {
+    const pk = keluar ? Math.round(v / keluar * 100) : 0;
+    return `<div class="komp"><span>${esc(k)}</span><div class="bar"><i style="width:${pk}%"></i></div><b>${rp(v)} <em>${pk}%</em></b></div>`;
+  }).join('') : '<p class="dash-kosong">Belum ada pengeluaran pada tahun ini.</p>';
+  const surplus = masuk - keluar;
+  const rasio = masuk ? Math.round(keluar / masuk * 100) : null;
+  const penagihan = totTagihan ? Math.round(totBayar / totTagihan * 100) : null;
+  const puncak = d.reduce((b, x) => x.vol > (b ? b.vol : 0) ? { nama:x.nama, vol:x.vol } : b, null);
+  const kartuS = (kls, judul, nilai, sub) => `<div class="sorot ${kls}"><small>${judul}</small><b>${nilai}</b><em>${sub}</em></div>`;
+  document.getElementById('lap-sorot').innerHTML =
+    kartuS(surplus >= 0 ? 'plus' : 'minus', 'Surplus / Defisit', rpS(surplus), surplus >= 0 ? 'Pemasukan lebih besar dari pengeluaran' : 'Pengeluaran melebihi pemasukan') +
+    kartuS('', 'Rasio Pengeluaran', rasio === null ? '-' : rasio + '%', 'Pengeluaran dibanding pemasukan') +
+    kartuS('', 'Tingkat Penagihan', penagihan === null ? '-' : penagihan + '%', penagihan === null ? 'Belum ada data tagihan' : `${rp(totBayar)} dari ${rp(totTagihan)}`) +
+    kartuS('', 'Puncak Pemakaian', puncak ? puncak.nama : '-', puncak ? angka(puncak.vol) + ' m³' : 'Belum ada data');
   let lunas = 0, belum = 0;
-  if (tahun === new Date().getFullYear()){
-    for (let m = 0; m < 12; m++) ANGGOTA_SEMUA.forEach(a => { const s = recBend(a, m).status; if (s === 'lunas') lunas++; else if (s === 'belum' || s === 'kurang') belum++; });
+  {
+    for (let m = 0; m < 12; m++) (anggotaUntuk(tahun) || []).forEach(a => { const s = recBend(a, m).status; if (s === 'lunas') lunas++; else if (s === 'belum' || s === 'kurang') belum++; });
   }
   const pct = lunas + belum ? Math.round(lunas / (lunas + belum) * 100) : 0;
   document.getElementById('lap-donat').innerHTML = donatDua(pct, 'Status pembayaran');
@@ -3937,6 +4158,56 @@ function cetakBendahara(zona, pdf){
 document.getElementById('bku-cetak').addEventListener('click', () => cetakBendahara('bku'));
 document.getElementById('rekap-cetak').addEventListener('click', () => cetakBendahara('rekap-air'));
 document.getElementById('lap-cetak').addEventListener('click', () => cetakBendahara('laporan'));
+
+/* Grafik garis sederhana (tren saldo kas). o: { kategori:[], nilai:[angka|null], fmt, label } */
+function grafikGaris(o){
+  const W = 640, H = 230, L = 60, R = 16, T = 18, B = 32, N = 4;
+  const ada = o.nilai.filter(v => v !== null);
+  if (!ada.length) return '<p class="dash-kosong">Belum ada data.</p>';
+  const mn = Math.min(0, ...ada), mx = Math.max(1, ...ada);
+  const sk = skalaTick(mx - mn, N), langkah = sk.langkah;
+  const yMin = mn < 0 ? Math.floor(mn / langkah) * langkah : 0;
+  const n = Math.max(N, Math.ceil((mx - yMin) / langkah)), yMax = yMin + langkah * n;
+  const lb = (W - L - R) / o.kategori.length;
+  const x = i => L + (i + 0.5) * lb;
+  const y = v => T + (H - T - B) * (1 - (v - yMin) / (yMax - yMin));
+  let svg = '<svg class="grafik-svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + (o.label || 'Grafik') + '">';
+  for (let k = 0; k <= n; k++){
+    const yy = y(yMin + langkah * k);
+    svg += '<line x1="' + L + '" y1="' + yy + '" x2="' + (W - R) + '" y2="' + yy + '" stroke="#DCE9F7"/>' +
+      '<text x="' + (L - 8) + '" y="' + (yy + 4) + '" text-anchor="end" font-size="11" fill="#4D6586">' + o.fmt(yMin + langkah * k) + '</text>';
+  }
+  const pts = [];
+  o.nilai.forEach((v, i) => { if (v !== null) pts.push([x(i), y(v), v, i]); });
+  svg += '<path d="' + pts.map((t, i) => (i ? 'L' : 'M') + t[0] + ' ' + t[1]).join(' ') + '" fill="none" stroke="#1B80E8" stroke-width="2.5"/>';
+  pts.forEach(t => { svg += '<circle cx="' + t[0] + '" cy="' + t[1] + '" r="4" fill="#1B80E8" stroke="#fff" stroke-width="2"><title>' + o.kategori[t[3]] + ': ' + rp(t[2]) + '</title></circle>'; });
+  o.kategori.forEach((nm, i) => { svg += '<text x="' + x(i) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="#12294A">' + nm + '</text>'; });
+  return svg + '</svg>';
+}
+
+/* Menu geser (burger) untuk layar sempit */
+const elBend = document.getElementById('v-bend');
+function setDrawer(buka){
+  elBend.classList.toggle('drawer-buka', buka);
+  const b = document.getElementById('btn-burger');
+  b.setAttribute('aria-expanded', buka ? 'true' : 'false');
+  b.setAttribute('aria-label', buka ? 'Tutup menu' : 'Buka menu');
+}
+function tutupDrawer(){ setDrawer(false); }
+document.getElementById('btn-burger').addEventListener('click', () => setDrawer(!elBend.classList.contains('drawer-buka')));
+document.getElementById('drawer-lapis').addEventListener('click', tutupDrawer);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') tutupDrawer(); });
+elBend.addEventListener('click', e => { const b = e.target.closest('[data-ke]'); if (b) tampilView(b.dataset.ke); });
+let swX = 0, swY = 0;
+document.addEventListener('touchstart', e => { const t = e.touches[0]; swX = t.clientX; swY = t.clientY; }, { passive:true });
+document.addEventListener('touchend', e => {
+  if (!elBend.classList.contains('aktif') || window.innerWidth > 1100) return;
+  const t = e.changedTouches[0], dx = t.clientX - swX, dy = t.clientY - swY;
+  if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+  const buka = elBend.classList.contains('drawer-buka');
+  if (!buka && dx < 0 && swX > window.innerWidth - 40) setDrawer(true);   // geser dari tepi kanan = buka
+  else if (buka && dx > 0) setDrawer(false);                              // geser ke kanan = tutup
+}, { passive:true });
 //]]></script>
 </main>
 </div>
