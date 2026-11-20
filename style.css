@@ -462,7 +462,7 @@
     background:radial-gradient(90% 130% at 88% 0%,rgba(255,255,255,.25),transparent 60%);
   }
   :is(#v-dash,#v-catat) .header::after{display:none}
-  .hdr-ombak{position:absolute;right:0;bottom:0;height:100%;width:58%;pointer-events:none;z-index:0}
+  .hdr-ombak{position:absolute;left:0;right:0;bottom:0;width:100%;height:34%;max-height:70px;pointer-events:none;z-index:0}
   .hdr-logo,.hdr-garis,.hdr-teks{position:relative;z-index:1}
   .hdr-logo svg{width:84px;height:84px;display:block;filter:drop-shadow(0 4px 8px rgba(0,30,90,.35))}
   .hdr-garis{align-self:stretch;width:1px;background:rgba(255,255,255,.45)}
@@ -586,7 +586,7 @@
     .hdr-logo svg{width:56px;height:56px}
     .hdr-garis{display:none}
     .hdr-kanan{position:static;margin-left:auto}
-    .hdr-ombak{opacity:.5;width:80%}
+    
     :is(#v-dash,#v-catat) .menu{justify-content:flex-start}
     :is(#v-dash,#v-catat) .menu button{flex:0 0 auto}
     .pem-stat{grid-template-columns:1fr}
@@ -1144,7 +1144,7 @@ img,video,canvas,iframe{max-width:100%}
   :is(#v-dash,#v-catat) .header h1{font-size:1.7rem}
   :is(#v-dash,#v-catat) .header .sapaan{font-size:1.2rem}
   .hdr-kanan{position:static;margin-left:auto}
-  .hdr-ombak{width:75%;opacity:.6}
+  
   .kartu-pem{padding:18px 20px;gap:16px}
   .pem-isi{padding-left:16px}
   .pem-isi b{font-size:2.5rem}
@@ -1280,7 +1280,7 @@ img,video,canvas,iframe{max-width:100%}
   /* nav menu anggota pindah ke bawah layar */
   #v-dash.aktif{padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))}
   #v-dash nav.menu-anggota{position:fixed !important;left:0;right:0;bottom:0;z-index:60;margin:0;
-    display:grid !important;grid-template-columns:repeat(6,minmax(0,1fr)) !important;gap:2px !important;overflow:visible !important;
+    display:grid !important;grid-template-columns:repeat(5,minmax(0,1fr)) !important;gap:2px !important;overflow:visible !important;
     padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px)) !important;
     background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
     border-top:1px solid #D3E5F8;border-radius:18px 18px 0 0;box-shadow:0 -6px 20px rgba(10,60,140,.14)}
@@ -1697,3 +1697,91 @@ body[data-layar="v-anggota"] .latar-login,body[data-layar="v-admin"] .latar-logi
 /* ===== Latar halaman login seperti preview: gradasi satu halaman + kartu putih ===== */
 body[data-layar="v-anggota"],body[data-layar="v-admin"]{background:linear-gradient(180deg,#FFFFFF 0,#EAF3FD 55%,#BFE3EA 100%) fixed}
 #v-anggota,#v-admin{background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.8)}
+
+/* =====================================================================
+   HEADER Anggota / Admin 2 / Admin 3 : ombak lembut di tepi bawah + tetes air samar
+   (selaras dengan ombak di beranda). Ubah kecepatan di durasi animasi di bawah.
+   ===================================================================== */
+:is(#v-dash,#v-catat) .header{padding-bottom:40px}
+.hdr-ombak path{animation:hdr-alir 30s linear infinite}
+.hdr-ombak .o2{animation-name:hdr-alir-balik;animation-duration:38s}
+.hdr-ombak .o3{animation-duration:46s}
+@keyframes hdr-alir{from{transform:translateX(0)}to{transform:translateX(-480px)}}
+@keyframes hdr-alir-balik{from{transform:translateX(0)}to{transform:translateX(480px)}}
+@media (prefers-reduced-motion:reduce){.hdr-ombak path{animation:none !important}}
+.hdr-tetes-besar{position:absolute;right:-18px;top:50%;transform:translateY(-50%) rotate(12deg);height:150%;width:auto;fill:#fff;opacity:.09;pointer-events:none;z-index:0}
+@media (max-width:640px){.hdr-tetes-besar{display:none}}
+
+/* =====================================================================
+   BAR ATAS BENDAHARA (Admin 1): judul menu + pilihan bulan
+   Tampil di semua lebar layar. Pilihan bulan hanya muncul di Dashboard dan Tagihan Air
+   (menu yang memakai bulan itu); diatur di fungsi tampilView() pada skrip.
+   ===================================================================== */
+@media screen{
+  .bend-topbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;min-height:46px;padding:2px 0;color:#0A3A8A;font-size:1.05rem}
+  .bend-topbar span{color:#4D6586;font-size:.9rem}
+  .bar-bulan{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:#0A3A8A}
+  .bar-bulan[hidden]{display:none}
+  .bar-bulan select{min-width:150px;font-weight:600;color:#0A3A8A;border-color:#9CC0EA}
+}
+@media (max-width:1100px){
+  .bend-topbar{padding-right:58px}
+}
+@media (max-width:560px){
+  .bar-bulan{flex:1 1 100%;margin-left:0}
+  .bar-bulan select{flex:1;min-width:0}
+}
+
+/* =====================================================================
+   MENU AKUN ANGGOTA: Kartu Anggota + Keamanan Akun (ubah password) dalam satu menu
+   Blok .akun-keamanan otomatis tidak ikut tercetak (aturan cetak kartu menyembunyikan
+   semua isi tab selain .kartu-area).
+   ===================================================================== */
+.akun-keamanan{max-width:720px;margin:26px auto 0;padding:18px 20px;border:1px solid #D3E5F8;border-radius:18px;background:#fff;box-shadow:0 4px 16px rgba(10,60,140,.06)}
+.akun-kepala{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.akun-kepala h4{margin:0;font-size:1.02rem;color:#0A3A8A}
+.akun-kepala p{margin:2px 0 0;font-size:.85rem;color:#4D6586}
+.akun-keamanan .form-pin{margin-top:16px;max-width:none}
+.akun-keamanan .form-pin[hidden]{display:none}
+.akun-keamanan .form-pin input{width:100%;padding:13px 16px;border:1px solid #C3DBF3;border-radius:14px;font-size:1rem;background:#F6FAFF;margin:4px 0 12px}
+.akun-keamanan .form-pin input:focus{outline:2px solid #0B63D1;background:#fff}
+.akun-keamanan .bantu{display:block;margin:-4px 0 0;font-size:.8rem;color:#4D6586}
+@media (max-width:640px){.akun-keamanan{padding:16px 14px;margin-top:20px}}
+
+/* =====================================================================
+   STATUS PEMBAYARAN ANGGOTA (tab Status)
+   Lunas hijau | Kurang Bayar oranye (sudah mencicil) | Belum Bayar merah | Bulan ini biru
+   ===================================================================== */
+.status.kurang{background:#FFF0D6;color:#A85A00}
+.status.ini{background:#E3EFFC;color:#0A4DB0}
+.tabel-rinci td{vertical-align:top}
+.tabel-rinci tbody tr.baris-kurang,.tabel-rinci tbody tr.baris-kurang:nth-child(even){background:#FFF8EC}
+.tabel-rinci tbody tr.baris-kurang td:first-child{box-shadow:inset 3px 0 0 #E08A00}
+.tabel-rinci tbody tr.baris-merah,.tabel-rinci tbody tr.baris-merah:nth-child(even){background:#FFF1F3}
+.tabel-rinci tbody tr.baris-merah td:first-child{box-shadow:inset 3px 0 0 #D6334A}
+.tabel-rinci tbody tr.baris-ini,.tabel-rinci tbody tr.baris-ini:nth-child(even){background:#F3F8FF}
+.tabel-rinci tbody tr.baris-ini td:first-child{box-shadow:inset 3px 0 0 #7FB2EE}
+.rin-t{font-size:.92rem;color:#12294A}
+.rin-ket{font-size:.8rem;color:#4D6586;margin-top:2px}
+.rin-ket.ok{color:#0B6B4A}.rin-ket.merah{color:#B3263B}
+.rin-bar{height:7px;border-radius:6px;background:#F3D9AE;margin:7px 0 5px;overflow:hidden}
+.rin-bar i{display:block;height:100%;background:#14A36F;border-radius:6px}
+.rin-pisah{display:flex;justify-content:space-between;gap:10px;font-size:.82rem;color:#2F4A6E;flex-wrap:wrap}
+.rin-pisah .sisa-besar{color:#A85A00;font-size:.9rem}
+.rin-denda{font-size:.82rem;color:#B83A12;margin-top:3px}
+.tot-baris,.tot-rinci{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tot-baris b{font-size:1.1rem}
+.tot-rinci{font-size:.88rem;font-weight:600;color:#2F4A6E;margin-bottom:3px}
+.tot-rinci + .tot-baris{border-top:1px solid #CFE3F7;padding-top:6px;margin-top:4px}
+.tot-ket{display:block;font-weight:500;font-size:.78rem;color:#4D6586;margin-top:2px}
+.ringkas-status{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0}
+.ringkas-status:empty{display:none}
+.chip-st{padding:5px 12px;border-radius:999px;font-size:.82rem;font-weight:700}
+.chip-st.belum{background:#fde4e6;color:#D6334A}
+.chip-st.kurang{background:#FFF0D6;color:#A85A00}
+.chip-st.ini{background:#E3EFFC;color:#0A4DB0}
+.arti-status{margin:10px 0 0;border:1px solid #CFE3F7;border-radius:14px;background:#fff;padding:2px 14px;font-size:.9rem;color:#12294A}
+.arti-status summary{cursor:pointer;padding:10px 0;font-weight:700;color:#0A4DB0}
+.arti-status ul{margin:0 0 10px;padding:0;list-style:none;display:grid;gap:8px}
+.arti-status li{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.arti-status li[hidden]{display:none}

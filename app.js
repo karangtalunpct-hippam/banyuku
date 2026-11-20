@@ -1,6 +1,6 @@
 /* =====================================================================
    app.js : semua logika aplikasi HIPPAM Tirta Kencana
-   Bagian A berisi pengaturan (alamat GAS, tarif, nomor WhatsApp).
+   Bagian A berisi pengaturan (alamat GAS, tarif, DENDA, nomor WhatsApp).
    ===================================================================== */
 /* =====================================================================
    BAGIAN A : PENGATURAN
@@ -277,6 +277,7 @@ function mulaiDash(th){
   tahunPem = utama.tahun; tahunRekap = utama.tahun; filterAwalDiatur = false;
   document.getElementById('form-pin').reset();
   document.getElementById('pesan-pin').textContent = '';
+  bukaFormPin(false);
   aktifkanTab('v-dash', 'pemakaian');
   renderSemua();
   pindahLayar('v-dash');
@@ -287,7 +288,7 @@ const tunggakanDari = b => Math.max(b.tagihan - b.dibayar, 0);
 function statusDari(b){
   if (b.tagihan === 0) return { teks:'Tidak ada tagihan', kelas:'nol' };
   if (b.dibayar >= b.tagihan) return { teks:'Lunas', kelas:'lunas' };
-  return b.dibayar > 0 ? { teks:'Kurang Bayar', kelas:'belum' } : { teks:'Belum Bayar', kelas:'belum' };
+  return b.dibayar > 0 ? { teks:'Kurang Bayar', kelas:'kurang' } : { teks:'Belum Bayar', kelas:'belum' };
 }
 const badge = s => `<span class="status ${s.kelas}">${s.teks}</span>`;
 
@@ -350,14 +351,14 @@ function renderRingkas(){
   const el = id => document.getElementById(id);
   el('ringkas-bayar').classList.toggle('ok', total === 0);
   el('ringkas-periode').textContent = 'Ringkasan ' + BULAN[bulanBerjalan] + ' ' + new Date().getFullYear();
-  el('ringkas-badge').textContent = total === 0 ? 'Lunas' : 'Belum Bayar';
+  el('ringkas-badge').textContent = total === 0 ? 'Lunas' : 'Belum Lunas';
   const adaPakai = !!(ini && ini.dicatat);
   el('rg-pakai').innerHTML = adaPakai ? `${angka(pakaiDari(ini))} <span>m³</span>` : '—';
   if (ini && ini.tagihan > 0){ el('rg-tagihan').textContent = rp(ini.tagihan); el('rg-tagihan-ket').textContent = statusDari(ini).teks; }
   else if (adaPakai && pakaiDari(ini) === 0){ el('rg-tagihan').textContent = rp(0); el('rg-tagihan-ket').textContent = 'Tidak ada pemakaian'; }
   else { el('rg-tagihan').textContent = '—'; el('rg-tagihan-ket').textContent = 'Belum ada tagihan'; }
   el('rg-tunggakan').textContent = rp(total);
-  el('rg-tunggakan-ket').textContent = total === 0 ? 'Tidak ada tunggakan' : daftar.length + ' bulan belum dibayar';
+  el('rg-tunggakan-ket').textContent = total === 0 ? 'Tidak ada tunggakan' : daftar.length + ' bulan belum lunas';
   el('rg-lihat').style.display = total === 0 ? 'none' : '';
 }
 
@@ -382,7 +383,22 @@ function renderStatus(){
   const terakhir = bayar.length ? (bayar[bayar.length - 1].tgl || '-') : '-';
   const ketTgl = terakhir !== '-' ? ' · Pembayaran terakhir: ' + terakhir : '';
   if (!daftarT.length) setKartu('kartu-status', 'hijau', IK_CEK, 'Status Anda saat ini', 'Lunas', 'Semua tagihan sudah lunas.' + ketTgl);
-  else setKartu('kartu-status', 'jingga', IK_AWAS, 'Status Anda saat ini', daftarT.length + ' bulan belum lunas', 'Total tunggakan: ' + rp(total) + ketTgl);
+  else setKartu('kartu-status', 'jingga', IK_AWAS, 'Status Anda saat ini', daftarT.length + ' bulan belum lunas', 'Total yang harus dibayar: ' + rp(total) + ketTgl);
+
+  /* Ringkasan jumlah per jenis (chip) */
+  const nKurang = daftarT.filter(b => b.dibayar > 0).length;
+  const nIni    = daftarT.filter(b => b.dibayar <= 0 && b.berjalan).length;
+  const nBelum  = daftarT.length - nKurang - nIni;
+  document.getElementById('ringkas-status').innerHTML =
+    (nBelum  ? `<span class="chip-st belum">${nBelum} Belum Bayar</span>` : '') +
+    (nKurang ? `<span class="chip-st kurang">${nKurang} Kurang Bayar</span>` : '') +
+    (nIni    ? `<span class="chip-st ini">${nIni} Bulan ini</span>` : '');
+
+  /* Penjelasan denda hanya tampil bila denda diaktifkan (DENDA > 0) */
+  const adaDenda = DENDA > 0;
+  const aDenda = document.getElementById('arti-denda');
+  aDenda.hidden = !adaDenda;
+  if (adaDenda) aDenda.innerHTML = '<span class="status ini">Denda</span> ' + rp(DENDA) + ' per bulan dikenakan pada bulan yang sudah lewat. Bulan berjalan belum kena denda.';
 
   const riwayat = semuaBulan().filter(b => b.tagihan > 0 && !b.depan);          // urut waktu naik
   if (!filterAwalDiatur){ filterStatus = daftarT.length ? 'belum' : 'semua'; filterAwalDiatur = true; }
@@ -390,20 +406,42 @@ function renderStatus(){
   document.getElementById('fs-belum').textContent = daftarT.length;
   document.getElementById('fs-semua').textContent = riwayat.length;
   const daftar = filterStatus === 'belum' ? daftarT : riwayat.slice().reverse();   // tunggakan: terlama di atas; semua: terbaru di atas
-  const catatan = b => {            // keterangan kecil di bawah tagihan: sisa (cicilan) dan denda
-    const t = [];
-    if (b.dibayar > 0 && tunggakanDari(b) > 0) t.push('sisa ' + rp(tunggakanDari(b)));
-    if (tunggakanDari(b) > 0 && dendaDari(b) > 0) t.push('+ denda ' + rp(dendaDari(b)));
-    return t.length ? '<small class="sisa">' + t.join(' ') + '</small>' : '';
+
+  /* Kolom Rincian: Tagihan, lalu Dibayar dan Sisa (bila mencicil), atau keterangan status */
+  const rincian = b => {
+    const t = tunggakanDari(b), d = dendaDari(b);
+    let h = `<div class="rin-t">Tagihan <b>${rp(b.tagihan)}</b></div>`;
+    if (t <= 0) h += '<div class="rin-ket ok">Sudah dibayar penuh</div>';
+    else if (b.dibayar > 0){
+      const pct = Math.min(Math.round(b.dibayar / b.tagihan * 100), 100);
+      h += `<div class="rin-bar" aria-hidden="true"><i style="width:${pct}%"></i></div>` +
+           `<div class="rin-pisah"><span>Dibayar <b>${rp(b.dibayar)}</b></span><span class="sisa-besar">Sisa <b>${rp(t)}</b></span></div>`;
+    }
+    else h += b.berjalan
+      ? '<div class="rin-ket">Tagihan bulan berjalan' + (adaDenda ? ' · belum kena denda' : '') + '</div>'
+      : '<div class="rin-ket merah">Belum ada pembayaran</div>';
+    if (t > 0 && d > 0) h += `<div class="rin-denda">+ denda <b>${rp(d)}</b></div>`;
+    return h;
+  };
+  const kelasBaris = b => tunggakanDari(b) <= 0 ? '' : (b.dibayar > 0 ? 'baris-kurang' : (b.berjalan ? 'baris-ini' : 'baris-merah'));
+  const badgeStatus = b => {
+    const st = statusDari(b);
+    const kls = (st.kelas === 'belum' && b.berjalan) ? 'ini' : st.kelas;      // bulan berjalan belum dibayar: biru
+    return `<span class="status ${kls}">${st.kelas === 'lunas' ? '&#10003; ' : ''}${st.teks}</span>`;
   };
   document.getElementById('isi-status').innerHTML = daftar.length ? daftar.map(b => `
-    <tr class="${tunggakanDari(b) > 0 ? 'baris-belum' : ''}">
+    <tr class="${kelasBaris(b)}">
     <td>${labelBulan(b)}${tagBulanIni(b)}</td>
-    <td class="angka"><b>${rp(b.tagihan)}</b>${catatan(b)}</td>
-    <td class="c">${badge(statusDari(b))}</td></tr>`).join('')
+    <td>${rincian(b)}</td>
+    <td class="c">${badgeStatus(b)}</td></tr>`).join('')
     : `<tr><td colspan="3" class="kosong">${filterStatus === 'belum' ? 'Tidak ada tunggakan. Terima kasih telah tepat waktu!' : 'Belum ada riwayat tagihan.'}</td></tr>`;
+
+  /* Kaki tabel: Tagihan + Denda = Total (baris rincian hanya bila ada denda) */
   document.getElementById('foot-status').innerHTML = daftarT.length
-    ? `<tr><td>Total yang harus dibayar</td><td class="angka"><b>${rp(total)}</b>${totalDenda > 0 ? '<small class="sisa">termasuk denda ' + rp(totalDenda) + '</small>' : ''}</td><td></td></tr>` : '';
+    ? `<tr><td colspan="3">` +
+      (totalDenda > 0 ? `<div class="tot-rinci"><span>Sisa tagihan</span><b>${rp(total - totalDenda)}</b></div><div class="tot-rinci"><span>Denda</span><b>+ ${rp(totalDenda)}</b></div>` : '') +
+      `<div class="tot-baris"><span>Total yang harus dibayar</span><b>${rp(total)}</b></div>` +
+      `<small class="tot-ket">${totalDenda > 0 ? 'Sisa tagihan + denda' : 'Jumlah sisa tagihan'} dari ${daftarT.length} bulan yang belum lunas</small></td></tr>` : '';
 }
 
 /* Terbilang rupiah, mis. 15000 -> "Lima Belas Ribu Rupiah" */
@@ -648,7 +686,18 @@ document.getElementById('form-pin').addEventListener('submit', async e => {
     if (!sukesGAS(r)) return gagal((r && r.error) || 'Password lama tidak sesuai atau perubahan ditolak server.');
     pesan.textContent = 'Password berhasil diubah.'; pesan.className = 'pesan ok';
   }catch(err){ return gagal('Server tidak dapat dihubungi. Coba lagi.'); }
-  form.reset();
+  form.reset(); bukaFormPin(false);   // tutup formulir, pesan sukses tetap terlihat
+});
+
+/* Menu Akun: formulir ubah password tersembunyi sampai tombol "Ubah Password" ditekan */
+function bukaFormPin(buka){
+  const form = document.getElementById('form-pin'), tombol = document.getElementById('btn-buka-pin');
+  form.hidden = !buka; tombol.hidden = buka; tombol.setAttribute('aria-expanded', String(buka));
+  if (buka){ document.getElementById('pesan-pin').textContent = ''; document.getElementById('pin-lama').focus(); }
+}
+document.getElementById('btn-buka-pin').addEventListener('click', () => bukaFormPin(true));
+document.getElementById('btn-batal-pin').addEventListener('click', () => {
+  document.getElementById('form-pin').reset(); document.getElementById('pesan-pin').textContent = ''; bukaFormPin(false);
 });
 
 /* =====================================================================
@@ -1047,7 +1096,7 @@ function recBend(a, m){
 const LABEL_STATUS = {
   'lunas':       { teks:'Lunas',             kelas:'lunas' },
   'belum':       { teks:'Belum Bayar',       kelas:'belum' },
-  'kurang':      { teks:'Kurang Bayar',      kelas:'belum' },
+  'kurang':      { teks:'Kurang Bayar',      kelas:'kurang' },
   'nol':         { teks:'Tidak ada tagihan', kelas:'nol' },
   'belum-catat': { teks:'Belum dicatat',     kelas:'nol' }
 };
@@ -1327,6 +1376,8 @@ function tampilView(id){
   else if (id === 'bv-bayar') renderBayar();
   const tb = document.querySelector('#nav-bend button[data-view="' + id + '"]');
   if (tb) document.getElementById('topbar-judul').textContent = tb.dataset.menu;
+  // Pilihan bulan hanya berlaku untuk Dashboard dan Tagihan Air
+  document.getElementById('bar-bulan').hidden = !(id === 'bv-dash' || id === 'bv-tagihan');
   tutupDrawer();
   window.scrollTo(0, 0);
 }
